@@ -1,0 +1,308 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Lake Champlain Wind Map</title>
+
+
+<script type="application/javascript">
+	
+	
+</script>
+
+<style type="text/css">
+body {
+  font: 14px Verdana;
+  color: rgb(148, 148, 148);
+	background-color: #fff
+}
+
+a {
+	color: #000
+}
+
+.fine-print {
+  font: 12px Verdana;
+  color: #777;	
+}
+
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+
+#callout {
+	position: absolute;
+	visibility: hidden;
+	background: #fff;
+	padding: 10px;
+	z-index: 20000;
+	width: 150px;
+	height: 45px;
+	font-size: 11px;
+	border: 1px solid #bbb;
+	-moz-box-shadow: 3px 3px 3px rgba(0,0,0,.4);
+  -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,.4);
+  box-shadow: 3px 3px 3px rgba(0,0,0,.4);
+	-moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+#city-display {
+	position: absolute;
+	left: 10px;
+	top: 80px;
+	z-index: 20;
+}
+
+#display {
+	position: absolute;
+	left: 10px;
+	top: 80px;
+}
+
+#day {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+#header-line {
+	border: 0;
+	height: 1px;
+	color: rgb(148, 148, 148);
+	background-color: #ccc;
+	width: 920px;
+	position: absolute;
+	top: 55px;
+	left: 0px;
+}
+
+#image-canvas {
+	visibility: hidden;
+}
+
+/*
+#legend {
+	position: absolute;
+	left: 0px;
+	top: 390px;
+	z-index: 20;
+}
+
+#map-data {
+	position: absolute;
+	left: 0px;
+	top: 100px;
+}
+*/
+#map-heading {
+	position: absolute;
+	left: 0px;
+	top: 10px;
+	z-index: 20;
+	width: 100%;
+}
+#map-heading #forecast {
+	float: right;
+}
+
+
+#mask {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 10
+}
+
+#mask-holder {
+	position: absolute;
+	overflow: hidden;
+	left: 10px;
+	top: 80px;
+	width: 900px;
+	height: 600px;
+}
+
+
+#time-explanation {
+	font-size: 10px;
+	color: #999;
+}
+
+#title {
+	font-family: Verdana;
+	font-size: 40px;
+	color: #555;
+}
+
+/*
+#unzoom {
+	position: absolute;
+	left: 0px;
+	top: -40px;
+	z-index: 20;
+}
+*/
+
+.button {
+	border-top: 1px solid #96d1f8;
+	background: #65a9d7;
+	background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+	background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+	background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+	background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+	background: -o-linear-gradient(top, #3e779d, #65a9d7);
+	padding: 8px 16px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+	box-shadow: rgba(0,0,0,1) 0 1px 0;
+	text-shadow: rgba(0,0,0,.4) 0 1px 0;
+	color: white;
+	font-size: 15px;
+	font-family: Georgia, serif;
+	text-decoration: none;
+	vertical-align: middle;
+}
+.button:hover {
+	border-top-color: #28597a;
+	background: #28597a;
+	color: #ccc;
+}
+.button:active {
+	border-top-color: #1b435e;
+	background: #1b435e;
+}
+
+</style>
+
+
+
+</head>
+<body onload="init()">
+
+
+<!-- MAP AND TITLE -->
+<div style="position:absolute;left:60px;top:10px">
+	<div id="map-heading">
+		<div id="forecast"><a style="margin-left: 5px;" href="http://www.weather.gov/btv/lake_point?gridbox=49&lat=44.364851233294075&lon=-73.27795028686523" target="_blank" class="button" >CSC Forecast</a></div>
+		<div id="forecast"><a href="http://www.weather.gov/btv/lake_graphical" target="_blank" class="button" >Graphical</a></div>
+		<span id="title">Lake Champlain Wind Map</span>
+		
+	</div>
+
+	<hr id="header-line" />
+	<canvas id="display" width=900 height=600 unselectable="on" class="unselectable">    If the map is missing, we recommend the latest
+		<a href="http://www.google.com/chrome">Chrome</a> browser.
+	</canvas>
+	<canvas id="city-display" width=900 height=600 unselectable="on" class="unselectable"></canvas>
+	<canvas id="image-canvas" width=900 height=600 unselectable="on" class="unselectable"></canvas>
+
+	<div id="callout"></div>
+	<div id="mask-holder">
+		<img alt="mask" id="mask" src="http://hint.fm/wind/us-mask-white.png" unselectable="on" class="unselectable">
+	</div>
+	
+</div>
+
+<script type="application/javascript">
+
+var loading = true;
+
+var step = 0;
+function showLoading() {
+	var canvas = document.getElementById('display');
+	if (canvas) {
+  	var g = canvas.getContext('2d');
+  	var w = canvas.width;
+  	var h = canvas.height;
+  	g.fillStyle = 'rgb(90,90,90)';
+  	g.fillRect(0, 0, w, h);
+  	step++;
+		var alpha = .3 + (1 + Math.sin(step * .3)) / 3;
+  	g.fillStyle = 'rgba(255, 255, 255, '  + alpha + ')';
+		g.textAlign = 'center';
+		g.font = '14pt Verdana';
+		g.fillText('LOADING', 450, 300);
+  }
+	if (loading) {
+		setTimeout('showLoading()', 50);
+	}
+}
+
+showLoading();
+
+
+</script>
+
+
+<!-- GALLERY LINK
+<div style="position:absolute;left:60px;top:720px">
+<a href="gallery/" style="text-decoration:none;color:rgb(148,148,148)">
+	&nbsp;&nbsp;Gallery<br><br>
+	<img src="http://hint.fm/wind/gallery4.png" alt="Gallery" border=0 />
+</a>
+</div>
+ -->
+<!-- EXPLANATORY STUFF -->
+<div style="position:absolute;left:60px;top:720px" >
+	<div  id="map-data">
+		<span id="update-time"></span>
+		<br><br>
+		<span id="average-speed"></span><br><br>
+	</div>
+
+	<div id="legend">
+		<canvas id="legend1" width=80 height=20></canvas> 1 mph<br><br>
+		<canvas id="legend2" width=80 height=20></canvas> 3 mph<br><br>
+		<canvas id="legend3" width=80 height=20></canvas> 5 mph<br><br>
+		<canvas id="legend4" width=80 height=20></canvas> 10 mph<br><br>
+		<canvas id="legend5" width=80 height=20></canvas> 15 mph<br><br>
+		<canvas id="legend6" width=80 height=20></canvas> 30 mph<br><br>
+		<input style="visibility:hidden" id="animating" type="checkbox" checked></input><br><br> 
+		<input id="unzoom" style="visiblity:hidden" onclick="doUnzoom()" type="button" value="Unzoom"></input>
+  </div>
+</div>
+
+
+<div style="color:#333;position:absolute;left:350px;top:720px;width:500px">
+	I borrowed this from <a href="http://hint.fm/wind/" >this awesome site</a> and changed it to suit my needs.
+	<br>
+	<br>
+	Mostly I use it to see if it's a good day to go sailing!
+	<br>
+	<br>
+	Changes: <br/>
+	<ul>
+		<li>Added some coordinates that were important to me.</li>
+		<li>Increased the number of cities to display.</li>
+		<li>Reduced the number or particles shown to increase performance on my phone.</li>
+		<li>Increased the particle size to make it easier to read.</li>
+		<li>Rearanged some elements of the page to better fit my phone</li>
+		
+	</ul>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="application/javascript"></script>
+<script src="http://hint.fm/wind/wind-data.js" type="application/javascript"></script>
+<script src="wind-bundle.js" type="application/javascript"></script>
+
+
+<!-- GOOGLE ANALYTICS CODE --> 
+<script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script> 
+<script type="text/javascript"> 
+try {
+var pageTracker = _gat._getTracker("UA-10733046-1");
+pageTracker._trackPageview();
+} catch(err) {}</script> 
+</body>
+</html>

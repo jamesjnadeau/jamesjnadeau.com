@@ -1,0 +1,26 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteRule . index.php [L]
+</IfModule>
+
+<IfModule mod_expires.c>
+	<filesMatch "\.(jpg|jpeg|png|gif|js|css|swf|ico|woff|mp3)$">
+		ExpiresActive On
+		ExpiresDefault "access plus 1 month"
+	</filesMatch>
+</IfModule>
+
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+	Header set Cache-Control "max-age=7200, public"
+</FilesMatch>
+
+<IfModule mod_deflate.c>
+	<filesMatch "\.(js|css|html|php)$">
+		SetOutputFilter DEFLATE
+	</filesMatch>
+</IfModule>
+
+# Prevent file browsing
+Options -Indexes
