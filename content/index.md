@@ -1,6 +1,6 @@
 /*
 Title: Welcome
-Description: This description will go in the meta description tag
+Description: James J Nadeau is a Systems Architect and Developer specializing in advanced information systems.
 */
 
 # Systems Architect and Developer
