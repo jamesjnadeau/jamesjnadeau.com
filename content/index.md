@@ -40,8 +40,8 @@ Description: This description will go in the meta description tag
 					The pay isn't great, but it's a great excuse to drive around VT in the 
 					fall and watch some football. </div>
 					
-					<div class="frontp" >Sailing is also one of my hobbies. I own a small sunfish sailboat, but 
-					am hoping to upgrade soon to something with a cabin. Lake champlain is 
+					<div class="frontp" >Sailing is also one of my hobbies. <del>I own a small sunfish sailboat, but 
+					am hoping to upgrade soon to something with a cabin.</del> I now own a Pearsons 23K, and I've been loving it! Lake champlain is 
 					a hop, skip and a jump away, and all that it has to explore has never let me down. </div>
 					
 					<div class="frontp" >The product of a ski bum mother, I enjoy hitting the slopes in the winter 
