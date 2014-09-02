@@ -21,3 +21,6 @@ themes/*
 
 # User config
 config.php
+
+#deployment config
+deploy/deploy-config.php
