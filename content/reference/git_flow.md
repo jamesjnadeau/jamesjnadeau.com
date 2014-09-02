@@ -34,3 +34,4 @@ Date: 01/01/2014
     $ git branch -D new-branch
     $ git remote prune origin
 
+[originally from here](https://github.com/clevertech/wiki/wiki/Using-Git-and-GitHub-Properly)
