@@ -1,3 +1,12 @@
+/*
+Title: Git flow
+Description: Git flow quick reference
+Author: James Nadeau
+Date: 01/01/2014
+*/
+
+#Quick Reference
+
 ```
 # 1 - Pull Development, Starting Fresh
 $ git checkout development
