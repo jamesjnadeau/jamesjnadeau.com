@@ -7,6 +7,7 @@ Description: Things I'm saving for easy reference
 
 <div>
 	<ul class="list-group" >
+		<li class="list-group-item" ><a href="git_flow" >Git Flow</a></li>
 		<li class="list-group-item" ><a href="asus_laptop" >Asus Laptop</a></li>
 		<li class="list-group-item" ><a href="bash_profile" >Bash Profile</a></li>
 		<li class="list-group-item" ><a href="gnome3_monitor_config" >Gnome 3 Master Monitor</a></li>
