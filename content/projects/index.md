@@ -44,7 +44,7 @@ Description: Projects I have worked on
 				<h3 class="list-group-item" >Bosch, Fujitsu, Eternal, Aerco</h3>
 				<a class="list-group-item" target="_blank" href="https://www.mpn-admin.mypointnow.com/" rel="no-follow" >Boschwaytogrow.com</a>
 				<a class="list-group-item" href="fujitsu" rel="no-follow" >Fujitsu Dealer Toolbox</a>
-				<a class="list-group-item" href="#" rel="no-follow" >Eternal Waterheater</a>
+				<!-- <a class="list-group-item" href="#" rel="no-follow" >Eternal Waterheater</a> -->
 				<a class="list-group-item" target="_blank" href="http://www.aercosmartsizing.com" rel="no-follow" >Aerco Smart Sizing</a>
 			</ul>
 			
