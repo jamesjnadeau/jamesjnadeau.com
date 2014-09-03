@@ -18,3 +18,5 @@ Description: Main website for the National Gardening Association
 This was the Fujitsu version of the custom CRM systems I created that were
 tailored to the HVAC manufacturer industry. A lot of work went into customizing 
 the ranking and training system for their needs.
+
+As of September 2014, fujitsu has broken ties with my old company Red Barn Media group and is having a go at building this system themselves. So the link above no longer takes you to the website I created.
