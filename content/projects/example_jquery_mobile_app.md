@@ -23,7 +23,7 @@ Cordova and jQuery Mobile.
 It starts out by launching a jQuery Mobile app from the site within the Cordova app.
 
 After it's ready and loaded, it allows you to call in pages from <a href="http://app.jamesjnadeau.com">app.jamesjnadeau.com</a>. 
-You'll notice that if you go this in your browser, the page's navbar colors are black. But, if you visit it through
+You'll notice that if you go to this in your browser, the page's navbar colors are black. But, if you visit it through
 the app, it uses the apps css and js to display the pages and the navbar has a green color. 
 
 This is a good representation of my ability to create custom apps that can incorporate features
