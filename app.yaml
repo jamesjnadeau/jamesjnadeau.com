@@ -10,15 +10,10 @@ handlers:
   static_dir: files
   application_readable: true
 
-- url: /(.*\.css)
-  mime_type: text/css
-  static_files: \1
-  upload: static/(.*\.css)
-
-- url: /(.*\.js)
-  mime_type: text/javascript
-  static_files: \1
-  upload: static/(.*\.js)
+- url: 
+  /themes/(.+)/assets/(.+)
+  static_files: themes/\1/assets/\2
+  upload: themes/(.+)/assets/(.+) 
 
 - url: /.*
   script: index.php
