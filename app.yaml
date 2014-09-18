@@ -8,9 +8,11 @@ api_version: 1
 handlers:
 - url: /themes
   static_dir: themes
+  application_readable: true
 
 - url: /files
   static_dir: files
+  application_readable: true
 
 - url: /.*
   script: index.php
