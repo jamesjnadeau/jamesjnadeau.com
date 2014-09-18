@@ -5,4 +5,3 @@ Pico is a stupidly simple, blazing fast, flat file CMS. See http://pico.dev7stud
 
 [![I Love Open Source](http://www.iloveopensource.io/images/logo-lightbg.png)](http://www.iloveopensource.io/projects/524c55dcca7964c617000756)
 
-trying to put this on app engine...
