@@ -10,8 +10,7 @@ handlers:
   static_dir: files
   application_readable: true
 
-- url: 
-  /themes/(.+)/assets/(.+)
+- url: /themes/(.+)/assets/(.+)
   static_files: themes/\1/assets/\2
   upload: themes/(.+)/assets/(.+) 
 
