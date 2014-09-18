@@ -2,7 +2,7 @@ application: jamesjnadeau
 version: 3
 runtime: php
 api_version: 1
-
+threadsafe: true
 
 
 handlers:
