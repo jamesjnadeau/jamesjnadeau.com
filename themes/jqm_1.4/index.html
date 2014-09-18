@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="utf-8" />
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
+{% if meta.description %}
+	<meta name="description" content="{{ meta.description }}"> 
+{% endif %}{% if meta.robots %}
+	<meta name="robots" content="{{ meta.robots }}">
+{% endif %}
+	
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" type="text/css" />
+	
+	<link rel="stylesheet" href="{{ theme_url }}/jamesjnadeau.min.css" type="text/css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile.structure-1.4.0.css" />
+	<link rel="stylesheet" href="{{ theme_url }}/jquery.mobile.icons.min.css" type="text/css" />
+	
+	
+	<link rel="stylesheet" href="{{ theme_url }}/default.css" type="text/css" />
+	
+	<script src="{{ theme_url }}/scripts/modernizr-2.6.1.min.js"></script>
+	
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+	
+	<script src="/jquery.mobile.app/location.js"></script>
+	
+	<script src="{{ theme_url }}/scripts/init.js"></script>
+	
+	<script type="text/javascript" charset="utf-8" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+</head>
+<body>
+
+	<div data-role="page" class="ui-responsive-panel" data-position="fixed" >
+		
+		<div data-role="panel" id="panel_right" data-theme="a" data-display="push" data-swipe-close="false" data-animate="false" data-position="right" class="panel_butons panel_right_mobile" >
+			<ul data-role="listview" data-inset="true" data-theme="c" >
+				{#
+				{% for page in pages %}
+				<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+				{% endfor %}
+				#}
+				<li><a href="/">Welcome</a></li>
+				<li><a href="/projects/">Projects</a></li>
+				<li><a href="/reference/">Reference</a></li>
+				<li><a href="/projects/">Awesome</a></li>
+				<li><a href="/views_test">Views Test</a></li>
+			</ul>
+			
+			<div data-role="collapsible" data-theme="f" data-iconpos="right" data-collapsed-icon="carat-d" data-expanded-icon="carat-u">
+				<h3>About Me</h3>
+				<p><img alt="" src="/files/me.jpg" style="width: 60px; height: 60px; float: right;"> Senior Systems Architect for <a href="http://redbarnmg.com" target="_blank">Red Barn Media Group</a></p>
+				
+				<div data-role="controlgroup" >
+				    <a data-role="button" data-theme="b" href="http://www.linkedin.com/pub/james-nadeau/79/376/52b">LinkedIn</a>
+				    <!--<a data-role="button" data-theme="e" href="https://plus.google.com/u/0/107468556120112635472/posts" target="_blank">Google+</a>-->
+				    <a data-role="button" data-theme="e" href="https://google.com/+JamesNadeauJ" target="_blank">Google+</a>
+				    
+				
+				    <a data-role="button" data-theme="a" href="https://github.com/jamesjnadeau?tab=activity" target="_blank">Git Hub</a>
+				    <a data-role="button" data-theme="d" href="https://www.odesk.com/users/~01a0320a9c1365565a">oDesk</a>
+				    <a data-role="button" data-theme="f" href="http://stackoverflow.com/users/1978759/james-nadeau" target="_blank">Stack Overflow</a>
+				</div>
+				
+				<address><span style="font-size:10px;">This site was made with <a href="http://jquerymobile.com" target="_blank">jQuery Mobile</a></span></address>
+			</div>
+		</div>
+		
+		<div data-role="header" >
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<h3 class="header_title" style="margin-right: 15px;" >{{ site_title }}</h3>
+					</div>
+					
+					<div class="ui-block-b">
+						<a class="ui-btn ui-btn-f ui-btn-right ui-icon-bars ui-btn-icon-right margin-less-right" href="#panel_right" >Menu</a> 
+					</div>
+					
+				</div>
+			</div>
+		</header>
+		
+		<div data-role="content" data-theme="c" >
+			{{ content }}
+			{% if meta.viewscontent %}
+				{{ meta.viewscontent }} 
+			{% endif %}
+			{#<pre>{{ dump(pages) }}</pre> #}
+		</div>
+		
+		<!--
+		<div data-role="footer" >
+			<p class="text-center" >Theme created by <a data-role="none" href="http://www.jamesjnadeau.com">James Nadeau</a></p>
+		</div>
+		-->
+		
+		
+	</div>
+</body>
+</html>

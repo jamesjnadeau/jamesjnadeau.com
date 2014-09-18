@@ -1,0 +1,588 @@
+/*
+ * Custom Transition Styling
+ * see: http://jquerymobile.com/test/docs/pages/page-customtransitions.html
+ */
+.in {
+	-webkit-animation-duration: 650ms;
+	-moz-animation-duration: 650ms;
+}
+
+.out {
+	-webkit-animation-duration: 525ms;
+	-moz-animation-duration: 525;
+}
+
+
+/*
+ * Don't allow word wrapping
+ */
+.ui-header .ui-title, .ui-li-heading, .notrunc 
+{
+	overflow: visible !important;
+	white-space: normal !important;
+}
+
+/*
+ * Ensure user provided thumbnails are not too tall
+ */
+.ui-li-thumb
+{
+	max-height: 60px;
+}
+
+/* 
+ * notification boxes
+ */
+.error, .alert, .notice, .success, .info {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
+.error, .alert {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
+.notice {background:#fff6bf;color:#514721;border-color:#ffd324;}
+.success {background:#e6efc2;color:#264409;border-color:#c6d880;}
+.info {background:#d5edf8;color:#205791;border-color:#92cae4;}
+.error a, .alert a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+.info a {color:#205791;}
+
+/*
+ * jQuery Validate 
+ */
+.validate-error 
+{
+	background: #fbe3e4;
+	color: #8a1f11;
+	border-color: #fbc2c4;
+	border:2px solid #ddd;
+	padding:0.2em;
+	border-color:#fbc2c4;
+}
+
+
+/*
+ * Panels
+ */
+ui-panel-dismiss { display: none !important; }
+
+/*
+ * Other useful stylings
+ */
+.break-word {word-wrap: break-word;}
+.overflow-hidden {overflow: hidden;}
+.text-right {text-align:right ! important;}
+.text-left {text-align:left ! important;}
+.text-center {text-align: center ! important;}
+.text-center .ui-btn-text
+{
+	text-align: center;
+	float: left;
+}
+
+.margin-less{margin: 0em ! important;}
+.padding-less{padding: 0em ! important;}
+
+.right {float: right;}
+.left {float: left;}
+.clear {clear: both;}
+
+.quiet {font-size: .75em;}
+.wisper {font-size: .5em;}
+.loud {font-size: 1.25em;}
+.yell {font-size: 1.5em;}
+
+.hidden { display: none !important; }
+
+.thumbnail
+{
+	width: 60px;
+	height: 60px;
+	border: 1px solid #000;
+	margin-right: 5px;
+}
+
+@media all and (max-width: 28em)
+{
+	.unbreakable .ui-input-text
+	{
+		display: inline-block;
+		width: 30%; 
+		margin: 0 2% 0 0;
+	}
+	.unbreakable div
+	{
+		float: right;
+		top: -5px;
+	}
+}
+
+
+/*
+ * Fixes
+ */
+.quiet .ui-btn-inner { padding-right: 10px;}
+
+.ui-panel-inner .ui-submit
+{
+	margin: 0px;
+}
+
+.no-ui-icon-shadow .ui-icon-shadow
+{
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+/*
+ * Web Symbols
+ */
+.text-icon
+{
+	font-family: 'WebSymbolsRegular', cursive;
+	float: left;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+.wordwrap
+{
+	white-space: normal;
+}
+
+/*
+ * Horizontal Rules
+ */
+hr.space.clear, hr.space.bottom, hr.space
+{
+	border-width: 0px;
+}
+
+/*
+ * Custum Icons
+ */
+.ui-icon-silk-phone_add
+{
+	background-image: url("/global_images/icons/silk/phone_add.png");
+}
+
+.ui-icon-silk-calendar_add
+{
+	background-image: url("/global_images/icons/silk/calendar_add.png");
+}
+
+.ui-icon-silk-calendar
+{
+	background-image: url("/global_images/icons/silk/calendar.png");
+}
+
+.ui-icon-silk-calendar_view_day
+{
+	background-image: url("/global_images/icons/silk/calendar_view_day.png");
+}
+
+.ui-icon-silk-time_add
+{
+	background-image: url("/global_images/icons/silk/calendar_add.png");
+}
+
+.ui-icon-silk-date
+{
+	background-image: url("/global_images/icons/silk/date.png");
+}
+
+.ui-icon-silk-car
+{
+	background-image: url("/global_images/icons/silk/car.png");
+}
+
+.ui-icon-silk-tick
+{
+	background-image: url("/global_images/icons/silk/tick.png");
+}
+
+.ui-icon-silk-coins
+{
+	background-image: url("/global_images/icons/silk/coins.png");
+}
+
+.ui-icon-silk-comment
+{
+	background-image: url("/global_images/icons/silk/comment.png");
+}
+
+.ui-icon-silk-comments
+{
+	background-image: url("/global_images/icons/silk/comments.png");
+}
+
+.ui-icon-silk-zoom
+{
+	background-image: url("/global_images/icons/silk/zoom.png");
+}
+
+.ui-icon-silk-house
+{
+	background-image: url("/global_images/icons/silk/house.png");
+}
+
+.ui-icon-silk-cog
+{
+	background-image: url("/global_images/icons/silk/cog.png");
+}
+
+.ui-icon-silk-cross
+{
+	background-image: url("/global_images/icons/silk/cross.png");
+}
+
+.ui-icon-silk-book_open
+{
+	background-image: url("/global_images/icons/silk/book_open.png");
+}
+
+.ui-icon-silk-group
+{
+	background-image: url("/global_images/icons/silk/group.png");
+}
+
+.ui-icon-silk-pencil
+{
+	background-image: url("/global_images/icons/silk/pencil.png");
+}
+
+.ui-icon-silk-exclamation
+{
+	background-image: url("/global_images/icons/silk/exclamation.png");
+}
+
+.ui-icon-silk-bell
+{
+	background-image: url("/global_images/icons/silk/bell.png");
+}
+
+.ui-icon-silk-lightbulb
+{
+	background-image: url("/global_images/icons/silk/lightbulb.png");
+}
+
+.ui-icon-silk-note
+{
+	background-image: url("/global_images/icons/silk/note.png");
+}
+
+.ui-icon-silk-report
+{
+	background-image: url("/global_images/icons/silk/report.png");
+}
+
+.ui-icon-silk-plugin
+{
+	background-image: url("/global_images/icons/silk/plugin.png");
+}
+
+.ui-icon-silk-bricks
+{
+	background-image: url("/global_images/icons/silk/bricks.png");
+}
+
+.ui-icon-silk-wrench
+{
+	background-image: url("/global_images/icons/silk/wrench.png");
+}
+
+.ui-icon-silk-lorry
+{
+	background-image: url("/global_images/icons/silk/lorry.png");
+}
+
+.ui-icon-silk-money
+{
+	background-image: url("/global_images/icons/silk/money.png");
+}
+
+.ui-icon-silk-pencil_add
+{
+	background-image: url("/global_images/icons/silk/pencil_add.png");
+}
+
+.ui-icon-silk-information
+{
+	background-image: url("/global_images/icons/silk/information.png");
+}
+
+.ui-icon-silk-film_go
+{
+	background-image: url("/global_images/icons/silk/film_go.png");
+}
+
+
+
+.ui-icon-delli-people
+{
+	background-image: url("/global_images/icons/dellipack/people.png");
+}
+
+.ui-icon-delli-school
+{
+	background-image: url("/global_images/icons/dellipack/school.png");
+}
+
+.ui-icon-delli-vault
+{
+	background-image: url("/global_images/icons/dellipack/vault.png");
+}
+
+.ui-icon-delli-world
+{
+	background-image: url("/global_images/icons/dellipack/world.png");
+}
+
+.ui-icon-delli-interact
+{
+	background-image: url("/global_images/icons/dellipack/interact.png");
+}
+
+.ui-icon-delli-building
+{
+	background-image: url("/global_images/icons/dellipack/building.png");
+}
+
+.ui-icon-delli-monitor
+{
+	background-image: url("/global_images/icons/dellipack/monitor.png");
+}
+
+.ui-icon-basic-settings
+{
+	background-image: url("/global_images/icons/basic/settings_32.png");
+}
+
+.ui-icon-basic-megaphone
+{
+	background-image: url("/global_images/icons/basic/megaphone_32.png");
+}
+
+.ui-icon-location
+{
+	background-image: url("/global_images/icons/location.png");
+}
+
+/*
+ * Special Button Styling
+ */
+.footer_buttons a,
+.panel_butons a
+{
+	margin: 0px !important;
+}
+
+.footer_buttons a .ui-btn-text
+{
+	font-size: 9px !important;
+}
+
+.footer_buttons .ui-icon,
+.home_page_buttons .ui-icon,
+.panel_butons .ui-icon
+{
+	background-size: cover;
+	background-color: transparent;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+
+.home_page_buttons .ui-icon
+{
+	width: 22px;
+	height: 22px;
+}
+
+.ui-footer .ui-navbar a,
+.ui-header .ui-navbar a,
+.panel_butons .ui-navbar a
+{
+	border-left-color: black;
+}
+
+.ui-footer .ui-navbar ul li:first-child a,
+.ui-header .ui-navbar ul li:first-child a
+{
+	border-left-width: 0px;
+}
+
+#logo img {max-width: 100%; max-height: 4em;}
+
+/*.ui-header
+{
+	font-family: 'Racing Sans One' cursive;
+	font-size: 12px;
+}*/
+
+/* media queries */
+
+@media all and (min-width: 650px) {
+  .content-secondary {
+    text-align: left;
+    float: left;
+    width: 48%;
+    background: none;
+    border-top: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .content-primary {
+    width: 48%;
+    float: right;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .content-right {
+    text-align: left;
+    float: right;
+    width: 48%;
+    background: none;
+    border-top: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .content-left {
+    width: 48%;
+    float: left;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .content-left-sidebar {
+    text-align: left;
+    float: left;
+    width: 24%;
+    background: none;
+    border-top: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .content-right-sidebar {
+    width: 74%;
+    float: right;
+    margin: 0;
+    padding: 0;
+  }
+  /*
+  .ui-content h1:first-child,
+  .ui-content h2:first-child,
+  .ui-content:first-child h3
+  {
+    text-align: center;
+  }
+  */
+}
+/*
+@media all and (min-width: 750px) {
+  .content-secondary {
+    width: 34%;
+  }
+  .content-primary {
+    width: 56%;
+    padding-right: 1%;
+  }  
+}
+
+@media all and (min-width: 1200px) {
+  .content-secondary {
+    width: 30%;
+    padding-right:6%;
+    margin: 0;
+  }
+  .content-primary {
+    width: 50%;
+    margin-right: 5%;
+    padding-right: 3%;
+  }
+}
+*/
+
+
+/*
+ * Text Icons
+ */
+@font-face {
+    font-family: 'WebSymbolsRegular';
+    src: url('/global_css/websymbols/websymbols-regular-webfont.eot');
+    src: url('/global_css/websymbols/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('/global_css/websymbols/websymbols-regular-webfont.woff') format('woff'),
+        url('/global_css/websymbols/websymbols-regular-webfont.ttf') format('truetype'),
+        url('/global_css/websymbols/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.text-icon
+{
+	font-family: 'WebSymbolsRegular', cursive;
+	float: left;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+a.text-icon
+{
+	text-decoration: none;
+	margin: 0em;
+}
+
+img.grayscale {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+    -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
+    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+}
+
+.badge_bar
+{
+	background: #fff;
+	border: 1px solid #333;
+	text-align: center;
+	color: #000;
+	height: 20px;
+	width: 100%;
+}
+
+.badge_bar .percent
+{
+	float:left;
+	height: 100%;
+	background: #1e5799; /* Old browsers */
+	background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+}
+.badge_bar .percent_text
+{
+	float:left;
+	width:100%;
+	position:absolute;
+}
+
+#intuitPlatformAppMenu{ right: 40px !important; }
+
+/*
+ * Datebox fixes
+   Can't get this to load and line up properly
+.ui-datebox-container
+{
+	width: 100%;
+}
+
+.ui-datebox-slide,
+.ui-datebox-sliderow-ym,
+.ui-datebox-sliderow-d
+{
+	width: 100%;
+}
+ */
