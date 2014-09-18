@@ -6,7 +6,7 @@
  * @author Gilbert Pellegrom
  * @link http://pico.dev7studios.com
  * @license http://opensource.org/licenses/MIT
- */
+
 class Views 
 {
 	public function before_read_file_meta(&$headers)
@@ -33,4 +33,4 @@ class Views
 		}
 	}
 }
-
+ */
