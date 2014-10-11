@@ -24,3 +24,5 @@ Thumbs.db
 
 #deployment config
 deploy/deploy-config.php
+
+.codio
