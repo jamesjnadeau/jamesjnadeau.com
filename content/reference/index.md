@@ -16,7 +16,7 @@ Description: Things I'm saving for easy reference
 		
 		<!-- JS -->
 		<li class="list-group-item" ><a href="jqm_google_analytics" >jQuery Mobile Google Analytics</a></li>
-		<li class="list-group-item" ><a href="js_debounce" >Debouncing Javascript</a></li>
+		<li class="list-group-item" ><a href="js" >Javascript</a></li>
 		
 		
 		<li class="list-group-item" ><a href="evoulent_mouse_config" >Evoluent Mouse config for Linux</a></li>
