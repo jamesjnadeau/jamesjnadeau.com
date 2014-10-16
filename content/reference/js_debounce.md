@@ -4,6 +4,13 @@ Description: This description will go in the meta description tag
 Author: James Nadeau
 Date: 05/05/2014
 */
+
+##backtrace
+
+    console.log((new Error).stack.split("\n"));
+
+##Debounce
+
 Use this a lot to delay user/server interaction to keep requests low
 
 	var debounce = function (func, threshold, execAsap) 
@@ -34,3 +41,5 @@ Use this a lot to delay user/server interaction to keep requests low
 
 [source](http://unscriptable.com/2009/03/20/debouncing-javascript-methods/)
 
+
+      
