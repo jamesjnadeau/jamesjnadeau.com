@@ -5,10 +5,6 @@ Author: James Nadeau
 Date: 05/05/2014
 */
 
-##backtrace
-
-    console.log((new Error).stack.split("\n"));
-
 ##Debounce
 
 Use this a lot to delay user/server interaction to keep requests low
