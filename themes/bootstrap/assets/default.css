@@ -1,4 +1,11 @@
 
+body {
+	/* Background pattern from subtlepatterns.com */
+	background-image: url('agsquare.png');
+    background-repeat: repeat;
+	background-color: transparent ! important;
+}
+
 @font-face 
 {
 	font-family: 'Over the Rainbow';
