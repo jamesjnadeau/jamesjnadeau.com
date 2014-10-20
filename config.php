@@ -26,6 +26,7 @@ header("Cache-Control: max-age=7200");
 $config['site_title'] = 'James J Nadeau';
 //$config['theme'] = 'jqm_1.3.2';
 $config['theme'] = 'bootstrap';
+//$config['theme'] = 'material';
 $config['twig_config'] = array(			// Twig settings
 	'cache' => false,					// To enable Twig caching change this to CACHE_DIR
 	'autoescape' => false,				// Autoescape Twig vars
