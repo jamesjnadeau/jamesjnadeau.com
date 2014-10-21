@@ -122,23 +122,49 @@
 		$(document).ready(function() 
 		{
 			'use strict';
-			function highlight_headers() {
-				$('h1,h3').mouseover(function(event){
-					if(!animate_semaphore) {
-						animate_semaphore = true;
-						console.log('mouseover');
-						var $target = $(event.target);
-
-						$target.addClass('pulse animated');
-						$target.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-							console.log('end');
-							$target.removeClass('pulse animated');
-							animate_semaphore = false;
-						});
-					}
-				});
-			}
+			/*
 			var animate_semaphore = false;
+			var animation_classes = 'pulse animated';
+			
+			var highlight_animate = function ($target)
+			{
+				console.log($target);
+				if(!animate_semaphore) {
+					animate_semaphore = true;
+					console.log('animate_semaphore');
+					
+					$target.addClass(animation_classes);
+					$target.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+						console.log('end');
+						$target.removeClass(animation_classes);
+						animate_semaphore = false;
+					});
+				}
+			};
+			
+			var highlight_headers = function () 
+			{
+				console.log($('h1,h3'));
+				$('h1,h3').mouseover(function(event){
+					console.log('mouseover');
+					var $target = $(event.target);
+					highlight_animate($target);
+				});
+			};
+			
+			var highlight_headers_random = function ()
+			{
+				var headers = $('h1,h3');
+				var $target = $(headers[Math.floor(Math.random()*headers.length)]);
+				
+				 highlight_animate($target);
+			};
+			
+			setTimeout(highlight_headers_random, 1000);
+			
+  			setInterval(highlight_headers_random, 5000);
+			highlight_headers();
+			*/
 			var $body = $('html, body'),
 			$content = $('#wrap').smoothState(
 			{
@@ -165,13 +191,13 @@
 					$content.removeClass('csspinner helicopter');
 					$container.html($content);
 					
-					highlight_headers();
+					//highlight_headers();
 					
 				},
 				pageCacheSize: 0,
 				prefetch: true
 			}).data('smoothState');
-			highlight_headers();
+			
 		});
 	</script>
 	
