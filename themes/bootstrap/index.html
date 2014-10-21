@@ -117,12 +117,13 @@
 		{
 			'use strict';
 			var animations = ['rubberBand', 'bounce', 'tada', 'shake', 'flash', 'pulse', 'shake', 'swing', 'wobble'];
-			var animation_delay = 420
+			var animation_delay = 42;
 			var get_animation = function() {
 				return animations[Math.floor(Math.random()*animations.length)];
 			}
 			var highlight_headers = function() {
-				$('h1').textillate({
+				var headers = $('h1');
+				headers.textillate({
 					initialDelay: 14700,
 					loop: true,
 					in: { 
@@ -134,6 +135,14 @@
 						reverse: true,
 						delay: animation_delay,
 					} 
+				});
+				headers.hover(function() { //in
+					headers.textillate('start');
+				}, function() { //out
+				});
+				headers.click(function() {
+					headers.textillate('stop');
+					headers.off('mouseenter mouseleave');
 				});
 			};
 			highlight_headers();
