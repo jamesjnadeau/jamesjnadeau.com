@@ -39,6 +39,7 @@ img.img-responsive.img-rounded
 
 h3.list-group-item
 {
+	z-index:100;
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 	background-color: #E6E6E6;
 }

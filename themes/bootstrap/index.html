@@ -122,6 +122,7 @@
 		$(document).ready(function() 
 		{
 			'use strict';
+			var animate_semaphore = false;
 			var $body = $('html, body'),
 			$content = $('#wrap').smoothState(
 			{
@@ -147,10 +148,30 @@
 					$body.find('a').css('cursor', 'auto');
 					$content.removeClass('csspinner helicopter');
 					$container.html($content);
+					
+					$('h1,h3', $content).mouseover(function(event){
+						if(!animate_semaphore) {
+							animate_semaphore = true;
+							console.log('mouseover');
+							var $target = $(event.target);
+
+							$target.addClass('pulse animated');
+							$target.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+								console.log('end');
+								$target.removeClass('pulse animated');
+								animate_semaphore = false;
+							});
+						}
+					});
+					
 				},
 				pageCacheSize: 0,
 				prefetch: true
 			}).data('smoothState');
+			
+			
+			
+
 		});
 	</script>
 	
