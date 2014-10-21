@@ -33,20 +33,7 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
-
-	<!-- Le fav and touch icons -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ theme_url }}/assets/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ theme_url }}/assets/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ theme_url }}/assets/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="{{ theme_url }}/assets/ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="{{ theme_url }}/assets/ico/favicon.png">
-	
-	<!--javascript
-	================================================== -->
-	<!-- <script src="{{ theme_url }}/assets/js/jquery.js"></script> -->
-	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	
+  
   </head>
   <body>
 	<div id="wrap">
@@ -105,6 +92,11 @@
 		</div><!-- /.container -->
 	</div>
 	
+	<!-- javascript -->
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdn.jsdelivr.net/lettering/0.6.1/jquery.lettering.js"></script>
+	  
 	<!-- Google Analytics -->
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -117,54 +109,34 @@
 	</script>
 	
 	<script src="{{ theme_url }}/assets/js/jquery.smoothState.js"></script>
+	  <script src="{{ theme_url }}/assets/js/jquery.textillate.js"></script>
+	
 	<script>
 		//this does the page transitions
 		$(document).ready(function() 
 		{
 			'use strict';
-			/*
-			var animate_semaphore = false;
-			var animation_classes = 'pulse animated';
-			
-			var highlight_animate = function ($target)
-			{
-				console.log($target);
-				if(!animate_semaphore) {
-					animate_semaphore = true;
-					console.log('animate_semaphore');
-					
-					$target.addClass(animation_classes);
-					$target.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-						console.log('end');
-						$target.removeClass(animation_classes);
-						animate_semaphore = false;
-					});
-				}
-			};
-			
-			var highlight_headers = function () 
-			{
-				console.log($('h1,h3'));
-				$('h1,h3').mouseover(function(event){
-					console.log('mouseover');
-					var $target = $(event.target);
-					highlight_animate($target);
+			var animations = ['rubberBand', 'bounce', 'tada', 'shake', 'flash', 'pulse', 'shake', 'swing', 'wobble'];
+			var animation_delay = 420
+			var get_animation = function() {
+				return animations[Math.floor(Math.random()*animations.length)];
+			}
+			var highlight_headers = function() {
+				$('h1').textillate({
+					initialDelay: 14700,
+					loop: true,
+					in: { 
+						effect: get_animation,
+						delay: animation_delay,
+					},
+					out: { 
+						effect: get_animation,
+						reverse: true,
+						delay: animation_delay,
+					} 
 				});
 			};
-			
-			var highlight_headers_random = function ()
-			{
-				var headers = $('h1,h3');
-				var $target = $(headers[Math.floor(Math.random()*headers.length)]);
-				
-				 highlight_animate($target);
-			};
-			
-			setTimeout(highlight_headers_random, 1000);
-			
-  			setInterval(highlight_headers_random, 5000);
 			highlight_headers();
-			*/
 			var $body = $('html, body'),
 			$content = $('#wrap').smoothState(
 			{
@@ -191,8 +163,7 @@
 					$content.removeClass('csspinner helicopter');
 					$container.html($content);
 					
-					//highlight_headers();
-					
+					highlight_headers();
 				},
 				pageCacheSize: 0,
 				prefetch: true
