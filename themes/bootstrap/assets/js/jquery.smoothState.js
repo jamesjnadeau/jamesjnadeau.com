@@ -341,7 +341,9 @@
 										});
 										hasRunCallback = true;
 									}
-									responses[cache[url].status]();
+									if(cache[url] !== undefined) {
+										responses[cache[url].status]();
+									}
 								}, 10);
 							},
 

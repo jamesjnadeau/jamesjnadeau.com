@@ -36,6 +36,12 @@
   
   </head>
   <body>
+	<!-- Loading spinner -->
+	<div id="loading" class="spinner" style="display: none;" >
+		<div class="bounce1"></div>
+		<div class="bounce2"></div>
+		<div class="bounce3"></div>
+	</div>
 	<div id="wrap">
 		<div id="header" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
@@ -175,6 +181,7 @@
 			};
 			highlight_headers();
 			var $body = $('html, body'),
+				$loading = $('#loading'),
 			$content = $('#wrap').smoothState(
 			{
 				// Runs when a link has been activated
@@ -191,10 +198,12 @@
 				{
 					$body.css('cursor', 'wait');
 					$body.find('a').css('cursor', 'wait');
-					$content.addClass('csspinner helicopter');
+					//$container.hide();
+					$loading.fadeIn();
 				},
 				onEnd : function (url, $container, $content) 
 				{
+					$loading.hide();
 					$body.css('cursor', 'auto');
 					$body.find('a').css('cursor', 'auto');
 					$content.removeClass('csspinner helicopter');
