@@ -14,7 +14,8 @@ Description: Projects I have worked on
 				<a class="list-group-item" href="/projects/speak_and_spell" >Angular.js Speak and Spell</a>
 				<a class="list-group-item" href="/projects/example_jquery_mobile_app" >Cordova Example App</a>
 				<a class="list-group-item" target="_blank" href="/wind/" >My Wind Map</a>
-				<a class="list-group-item"  href="https://chrome.google.com/webstore/detail/gremlinjs-testing-extensi/eamcocddjlpbghfbicddnloonlclafic"  >Gremlin.js Extension</a>
+				<a class="list-group-item" target="_blank"  href="https://chrome.google.com/webstore/detail/gremlinjs-testing-extensi/eamcocddjlpbghfbicddnloonlclafic"  >Gremlin.js Extension</a>
+				<a class="list-group-item" target="_blank"  href="https://chrome.google.com/webstore/detail/gifshot-extension/dkdgkjlikbgmkdmckmmahjmjffafleae"  >Gifshot Extension</a>
 				<a class="list-group-item" target="_blank" href="https://chrome.google.com/webstore/detail/chrome-sniffer-updated-by/fbnlibmhkkkpncdgfolnijebgnmbdbhi" >Updates to Chrome Sniffer</a>
 				<a class="list-group-item" href="/projects/vermontlegislation.org" >VermontLegislation.org</a>
 				<a class="list-group-item" href="/projects/explorevermontfood.com" >ExploreVermontFood.com</a>
