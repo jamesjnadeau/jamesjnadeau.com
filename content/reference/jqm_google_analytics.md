@@ -5,8 +5,45 @@ Author: James Nadeau
 Date: 01/01/2014
 */
 
-I use the following snippet before fully loading jQuery Mobile to set up Google Analytics.
+#Tracking page loads with ajax page transitions
+<div>
+	<div class="content well" >
+	I use the following snippet before fully loading jQuery Mobile(or any page that uses ajax loading, including this one) to set up Google Analytics.
+	</div>
+</div>
 
+
+###Better/New
+		// Google Analytics
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'Your analytics code', 'auto');
+		ga('send', 'pageview');
+		
+		var ga_track_page = function()
+		{
+			hash = location.hash;
+			try
+			{
+				if (hash)
+					ga('send', '_trackPageview', hash.substr(1));
+				else
+					ga('send', '_trackPageview', location.pathname);
+			}
+			catch(err)
+			{
+				console.log('unable to track page', err);
+			}
+		};
+		
+		...Ajax Load a page....
+		ga_track_page();
+	
+
+###Old Style
 	/* 
 	 * Google Analytics
 	 */
