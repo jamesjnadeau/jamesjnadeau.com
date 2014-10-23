@@ -37,7 +37,7 @@
   </head>
   <body>
 	<div id="wrap">
-		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div id="header" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -109,10 +109,21 @@
 	</script>
 	
 	<script src="{{ theme_url }}/assets/js/jquery.smoothState.js"></script>
-	  <script src="{{ theme_url }}/assets/js/jquery.textillate.js"></script>
-	
+	<script src="{{ theme_url }}/assets/js/jquery.textillate.js"></script>
+	<script src="{{ theme_url }}/assets/js/headers.js"></script>
 	<script>
-		//this does the page transitions
+		//hide the header on scroll
+		var init_headroom = function() 
+		{
+			// grab an element
+			var myElement = document.querySelector("#header");
+			// construct an instance of Headroom, passing the element
+			var headroom  = new Headroom(myElement);
+			// initialise
+			headroom.init(); 
+		}
+		init_headroom();
+		//this does the page transitions/animations
 		$(document).ready(function() 
 		{
 			'use strict';
@@ -171,7 +182,7 @@
 					$body.find('a').css('cursor', 'auto');
 					$content.removeClass('csspinner helicopter');
 					$container.html($content);
-					
+					init_headroom();
 					highlight_headers();
 				},
 				pageCacheSize: 0,

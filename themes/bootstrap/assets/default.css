@@ -87,15 +87,16 @@ h3.list-group-item:hover:before {
 	max-width: 600px;
 	
 }
-/*
-padding-left: 5px;
-	border-left: 1px solid #143822;
-.content
-{
-	padding-left: 5px;
-	border-left: 4px solid #143822;
+
+.headroom {
+    transition: transform 200ms linear;
 }
-*/
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
+}
 
 @media (max-width: 992px) 
 {
