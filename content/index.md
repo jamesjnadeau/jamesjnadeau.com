@@ -5,7 +5,7 @@ Description: James J Nadeau is a Systems Architect and Developer specializing in
 
 # Systems Architect and Developer
 <div>
-	<img class="img-responsive img-rounded" style="margin-bottom: 5px;" src="/files/pine-forest-path.jpg" />
+	<img class="img-responsive img-rounded" style="margin-bottom: 5px;" src="/files/tree_line.jpg" />
 </div>
 
 <div>
