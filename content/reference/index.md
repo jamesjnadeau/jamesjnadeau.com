@@ -53,6 +53,7 @@ Description: Things I'm saving for easy reference
 		</div>
 		<div class="tab-pane fade" id="misc">
 			<ul class="list-group" >
+				<li class="list-group-item" ><a href="/reference/stock_photos" >Stock Photos</a></li>
 				<li class="list-group-item" ><a href="/reference/asus_laptop" >Asus Laptop</a></li>
 				<li class="list-group-item" ><a href="/reference/gnome3_monitor_config" >Gnome 3 Master Monitor</a></li>
 				<li class="list-group-item" ><a href="/reference/evoulent_mouse_config" >Evoluent Mouse config for Linux</a></li>
