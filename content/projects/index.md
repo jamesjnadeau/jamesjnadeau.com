@@ -60,6 +60,7 @@ Description: Projects I have worked on
 			<ul class="list-group"	>
 				<h3 class="list-group-item" >Red Barn Media Group</h3>
 				<a class="list-group-item" href="/projects/mypointnow" >Mobile Applications: Roam, Venture</a>
+				<a class="list-group-item" target="_blank" href="/graph/index.html" >Data Visualizations</a>
 				<a class="list-group-item" href="/projects/simplesaml" >SAML</a>
 				<a class="list-group-item" href="/projects/secureCRM" >Secure CRM system for HVAC Manufacturers</a>
 				<a class="list-group-item" href="#" >Multisite Drupal Hosting System</a>

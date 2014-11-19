@@ -22,5 +22,8 @@ handlers:
   static_dir: wind
   application_readable: true
 
+- url: /graph
+  static_dir: graph
+
 - url: /.*
   script: index.php
