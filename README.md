@@ -1,3 +1,8 @@
+My personal website
+===
+http://jamesjnadeau.com
+
+
 My site was made with Pico
 ====
 
