@@ -12,6 +12,7 @@ Description: Things I'm saving for easy reference
 		  <li><a href="#html" role="tab" data-toggle="tab">HTML</a></li>
 		  <li><a href="#git" role="tab" data-toggle="tab">Git</a></li>
 		  <li><a href="#shell" role="tab" data-toggle="tab">Shell</a></li>
+		  <li><a href="#polymer" role="tab" data-toggle="tab">Polymer</a></li>
 		  <li><a href="#php" role="tab" data-toggle="tab">PHP</a></li>
 		  <li><a href="#misc" role="tab" data-toggle="tab">Misc</a></li>
 		</ul>
@@ -44,6 +45,13 @@ Description: Things I'm saving for easy reference
 				<a class="list-group-item" href="/reference/counting_log_ips" >Counting IP Addresses in Log Files</a>
 				<a class="list-group-item" href="/reference/yum_history" >Yum History/Undo</a>
 				<a class="list-group-item" href="/reference/svn_add" >SVN Add</a>
+			</ul>
+		</div>
+		<div class="tab-pane fade" id="polymer">
+			<ul class="list-group" >
+				<li class="list-group-item" ><a href="http://www.polymer-project.org/components/core-icons/demo.html" >Icons</a></li>
+				<li class="list-group-item" ><a href="https://www.polymer-project.org/articles/communication.html" >Messaging</a></li>
+				<li class="list-group-item" ><a href="https://www.polymer-project.org/articles/concatenating-web-components.html" >Compiling</a></li>
 			</ul>
 		</div>
 		<div class="tab-pane fade" id="php">
