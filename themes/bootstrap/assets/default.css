@@ -98,6 +98,11 @@ h3.list-group-item:hover:before {
     transform: translateY(-100%);
 }
 
+.nav>li>a:hover {
+	background-color: #143822;
+	color: white;
+}
+
 @media (max-width: 992px) 
 {
 	h1
