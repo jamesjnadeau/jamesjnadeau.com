@@ -35,7 +35,8 @@ Description: Things I'm saving for easy reference
 		</div>
 		<div class="tab-pane fade" id="git">
 			<ul class="list-group" >
-				<a class="list-group-item" href="/reference/git_flow" >Git Flow</a>
+				<a class="list-group-item" href="/reference/git_flow" >Flow</a>
+				<a class="list-group-item" href="/reference/git_autocomplete" >Autocomplete</a>
 			</ul>
 		</div>
 		<div class="tab-pane fade" id="shell">
