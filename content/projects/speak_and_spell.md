@@ -15,10 +15,9 @@ Date: 07/24/2014
 
 <div>
 	<div class="content" >
-		<h4>
-			<a href="http://speakandspell.jamesjnadeau.com">Take a look!</a>
-			<br>
-			<small>Chrome, Firefox, or Safari Browser recomended. Or if you really know what you are doing with IE...</small>
+		<h4 class="row">
+			<a class="btn btn-primary col-xs-4" href="http://speakandspell.jamesjnadeau.com">Try it</a>
+			<small class="col-xs-8" style="color: black;">ChromeBrowser recomended. Or if you really know what you are doing with IE, Firefox, or Safari ...</small>
 		</h4>
 	</div>
 </div>
