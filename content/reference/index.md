@@ -51,6 +51,7 @@ Description: Things I'm saving for easy reference
 		<div class="tab-pane fade" id="polymer">
 			<ul class="list-group" >
 				<li class="list-group-item" ><a href="http://www.polymer-project.org/components/core-icons/demo.html" >Icons</a></li>
+				<li class="list-group-item" ><a href="/reference/polymer_misc" >Misc</a></li>
 				<li class="list-group-item" ><a href="https://www.polymer-project.org/articles/communication.html" >Messaging</a></li>
 				<li class="list-group-item" ><a href="https://www.polymer-project.org/articles/concatenating-web-components.html" >Compiling</a></li>
 			</ul>
