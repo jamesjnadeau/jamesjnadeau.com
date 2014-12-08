@@ -23,7 +23,7 @@ Date: 01/01/2014
     $ git pull origin development
     $ git checkout new-branch
     $ git rebase development
-    # Note: resolve conflicts, if any!
+    # Note: resolve conflicts, if any! using --strategy=ours/theirs might be helpful
     
     # Do #3 again (push)
     
