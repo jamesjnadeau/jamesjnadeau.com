@@ -1,9 +1,10 @@
 application: jamesjnadeau
-version: 5
+version: 6
 runtime: php
 api_version: 1
 threadsafe: true
 
+default_expiration: "7d"
 
 handlers:
 - url: /files
