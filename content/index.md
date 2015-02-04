@@ -52,6 +52,10 @@ Description: James J Nadeau is a Systems Architect and Developer specializing in
 					of fact. My mother was/is a graphic artist, and it was bought for her. 
 					I think we can both agree I got more out of it. I didn't really discover 
 					linux until I was about 15 and began throwing it on every old piece of hardware I could muster. </div>
+					
+					<div class="frontp" >
+						I met the love of my life online and plan to marry Sally in June 2015.
+					</div>
 				</div>
 			</div>
 		</div>
