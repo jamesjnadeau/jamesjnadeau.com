@@ -198,7 +198,7 @@
 				{
 					$body.css('cursor', 'wait');
 					$body.find('a').css('cursor', 'wait');
-					//$container.hide();
+					$container.hide();
 					$loading.fadeIn();
 				},
 				onEnd : function (url, $container, $content) 
@@ -208,14 +208,14 @@
 					$body.find('a').css('cursor', 'auto');
 					$content.removeClass('csspinner helicopter');
 					$container.html($content);
+					
 					init_headroom();
 					highlight_headers();
 					ga_track_page();
 				},
 				pageCacheSize: 0,
-				prefetch: true
+				prefetch: false
 			}).data('smoothState');
-			
 		});
 	</script>
 	
