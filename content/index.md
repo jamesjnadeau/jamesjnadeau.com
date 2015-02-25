@@ -1,9 +1,9 @@
 /*
-Title: Welcome
-Description: James J Nadeau is a Systems Architect and Developer specializing in advanced information systems.
+Title: James J Nadeau | Senior Systems Engineer
+Description: James J Nadeau is a Systems Engineer specializing in mobile customer relation management solutions.
 */
 
-# Systems Architect and Developer
+# Senior Systems Engineer
 <div>
 	<img class="img-responsive img-rounded" style="margin-bottom: 5px;" src="/files/tree_line.jpg" />
 </div>

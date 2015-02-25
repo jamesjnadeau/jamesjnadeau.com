@@ -1,6 +1,6 @@
 /*
 Title: Fujitsu Dealer Toolbox
-Description: Main website for the National Gardening Association
+Description: Fujitsu General Web Presence and CRM
 */
 
 # Fujitsu Generals Dealer Rating and Lead System
