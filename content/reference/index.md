@@ -59,6 +59,7 @@ Description: Things I'm saving for easy reference
 		<div class="tab-pane fade" id="php">
 			<ul class="list-group" >
 				<li class="list-group-item" ><a href="/reference/php_backtrace" >Backtrace</a></li>
+				<li class="list-group-item" ><a href="/reference/php_cake_query_log" >CakePHP 1.2 query log</a></li>
 			</ul>
 		</div>
 		<div class="tab-pane fade" id="misc">

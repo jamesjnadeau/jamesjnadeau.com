@@ -1,6 +1,6 @@
 /*
-Title: Bash Profile
-Description: This description will go in the meta description tag
+Title: PHP backtrace
+Description: An easy way to get what called this particular funciton.
 Author: James Nadeau
 Date: 10/29/2014
 */
