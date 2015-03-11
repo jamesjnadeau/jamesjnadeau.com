@@ -37,7 +37,7 @@
   </head>
   <body>
 	<!-- Loading spinner -->
-	<div id="loading" class="spinner" style="display: none;" >
+	<div id="loading" class="spinner" style="display: none; clear: none;" >
 		<div class="bounce1"></div>
 		<div class="bounce2"></div>
 		<div class="bounce3"></div>
@@ -182,6 +182,7 @@
 			highlight_headers();
 			var $body = $('html, body'),
 				$loading = $('#loading'),
+				loading_timer,
 			$content = $('#wrap').smoothState(
 			{
 				// Runs when a link has been activated
@@ -199,10 +200,16 @@
 					$body.css('cursor', 'wait');
 					$body.find('a').css('cursor', 'wait');
 					$container.hide();
-					$loading.fadeIn();
+					loading_timer = setTimeout(function() {
+						$loading.fadeIn();
+					}, 1000);
+					
 				},
 				onEnd : function (url, $container, $content) 
 				{
+					if(loading_timer) {
+						clearTimeout(loading_timer);
+					}
 					$loading.hide();
 					$body.css('cursor', 'auto');
 					$body.find('a').css('cursor', 'auto');
