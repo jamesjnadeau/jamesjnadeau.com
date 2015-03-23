@@ -69,6 +69,8 @@ Description: Things I'm saving for easy reference
 				<a class="list-group-item" href="/reference/asus_laptop" >Asus Laptop</a>
 				<a class="list-group-item" href="/reference/gnome3_monitor_config" >Gnome 3 Master Monitor</a>
 				<a class="list-group-item" href="/reference/evoulent_mouse_config" >Evoluent Mouse config for Linux</a>
+				<a class="list-group-item" href="/reference/gource" >Gource defaults</a>
+				
 			</ul>
 		</div>
 	</div>

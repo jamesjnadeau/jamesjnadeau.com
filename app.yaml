@@ -26,5 +26,9 @@ handlers:
 - url: /graph
   static_dir: graph
 
+- url: /googlec61957c6adf43478.html
+  static_files: googlec61957c6adf43478.html
+  upload: googlec61957c6adf43478.html
+
 - url: /.*
   script: index.php
