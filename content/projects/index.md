@@ -12,6 +12,7 @@ Description: Projects I have worked on
 			<ul class="list-group">
 				<h3 class="list-group-item" >Examples/Misc/HackVT</h3>
 				<a class="list-group-item" href="/projects/speak_and_spell" >Speak and Spell in your Browser</a>
+				<a class="list-group-item" target="_blank" href="http://lnconsulting.com/" >LN Consulting</a>
 				<a class="list-group-item" href="/projects/example_jquery_mobile_app" >Cordova Example App</a>
 				<a class="list-group-item" target="_blank" href="/wind/" >My Wind Map</a>
 				<a class="list-group-item" target="_blank"  href="https://chrome.google.com/webstore/detail/gremlinjs-testing-extensi/eamcocddjlpbghfbicddnloonlclafic"  >Gremlin.js Extension</a>
