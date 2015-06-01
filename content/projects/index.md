@@ -40,9 +40,9 @@ Description: Projects I have worked on
 		<div class="col-md-6">
 			<ul class="list-group">
 				<h3 class="list-group-item" >Clevertech</h3>
+				<a class="list-group-item" href="/projects/lookbooks" >Lookbooks</a>
 				<a class="list-group-item" href="/projects/cleverhire" >CleverHire</a>
 				<a class="list-group-item" href="/projects/clevermap" >CleverMap</a>
-				<a class="list-group-item" href="/projects/lookbooks" >Lookbooks</a>
 			</ul>
 			
 			<ul class="list-group"	>

@@ -6,9 +6,6 @@ Description: Things I'm saving for easy reference
 # Things I'm saving for easy reference
 
 <div>
-	<div class="well content">
-		"Anything that works will be used in progressively more challenging applications,<br/> until it fails" - Laurence J. Peter, The Generalized Peter Principle.
-	</div>
 	<!-- Nav tabs -->
 		<ul class="nav nav-pills" role="tablist">
 		  <li class="active"><a href="#js" role="tab" data-toggle="tab">JS</a></li>
@@ -76,5 +73,13 @@ Description: Things I'm saving for easy reference
 				
 			</ul>
 		</div>
+	</div>
+
+	<div class="well content">
+		"Anything that works will be used in progressively more challenging applications, until it fails." - Laurence J. Peter, The Generalized Peter Principle.
+	</div>
+	<div class="well content" >
+		<h3>Story Starter</h3>
+		When _____ , I want to _____ , so I can _____ .
 	</div>
 </div>
