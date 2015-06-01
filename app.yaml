@@ -1,6 +1,6 @@
 application: jamesjnadeau
 version: 6
-runtime: php
+runtime: php55
 api_version: 1
 threadsafe: true
 
