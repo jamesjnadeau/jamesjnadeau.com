@@ -79,6 +79,9 @@ Description: Things I'm saving for easy reference
 		"Anything that works will be used in progressively more challenging applications, until it fails." - Laurence J. Peter, The Generalized Peter Principle.
 	</div>
 	<div class="well content" >
+		"Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure." - Conway's Law
+	</div>
+	<div class="well content" >
 		<h3>Story Starter</h3>
 		When _____ , I want to _____ , so I can _____ .
 	</div>
