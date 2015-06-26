@@ -66,6 +66,7 @@ Description: Things I'm saving for easy reference
 			<ul class="list-group" >
 				<a class="list-group-item" href="/reference/stock_photos" >Stock Photos</a>
 				<a class="list-group-item" href="http://www.w3.org/TR/html5/forms.html#valid-e-mail-address" >Email Addresses</a>
+				<a class="list-group-item" href="/reference/chromebook" >Chromebook Crouton</a>
 				<a class="list-group-item" href="/reference/asus_laptop" >Asus Laptop</a>
 				<a class="list-group-item" href="/reference/gnome3_monitor_config" >Gnome 3 Master Monitor</a>
 				<a class="list-group-item" href="/reference/evoulent_mouse_config" >Evoluent Mouse config for Linux</a>
