@@ -24,6 +24,7 @@ Description: Things I'm saving for easy reference
 				<a class="list-group-item" href="/reference/js_backtrace" >Backtrace</a>
 				<a class="list-group-item" href="/reference/js_callback" >Callback</a>
 				<a class="list-group-item" href="/reference/js_debounce" >Debounce</a>
+				<a class="list-group-item" href="/reference/js_Angular" >Angular</a>
 				<a class="list-group-item" href="/reference/jqm_google_analytics" >jQuery Mobile Google Analytics</a>
 			</ul>
 		</div>
