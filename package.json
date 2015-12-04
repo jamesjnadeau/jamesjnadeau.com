@@ -1,0 +1,39 @@
+{
+  "name": "jamesjnadeau.com",
+  "version": "0.0.1",
+  "description": "my personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node_modules/.bin/webpack-dev-server --progress --colors --host 0.0.0.0 --content-base built/",
+    "build": "node_modules/.bin/webpack --progress --colors --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesjnadeau/jamesjnadeau.com.git"
+  },
+  "author": "James Nadeau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesjnadeau/jamesjnadeau.com/issues"
+  },
+  "homepage": "https://github.com/jamesjnadeau/jamesjnadeau.com#readme",
+  "dependencies": {
+    "async": "^1.5.0",
+    "copy-webpack-plugin": "^0.3.3",
+    "css-loader": "^0.23.0",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "file-loader": "^0.8.5",
+    "filewalker": "^0.1.2",
+    "html-loader": "^0.4.0",
+    "html-webpack-plugin": "^1.7.0",
+    "image-webpack-loader": "^1.6.2",
+    "jade": "^1.11.0",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.2",
+    "loader-utils": "^0.2.12",
+    "marked": "^0.3.5",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.9"
+  }
+}
