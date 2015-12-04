@@ -17,10 +17,11 @@ handlers:
   static_dir: built/files
 
 - url: /wind/
-  static_dir: built/wind/index.html
+  static_files: wind/index.html
+  upload: wind/index.html
 
 - url: /wind
-  static_dir: built/wind
+  static_dir: wind
 
 - url: /graph
   static_dir: built/graph
