@@ -1,5 +1,5 @@
 application: jamesjnadeau
-version: 9
+version: 10
 runtime: php55
 api_version: 1
 threadsafe: true
@@ -17,14 +17,21 @@ handlers:
   static_dir: built/files
 
 - url: /wind/
-  static_files: wind/index.html
-  upload: wind/index.html
+  static_files: built/wind/index.html
+  upload: built/wind/index.html
 
 - url: /wind
-  static_dir: wind
+  static_dir: built/wind
 
 - url: /graph
   static_dir: built/graph
+
+#let's encrypt verification
+- url: /.well-known/acme-challenge/sfRT7-4gBXr0Twa6rCbsB_B1s0SnP0ckkFAOHvHXOQg
+  mime_type: text/plain
+  static_files: letsencrypt-confirmation.txt
+  upload: letsencrypt-confirmation.txt
+
 
 
 #static site server modified from: https://gist.github.com/darktable/873098

@@ -12,6 +12,9 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
+  //enable source-maps
+  devtool: 'source-map',
+
   module: {
     loaders: [
       { test: /\.html$/, loader: "html-loader" },
@@ -58,5 +61,9 @@ module.exports = {
       { from: 'assets/wind', to: 'wind' },
       { from: 'assets/graph', to: 'graph' },
     ]),
-  ]
+  ],
+  
+   devServer: {
+        contentBase: "./built",
+    }
 };
