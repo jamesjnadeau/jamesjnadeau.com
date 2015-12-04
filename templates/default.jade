@@ -1,0 +1,69 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    if title
+      title #{title}
+    if description
+      meta(name='description', content='#{description}')
+    meta(name='robots', content='robots.txt')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='author', content='James J Nadeau')
+    link(href='http://fonts.googleapis.com/css?family=Roboto|Over+the+Rainbow|Roboto+Slab:400,700', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    link(href='/styles.css', rel='stylesheet')
+
+  body
+    // Loading spinner
+    #loading.spinner(style='display: none; clear: none;')
+      .bounce1
+      .bounce2
+      .bounce3
+    #wrap
+      #header.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand.brand(href='/') James J Nadeau
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li
+                a(href='/projects/') Projects
+              li
+                a(href='/reference/') Reference
+            ul.nav.navbar-nav.navbar-right
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | Social Links
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    img.img-thumbnail(alt='', src='/files/me.jpg', style='width: 60px; height: 60px; float: right;')
+                    span(style='font-size: 8pt; margin-left: 5px; color: white;') Systems Engineer
+                  li
+                    a(href='http://www.linkedin.com/pub/james-nadeau/79/376/52b')
+                      span LinkedIn
+                  li
+                    a(href='https://google.com/+JamesNadeauJ', target='_blank') Google+
+                  li
+                    a(href='https://github.com/jamesjnadeau?tab=activity', target='_blank') Git Hub
+                  li
+                    a(href='https://www.odesk.com/users/~01a0320a9c1365565a') oDesk
+                  li
+                    a(href='http://stackoverflow.com/users/1978759/james-nadeau', target='_blank') Stack Overflow
+      #container.container.animated.fadeInRight
+        div !{content}
+
+    script(src='https://code.jquery.com/jquery-1.10.2.min.js')
+    script(src='//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+    script(src='//cdn.jsdelivr.net/lettering/0.6.1/jquery.lettering.js')
+    script(src='/frontend.js')
+    //-script(src='/js/jquery.smoothState.js')
+      script(src='/js/jquery.textillate.js')
+      script(src='/js/headers.js')
+      script(src='/js/main.js')

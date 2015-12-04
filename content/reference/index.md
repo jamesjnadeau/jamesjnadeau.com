@@ -16,7 +16,6 @@ Description: Things I'm saving for easy reference
 		  <li><a href="#php" role="tab" data-toggle="tab">PHP</a></li>
 		  <li><a href="#misc" role="tab" data-toggle="tab">Misc</a></li>
 		</ul>
-
 	<!-- Tab panes -->
 	<div class="tab-content content">
 		<div class="tab-pane active fade in" id="js">
@@ -72,11 +71,9 @@ Description: Things I'm saving for easy reference
 				<a class="list-group-item" href="/reference/gnome3_monitor_config" >Gnome 3 Master Monitor</a>
 				<a class="list-group-item" href="/reference/evoulent_mouse_config" >Evoluent Mouse config for Linux</a>
 				<a class="list-group-item" href="/reference/gource" >Gource defaults</a>
-				
 			</ul>
 		</div>
 	</div>
-
 	<div class="well content">
 		"Anything that works will be used in progressively more challenging applications, until it fails." - Laurence J. Peter, The Generalized Peter Principle.
 	</div>

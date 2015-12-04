@@ -3,17 +3,20 @@
 
 // Run button configuration
   "commands": {
-        "Deploy To App Engine": "appcfg.py --oauth2 --noauth_local_webserver --allow_any_runtime -A quantum-enigma-707 update ./",
-		"Install App engine": "parts install googleappengine php5 php5-apache2 php5-bcmath",
-        "Start App engine": "dev_appserver.py ./ --php_executable_path /home/codio/.parts/bin/php-cgi --host 0.0.0.0"
+    "Webpack Server": "node_modules/.bin/webpack-dev-server --progress --colors --host 0.0.0.0 --content-base dist/",
+    "Webpack Build": "node_modules/.bin/webpack --progress --colors --watch",
+    "Deploy To App Engine": "appcfg.py --oauth2 --noauth_local_webserver --allow_any_runtime -A quantum-enigma-707 update ./",
+    "Install App engine": "parts install googleappengine php5 php5-apache2 php5-bcmath",
+    "Start App engine": "dev_appserver.py ./ --php_executable_path /home/codio/.parts/bin/php-cgi --host 0.0.0.0"
   },
 
 // Preview button configuration
   "preview": {
-        "UnGit":"http://{{domain}}:8448/#/repository?path=/home/codio/workspace",
-        "Project Index (app-engine)": "http://{{domain}}:8080/{{index}}",
-        "Current File (app-engine)": "http://{{domain}}:8080/{{filepath}}",
-        "Box URL": "http://{{domain}}:3000/",
-        "Box URL SSL": "https://{{domain}}:9500/"
+    "UnGit":"http://{{domain}}:8448/#/repository?path=/home/codio/workspace",
+    "Webpack Server": "http://{{domain}}:8080/webpack-dev-server/",
+    "Project Index (app-engine)": "http://{{domain}}:8080/{{index}}",
+    "Current File (app-engine)": "http://{{domain}}:8080/{{filepath}}",
+    "Box URL": "http://{{domain}}:3000/",
+    "Box URL SSL": "https://{{domain}}:9500/"
   }
 }
