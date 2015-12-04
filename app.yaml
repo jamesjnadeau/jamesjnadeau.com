@@ -27,7 +27,7 @@ handlers:
   static_dir: built/graph
 
 #let's encrypt verification
-- url: /.well-known/acme-challenge/sfRT7-4gBXr0Twa6rCbsB_B1s0SnP0ckkFAOHvHXOQg
+- url: /.well-known/acme-challenge/1ewFq1gVM-ReT7stCt37ab_ORmehKKDIj-UjFok4RNs
   mime_type: text/plain
   static_files: letsencrypt-confirmation.txt
   upload: letsencrypt-confirmation.txt

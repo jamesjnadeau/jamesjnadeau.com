@@ -34,7 +34,7 @@ module.exports = {
   },
 
   entry: {
-    'site-generator': './site-generator.js',
+    'site-generator': './loaders/static-site-loader!./content',
     'frontend': './assets/js/index.js',
     'styles': './assets/styles/index.js'
   },
@@ -62,7 +62,7 @@ module.exports = {
       { from: 'assets/graph', to: 'graph' },
     ]),
   ],
-  
+
    devServer: {
         contentBase: "./built",
     }
