@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node_modules/.bin/webpack-dev-server --progress --colors --host 0.0.0.0 --content-base built/",
-    "build": "node_modules/.bin/webpack --progress --colors --watch"
+    "dev": "node_modules/.bin/webpack-dev-server --progress --colors -d --host 0.0.0.0 --content-base built/",
+    "watch": "node_modules/.bin/webpack --progress --colors --watch -d",
+    "build": "node_modules/.bin/webpack --progress --colors -p -d"
   },
   "repository": {
     "type": "git",

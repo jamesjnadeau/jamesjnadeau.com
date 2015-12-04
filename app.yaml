@@ -6,6 +6,12 @@ threadsafe: true
 
 default_expiration: "7d"
 
+skip_files:
+- ^node_modules(.*/)?$
+- ^assets(.*/)?$
+- ^content(.*/)?$
+- ^templates(.*/)?$
+
 handlers:
 - url: /files
   static_dir: built/files
