@@ -39,7 +39,7 @@ module.exports = {
   output: {
     filename: "[name].js",
     chunkFilename: "[id].js",
-    path: 'dist',
+    path: 'built',
     libraryTarget: 'umd'
   },
 

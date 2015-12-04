@@ -3,8 +3,8 @@
 
 // Run button configuration
   "commands": {
-    "Webpack Server": "node_modules/.bin/webpack-dev-server --progress --colors --host 0.0.0.0 --content-base dist/",
-    "Webpack Build": "node_modules/.bin/webpack --progress --colors --watch",
+    "Webpack Server": "npm run dev",
+    "Webpack Build": "npm run build",
     "Deploy To App Engine": "appcfg.py --oauth2 --noauth_local_webserver --allow_any_runtime -A quantum-enigma-707 update ./",
     "Install App engine": "parts install googleappengine php5 php5-apache2 php5-bcmath",
     "Start App engine": "dev_appserver.py ./ --php_executable_path /home/codio/.parts/bin/php-cgi --host 0.0.0.0"
