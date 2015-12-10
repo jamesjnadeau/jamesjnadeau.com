@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node_modules/.bin/webpack-dev-server --progress --colors -d --host 0.0.0.0",
     "watch": "node_modules/.bin/webpack --progress --colors --watch -d",
-    "build": "node_modules/.bin/webpack --progress --colors -p -d"
+    "build": "node_modules/.bin/webpack --progress --colors -p -d",
+    "stage": "dev_appserver.py --php_executable_pat `whereis php | awk -F' ' '{ print $2 }'` --host 0.0.0.0 ./",
+    "deploy": "appcfg.py -A quantum-enigma-707 update ./"
   },
   "repository": {
     "type": "git",
@@ -34,6 +36,7 @@
     "less-loader": "^2.2.2",
     "loader-utils": "^0.2.12",
     "marked": "^0.3.5",
+    "static-site-loader": "0.0.3",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9"
   }
