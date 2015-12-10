@@ -9,7 +9,8 @@
     "watch": "node_modules/.bin/webpack --progress --colors --watch -d",
     "build": "node_modules/.bin/webpack --progress --colors -p -d",
     "stage": "dev_appserver.py --php_executable_pat `whereis php | awk -F' ' '{ print $2 }'` --host 0.0.0.0 ./",
-    "deploy": "appcfg.py -A quantum-enigma-707 update ./"
+    "stage:not-supported-yet": "gcloud preview app run app.yaml",
+    "deploy": "gcloud preview app deploy app.yaml --project quantum-enigma-707"
   },
   "repository": {
     "type": "git",
