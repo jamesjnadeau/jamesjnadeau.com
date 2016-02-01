@@ -76,6 +76,9 @@ Description: Things I'm saving for easy reference
     </div>
   </div>
   <div class="well content">
+    "People don't buy what you do, they buy why you do it." - https://youtu.be/u4ZoJKF_VuA
+  </div>
+  <div class="well content">
     "Anything that works will be used in progressively more challenging applications, until it fails." - Laurence J. Peter, The Generalized Peter Principle.
   </div>
   <div class="well content" >
