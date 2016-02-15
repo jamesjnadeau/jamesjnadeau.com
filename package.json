@@ -8,8 +8,7 @@
     "dev": "node_modules/.bin/webpack-dev-server --progress --colors -d --host 0.0.0.0",
     "watch": "node_modules/.bin/webpack --progress --colors --watch -d",
     "build": "node_modules/.bin/webpack --progress --colors -p -d",
-    "stage": "dev_appserver.py --php_executable_pat `whereis php | awk -F' ' '{ print $2 }'` --host 0.0.0.0 ./",
-    "stage:not-supported-yet": "gcloud preview app run app.yaml",
+    "stage": "dev_appserver.py --host 0.0.0.0 ./",
     "deploy": "gcloud preview app deploy app.yaml --project quantum-enigma-707"
   },
   "repository": {
