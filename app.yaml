@@ -205,11 +205,11 @@ handlers:
   static_files: built/\1/index.html
   upload: built/(.+)/index.html
   expiration: "15m"
-#  secure: always
+  secure: always
 
 # site root
 - url: /
   static_files: built/index.html
   upload: built/index.html
   expiration: "15m"
-#  secure: always
+  secure: always
