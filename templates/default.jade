@@ -1,4 +1,6 @@
 doctype html
+block vars
+
 html(lang='en')
   head
     meta(charset='utf-8')
@@ -57,13 +59,7 @@ html(lang='en')
                   li
                     a(href='http://stackoverflow.com/users/1978759/james-nadeau', target='_blank') Stack Overflow
       #container.container.animated.fadeInRight
-        div !{content}
+        block content
+          div !{content}
 
-    script(src='https://code.jquery.com/jquery-1.10.2.min.js')
-    script(src='//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
-    script(src='//cdn.jsdelivr.net/lettering/0.6.1/jquery.lettering.js')
     script(src='/frontend.js')
-    //-script(src='/js/jquery.smoothState.js')
-      script(src='/js/jquery.textillate.js')
-      script(src='/js/headers.js')
-      script(src='/js/main.js')

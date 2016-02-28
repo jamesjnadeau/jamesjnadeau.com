@@ -1,15 +1,13 @@
-
-var async = require('async');
-var fs = require('fs');
 var pathUtil = require('path');
 var marked = require('marked');
 var jade = require('jade');
+var webpack = require('webpack');
 
 //Plugins
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-
+var notJadeContent = [];
 module.exports = {
   //enable source-maps
   devtool: 'source-map',
@@ -17,38 +15,37 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.html$/, loader: "html-loader" },
-      { test: /\.css$/, 
+      { test: /\.css$/,
        //loader: "style-loader!css-loader"
-       loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+       loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
       },
-      { test: /\.less$/, loader: "style-loader!css-loader!less-loader"},
+      { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
           'file?hash=sha512&digest=hex&name=[hash].[ext]',
-          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-        ]
-      }
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
+        ],
+      },
+      // taken from gowravshekar/bootstrap-webpack
+      { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff' }, //eslint-disable-line
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' }, //eslint-disable-line
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' },
     ],
   },
 
   entry: {
     'site-generator': 'static-site-loader!./content',
-    'frontend': './assets/js/index.js',
-    'styles': './assets/styles/index.js'
+    frontend: './assets/js/index.js',
+    styles: './assets/styles/index.js',
   },
 
   output: {
     filename: "[name].js",
     chunkFilename: "[id].js",
     path: 'built',
-    libraryTarget: 'umd'
-  },
-
-  externals: {
-    // require("jquery") is external and available
-    //  on the global var jQuery
-    "jquery": "jQuery"
+    libraryTarget: 'umd',
   },
 
   plugins: [
@@ -60,6 +57,12 @@ module.exports = {
       { from: 'assets/wind', to: 'wind' },
       { from: 'assets/graph', to: 'graph' },
     ]),
+    // make jQuery available everywhere
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+    }),
   ],
 
   devServer: {
@@ -68,7 +71,7 @@ module.exports = {
 
   staticSiteLoader: {
     //perform any preprocessing tasks you might need here.
-    preProcess: function(source) {
+    preProcess: function() { //source
       //Define our template path
       var templatePath = 'templates/default.jade';
 
@@ -79,40 +82,61 @@ module.exports = {
       this.template = jade.compileFile(templatePath, { pretty: false });
     },
     //Test if a file should be processed or not, should return true or false;
-    testToInclude: function(path, stats, absPath) {
-      return pathUtil.extname(path) === '.md';
+    testToInclude: function(path) { // stats, absPath
+      return pathUtil.extname(path) === '.md' || pathUtil.extname(path) === '.jade';
     },
     //allows you to rewrite the url path that this will be uploaded to
     rewriteUrlPath: function(path, stats, absPath) {
+      var extensionSize;
+      if (pathUtil.extname(path) === '.md') {
+        extensionSize = -3;
+      } else {
+        extensionSize = -5;
+        this.addDependency(absPath);
+      }
+
       //strip out the extension
-      var urlPath = path.slice(0, -3);
+      var urlPath = path.slice(0, extensionSize);
 
       //rewrite /index to be just /, making index.md files become the folder index properly
       urlPath = urlPath.replace('index', '');
 
+      //store these for later
+      if (extensionSize === -3) {
+        notJadeContent.push(urlPath);
+      }
+
       return urlPath;
     },
+
     processFile: function(file, content) {
-      //Assemeble some meta data to use in template
+      if (pathUtil.extname(file.absPath) === '.md') { //this is a regular markdown file
+        //Assemeble some meta data to use in template
+        //match pico header info
+        //see https://github.com/picocms/Pico/blob/v1.0.0-beta.2/lib/Pico.php#L760
+        var picoCMSMetaPattern = /^\/\*(([\s\S])*?)\*\//;
+        var meta = {};
+        var temp = content.match(picoCMSMetaPattern);
+        temp[1].split(/\r?\n/).forEach(function(value) {
+          var row = value.split(':');
+          meta[row[0]] = row[1];
+        });
 
-      //match pico header info
-      //see https://github.com/picocms/Pico/blob/v1.0.0-beta.2/lib/Pico.php#L760
-      var picoCMSMetaPattern = /^\/\*(([\s\S])*?)\*\//;
-      var meta = {};
-      var temp = content.match(picoCMSMetaPattern);
-      temp[1].split(/\r?\n/).forEach(function(value){
-        var row = value.split(':');
-        meta[row[0]] = row[1];
-      });
+        //use compiled template to produce html file
+        var fileContents = this.template({
+          title: meta.Title,
+          description: meta.Description,
+          content: marked(content.replace(picoCMSMetaPattern, '')),
+        });
 
-      //use compiled template to produce html file
-      var fileContents = this.template({
-        title: meta.Title,
-        description: meta.Description,
-        content: marked(content.replace(picoCMSMetaPattern, ''))
-      });
-
-      return fileContents;
+        return fileContents;
+      } else {
+        // new jade file type
+        return jade.render(content, {
+          pretty: false,
+          filename: file.absPath,
+        });
+      }
     },
-  }
+  },
 };

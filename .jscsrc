@@ -1,0 +1,19 @@
+{
+  "preset": "airbnb",
+  "disallowSpacesInFunctionExpression": null,
+  "disallowSpacesInAnonymousFunctionExpression": null,
+  "requireSpacesInAnonymousFunctionExpression": null,
+  "disallowTrailingWhitespace": null,
+  "requireCamelCaseOrUpperCaseIdentifiers": null,
+  "requireSpaceBetweenArguments": null,
+  "requireTrailingComma": null,
+  "safeContextKeyword": null,
+  "maximumLineLength":null,
+  "validateQuoteMarks":null,
+  "requirePaddingNewLinesBeforeLineComments":null,
+  "excludeFiles": [
+    ".git/**",
+    "node_modules/**",
+    "content/**",
+  ]
+}
