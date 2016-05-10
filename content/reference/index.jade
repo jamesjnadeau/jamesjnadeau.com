@@ -1,0 +1,92 @@
+extends ../../templates/default
+
+block vars
+  -var title = 'James J Nadeau | Reference'
+  -var description = 'Things I\'m saving for easy reference.'
+
+block content
+  div
+    // Nav tabs
+    ul.nav.nav-pills(role='tablist')
+      li.active
+        a(href='#js', role='tab', data-toggle='tab') JS
+      li
+        a(href='#html', role='tab', data-toggle='tab') HTML
+      li
+        a(href='#git', role='tab', data-toggle='tab') Git
+      li
+        a(href='#shell', role='tab', data-toggle='tab') Shell
+      li
+        a(href='#polymer', role='tab', data-toggle='tab') Polymer
+      li
+        a(href='#php', role='tab', data-toggle='tab') PHP
+      li
+        a(href='#misc', role='tab', data-toggle='tab') Misc
+    // Tab panes
+    .tab-content.content
+      #js.tab-pane.active.fade.in
+        ul.list-group
+          a.list-group-item(href='/reference/js_backtrace') Backtrace
+          a.list-group-item(href='/reference/js_callback') Callback
+          a.list-group-item(href='/reference/js_debounce') Debounce
+          a.list-group-item(href='/reference/js_Angular') Angular
+          a.list-group-item(href='/reference/jqm_google_analytics') jQuery Mobile Google Analytics
+      #html.tab-pane.fade
+        ul.list-group
+          a.list-group-item(href='/reference/html_all') All the Elements!
+          a.list-group-item(href='/reference/bootstrap_test') Bootstrap Test
+      #git.tab-pane.fade
+        ul.list-group
+          a.list-group-item(href='/reference/git_flow') Flow
+          a.list-group-item(href='/reference/git_autocomplete') Autocomplete
+      #shell.tab-pane.fade
+        ul.list-group
+          a.list-group-item(href='/reference/ssh_tunnel') SSH Tunneling
+          a.list-group-item(href='/reference/bash_profile') Bash Profile
+          a.list-group-item(href='/reference/counting_log_ips') Counting IP Addresses in Log Files
+          a.list-group-item(href='/reference/yum_history') Yum History/Undo
+          a.list-group-item(href='/reference/svn_add') SVN Add
+      #polymer.tab-pane.fade
+        ul.list-group
+          li.list-group-item
+            a(href='http://www.polymer-project.org/components/core-icons/demo.html') Icons
+          li.list-group-item
+            a(href='/reference/polymer_misc') Misc
+          li.list-group-item
+            a(href='https://www.polymer-project.org/articles/communication.html') Messaging
+          li.list-group-item
+            a(href='https://www.polymer-project.org/articles/concatenating-web-components.html') Compiling
+      #php.tab-pane.fade
+        ul.list-group
+          li.list-group-item
+            a(href='/reference/php_backtrace') Backtrace
+          li.list-group-item
+            a(href='/reference/php_cake_query_log') CakePHP 1.2 query log
+      #misc.tab-pane.fade
+        ul.list-group
+          a.list-group-item(href='/reference/letsencrypt') Lets Encrypt
+          a.list-group-item(href='/reference/stock_photos') Stock Photos
+          a.list-group-item(href='http://www.w3.org/TR/html5/forms.html#valid-e-mail-address') Email Addresses
+          a.list-group-item(href='/reference/chromebook') Chromebook Crouton
+          a.list-group-item(href='/reference/asus_laptop') Asus Laptop
+          a.list-group-item(href='/reference/gnome3_monitor_config') Gnome 3 Master Monitor
+          a.list-group-item(href='/reference/evoulent_mouse_config') Evoluent Mouse config for Linux
+          a.list-group-item(href='/reference/gource') Gource defaults
+    .well.content
+      a(href="https://youtu.be/_yCz1TA0EL4") You should use [insert library/framework], it's the bestestest!
+    .well.content
+      | "People don't buy what you do, they buy why you do it." - https://youtu.be/u4ZoJKF_VuA
+    .well.content
+      | "Anything that works will be used in progressively more challenging applications, until it fails." - Laurence J. Peter, The Generalized Peter Principle.
+    .well.content
+      | "Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure." - Conway's Law
+    .well.content
+      h4 Story Starter
+      |     When _____ , I want to _____ , so I can _____ .
+    .well.content
+      h4 Smile
+      p ᕕ( ᐛ )ᕗ
+      span ╰(´ڡ`)╯
+      p ᕕ( ˊᵕˋ )୨
+      span ʘ ͜ʖ ʘ
+      p ( ＾◡＾ )
