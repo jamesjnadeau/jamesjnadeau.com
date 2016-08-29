@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node_modules/.bin/webpack-dev-server --progress --colors -d --host 0.0.0.0",
-    "watch": "node_modules/.bin/webpack --progress --colors --watch -d",
-    "build": "node_modules/.bin/webpack --progress --colors -p -d",
+    "dev": "webpack-dashboard -- webpack-dev-server --progress --colors -d --host 0.0.0.0",
+    "watch": "webpack --progress --colors --watch -d",
+    "build": "webpack --progress --colors -p -d",
     "stage": "dev_appserver.py --host 0.0.0.0 ./",
     "deploy": "gcloud preview app deploy app.yaml --project quantum-enigma-707"
   },
@@ -45,6 +45,7 @@
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dashboard": "^0.1.8",
+    "webpack-dev-server": "^1.15.0"
   }
 }

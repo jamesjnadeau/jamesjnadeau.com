@@ -1,0 +1,19 @@
+extends ../templates/default
+
+block vars
+  -var title = 'James J Nadeau | Senior Systems Engineer'
+  -var description = 'James J Nadeau is a Systems Engineer specializing in mobile customer relation management solutions.'
+
+block content
+  h1 Sorry, There's a problem!
+  div
+    .panel-group
+      .panel.panel-default
+        .panel-body
+          .frontp
+            | Hi,
+            br
+            br
+            | Thanks for coming! Looks like you don't have an active connection to the internet! You might be able to browse other pages that are cached, but you can't view this one until we fetch it. Sorry about that. Maybe try getting an internet connection?
+  div
+    img.img-responsive.img-rounded(style='margin-bottom: 5px;', src='/files/bulb.jpg')
