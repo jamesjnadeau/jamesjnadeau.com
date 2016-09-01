@@ -21,7 +21,11 @@ html(lang='en')
     link(rel="shortcut icon", href="/icons/favicon.ico?v=#{version}")
     meta(name="msapplication-config", content="/icons/browserconfig.xml?v=#{version}")
     meta(name="theme-color", content="#2489ce")
-
+    
+    //- critical css
+    style(type='text/css').
+      :root #header + #content > #left > #rlblock_left
+      { display: none !important; }
 
   body
     // Loading spinner

@@ -2,6 +2,7 @@ var pathUtil = require('path');
 var marked = require('marked');
 var jade = require('jade');
 var webpack = require('webpack');
+var critical = require('critical');
 
 //Plugins
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -132,7 +133,21 @@ module.exports = {
       return urlPath;
     },
 
-    processFile: function(file, content) {
+    processFile: function(file, content, callback) {
+      var ensureCritical = function(content) {
+        critical.generate({
+            base: 'built/',
+            html: content,
+            width: 1920,
+            height: 1080,
+            // inline: true,
+            minify: true,
+        }, function (err, output) {
+            console.log(file);
+            callback(content);
+        });
+      };
+
       if (pathUtil.extname(file.absPath) === '.md') { //this is a regular markdown file
         //Assemeble some meta data to use in template
         //match pico header info
@@ -153,14 +168,14 @@ module.exports = {
           version: version,
         });
 
-        return fileContents;
+        ensureCritical(fileContents);
       } else {
         // new jade file type
-        return jade.render(content, {
+        ensureCritical(jade.render(content, {
           pretty: false,
           filename: file.absPath,
           version: version,
-        });
+        }));
       }
     },
   },
