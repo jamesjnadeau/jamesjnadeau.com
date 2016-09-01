@@ -9,6 +9,41 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var DashboardPlugin = require('webpack-dashboard/plugin');
 
 var notJadeContent = [];
+
+var version = require('package')(__dirname).version;
+console.log('version found', version);
+var env = {
+  version: version,
+};
+
+
+var plugins = [
+  new ExtractTextPlugin("[name].css", { allChunks: true }),
+  new CopyWebpackPlugin([
+    //Copy folders in wholesale
+    { from: 'assets/files', to: 'files' },
+    { from: 'assets/icons', to: 'icons' },
+    { from: 'assets/wind', to: 'wind' },
+    { from: 'assets/graph', to: 'graph' },
+    { from: 'assets/manifest.json', to: 'manifest.json' },
+  ]),
+  // make jQuery available everywhere
+  new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    'window.jQuery': 'jquery',
+  }),
+  // define ENV variables
+  new webpack.DefinePlugin({
+    env: JSON.stringify(env),
+  }),
+];
+
+if (process.env.NODE_ENV === 'development') {
+  plugins.unshift(new DashboardPlugin());
+}
+
+
 module.exports = {
   //enable source-maps
   devtool: 'source-map',
@@ -50,24 +85,7 @@ module.exports = {
     libraryTarget: 'umd',
   },
 
-  plugins: [
-    new DashboardPlugin(),
-    new ExtractTextPlugin("[name].css", { allChunks: true }),
-    new CopyWebpackPlugin([
-      //Copy folders in wholesale
-      { from: 'assets/files', to: 'files' },
-      { from: 'assets/icons', to: 'icons' },
-      { from: 'assets/wind', to: 'wind' },
-      { from: 'assets/graph', to: 'graph' },
-      { from: 'assets/manifest.json', to: 'manifest.json' },
-    ]),
-    // make jQuery available everywhere
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-    }),
-  ],
+  plugins: plugins,
 
   devServer: {
     contentBase: "./built",
@@ -139,6 +157,7 @@ module.exports = {
         return jade.render(content, {
           pretty: false,
           filename: file.absPath,
+          version: version,
         });
       }
     },

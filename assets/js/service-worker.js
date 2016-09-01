@@ -1,12 +1,18 @@
-var version = "1";
+var version = env.version;
+
+// resources required for offline access.
 var offlineResources = [
-  "/",
+  "/", // home page
   "/offline",
   "/files/bulb.jpg",
+  "/files/tree_line.jpg",
+  "/assets/styles/brickwall.png",
   "/files/me.jpg",
-  "/styles.css",
-  "/frontend.js",
+  "/styles.css?v=" + env.version,
+  "/frontend.js?v=" + env.version,
+  "/service-worker.js",
 ];
+
 self.addEventListener("install", function(event) {
   event.waitUntil(
     caches
@@ -20,10 +26,12 @@ self.addEventListener("install", function(event) {
 self.addEventListener("activate", function(event) {
   event.waitUntil(
     caches.keys().then(function(keys) {
+      console.log('killing all cache upon activation');
       return Promise.all(keys
         .filter(function (key) {
-          return key.indexOf(version) !== 0;
+          return key.indexOf('static') === -1;
         })
+        // kill all the cache that's not static activating a new service worker
         .map(function (key) {
           return caches.delete(key);
         })
@@ -33,7 +41,9 @@ self.addEventListener("activate", function(event) {
 });
 
 function isOfflineOrigin(origin) {
-  return origin === location.origin !== -1; // || origin.indexOf("netlify")
+  return origin === location.origin
+    || origin === 'netdna.bootstrapcdn.com'
+    || origin === 'fonts.googleapis.com';
 }
 
 self.addEventListener("fetch", function(event) {
@@ -45,39 +55,20 @@ self.addEventListener("fetch", function(event) {
     return;
   }
 
-  // For HTML try the network first, fall back to the cache, and then
-  // finally the offline page
-  if (request.headers.get("Accept").indexOf("text/html") !== -1) {
-    console.log('accept', request);
-    event.respondWith(
-      fetch(request)
-        .then(function(response) {
-          // Stash a copy of this page in the cache
-          var copy = response.clone();
-          caches.open(version + "pages")
-            .then(function(cache) {
-              cache.put(request, copy);
-            });
-
-          return response;
-        })
-        .catch(function() { // we have a problem
-          return caches.match(request)
-            .then(function(response) {
-              // return cache or show offline request
-              return response || caches.match("/offline");
-            });
-        })
-    );
-    return;
-  }
-
-  // For non-HTML requests look in the cache first, and fall back to
-  // the network
+  // look in the cache first, and fall back to the network
   event.respondWith(
     caches.match(request)
       .then(function(response) {
-        return response || fetch(request);
+        return response || fetch(request).then(function(response) {
+          var copy = response.clone();
+          caches.open("swCache")
+            .then(function(cache) {
+              console.log('caching', request.url);
+              cache.put(request, copy);
+            });
+        });
+      }).catch(function() {
+        return caches.match("/offline");
       })
   );
 });

@@ -12,27 +12,19 @@ html(lang='en')
     meta(name='robots', content='robots.txt')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1')
     meta(name='author', content='James J Nadeau')
-    link(href='//fonts.googleapis.com/css?family=Roboto|Over+the+Rainbow|Roboto+Slab:400,700', rel='stylesheet', type='text/css')
+    link(href='//fonts.googleapis.com/css?family=Rock+Salt|Roboto|Roboto+Slab:400,700', rel='stylesheet', type='text/css')
     link(href='//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', rel='stylesheet', type='text/css')
-    link(href='/styles.css', rel='stylesheet', type='text/css')
+    link(href='/styles.css?v=#{version}', rel='stylesheet', type='text/css')
     
     link(rel='manifest', href='/manifest.json')
-    link(rel='apple-touch-icon', sizes='57x57', href='/icons/apple-icon-57x57.png')
-    link(rel='apple-touch-icon', sizes='60x60', href='/icons/apple-icon-60x60.png')
-    link(rel='apple-touch-icon', sizes='72x72', href='/icons/apple-icon-72x72.png')
-    link(rel='apple-touch-icon', sizes='76x76', href='/icons/apple-icon-76x76.png')
-    link(rel='apple-touch-icon', sizes='114x114', href='/icons/apple-icon-114x114.png')
-    link(rel='apple-touch-icon', sizes='120x120', href='/icons/apple-icon-120x120.png')
-    link(rel='apple-touch-icon', sizes='144x144', href='/icons/apple-icon-144x144.png')
-    link(rel='apple-touch-icon', sizes='152x152', href='/icons/apple-icon-152x152.png')
-    link(rel='apple-touch-icon', sizes='180x180', href='/icons/apple-icon-180x180.png')
-    link(rel='icon', type='image/png', sizes='192x192', href='/icons/android-icon-192x192.png')
-    link(rel='icon', type='image/png', sizes='32x32', href='/icons/favicon-32x32.png')
-    link(rel='icon', type='image/png', sizes='96x96', href='/icons/favicon-96x96.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='/icons/favicon-16x16.png')
-    meta(name='msapplication-TileColor', content='#ffffff')
-    meta(name='msapplication-TileImage', content='/icons/ms-icon-144x144.png')
-    meta(name='theme-color', content='#ffffff')
+    link(rel="apple-touch-icon", sizes="180x180", href="/icons/apple-touch-icon.png?v=#{version}")
+    link(rel="icon", type="image/png", href="/icons/favicon-32x32.png?v=#{version}", sizes="32x32")
+    link(rel="icon", type="image/png", href="/icons/favicon-16x16.png?v=#{version}", sizes="16x16")
+    link(rel="mask-icon", href="/icons/safari-pinned-tab.svg?v=#{version}", color="#2489ce")
+    link(rel="shortcut icon", href="/icons/favicon.ico?v=#{version}")
+    meta(name="msapplication-config", content="/icons/browserconfig.xml?v=#{version}")
+    meta(name="theme-color", content="#2489ce")
+
 
   body
     // Loading spinner
@@ -66,18 +58,18 @@ html(lang='en')
                     img.img-thumbnail(alt='', src='/files/me.jpg', style='width: 60px; height: 60px; float: right;')
                     span(style='font-size: 8pt; margin-left: 5px; color: white;') Systems Engineer
                   li
-                    a(href='http://www.linkedin.com/pub/james-nadeau/79/376/52b')
+                    a(href='http://www.linkedin.com/pub/james-nadeau/79/376/52b' rel="me")
                       span LinkedIn
                   li
-                    a(href='https://google.com/+JamesNadeauJ', target='_blank') Google+
+                    a(href='https://google.com/+JamesNadeauJ', target='_blank' rel="me") Google+
                   li
-                    a(href='https://github.com/jamesjnadeau?tab=activity', target='_blank') Git Hub
+                    a(href='https://github.com/jamesjnadeau?tab=activity', target='_blank' rel="me") Git Hub
                   li
-                    a(href='https://www.odesk.com/users/~01a0320a9c1365565a') oDesk
+                    a(href='https://www.odesk.com/users/~01a0320a9c1365565a' rel="me") oDesk
                   li
-                    a(href='http://stackoverflow.com/users/1978759/james-nadeau', target='_blank') Stack Overflow
+                    a(href='http://stackoverflow.com/users/1978759/james-nadeau', target='_blank' rel="me") Stack Overflow
       #container.container.animated.fadeInRight
         block content
           div !{content}
 
-    script(src='/frontend.js')
+    script(src='/frontend.js?v=#{version}')

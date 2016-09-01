@@ -11,9 +11,9 @@ body {
 
 .brand.navbar-brand
 {
-	font-family: 'Over the Rainbow', cursive;
+	font-family: 'Rock Salt', cursive;
 	color: #2489ce;
-	font-weight:bold;
+	font-size: 21px;
 }
 
 h1
@@ -81,7 +81,7 @@ h3.list-group-item:hover:before {
 .container p
 {
 	max-width: 600px;
-	
+
 }
 
 .headroom {
@@ -99,34 +99,34 @@ h3.list-group-item:hover:before {
 	color: white;
 }
 
-@media (max-width: 992px) 
+@media (max-width: 992px)
 {
 	h1
 	{
 		font-size: 24px;
 	}
 }
-@media (min-width: 600px) 
+@media (min-width: 600px)
 {
 	h1
 	{
 		text-align: center;
 	}
-	
+
 	.frontp,
 	.content
 	{
 		width: 50%;
 		margin: 0px auto 10px auto;
 	}
-	
+
 	.container p,
 	*:not(.navbar) > .container ul:not(.list-group)
 	{
 		width: 50%;
 		margin: 0px auto 10px auto;
 	}
-	
+
 	img.content-secondary
 	{
 		width: 80%;
