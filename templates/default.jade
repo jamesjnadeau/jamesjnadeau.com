@@ -12,9 +12,6 @@ html(lang='en')
     meta(name='robots', content='robots.txt')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1')
     meta(name='author', content='James J Nadeau')
-    link(href='//fonts.googleapis.com/css?family=Rock+Salt|Roboto|Roboto+Slab:400,700', rel='stylesheet', type='text/css')
-    link(href='//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', rel='stylesheet', type='text/css')
-    link(href='/styles.css?v=#{version}', rel='stylesheet', type='text/css')
     
     link(rel='manifest', href='/manifest.json')
     link(rel="apple-touch-icon", sizes="180x180", href="/icons/apple-touch-icon.png?v=#{version}")
@@ -72,4 +69,5 @@ html(lang='en')
         block content
           div !{content}
 
+    link(href='/styles.css?v=#{version}', rel='stylesheet', type='text/css')
     script(src='/frontend.js?v=#{version}')

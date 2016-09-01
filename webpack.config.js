@@ -14,6 +14,7 @@ var version = require('package')(__dirname).version;
 console.log('version found', version);
 var env = {
   version: version,
+  NODE_ENV: process.env.NODE_ENV,
 };
 
 
