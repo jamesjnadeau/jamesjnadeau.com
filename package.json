@@ -9,7 +9,7 @@
     "watch": "webpack --progress --colors --watch -d",
     "build": "webpack --progress --colors -p -d",
     "stage": "dev_appserver.py --host 0.0.0.0 ./",
-    "deploy": "gcloud preview app deploy app.yaml --project quantum-enigma-707"
+    "deploy": "gcloud app deploy app.yaml --project quantum-enigma-707"
   },
   "repository": {
     "type": "git",

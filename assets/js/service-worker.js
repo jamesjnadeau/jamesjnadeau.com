@@ -8,15 +8,14 @@ var offlineResources = [
   "/files/tree_line.jpg",
   "/assets/styles/brickwall.png",
   "/files/me.jpg",
-  "/styles.css?v=" + env.version,
-  "/frontend.js?v=" + env.version,
-  "/service-worker.js",
+  "/styles.css?v=" + version,
+  "/frontend.js?v=" + version,
 ];
 
 self.addEventListener("install", function(event) {
   event.waitUntil(
     caches
-      .open(version + "static")
+      .open("static")
       .then(function(cache) {
         cache.addAll(offlineResources);
       })
@@ -29,9 +28,9 @@ self.addEventListener("activate", function(event) {
       console.log('killing all cache upon activation');
       return Promise.all(keys
         .filter(function (key) {
+          // if there's not 'static' in the key, it's something we should delete
           return key.indexOf('static') === -1;
         })
-        // kill all the cache that's not static activating a new service worker
         .map(function (key) {
           return caches.delete(key);
         })
@@ -41,16 +40,15 @@ self.addEventListener("activate", function(event) {
 });
 
 function isOfflineOrigin(origin) {
-  return origin === location.origin
-    || origin === 'netdna.bootstrapcdn.com'
-    || origin === 'fonts.googleapis.com';
+  return origin === location.origin;
 }
 
 self.addEventListener("fetch", function(event) {
+  console.log('fetching');
   var request = event.request;
   var url = new URL(request.url);
 
-  // Only worry about GET requests and certain domains
+  // throw out anything but get requests and domains we allow.
   if (request.method !== "GET" || !isOfflineOrigin(url.origin)) {
     return;
   }
@@ -59,13 +57,17 @@ self.addEventListener("fetch", function(event) {
   event.respondWith(
     caches.match(request)
       .then(function(response) {
-        return response || fetch(request).then(function(response) {
-          var copy = response.clone();
+        console.log('responding with cache', !!response);
+        return response || fetch(request).then(function(fetchResponse) {
+          // we have a successful request at this point, cache it?
+          var copy = fetchResponse.clone();
+          console.log('fetchResponse', copy.clone());
           caches.open("swCache")
             .then(function(cache) {
               console.log('caching', request.url);
               cache.put(request, copy);
             });
+          return fetchResponse;
         });
       }).catch(function() {
         return caches.match("/offline");

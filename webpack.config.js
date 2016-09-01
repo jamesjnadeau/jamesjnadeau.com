@@ -149,6 +149,7 @@ module.exports = {
           title: meta.Title,
           description: meta.Description,
           content: marked(content.replace(picoCMSMetaPattern, '')),
+          version: version,
         });
 
         return fileContents;
