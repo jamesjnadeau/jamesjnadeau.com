@@ -2,6 +2,7 @@ sudo: false
 language: node_js
 node_js:
 - '4'
+# see note here https://docs.travis-ci.com/user/languages/javascript-with-nodejs#Node.js-v4-(or-io.js-v3)-compiler-requirements
 env:
   - CXX=g++-4.8
 addons:
@@ -22,5 +23,7 @@ install:
 - npm run build
 deploy:
   provider: gae
+  # Skip cleanup so api_key.py and vendored dependencies are still there
+  skip_cleanup: true
   keyfile: "gae-client-secret.json"
   project: "quantum-enigma-707"
