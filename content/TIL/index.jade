@@ -1,0 +1,14 @@
+extends ../../templates/default
+
+block vars
+  -var title = 'Today I Learned'
+  -var description = 'I hope to write here daily about something I\'ve learned. We\'ll see how this goes....'
+
+block content
+  h1 Today I Learned
+  .row
+    .col-md-8.col-md-offset-2
+      ul.list-group
+        h3.list-group-item.text-center 2016
+        a.list-group-item(href='/TIL/2016-10-8-first/index.html') First
+  
