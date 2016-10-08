@@ -2,3 +2,4 @@ node_modules
 built
 .settings
 *.log
+gae-client-secret.json
