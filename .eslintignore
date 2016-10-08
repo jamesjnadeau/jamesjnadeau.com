@@ -1,0 +1,6 @@
+assets/graph
+assets/wind
+assets/js/headers.js
+assets/js/jquery.*
+built
+node_modules

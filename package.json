@@ -4,11 +4,12 @@
   "description": "my personal website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "npm run lint",
     "dev": "NODE_ENV=development webpack-dashboard -- npm run dev:webpack",
     "dev:webpack": "webpack-dev-server --progress --colors -d --host 0.0.0.0",
     "watch": "webpack --progress --colors --watch -d",
     "build": "webpack --progress --colors -p -d",
+    "lint": "eslint .",
     "stage": "dev_appserver.py --host 0.0.0.0 ./",
     "inlineCSS": "find ./built -type f -name '*.html' -exec critical {} --base ./built --inline > {} \\;",
     "deploy": "gcloud app deploy app.yaml --project quantum-enigma-707"

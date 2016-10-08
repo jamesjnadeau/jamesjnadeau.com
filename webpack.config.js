@@ -2,7 +2,7 @@ var pathUtil = require('path');
 var marked = require('marked');
 var jade = require('jade');
 var webpack = require('webpack');
-var critical = require('critical');
+// var critical = require('critical');
 
 //Plugins
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -134,17 +134,19 @@ module.exports = {
     },
 
     processFile: function(file, content, callback) {
-      var ensureCritical = function(content) {
-        critical.generate({
-            base: 'built/',
-            html: content,
-            width: 1920,
-            height: 1080,
-            // inline: true,
-            minify: true,
+      var ensureCritical = function(ensureContent) {
+        /* critical.generate({
+          base: 'built/',
+          html: ensureContent,
+          width: 1920,
+          height: 1080,
+          // inline: true,
+          minify: true,
         }, function (err, output) {
-            callback(content);
+          callback(output);
         });
+        */
+        callback(ensureContent);
       };
 
       if (pathUtil.extname(file.absPath) === '.md') { //this is a regular markdown file
