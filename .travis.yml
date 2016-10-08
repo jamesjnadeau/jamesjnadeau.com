@@ -2,6 +2,9 @@ sudo: false
 language: node_js
 node_js:
 - '4'
+cache:
+  directories:
+  - node_modules
 # see note here https://docs.travis-ci.com/user/languages/javascript-with-nodejs#Node.js-v4-(or-io.js-v3)-compiler-requirements
 env:
   - CXX=g++-4.8
