@@ -12,7 +12,7 @@ var DashboardPlugin = require('webpack-dashboard/plugin');
 var notJadeContent = [];
 
 var version = require('package')(__dirname).version;
-console.log('version found', version);
+console.log('Version', version);
 var env = {
   version: version,
   NODE_ENV: process.env.NODE_ENV,
@@ -143,7 +143,6 @@ module.exports = {
             // inline: true,
             minify: true,
         }, function (err, output) {
-            console.log(file);
             callback(content);
         });
       };
