@@ -1,4 +1,4 @@
-@import url('//fonts.googleapis.com/css?family=Rock+Salt|Roboto|Roboto+Slab:400,700');
+@import 'https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif|Rock+Salt';
 
 body {
 	/* Background pattern from subtlepatterns.com */
@@ -7,7 +7,7 @@ body {
 	background-color: transparent ! important;
 	padding-top: 60px;
 	padding-bottom: 30px;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Noto Sans', sans-serif;
 }
 
 .brand.navbar-brand
@@ -19,7 +19,7 @@ body {
 
 h1
 {
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Noto Serif', serif;
 	border-bottom: 2px solid #2489ce;
 	padding-bottom: 5px;
 	text-decoration: none;
@@ -38,7 +38,7 @@ img.img-responsive.img-rounded
 h3.list-group-item
 {
 	z-index:100;
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Noto Serif', serif;
 	background-color: #F2F4F3;
 	text-decoration: none;
 }
