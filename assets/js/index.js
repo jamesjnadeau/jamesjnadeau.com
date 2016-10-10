@@ -7,5 +7,5 @@ require("./headers.js");
 require("./main.js");
 
 if (env.NODE_ENV !== 'development' && 'serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js');
+  navigator.serviceWorker.register('/service-worker.js?' + env.version);
 }
