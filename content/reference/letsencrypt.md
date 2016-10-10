@@ -7,10 +7,9 @@ Date: 03/14/2015
 
 Quick steps to get a ssl cert and key from let's encrypt
   ```
-  git clone https://github.com/letsencrypt/letsencrypt
-  cd letsencrypt
-  ./letsencrypt-auto -a manual certonly
-  ``` 
+  sudo dnf install certbot
+  certbot -a manual certonly
+  ```
 
 After entering some details and confirming ownership of your site, you'll need to enter the cert from
   ```
