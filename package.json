@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint",
+    "chimp": "chimp --watch",
     "dev": "NODE_ENV=development webpack-dashboard -- npm run dev:webpack",
     "dev:webpack": "webpack-dev-server --progress --colors -d --host 0.0.0.0",
     "watch": "webpack --progress --colors --watch -d",
@@ -27,6 +28,7 @@
   "dependencies": {
     "async": "^1.5.0",
     "bootstrap": "^3.3.6",
+    "chimp": "^0.41.2",
     "copy-webpack-plugin": "^0.3.3",
     "critical": "^0.8.0",
     "css-loader": "^0.23.0",
