@@ -6,7 +6,7 @@ Date: 01/01/2014
 */
 
 <p>Here's the contents of my bashrc file I normally use:</p>
-<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag" title=".baschrc"> 
+<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag" title=".baschrc">
 # .bashrc
 
 # Source global definitions
@@ -14,10 +14,9 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# User specific aliases and functions
-#PS1="&gt; \w\n[\u@\h \T ]\$"
 # Custom bash prompt via kirsle.net/wizards/ps1.html
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\]&gt; \w    \n\[$(tput setaf 2)\][\u@\h\[$(tput setaf 4)\] \T\[$(tput setaf 2)\] ]\\$\[$(tput sgr0)\] "
+export PS1="\n\njobs: \j\[$(tput setaf 5)\] | \[$(tput setaf 2)\]\w\n\[$(tput bold)\]\[$(tput setaf 7)\]\t \[$(tput setaf 2)\][\[$(tput setaf 4)\]\u\[$(tput setaf 1)\]@\[$(tput setaf 1)\]\h\[$(tput setaf 2)\]]\[$(tput setaf 3)\]\\$ \[$(tput sgr0)\]"
+
 
 #colorize grep
 alias grep='grep --color=auto'
@@ -25,7 +24,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 export EDITOR=/usr/bin/nano
-export HISTFILESIZE=3000
+export HISTFILESIZE=10000
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace

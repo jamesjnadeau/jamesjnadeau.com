@@ -12,7 +12,8 @@
     "lint": "eslint .",
     "stage": "dev_appserver.py --host 0.0.0.0 ./",
     "inlineCSS": "find ./built -type f -name '*.html' -exec critical {} --base ./built --inline > {} \\;",
-    "deploy": "gcloud app deploy app.yaml --project quantum-enigma-707"
+    "deploy": "gcloud app deploy app.yaml --project quantum-enigma-707",
+    "deploy:verbose": "npm run deploy -- --verbosity=info"
   },
   "repository": {
     "type": "git",

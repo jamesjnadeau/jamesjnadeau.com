@@ -9,6 +9,7 @@ skip_files:
 - ^assets(.*/)?$
 - ^content(.*/)?$
 - ^templates(.*/)?$
+- ^package.json$
 
 handlers:
 - url: /files
