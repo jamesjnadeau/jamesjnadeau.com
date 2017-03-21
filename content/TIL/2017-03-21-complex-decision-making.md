@@ -20,22 +20,20 @@ These preparations should take you half an hour or so, a small investment that c
 
 * __Decision Making Noise:__ Given the same set of data twice, we make two different decisions. Caused by internal contradiction.
 
-* `It's possible to create useful algorithms without prior statistical research. Simple equally weight formulas based on existing statistics or on common sense are often very good predictors of significant outcomes.`
+* "It's possible to create useful algorithms without prior statistical research. Simple equally weight formulas based on existing statistics or on common sense are often very good predictors of significant outcomes."
 
-* `In a memorable example, Dawes showed that marital stability is well predicted by a formula: Frequency of lovemaking minus frequency of quarrels.`
+* "In a memorable example, Dawes showed that marital stability is well predicted by a formula: Frequency of lovemaking minus frequency of quarrels."
 
-* `the vast majority of human stock-pickers cannot outperform a simple S&P 500 index fund`
+* "the vast majority of human stock-pickers cannot outperform a simple S&P 500 index fund"
 
-# Spiraled into reading...
+## Spiraled into reading...
 
 [Simple Rules: ](https://www.farnamstreetblog.com/2015/07/simple-rules/)
 
-> First, they are limited to a handful. Capping the number of rules makes them easy to remember and maintains a focus on what matters most. 
+> First, they are limited to a handful. Capping the number of rules makes them easy to remember and maintains a focus on what matters most.
 
-> Second, simple rules are tailored to the person or organization using them. College athletes and middle-aged dieters may both rely on simple rules to decide what to eat, but their rules will be very different. 
+> Second, simple rules are tailored to the person or organization using them. College athletes and middle-aged dieters may both rely on simple rules to decide what to eat, but their rules will be very different.
 
-> Third, simple rules apply to a well-defined activity or decision, such as prioritizing injured soldiers for medical care. Rules that cover multiple activities or choices end up as vague platitudes, such as “Do your best” and “Focus on customers.” 
+> Third, simple rules apply to a well-defined activity or decision, such as prioritizing injured soldiers for medical care. Rules that cover multiple activities or choices end up as vague platitudes, such as “Do your best” and “Focus on customers.”
 
 > Finally, simple rules provide clear guidance while conferring the latitude to exercise discretion.
-
-
