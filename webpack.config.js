@@ -95,13 +95,13 @@ module.exports = {
 
   staticSiteLoader: {
     //perform any preprocessing tasks you might need here.
-    preProcess: function() { //source
+    preProcess: function(source, path) { //source
+      //watch the content directory for changes
+      this.addContextDependency(path);
       //Define our template path
       var templatePath = 'templates/default.jade';
-
       //watch the template for changes
       this.addDependency(templatePath);
-
       //Compile the template for use later
       this.template = jade.compileFile(templatePath, { pretty: false });
     },
@@ -111,6 +111,7 @@ module.exports = {
     },
     //allows you to rewrite the url path that this will be uploaded to
     rewriteUrlPath: function(path, stats, absPath) {
+      this.addDependency(path)
       var extensionSize;
       if (pathUtil.extname(path) === '.md') {
         extensionSize = -3;
