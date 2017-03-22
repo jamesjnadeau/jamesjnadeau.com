@@ -111,7 +111,6 @@ module.exports = {
     },
     //allows you to rewrite the url path that this will be uploaded to
     rewriteUrlPath: function(path, stats, absPath) {
-      this.addDependency(path)
       var extensionSize;
       if (pathUtil.extname(path) === '.md') {
         extensionSize = -3;
