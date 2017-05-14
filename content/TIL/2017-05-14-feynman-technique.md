@@ -3,7 +3,8 @@ Title: Feynman Technique
 Description: The facts on why facts alone can’t fight false beliefs
 */
 
-# [“Feynman Technique”](https://curiosity.com/topics/learn-anything-in-four-steps-with-the-feynman-technique-curiosity/) 
+# Feynman Technique
+https://curiosity.com/topics/learn-anything-in-four-steps-with-the-feynman-technique-curiosity/
 
 > Learn Anything In Four Steps With The Feynman Technique
 
