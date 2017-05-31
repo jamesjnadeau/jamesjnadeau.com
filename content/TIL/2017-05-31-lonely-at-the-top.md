@@ -1,6 +1,6 @@
 /*
 Title: The loneliness of Donald Trump
-Description: An idea to meaningfully describe the content of webpages in such a way that they can be programmatically connected to other webpages and start to amount to something larger than themselves.
+Description: A great insight found in a piece about a little man.
 */
 
 # Rebecca Solnit: The Loneliness of Donald Trump
