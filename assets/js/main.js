@@ -42,10 +42,11 @@ $(document).ready(function() {
     return animations[Math.floor(Math.random() * animations.length)];
   };
   var highlight_headers = function() {
-    var headers = $('h1');
+    var headers = $('h1:not(.no-animation)');
     headers.textillate({
-      initialDelay: 14700,
+      initialDelay: 9000,
       loop: true,
+      minDisplayTime: 7000,
       in: {
         effect: get_animation,
         delay: animation_delay,

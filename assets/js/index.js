@@ -6,6 +6,6 @@ require("./jquery.textillate.js");
 require("./headers.js");
 require("./main.js");
 
-if (env.NODE_ENV !== 'development' && 'serviceWorker' in navigator) {
+if (env.NODE_ENV !== 'local' && 'serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js?' + env.version);
 }
