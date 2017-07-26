@@ -25,3 +25,5 @@ The advantages:
 - This repo is future proof, if npm goes away, we don't have to skip a beat.
 
 > credit to the oldest post mentioning this I can find:  http://www.letscodejavascript.com/v3/blog/2014/03/the_npm_debacle#how-to-do-it
+> 
+> also mentioned as a best practice in a note here: https://keymetrics.io/2014/06/25/ecosystem-json-deploy-and-iterate-faster/#setup
