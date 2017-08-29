@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint",
-    "dev": "NODE_ENV=development webpack-dashboard -- npm run dev:webpack",
+    "dev": "NODE_ENV=development npm run dev:webpack",
+    "dev:dashboard": "NODE_ENV=development webpack-dashboard -- npm run dev:webpack",
     "dev:webpack": "webpack-dev-server --progress --colors -d --host 0.0.0.0",
     "watch": "webpack --progress --colors --watch -d",
     "build": "webpack --progress --colors -p -d",
@@ -39,7 +40,6 @@
     "filewalker": "^0.1.2",
     "html-loader": "^0.4.0",
     "html-webpack-plugin": "^1.7.0",
-    "image-webpack-loader": "^1.6.2",
     "jade": "^1.11.0",
     "jquery": "^2.2.1",
     "less": "^2.5.3",

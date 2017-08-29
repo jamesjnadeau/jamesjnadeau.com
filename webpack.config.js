@@ -18,7 +18,6 @@ var env = {
   NODE_ENV: process.env.NODE_ENV,
 };
 
-
 var plugins = [
   new ExtractTextPlugin("[name].css", { allChunks: true }),
   new CopyWebpackPlugin([
