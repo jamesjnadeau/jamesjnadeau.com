@@ -4,7 +4,6 @@
   "description": "my personal website",
   "main": "index.js",
   "scripts": {
-    "test": "snyk test && npm run lint",
     "dev": "NODE_ENV=development npm run dev:webpack",
     "dev:dashboard": "NODE_ENV=development webpack-dashboard -- npm run dev:webpack",
     "dev:webpack": "webpack-dev-server --progress --colors -d --host 0.0.0.0",
@@ -29,7 +28,7 @@
   "dependencies": {
     "async": "^1.5.0",
     "bootstrap": "^3.3.6",
-    "copy-webpack-plugin": "^0.3.3",
+    "copy-webpack-plugin": "^4",
     "critical": "^0.9.0",
     "css-loader": "^0.23.0",
     "eslint": "^2.13.1",
@@ -50,7 +49,7 @@
     "static-site-loader": "0.0.5",
     "style-loader": "^0.13.0",
     "url-loader": "^0.6.0",
-    "webpack": "^1.13.2",
+    "webpack": "^1x",
     "webpack-dashboard": "^0.1.8",
     "webpack-dev-server": "^1.16.2"
   },
