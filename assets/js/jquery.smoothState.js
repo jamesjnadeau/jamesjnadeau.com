@@ -1,12 +1,12 @@
 /**
  * smoothState.js is a jQuery plugin to stop page load jank.
  *
- * This jQuery plugin progressively enhances page loads to 
+ * This jQuery plugin progressively enhances page loads to
  * behave more like a single-page application.
  *
  * @author  Miguel Ángel Pérez   reachme@miguel-perez.com
  * @see	 https://github.com/miguel-perez/jquery.smoothState.js
- * 
+ *
  */
 ;(function ( $, window, document, undefined ) {
 	"use strict";
@@ -76,7 +76,7 @@
 			 * Checks to see if the url is external
 			 * @param   {string}	url - url being evaluated
 			 * @see	 http://stackoverflow.com/questions/6238351/fastest-way-to-detect-external-urls
-			 * 
+			 *
 			 */
 			isExternal: function (url) {
 				var match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);
@@ -92,7 +92,7 @@
 			/**
 			 * Checks to see if the url is an internal hash
 			 * @param   {string}	url - url being evaluated
-			 * 
+			 *
 			 */
 			isHash: function (url) {
 				var hasPathname = (url.indexOf(window.location.pathname) > 0) ? true : false,
@@ -103,7 +103,7 @@
 			/**
 			 * Checks to see if we should be loading this URL
 			 * @param   {string}	url - url being evaluated
-			 * 
+			 *
 			 */
 			shouldLoad: function ($anchor, blacklist) {
 				var url = $anchor.prop("href");
@@ -116,7 +116,7 @@
 			 * @param   {string}	url - url being evaluated
 			 * @author  Ben Alman   http://benalman.com/
 			 * @see	 https://gist.github.com/cowboy/742952
-			 * 
+			 *
 			 */
 			htmlDoc: function (html) {
 				var parent,
@@ -162,12 +162,12 @@
 			 *
 			 * This is used to clear the 'cache' object that stores
 			 * all of the html. This would prevent the client from
-			 * running out of memory and allow the user to hit the 
+			 * running out of memory and allow the user to hit the
 			 * server for a fresh copy of the content.
 			 *
 			 * @param   {object}	obj
 			 * @param   {number}	cap
-			 * 
+			 *
 			 */
 			clearIfOverCapacity: function (obj, cap) {
 				// Polyfill Object.keys if it doesn't exist
@@ -195,7 +195,7 @@
 			 * Grabs the new container's contents from the cache
 			 * @param   {string}	id
 			 * @param   {object}	$html
-			 * 
+			 *
 			 */
 			getContentById: function (id, $html) {
 				var updatedContainer	= $(id, $html).html(),
@@ -208,7 +208,7 @@
 			 * @param   {object}	object - object contents will be stored into
 			 * @param   {string}	url - url to be used as the prop
 			 * @param   {string}	html - contents to store
-			 * 
+			 *
 			 */
 			storePageIn: function (object, url, html) {
 				var $htmlDoc = utility.htmlDoc(html);
@@ -223,7 +223,7 @@
 			/**
 			 * Fires a custom event when all animations are complete
 			 * @param   {object}	$element - jQuery object that should trigger event
-			 * 
+			 *
 			 */
 			triggerAllAnimationEndEvent: function ($element) {
 				var animationCount	  = 0,
@@ -258,7 +258,7 @@
 			 * Fires a custom callback when all animations are finished
 			 * @param   {object}	$element - jQuery object that should trigger event
 			 * @param   {function}  callback - function to run
-			 * 
+			 *
 			 */
 			triggerCallback: function ($element, callback) {
 				$element.one("ss.allanimationend", callback);
@@ -304,12 +304,12 @@
 				currentHref = window.location.href,
 
 				/**
-				 * Loads the contents of a url into our container 
+				 * Loads the contents of a url into our container
 				 *
 				 * @param   {string}	url
 				 * @param   {bool}	  isPopped - used to determine if whe should
 				 *					  add a new item into the history object
-				 * 
+				 *
 				 */
 				load = function (url, isPopped) {
 					
@@ -389,7 +389,7 @@
 				 * Fetches the contents of a url and stores it in the 'cache' varible
 				 * @param   {string}	url
 				 * @todo	Rethink cache structure
-				 * 
+				 *
 				 */
 				fetch = function (url) {
 					cache[url] = { status: "fetching" };
@@ -397,14 +397,14 @@
 						request	 = $.ajax(requestUrl);
 
 					// Store contents in cache variable if successful
-					request.success(function (html) {
+					request.done(function (html) {
 						// Clear cache varible if it's getting too big
 						cache = utility.clearIfOverCapacity(cache, options.pageCacheSize);
 						utility.storePageIn(cache, url, html);
 					});
 
 					// Mark as error
-					request.error(function () {
+					request.fail(function () {
 						cache[url].status = "error";
 					});
 				},
@@ -413,7 +413,7 @@
 				 * Binds to the hover event of a link, used for prefetching content
 				 *
 				 * @param   {object}	event
-				 * 
+				 *
 				 */
 				hoverAnchor = function (event) {
 					var $anchor = $(event.currentTarget),
@@ -429,7 +429,7 @@
 				 *
 				 * @param   {object}	event
 				 * @todo	Allow loading from a template in addition to an ajax request
-				 * 
+				 *
 				 */
 				clickAnchor = function (event) {
 					var $anchor	 = $(event.currentTarget),
@@ -449,7 +449,7 @@
 				 *
 				 * @param   {object}	event
 				 * @todo	Allow loading from a template in addition to an ajax request
-				 * 
+				 *
 				 */
 				bindEventHandlers = function ($element) {
 					//@todo: Handle form submissions
