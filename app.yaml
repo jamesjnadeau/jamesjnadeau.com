@@ -10,6 +10,7 @@ skip_files:
 - ^content(.*/)?$
 - ^templates(.*/)?$
 - ^package.json$
+- ^.git(.*/)?$
 
 handlers:
 - url: /files
