@@ -11,6 +11,7 @@ skip_files:
 - ^templates(.*/)?$
 - ^package.json$
 - ^.git(.*/)?$
+- ^scripts(.*/)?$
 
 handlers:
 - url: /files
