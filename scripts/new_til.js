@@ -22,6 +22,6 @@ fs.createReadStream('./content/TIL/template.jade')
 
 console.log('A new TIL was create at', './content/TIL/' + fileName + '.jade');
 
-var indexLink = "        a.list-group-item(href='/TIL/" + slugName + "/index.html') #[b "
+var indexLink = "        a.list-group-item(href='/TIL/" + fileName + "/index.html') #[b "
   + (now.getMonth() + 1) + "/" + now.getDate() + "] " + titleName;
 insertLine('./content/TIL/index.jade').contentSync(indexLink).at(16);
