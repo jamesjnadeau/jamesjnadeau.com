@@ -49,9 +49,9 @@ module.exports = {
     loaders: [
       { test: /\.html$/, loader: "html-loader" },
       { test: /\.css$/,
-       loader: ExtractTextPlugin.extract({
+        loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'less-loader']
+          use: ['css-loader', 'less-loader'],
         }),
       },
       { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
