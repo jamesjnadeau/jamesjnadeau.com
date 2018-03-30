@@ -1,11 +1,18 @@
 var pathUtil = require('path');
 var marked = require('marked');
 var jade = require('jade');
+var RSS = require('rss');
 var version = require('package')(__dirname).version;
 
 var notJadeContent = [];
-
 var template;
+var tilURLs;
+
+var feedOptions = {
+  title: 'James\' Today I ... ',
+  description: 'A collection of things I found interesting at the time.'
+  site_url: 'https://jamesjnadeau.com',
+}
 
 module.exports = {
   //perform any preprocessing tasks you might need here.
@@ -18,6 +25,9 @@ module.exports = {
     this.addDependency(templatePath);
     //Compile the template for use later
     template = jade.compileFile(templatePath, { pretty: false });
+    // clear out shared vars for new run
+    notJadeContent = [];
+    tilURLs = [];
   },
   //Test if a file should be processed or not, should return true or false;
   testToInclude: function(path) { // stats, absPath
@@ -42,6 +52,11 @@ module.exports = {
     //store these for later
     if (extensionSize === -3) {
       notJadeContent.push(urlPath);
+    }
+
+    if (urlPath.substring(0, 3) === 'TIL'
+    && urlPath.length > 4 && urlPath !== 'TIL/template') {
+      tilURLs.push(urlPath);
     }
 
     return urlPath;
@@ -92,5 +107,24 @@ module.exports = {
         version: version,
       }));
     }
+  },
+
+  postProcess: function() { // files
+    // Create TIL rss feed
+    var feed = new RSS(feedOptions);
+    tilURLs.forEach(function(url) {
+      var urlParts = url.split('-');
+      var date = urlParts.slice(0, 3).join('-');
+      var name = urlParts.slice(3).join(' ');
+      // upper case first letter
+      name = name.charAt(0).toUpperCase() + name.slice(1);
+      feed.item({
+        date: new Date(date),
+        title: name,
+        url: 'https://jamesjnadeau.com/' + url + '/index.html',
+      });
+    });
+    var feedXml = feed.xml({ indent: true });
+    this.emitFile('TIL/rss.xml', feedXml);
   },
 };
