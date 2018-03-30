@@ -10,7 +10,7 @@ var tilURLs;
 
 var feedOptions = {
   title: 'James\' Today I ... ',
-  description: 'A collection of things I found interesting at the time.'
+  description: 'A collection of things I found interesting at the time.',
   site_url: 'https://jamesjnadeau.com',
 }
 
