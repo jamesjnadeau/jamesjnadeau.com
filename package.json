@@ -49,6 +49,7 @@
     "loader-utils": "^0.2.12",
     "marked": "^0.3.9",
     "package": "^1.0.1",
+    "rss": "^1.2.2",
     "slugger": "^1.0.1",
     "smoothstate": "^0.7.2",
     "static-site-loader": "git+https://github.com/jamesjnadeau/static-site-loader.git",
