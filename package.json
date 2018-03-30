@@ -51,7 +51,7 @@
     "package": "^1.0.1",
     "slugger": "^1.0.1",
     "smoothstate": "^0.7.2",
-    "static-site-loader": "0.0.5",
+    "static-site-loader": "git+https://github.com/jamesjnadeau/static-site-loader.git",
     "style-loader": "^0.13.0",
     "url-loader": "^0.6.0",
     "webpack": "^3.11.0",
