@@ -12,7 +12,7 @@ var feedOptions = {
   title: 'James\' Today I ... ',
   description: 'A collection of things I found interesting at the time.',
   site_url: 'https://jamesjnadeau.com',
-}
+};
 
 module.exports = {
   //perform any preprocessing tasks you might need here.
