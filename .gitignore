@@ -3,6 +3,8 @@ built
 *.log
 gae-client-secret.json
 
+node_modules/.yarn-integrity
+
 # built node_modules
 node_modules/critical/node_modules/penthouse/node_modules/phantomjs-prebuilt/lib/location.js
 node_modules/critical/node_modules/penthouse/node_modules/phantomjs-prebuilt/lib/phantom/
@@ -10,3 +12,5 @@ node_modules/image-webpack-loader/node_modules/imagemin-pngquant/node_modules/pn
 node_modules/image-webpack-loader/node_modules/imagemin/node_modules/imagemin-gifsicle/node_modules/gifsicle/vendor/
 node_modules/image-webpack-loader/node_modules/imagemin/node_modules/imagemin-jpegtran/node_modules/jpegtran-bin/vendor/
 node_modules/image-webpack-loader/node_modules/imagemin/node_modules/imagemin-optipng/node_modules/optipng-bin/vendor/
+node_modules/phantomjs-prebuilt/lib/location.js
+node_modules/phantomjs-prebuilt/lib/phantom/
