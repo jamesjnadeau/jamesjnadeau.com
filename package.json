@@ -54,6 +54,7 @@
     "smoothstate": "^0.7.2",
     "static-site-loader": "git+https://github.com/jamesjnadeau/static-site-loader.git",
     "style-loader": "^0.13.0",
+    "textlint": "^10.2.1",
     "url-loader": "^0.6.0",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.2"
