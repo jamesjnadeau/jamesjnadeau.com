@@ -55,6 +55,7 @@
     "static-site-loader": "git+https://github.com/jamesjnadeau/static-site-loader.git",
     "style-loader": "^0.13.0",
     "textlint": "^10.2.1",
+    "textlint-rule-rousseau": "^1.4.5",
     "url-loader": "^0.6.0",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.2"
