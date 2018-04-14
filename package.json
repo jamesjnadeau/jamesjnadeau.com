@@ -57,6 +57,7 @@
     "style-loader": "^0.13.0",
     "textlint": "^10.2.1",
     "textlint-plugin-html": "^0.1.7",
+    "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-rousseau": "^1.4.5",
     "url-loader": "^0.6.0",
     "webpack": "^3.11.0",
