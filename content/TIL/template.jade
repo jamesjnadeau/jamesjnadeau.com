@@ -5,6 +5,12 @@ block vars
   -var description = '!'
 
 block content
-  h1
-  
-  p
+  h1.h-entry 
+  p.small Published by 
+    a.p-author.h-card(href='http://jamesjnadeau') James J Nadeau
+    | on 
+    time.dt-published(datetime='2018-03-26') 2018-03-26
+
+
+  p.p-summary
+  p.e-content
