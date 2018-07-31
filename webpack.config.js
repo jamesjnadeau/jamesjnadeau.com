@@ -1,9 +1,11 @@
 var pathUtil = require('path');
+var glob = require('glob');
 var webpack = require('webpack');
 // var critical = require('critical');
 
 //Plugins
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var PurgecssPlugin = require('purgecss-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var staticSiteLoader = require('./static-site-loader');
 
@@ -16,6 +18,17 @@ var env = {
 
 var plugins = [
   new ExtractTextPlugin("[name].css", { allChunks: true }),
+  new PurgecssPlugin({
+    paths: function () {
+      var contentDir = pathUtil.resolve(__dirname, './content');
+      var files = glob.sync(contentDir + '/**', { //.(md|jade)
+        nodir: true,
+      });
+
+      return files;
+        //.push(pathUtil.join(__dirname, 'templates'));
+    },
+  }),
   new CopyWebpackPlugin([
     //Copy folders in wholesale
     { from: 'assets/files', to: 'files' },
