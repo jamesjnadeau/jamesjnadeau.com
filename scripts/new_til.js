@@ -11,17 +11,23 @@ var now = new Date();
 var args = process.argv.slice(2);
 var titleName = args[0];
 var slugName = slugger(titleName);
-var fileName = now.getFullYear() + '-'
+var dateString = now.getFullYear() + '-'
   + ("0" + (now.getMonth() + 1)).slice(-2) + '-'
-  + ("0" + now.getDate()).slice(-2) + '-' + slugName;
+  + ("0" + now.getDate()).slice(-2);
+var fileName = dateString + '-' + slugName;
 
 
 var newFile = fs.createWriteStream('./content/TIL/' + fileName + '.jade');
 fs.createReadStream('./content/TIL/template.jade')
   .pipe(newFile);
+newFile.on('finish', function () {
+  var postDate = "    time.dt-published(datetime='" + dateString + "') " + dateString;
+  insertLine('./content/TIL/' + fileName + '.jade').contentSync(postDate).at(11);
+});
 
-console.log('A new TIL was create at', './content/TIL/' + fileName + '.jade');
+console.log('A new TIL was created at', './content/TIL/' + fileName + '.jade');
+
 
 var indexLink = "        a.list-group-item(href='/TIL/" + fileName + "/index.html') #[b "
   + (now.getMonth() + 1) + "/" + now.getDate() + "] " + titleName;
-insertLine('./content/TIL/index.jade').contentSync(indexLink).at(16);
+insertLine('./content/TIL/index.jade').contentSync(indexLink).at(18);
