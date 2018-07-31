@@ -21,7 +21,7 @@ var newFile = fs.createWriteStream('./content/TIL/' + fileName + '.jade');
 fs.createReadStream('./content/TIL/template.jade')
   .pipe(newFile);
 newFile.on('finish', function () {
-  var postDate = "    time.dt-published(datetime='" + dateString + "') " + dateString;
+  var postDate = "    time.dt-published(datetime='" + dateString + " 00:00:00') " + dateString;
   insertLine('./content/TIL/' + fileName + '.jade').contentSync(postDate).at(11);
 });
 
