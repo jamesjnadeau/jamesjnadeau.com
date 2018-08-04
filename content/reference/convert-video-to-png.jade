@@ -1,0 +1,23 @@
+extends ../../templates/default
+
+block vars
+  -var title = 'James J Nadeau | Convert Video to PNG, or JPG, etc'
+  -var description = 'Convert video to any image format easily with ffmpeg.'
+
+block content
+  div
+  
+    h3 Single Frame
+    code
+      | ffmpeg -i video.mp4 -ss 01:23:45 -vframes 1 image.png
+
+  
+    h3 Whole Video
+    p Take a image every 20 seconds in the video
+    code
+      | ffmpeg -i video.mp4 -r 0.05 image-_%04d.png
+    p For every 10 seconds, change -r 0.1, for every 4 seconds -r 0.25
+    p If you are going to have more than 10K images, change %04 to %05
+    
+    
+      
