@@ -8,6 +8,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var PurgecssPlugin = require('purgecss-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var staticSiteLoader = require('./static-site-loader');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var version = require('package')(__dirname).version;
 console.log('Version', version);
@@ -17,6 +18,9 @@ var env = {
 };
 
 var plugins = [
+  new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+  }),
   new ExtractTextPlugin("[name].css", { allChunks: true }),
   new PurgecssPlugin({
     paths: function () {
