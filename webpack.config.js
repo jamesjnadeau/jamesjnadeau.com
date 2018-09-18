@@ -20,6 +20,7 @@ var env = {
 var plugins = [
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
+    openAnalyzer: false, // access it at /report.html
   }),
   new ExtractTextPlugin("[name].css", { allChunks: true }),
   new PurgecssPlugin({
