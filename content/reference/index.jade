@@ -9,6 +9,8 @@ block content
     // Nav tabs
     ul.nav.nav-pills(role='tablist')
       li.active
+        a(href='#quotes', role='tab', data-toggle='tab') quotes
+      li
         a(href='#js', role='tab', data-toggle='tab') JS
       li
         a(href='#html', role='tab', data-toggle='tab') HTML
@@ -17,14 +19,14 @@ block content
       li
         a(href='#shell', role='tab', data-toggle='tab') Shell
       li
-        a(href='#polymer', role='tab', data-toggle='tab') Polymer
-      li
         a(href='#php', role='tab', data-toggle='tab') PHP
       li
         a(href='#misc', role='tab', data-toggle='tab') Misc
     // Tab panes
     .tab-content.content
-      #js.tab-pane.active.fade.in
+      #js.tab-pane.fade.in
+        .well
+          a(href="https://youtu.be/_yCz1TA0EL4") You should use [insert library/framework], it's the bestestest!
         ul.list-group
           a.list-group-item(href='/reference/js_backtrace') Backtrace
           a.list-group-item(href='/reference/js_callback') Callback
@@ -47,16 +49,6 @@ block content
           a.list-group-item(href='/reference/counting_log_ips') Counting IP Addresses in Log Files
           a.list-group-item(href='/reference/yum_history') Yum History/Undo
           a.list-group-item(href='/reference/svn_add') SVN Add
-      #polymer.tab-pane.fade
-        ul.list-group
-          li.list-group-item
-            a(href='http://www.polymer-project.org/components/core-icons/demo.html') Icons
-          li.list-group-item
-            a(href='/reference/polymer_misc') Misc
-          li.list-group-item
-            a(href='https://www.polymer-project.org/articles/communication.html') Messaging
-          li.list-group-item
-            a(href='https://www.polymer-project.org/articles/concatenating-web-components.html') Compiling
       #php.tab-pane.fade
         ul.list-group
           li.list-group-item
@@ -74,52 +66,65 @@ block content
           a.list-group-item(href='/reference/evoulent_mouse_config') Evoluent Mouse config for Linux
           a.list-group-item(href='/reference/gource') Gource defaults
           a.list-group-item(href='/reference/convert-video-to-png') Convert Video to png
-          
-    .well.content
-      h4 Story Starter
-      |     When _____ , I want to _____ , so I can _____ .
-    .well.content
-      a(href="https://youtu.be/_yCz1TA0EL4") You should use [insert library/framework], it's the bestestest!
-    .well.content
-      | "Anything that works will be used in progressively more challenging applications, until it fails." ― Laurence J. Peter, The Generalized Peter Principle.
-    .well.content
-      | "Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure." ― Conway's Law
-    .well.content
-      |  “Knowledge comes, but wisdom lingers. It may not be difficult to store up in the mind a vast quantity of facts within a comparatively short time, but the ability to form judgments requires the severe discipline of hard work and the tempering heat of experience and maturity.” ― Calvin Coolidge
-    .well.content
-      | "The men who attempt to survive, not by means of reason, but by means of force, are attempting to survive by the method of animals." ― Ayn Rand
-    .well.content
-      | "Making bits harder to copy is like making water less wet." ― Bruce Schneier
-    .well.content
-      | "No one wants to die. Even people who want to go to heaven don't want to die to get there. And yet death is the destination we all share. No one has ever escaped it. And that is as it should be, because Death is very likely the single best invention of Life. It is Life's change agent. It clears out the old to make way for the new." ― Steve Jobs 
-    .well.content
-      | "Do not despair of our present difficulties but believe always in the promise and greatness of America, because nothing is inevitable here. Americans never quit. We never surrender. We never hide from history. We make history." ― John McCain
-    .well.content
-      | “Truth is, I'll never know all there is to know about you just as you will never know all there is to know about me. Humans are by nature too complicated to be understood fully. So, we can choose either to approach our fellow human beings with suspicion or to approach them with an open mind, a dash of optimism and a great deal of candour.” ― Tom Hanks 
-    .well.content
-      h4 Smile
-      p ᕕ( ᐛ )ᕗ
-      span ╰(´ڡ`)╯
-      p ᕕ( ˊᵕˋ )୨
-      span ʘ ͜ʖ ʘ
-      p ( ＾◡＾ )
-    .well.content
-      p “It is easier to fool the people then convince them they have been fooled.” - Samuel Clements
-      p “Life shrinks or expands in proportion to one's courage.” ― Anais Nin
-      p “Progress is impossible without change, and those who cannot change their minds cannot change anything.” ― George Bernard Shaw
-      p “Patriotism is supporting your country all the time, and your government when it deserves it.” ― Mark Twain
-      p  “Humility is not thinking less of yourself, it's thinking of yourself less.” ― Rick Warren
-      p.text-muted taken from a
-        a(href="http://recomendo.com" rel="nofollow") recomendo newsletter.
-      p “I’ve always been very careful never to predict anything that has not already happened.” — Marshall McLuhan
-      p “The cure for boredom is curiosity. There is no cure for curiosity.” — Dorothy Parker
-      p “Decisions are made by those who show up.” — Jennifer Pahlka
-      p “If at first the idea is not absurd, then there is no hope for it.” — Albert Einstein
-      p “Not long ago what we have today was so implausible that nobody bothered to say it would never happen.“ — Marc Andreessen
-      p "The first 90% of a project is a lot easier than the second 90%.” — Tim Sweeney
-      p “If you don’t like change, you are going to like irrelevance even less.” — General Shinseki
-      p "Let us realize the arc of the moral universe is long, but it bends toward justice" — Martin Luther King
-      p "You aren’t wealthy until you have something that money can’t buy." — Garth Brooks
-      p "I think I speak for everyone when I say no one can speak for all of us." —Glenn Fleishman
-      p "The question isn’t who is going to let me: it’s who is going to stop me." — Ayn Rand
-      p "No limit for better." — Harrison Ford
+      #quotes.tab-pane.active.fade.in
+        .well
+          h4 Story Starter
+          |     When _____ , I want to _____ , so I can _____ .
+        .well
+          | "Anything that works will be used in progressively more challenging applications, until it fails." ― Laurence J. Peter, The Generalized Peter Principle.
+        .well
+          | "Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure." ― Conway's Law
+        .well
+          |  “Knowledge comes, but wisdom lingers. It may not be difficult to store up in the mind a vast quantity of facts within a comparatively short time, but the ability to form judgments requires the severe discipline of hard work and the tempering heat of experience and maturity.” ― Calvin Coolidge
+        .well
+          | "The men who attempt to survive, not by means of reason, but by means of force, are attempting to survive by the method of animals." ― Ayn Rand
+        .well
+          | "Making bits harder to copy is like making water less wet." ― Bruce Schneier
+        .well
+          | "No one wants to die. Even people who want to go to heaven don't want to die to get there. And yet death is the destination we all share. No one has ever escaped it. And that is as it should be, because Death is very likely the single best invention of Life. It is Life's change agent. It clears out the old to make way for the new." ― Steve Jobs 
+        .well
+          | "Do not despair of our present difficulties but believe always in the promise and greatness of America, because nothing is inevitable here. Americans never quit. We never surrender. We never hide from history. We make history." ― John McCain
+        .well
+          | “Truth is, I'll never know all there is to know about you just as you will never know all there is to know about me. Humans are by nature too complicated to be understood fully. So, we can choose either to approach our fellow human beings with suspicion or to approach them with an open mind, a dash of optimism and a great deal of candour.” ― Tom Hanks 
+        .well
+          | “It is easier to fool the people then convince them they have been fooled.” - Samuel Clements
+        .well
+          | “Life shrinks or expands in proportion to one's courage.” ― Anais Nin
+        .well
+          | “Progress is impossible without change, and those who cannot change their minds cannot change anything.” ― George Bernard Shaw
+        .well
+          | “Patriotism is supporting your country all the time, and your government when it deserves it.” ― Mark Twain
+        .well
+          |  “Humility is not thinking less of yourself, it's thinking of yourself less.” ― Rick Warren
+        .well
+          | “I’ve always been very careful never to predict anything that has not already happened.” — Marshall McLuhan
+        .well
+          | “The cure for boredom is curiosity. There is no cure for curiosity.” — Dorothy Parker
+        .well
+          | “Decisions are made by those who show up.” — Jennifer Pahlka
+        .well
+          | “If at first the idea is not absurd, then there is no hope for it.” — Albert Einstein
+        .well
+          | “Not long ago what we have today was so implausible that nobody bothered to say it would never happen.“ — Marc Andreessen
+        .well
+          | "The first 90% of a project is a lot easier than the second 90%.” — Tim Sweeney
+        .well
+          | “If you don’t like change, you are going to like irrelevance even less.” — General Shinseki
+        .well
+          | "Let us realize the arc of the moral universe is long, but it bends toward justice" — Martin Luther King
+        .well
+          | "You aren’t wealthy until you have something that money can’t buy." — Garth Brooks
+        .well
+          | "I think I speak for everyone when I say no one can speak for all of us." —Glenn Fleishman
+        .well
+          | "The question isn’t who is going to let me: it’s who is going to stop me." — Ayn Rand
+        .well
+          | "No limit for better." — Harrison Ford
+        .well
+          h4 Smile
+          p ᕕ( ᐛ )ᕗ
+          span ╰(´ڡ`)╯
+          p ᕕ( ˊᵕˋ )୨
+          span ʘ ͜ʖ ʘ
+          p ( ＾◡＾ )
+    
