@@ -32,20 +32,16 @@ var plugins = [
       });
 
       var templateDir = pathUtil.join(__dirname, 'templates');
-      files.concat(glob.sync(templateDir + '/**', { //.(md|jade)
+      files = files.concat(glob.sync(templateDir + '/**', { //.(md|jade)
         nodir: true,
       }));
       var jsDir = pathUtil.join(__dirname, 'assets/js');
-      files.concat(glob.sync(jsDir + '/**', { //.(md|jade)
+      files = files.concat(glob.sync(jsDir + '/**', { //.(md|jade)
         nodir: true,
       }));
 
       return files;
     },
-    whitelistPatterns: [
-      /^headroom/,
-      /^navbar/,
-    ],
   }),
   new OptimizeCssAssetsPlugin({
     cssProcessorPluginOptions: {
