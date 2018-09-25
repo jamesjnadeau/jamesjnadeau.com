@@ -30,9 +30,21 @@ var plugins = [
         nodir: true,
       });
 
+      var templateDir = pathUtil.join(__dirname, 'templates');
+      files.concat(glob.sync(templateDir + '/**', { //.(md|jade)
+        nodir: true,
+      }));
+      var jsDir = pathUtil.join(__dirname, 'assets/js');
+      files.concat(glob.sync(jsDir + '/**', { //.(md|jade)
+        nodir: true,
+      }));
+
       return files;
-        //.push(pathUtil.join(__dirname, 'templates'));
     },
+    whitelistPatterns: [
+      /^headroom/,
+      /^navbar/,
+    ],
   }),
   new CopyWebpackPlugin([
     //Copy folders in wholesale
@@ -80,7 +92,7 @@ module.exports = {
           'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
         ],
       },*/
-      { test: /\.(jpe?g|png|gif)$/, loader: 'file-loader?name=[path][name].[ext]' },
+      { test: /\.(jpe?g|png|gif)$/, loader: 'file-loader' },
       // taken from gowravshekar/bootstrap-webpack
       { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?mimetype=application/font-woff' }, //eslint-disable-line
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?mimetype=application/octet-stream' }, //eslint-disable-line
@@ -107,6 +119,7 @@ module.exports = {
 
   devServer: {
     contentBase: "./built",
+    overlay: true,
   },
 
 };
