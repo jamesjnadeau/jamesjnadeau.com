@@ -9,6 +9,7 @@ var PurgecssPlugin = require('purgecss-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var staticSiteLoader = require('./static-site-loader');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 var version = require('package')(__dirname).version;
 console.log('Version', version);
@@ -45,6 +46,11 @@ var plugins = [
       /^headroom/,
       /^navbar/,
     ],
+  }),
+  new OptimizeCssAssetsPlugin({
+    cssProcessorPluginOptions: {
+      preset: ['default', { discardComments: { removeAll: true } }],
+    },
   }),
   new CopyWebpackPlugin([
     //Copy folders in wholesale
