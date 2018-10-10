@@ -23,7 +23,7 @@ var plugins = [
     analyzerMode: 'static',
     openAnalyzer: false, // access it at /report.html
   }),
-  new ExtractTextPlugin("[name].css", { allChunks: true }),
+  new ExtractTextPlugin("[name].css", { sourceMap: true }), // allChunks: true,
   new PurgecssPlugin({
     paths: function () {
       var contentDir = pathUtil.resolve(__dirname, './content');
@@ -45,8 +45,10 @@ var plugins = [
   }),
   new OptimizeCssAssetsPlugin({
     cssProcessorPluginOptions: {
-      preset: ['default', { discardComments: { removeAll: true } }],
+      // preset: ['default', { discardComments: { removeAll: true } }],
+      sourcemap: true,
     },
+    canPrint: true,
   }),
   new CopyWebpackPlugin([
     //Copy folders in wholesale
@@ -71,6 +73,9 @@ var plugins = [
       staticSiteLoader: staticSiteLoader,
     },
   }),
+  new webpack.optimize.UglifyJsPlugin({
+    sourceMap: true,
+  }),
 ];
 
 module.exports = {
@@ -82,11 +87,28 @@ module.exports = {
       { test: /\.html$/, loader: "html-loader" },
       { test: /\.css$/,
         loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'less-loader'],
+          fallback: 'style-loader?sourceMap',
+          use: [{
+            loader: 'css-loader',
+            options: { sourceMap: true },
+          }, {
+            loader: 'less-loader',
+            options: { sourceMap: true },
+          }],
         }),
       },
-      { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
+      { test: /\.less$/,
+        loader: [{
+          loader: 'style-loader',
+          options: { sourceMap: true },
+        }, {
+          loader: 'css-loader',
+          options: { sourceMap: true },
+        }, {
+          loader: 'less-loader',
+          options: { sourceMap: true },
+        }],
+      },
       /*{
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
@@ -115,6 +137,9 @@ module.exports = {
     chunkFilename: "[id].js",
     path: pathUtil.resolve(__dirname, './built'),
     libraryTarget: 'umd',
+    sourceMapFilename: '[file].map',
+    devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
+    publicPath: '/built',
   },
 
   plugins: plugins,
