@@ -9,7 +9,6 @@ var PurgecssPlugin = require('purgecss-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var staticSiteLoader = require('./static-site-loader');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 var version = require('package')(__dirname).version;
 console.log('Version', version);
@@ -24,32 +23,6 @@ var plugins = [
     openAnalyzer: false, // access it at /report.html
   }),
   new ExtractTextPlugin("[name].css", { sourceMap: true }), // allChunks: true,
-  new PurgecssPlugin({
-    paths: function () {
-      var contentDir = pathUtil.resolve(__dirname, './content');
-      var files = glob.sync(contentDir + '/**', { //.(md|jade)
-        nodir: true,
-      });
-
-      var templateDir = pathUtil.join(__dirname, 'templates');
-      files = files.concat(glob.sync(templateDir + '/**', { //.(md|jade)
-        nodir: true,
-      }));
-      var jsDir = pathUtil.join(__dirname, 'assets/js');
-      files = files.concat(glob.sync(jsDir + '/**', { //.(md|jade)
-        nodir: true,
-      }));
-
-      return files;
-    },
-  }),
-  new OptimizeCssAssetsPlugin({
-    cssProcessorPluginOptions: {
-      // preset: ['default', { discardComments: { removeAll: true } }],
-      sourcemap: true,
-    },
-    canPrint: true,
-  }),
   new CopyWebpackPlugin([
     //Copy folders in wholesale
     { from: 'assets/files', to: 'files' },
@@ -78,6 +51,39 @@ var plugins = [
   }),
 ];
 
+if (NODE_ENV === 'production') {
+  plugins.push(new PurgecssPlugin({
+    paths: function () {
+      var contentDir = pathUtil.resolve(__dirname, './content');
+      var files = glob.sync(contentDir + '/**', { //.(md|jade)
+        nodir: true,
+      });
+
+      var templateDir = pathUtil.join(__dirname, 'templates');
+      files = files.concat(glob.sync(templateDir + '/**', { //.(md|jade)
+        nodir: true,
+      }));
+      var jsDir = pathUtil.join(__dirname, 'assets/js');
+      files = files.concat(glob.sync(jsDir + '/**', { //.(md|jade)
+        nodir: true,
+      }));
+
+      return files;
+    },
+  }));
+}
+
+var styleLoader = ExtractTextPlugin.extract({
+  fallback: 'style-loader?sourceMap',
+  use: [{
+    loader: 'css-loader',
+    options: { sourceMap: true, minimize: true },
+  }, {
+    loader: 'less-loader',
+    options: { sourceMap: true },
+  }],
+});
+
 module.exports = {
   //enable source-maps
   devtool: 'source-map',
@@ -85,29 +91,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.html$/, loader: "html-loader" },
-      { test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader?sourceMap',
-          use: [{
-            loader: 'css-loader',
-            options: { sourceMap: true },
-          }, {
-            loader: 'less-loader',
-            options: { sourceMap: true },
-          }],
-        }),
-      },
-      { test: /\.less$/,
-        loader: [{
-          loader: 'style-loader',
-          options: { sourceMap: true },
-        }, {
-          loader: 'css-loader',
-          options: { sourceMap: true },
-        }, {
-          loader: 'less-loader',
-          options: { sourceMap: true },
-        }],
+      { test: /\.(css|less)$/,
+        loader: styleLoader
       },
       /*{
         test: /\.(jpe?g|png|gif|svg)$/i,
@@ -139,7 +124,7 @@ module.exports = {
     libraryTarget: 'umd',
     sourceMapFilename: '[file].map',
     devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
-    publicPath: '/built',
+    publicPath: '/built/',
   },
 
   plugins: plugins,
