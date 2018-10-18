@@ -92,7 +92,7 @@ module.exports = {
     loaders: [
       { test: /\.html$/, loader: "html-loader" },
       { test: /\.(css|less)$/,
-        loader: styleLoader
+        loader: styleLoader,
       },
       /*{
         test: /\.(jpe?g|png|gif|svg)$/i,
