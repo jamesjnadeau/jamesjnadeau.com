@@ -51,7 +51,7 @@ var plugins = [
   }),
 ];
 
-if (NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   plugins.push(new PurgecssPlugin({
     paths: function () {
       var contentDir = pathUtil.resolve(__dirname, './content');
@@ -124,14 +124,14 @@ module.exports = {
     libraryTarget: 'umd',
     sourceMapFilename: '[file].map',
     devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
-    publicPath: '/built/',
+    // publicPath: '/built/',
   },
 
   plugins: plugins,
 
   devServer: {
     contentBase: "./built",
-    overlay: true,
+    // overlay: true,
   },
 
 };
