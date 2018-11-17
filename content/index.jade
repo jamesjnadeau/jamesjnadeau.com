@@ -66,3 +66,16 @@ block content
             p
               | I met the love of my life online and married Sally in June 2015. Our dog Walter helps me do my
               | job every day. My first son Tyson just turned one in October!
+      
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title.text-center(data-toggle='collapse', href='#more_about_this_site')
+            | More About This Site
+        #more_about_this_site.panel-collapse.collapse
+          .panel-body
+            p This site is built using webpack along with a custom loadder I created called&nbsp;
+              a(href="https://www.npmjs.com/package/static-site-loader") static-site-loader
+              | . I'm able to write both markdown and regular jade template files and have them be loaded/refreshed by webpack upon change.
+            p You can view the codefor this site 
+              a(href="https://github.com/jamesjnadeau/jamesjnadeau.com") here
+              | .
