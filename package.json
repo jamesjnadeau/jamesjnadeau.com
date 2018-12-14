@@ -58,6 +58,7 @@
     "smoothstate": "^0.7.2",
     "static-site-loader": "git+https://github.com/jamesjnadeau/static-site-loader.git",
     "style-loader": "^0.13.0",
+    "sw-toolbox": "^3.6.0",
     "textlint": "^10.2.1",
     "textlint-plugin-html": "^0.1.7",
     "textlint-rule-common-misspellings": "^1.0.1",
