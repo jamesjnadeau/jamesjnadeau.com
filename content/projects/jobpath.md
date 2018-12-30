@@ -1,9 +1,9 @@
 /*
-Title: Garden.org
-Description: Main website for the National Gardening Association
+Title: JobPath
+Description: How I took something that sold well, made it work right, and then started to sell white label copies of it.
 */
 
-# GI Go Fund
+# JobPath
 
 <div>
 	<img class="img-responsive img-rounded" src="/files/gigofund.png" />
