@@ -28,6 +28,7 @@ var plugins = [
     { from: 'assets/files', to: 'files' },
     { from: 'assets/icons', to: 'icons' },
     { from: 'assets/wind', to: 'wind' },
+    { from: 'assets/ski-free', to: 'ski-free' },
     { from: 'assets/graph', to: 'graph' },
     { from: 'assets/manifest.json', to: 'manifest.json' },
   ]),

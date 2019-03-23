@@ -24,6 +24,13 @@ handlers:
 - url: /wind
   static_dir: built/wind
 
+- url: /ski-free/
+  static_files: built/ski-free/index.html
+  upload: built/ski-free/index.html
+
+- url: /ski-free
+  static_dir: built/ski-free
+
 - url: /graph
   static_dir: built/graph
 
