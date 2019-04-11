@@ -1,0 +1,66 @@
+/*!
+ * The contents of this file were originally from bootstrap/less/bootstrap.less
+ * They have been modified below to redirect to bootstraps implementaion in all cases needed.
+
+ * NOTE Because of the way webpack is currently set up to load less/css and then compile it
+ * any less compilation must be included in one less "run"
+ * aka the less code is compiled to css immediately, using any variable or
+ * code defiend below, will not be available in another file that does not stem from this file
+
+ * NOTE variables.less is imported locally to allow overriding bootstraps variables.
+ * you can't make use of this files variables and settings via another require() in index.js
+ * use custom.less instead
+ */
+
+@import "variables.less";
+
+// Core variables and mixins
+// @import "~bootstrap/less/~bootstrap/less/variables.less";
+@import "~bootstrap/less/~bootstrap/less/mixins.less";
+
+// Reset and dependencies
+@import "~bootstrap/less/~bootstrap/less/normalize.less";
+@import "~bootstrap/less/print.less";
+@import "~bootstrap/less/glyphicons.less";
+
+// Core CSS
+@import "~bootstrap/less/scaffolding.less";
+@import "~bootstrap/less/type.less";
+@import "~bootstrap/less/code.less";
+@import "~bootstrap/less/grid.less";
+@import "~bootstrap/less/tables.less";
+@import "~bootstrap/less/forms.less";
+@import "~bootstrap/less/buttons.less";
+
+// Components
+@import "~bootstrap/less/component-animations.less";
+@import "~bootstrap/less/dropdowns.less";
+@import "~bootstrap/less/button-groups.less";
+@import "~bootstrap/less/input-groups.less";
+@import "~bootstrap/less/navs.less";
+@import "~bootstrap/less/navbar.less";
+@import "~bootstrap/less/breadcrumbs.less";
+@import "~bootstrap/less/pagination.less";
+@import "~bootstrap/less/pager.less";
+@import "~bootstrap/less/labels.less";
+@import "~bootstrap/less/badges.less";
+@import "~bootstrap/less/jumbotron.less";
+@import "~bootstrap/less/thumbnails.less";
+@import "~bootstrap/less/alerts.less";
+@import "~bootstrap/less/progress-bars.less";
+@import "~bootstrap/less/media.less";
+@import "~bootstrap/less/list-group.less";
+@import "~bootstrap/less/panels.less";
+@import "~bootstrap/less/responsive-embed.less";
+@import "~bootstrap/less/wells.less";
+@import "~bootstrap/less/close.less";
+
+// Components w/ JavaScript
+@import "~bootstrap/less/modals.less";
+@import "~bootstrap/less/tooltip.less";
+@import "~bootstrap/less/popovers.less";
+@import "~bootstrap/less/carousel.less";
+
+// Utility classes
+@import "~bootstrap/less/utilities.less";
+@import "~bootstrap/less/responsive-utilities.less";
