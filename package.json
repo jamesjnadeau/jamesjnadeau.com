@@ -50,6 +50,7 @@
     "less-loader": "^4.1.0",
     "loader-utils": "^0.2.12",
     "marked": "^0.3.9",
+    "node-feedly-developer-client": "^0.0.3",
     "package": "^1.0.1",
     "purgecss": "^1.0.1",
     "purgecss-webpack-plugin": "^1.2.0",
