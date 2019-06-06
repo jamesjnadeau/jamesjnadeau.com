@@ -1,3 +1,6 @@
+
+require('dotenv').config();
+
 var pathUtil = require('path');
 var glob = require('glob');
 var webpack = require('webpack');
@@ -8,14 +11,11 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var PurgecssPlugin = require('purgecss-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var staticSiteLoader = require('./static-site-loader');
+var feedlyContentLoader = require('./feedly-content-loader');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-var version = require('package')(__dirname).version;
-console.log('Version', version);
-var env = {
-  version: version,
-  NODE_ENV: process.env.NODE_ENV,
-};
+
+var env = require('./sanitizedEnv');
 
 var plugins = [
   new BundleAnalyzerPlugin({
@@ -50,6 +50,7 @@ var plugins = [
   new webpack.optimize.UglifyJsPlugin({
     sourceMap: true,
   }),
+  new feedlyContentLoader(),
 ];
 
 if (process.env.NODE_ENV === 'production') {

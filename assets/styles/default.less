@@ -110,6 +110,29 @@ body {
 	padding-bottom: 80px;
 }
 
+.feedly-content {
+	max-width: 800px;
+	margin: auto;;
+	img {
+		margin: 1em;
+	}
+	.panel-body {
+		padding: 25px;
+	}
+}
+
+.feedlyTagIndex {
+	.list-group-item {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		a {
+			width: 100%;
+  		display: block;
+		}
+	}
+}
+
 @media (max-width: 992px)
 {
 	h1
@@ -130,21 +153,29 @@ body {
 		margin: 0px auto 10px auto;
 	}
 
-	.container p,
-	.container blockquote,
-	.container h3:not(.list-group-item),
-	.container h2,
-	*:not(.navbar) > .container ul:not(.list-group)
-	{
+	.container {
+		p, blockquote, h3:not(.list-group-item),
+		h2, *:not(.navbar) > .container ul:not(.list-group) {
+			width: 50%;
+			margin: 0px auto 10px;
+		}
+		.feedly-content {
+			p, blockquote, h3:not(.list-group-item),
+			h2, *:not(.navbar) > .container ul:not(.list-group)  {
+				min-width: 70%;
+			}
+		}
+		blockquote p, li p, .panel-group p {
+			width: 100%;
+			margin: 0px auto 10px auto;
+		}
+	}
+	*:not(.navbar) > .container ul:not(.list-group) {
 		width: 50%;
 		margin: 0px auto 10px auto;
 	}
 
-	.container blockquote p,
-	.container li p,
-	.panel-group p {
-		width: 100%;
-	}
+
 
 	img.content-secondary
 	{
