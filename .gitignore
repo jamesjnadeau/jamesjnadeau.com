@@ -2,6 +2,8 @@ built
 .settings
 *.log
 gae-client-secret.json
+.env
+cache*
 
 # built node_modules
 node_modules/critical/node_modules/penthouse/node_modules/phantomjs-prebuilt/lib/location.js

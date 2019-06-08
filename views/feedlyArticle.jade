@@ -1,0 +1,34 @@
+extends ../templates/default
+
+block vars
+  -var title = item.title;
+  -var description = 
+
+  block head
+    link(rel='canonical' href=item.canonicalUrl)
+
+block content
+  h1.h-entry #{item.title}
+  .row.small
+    .col-xs-6
+      | #{new Date(item.published).toLocaleDateString('en-US')}&emsp;|&emsp;
+      span(title="Engagement metric from Feedly")
+        span.glyphicon.glyphicon-thumbs-up
+        | &nbsp;#{item.engagement}
+    .col-xs-6.text-right
+      span &emsp; Published by 
+        span.p-author.h-card(rel="author") #{item.author} |&nbsp;
+        a(href=item.origin.htmlUrl) #{item.origin.title}
+  .text-center
+    br
+    a.btn.btn-default(href=item.canonicalUrl) Go
+  hr.space
+  if typeof item.content !== 'undefined'
+    .panel.panel-default
+      .panel-body
+        .e-content.feedly-content
+          | !{item.content.content}
+  hr.space
+  a.btn.btn-sm.btn-primary.pull-right(href=item.canonicalUrl) View Source
+  
+  pre.hidden #{JSON.stringify(item, null, 2)}

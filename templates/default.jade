@@ -11,6 +11,7 @@ html(lang='en')
       meta(name='description', content='#{description}')
     if keywords 
       meta(name='description', content='#{keywords}')
+    block head
     meta(name='robots', content='robots.txt')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=2.0; user-scalable=1')
     meta(name='author', content='James J Nadeau')
@@ -48,6 +49,8 @@ html(lang='en')
                 a(href='/projects/') Projects
               li
                 a(href='/TIL/') Today I ...
+              li
+                a(href='/curated/') Curated
               li
                 a(href='/reference/') Reference
             ul.nav.navbar-nav.navbar-right
