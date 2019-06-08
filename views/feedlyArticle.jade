@@ -9,13 +9,16 @@ block vars
 
 block content
   h1.h-entry #{item.title}
-  .small 
-    span(title="Engagement metric from Feedly")
-      span.glyphicon.glyphicon-thumbs-up
-      | &nbsp; #{item.engagement}
-    span.pull-right &emsp; Published by 
-      span.p-author.h-card(rel="author") #{item.author} |&nbsp;
-      a(href=item.origin.htmlUrl) #{item.origin.title}
+  .row.small
+    .col-xs-6
+      | #{new Date(item.published).toLocaleDateString('en-US')}&emsp;|&emsp;
+      span(title="Engagement metric from Feedly")
+        span.glyphicon.glyphicon-thumbs-up
+        | &nbsp;#{item.engagement}
+    .col-xs-6.text-right
+      span &emsp; Published by 
+        span.p-author.h-card(rel="author") #{item.author} |&nbsp;
+        a(href=item.origin.htmlUrl) #{item.origin.title}
   .text-center
     br
     a.btn.btn-default(href=item.canonicalUrl) Go

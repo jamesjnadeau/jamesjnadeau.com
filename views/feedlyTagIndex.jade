@@ -13,4 +13,4 @@ block content
           li.list-group-item
             a(href="/curated/#{tagPath}/#{item.published}" title=item.title) 
               h5 #{item.title}
-              small.text-muted #{item.origin.title} | #{new Date(item.published).toLocaleDateString('en-US')}
+              small.text-muted  #{new Date(item.published).toLocaleDateString('en-US')} | #{item.origin.title}
