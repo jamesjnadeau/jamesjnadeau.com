@@ -1,4 +1,3 @@
-
 var async = require('async');
 var pathUtil = require('path');
 var RawSource = require('webpack-sources/lib/RawSource');
@@ -13,11 +12,11 @@ var fsStore = require('cache-manager-fs');
 var diskCache = cacheManager.caching({
   store: fsStore,
   options: {
-    ttl: 60*60, // seconds
-    maxsize: 1000*1000*1000, // max size in bytes on disk
+    ttl: 60 * 60, // seconds
+    maxsize: 1000 * 1000 * 1000, // max size in bytes on disk
     path: pathUtil.join(__dirname, 'cache'),
-    preventfill:true
-  }
+    preventfill: true,
+  },
 });
 
 
@@ -89,8 +88,6 @@ function getTag(tagName, compilation, count) {
     }).catch(function(err) { setTimeout(function() { throw err; }); });
   };
 }
-
-
 
 //
 // Webpack plugin code
