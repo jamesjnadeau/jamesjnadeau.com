@@ -21,7 +21,7 @@ block content
         a(href=item.origin.htmlUrl) #{item.origin.title}
   .text-center
     br
-    a.btn.btn-default(href=item.canonicalUrl) Go
+    a.btn.btn-default(href=item.canonicalUrl target="_blank") Go
   hr.space
   if typeof item.content !== 'undefined'
     .panel.panel-default
@@ -29,6 +29,6 @@ block content
         .e-content.feedly-content
           | !{item.content.content}
   hr.space
-  a.btn.btn-sm.btn-primary.pull-right(href=item.canonicalUrl) View Source
+  a.btn.btn-sm.btn-primary.pull-right(href=item.canonicalUrl target="_blank") View Source
   
   pre.hidden #{JSON.stringify(item, null, 2)}
