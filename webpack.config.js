@@ -64,7 +64,7 @@ var plugins = [
           matchOptions: {
             ignoreSearch: true,
           },
-        }
+        },
       },
       {
         urlPattern: /\.pdf$/,
@@ -72,13 +72,12 @@ var plugins = [
       },
       {
         urlPattern: /\.jpg$/,
-        
         handler: 'CacheFirst',
       },
       {
         urlPattern: /\.png$/,
         handler: 'CacheFirst',
-      }
+      },
     ],
   }),
 ];
