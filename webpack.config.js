@@ -51,7 +51,6 @@ var plugins = [
   new webpack.optimize.UglifyJsPlugin({
     sourceMap: true,
   }),
-  new feedlyContentLoader(),
   new WorkboxPlugin.GenerateSW({
     include: [
       /\.js|\.css/,
@@ -81,6 +80,10 @@ var plugins = [
     ],
   }),
 ];
+
+if (process.env.FEEDLY_REFRESH_TOKEN) {
+  plugins.push(new feedlyContentLoader());
+}
 
 if (process.env.NODE_ENV === 'production') {
   plugins.push(new PurgecssPlugin({

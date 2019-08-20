@@ -19,11 +19,12 @@ var diskCache = cacheManager.caching({
   },
 });
 
-
-var feedly = new FeedlyClient({
-  refreshToken: process.env.FEEDLY_REFRESH_TOKEN,
-  // accessToken: process.env.FEEDLY_ACCESS_TOKEN,
-});
+if (process.env.FEEDLY_REFRESH_TOKEN) {
+  var feedly = new FeedlyClient({
+    refreshToken: process.env.FEEDLY_REFRESH_TOKEN,
+    // accessToken: process.env.FEEDLY_ACCESS_TOKEN,
+  });
+}
 
 //
 // templates
