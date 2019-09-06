@@ -13,6 +13,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var staticSiteLoader = require('./static-site-loader');
 var feedlyContentLoader = require('./feedly-content-loader');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+var WorkboxPlugin = require('workbox-webpack-plugin');
 
 
 var env = require('./sanitizedEnv');
@@ -50,8 +51,39 @@ var plugins = [
   new webpack.optimize.UglifyJsPlugin({
     sourceMap: true,
   }),
-  new feedlyContentLoader(),
+  new WorkboxPlugin.GenerateSW({
+    include: [
+      /\.js|\.css/,
+    ],
+    runtimeCaching: [
+      {
+        urlPattern: /\.css|\.js|\.html/,
+        handler: 'StaleWhileRevalidate',
+        options: {
+          matchOptions: {
+            ignoreSearch: true,
+          },
+        },
+      },
+      {
+        urlPattern: /\.pdf$/,
+        handler: 'CacheFirst',
+      },
+      {
+        urlPattern: /\.jpg$/,
+        handler: 'CacheFirst',
+      },
+      {
+        urlPattern: /\.png$/,
+        handler: 'CacheFirst',
+      },
+    ],
+  }),
 ];
+
+if (process.env.FEEDLY_REFRESH_TOKEN) {
+  plugins.push(new feedlyContentLoader());
+}
 
 if (process.env.NODE_ENV === 'production') {
   plugins.push(new PurgecssPlugin({
@@ -116,7 +148,7 @@ module.exports = {
     'site-generator': 'static-site-loader!./content',
     frontend: './assets/js/index.js',
     styles: './assets/styles/index.js',
-    'service-worker': './assets/js/service-worker.js',
+    // 'service-worker': './assets/js/service-worker.js',
   },
 
   output: {

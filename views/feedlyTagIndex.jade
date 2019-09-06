@@ -10,7 +10,6 @@ block content
     .col-md-8.col-md-offset-2
       ul.list-group
         each item in items
-          li.list-group-item
-            a(href="/curated/#{tagPath}/#{item.published}" title=item.title) 
-              h5 #{item.title}
-              small.text-muted  #{new Date(item.published).toLocaleDateString('en-US')} | #{item.origin.title}
+          a.list-group-item(href="/curated/#{tagPath}/#{item.published}" title=item.title) 
+            h5 #{item.title}
+            small.text-muted  &emsp;#{new Date(item.published).toLocaleDateString('en-US')} | #{item.origin.title}

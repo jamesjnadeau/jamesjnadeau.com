@@ -19,11 +19,12 @@ var diskCache = cacheManager.caching({
   },
 });
 
-
-var feedly = new FeedlyClient({
-  refreshToken: process.env.FEEDLY_REFRESH_TOKEN,
-  // accessToken: process.env.FEEDLY_ACCESS_TOKEN,
-});
+if (process.env.FEEDLY_REFRESH_TOKEN) {
+  var feedly = new FeedlyClient({
+    refreshToken: process.env.FEEDLY_REFRESH_TOKEN,
+    // accessToken: process.env.FEEDLY_ACCESS_TOKEN,
+  });
+}
 
 //
 // templates
@@ -59,6 +60,7 @@ function processContent(tagPath, compilation, items, done) {
 }
 
 function getStreamContent(streamId) {
+  // eslint-disable-next-line block-scoped-var
   return feedly.request('/v3/streams/contents?count=500&streamId=' + encodeURIComponent(streamId));
 }
 

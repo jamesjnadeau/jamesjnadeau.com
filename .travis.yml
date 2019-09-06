@@ -28,3 +28,5 @@ deploy:
   skip_cleanup: true
   keyfile: "gae-client-secret.json"
   project: "quantum-enigma-707"
+notifications:
+  slack: jamesnadeau:qYzgCRbDHYZsVH3JqfLzpwGo
