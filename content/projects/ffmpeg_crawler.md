@@ -6,7 +6,7 @@ Description: Main website for the National Gardening Association
 # File Crawler, Logging, and Transcoding
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/ffmpeg.jpg" />
+	<img class="img-fluid img-rounded" src="/files/ffmpeg.jpg" />
 </div>
 
 ***

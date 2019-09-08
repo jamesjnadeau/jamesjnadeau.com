@@ -7,7 +7,7 @@ Description: My modifications to Clevertech's interviewing tool
 # Clevermap
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/clevermap.png" />
+	<img class="img-fluid img-rounded" src="/files/clevermap.png" />
 </div>
 
 ***

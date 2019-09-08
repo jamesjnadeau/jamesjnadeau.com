@@ -8,7 +8,7 @@ Date: 01/01/2014
 #Single Sign on with SAML
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/boschwaytogrow_login.png" style="max-width: 400px;" />
+	<img class="img-fluid img-rounded" src="/files/boschwaytogrow_login.png" style="max-width: 400px;" />
 </div>
 
 ***

@@ -6,7 +6,7 @@ Description: Main website for the National Gardening Association
 # GI Go Fund
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/gigofund.png" />
+	<img class="img-fluid img-rounded" src="/files/gigofund.png" />
 </div>
 
 ***

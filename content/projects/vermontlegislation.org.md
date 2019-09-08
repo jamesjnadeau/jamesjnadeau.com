@@ -8,7 +8,7 @@ Date: 01/01/2014
 # Vermont Legislation App for HackVT 2013
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/vermontlegislation.org.png" />
+	<img class="img-fluid img-rounded" src="/files/vermontlegislation.org.png" />
 </div>
 
 ***

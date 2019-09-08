@@ -6,7 +6,7 @@ Description: Fujitsu General Web Presence and CRM
 # Fujitsu Generals Dealer Rating and Lead System
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/fujitsugeneral.png" />
+	<img class="img-fluid img-rounded" src="/files/fujitsugeneral.png" />
 </div>
 
 ***

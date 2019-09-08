@@ -8,7 +8,6 @@ require("./headers.js");
 require("./main.js");
 
 
-// env.NODE_ENV !== 'development' &&
-if ('serviceWorker' in navigator) {
+if (env.NODE_ENV !== 'development' && 'serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js?v=' + env.version);
 }

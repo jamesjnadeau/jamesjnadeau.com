@@ -9,7 +9,7 @@ Date: 07/24/2014
 
 <div>
 	<a href="http://speakandspell.jamesjnadeau.com">
-		<img class="img-responsive img-rounded" style="" src="/files/speak_and_spell.jpg" />
+		<img class="img-fluid img-rounded" style="" src="/files/speak_and_spell.jpg" />
 	</a>
 </div>
 

@@ -8,7 +8,7 @@ Date: 01/01/2014
 # Secure CRM system for HVAC Manufacturers
 
 <div>
-	<img class="img-responsive img-rounded" style="" src="/files/boschwaytogrow_tools.png" />
+	<img class="img-fluid img-rounded" style="" src="/files/boschwaytogrow_tools.png" />
 </div>
 
 ***

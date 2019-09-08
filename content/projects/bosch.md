@@ -6,7 +6,7 @@ Description: Bosch Thermal America Web Portal and CRM
 # Bosch Integrated Managment System
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/bosch.png" />
+	<img class="img-fluid img-rounded" src="/files/bosch.png" />
 </div>
 
 ***

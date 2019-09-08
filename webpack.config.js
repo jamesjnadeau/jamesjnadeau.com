@@ -7,11 +7,12 @@ var webpack = require('webpack');
 // var critical = require('critical');
 
 //Plugins
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var PurgecssPlugin = require('purgecss-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var staticSiteLoader = require('./static-site-loader');
 var feedlyContentLoader = require('./feedly-content-loader');
+var { CleanWebpackPlugin } = require('clean-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var WorkboxPlugin = require('workbox-webpack-plugin');
 
@@ -19,11 +20,17 @@ var WorkboxPlugin = require('workbox-webpack-plugin');
 var env = require('./sanitizedEnv');
 
 var plugins = [
+  new CleanWebpackPlugin(),
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     openAnalyzer: false, // access it at /report.html
   }),
-  new ExtractTextPlugin("[name].css", { sourceMap: true }), // allChunks: true,
+  new MiniCssExtractPlugin({
+    // Options similar to the same options in webpackOptions.output
+    // both options are optional
+    filename: '[name].css',
+    chunkFilename: '[id].css',
+  }),
   new CopyWebpackPlugin([
     //Copy folders in wholesale
     { from: 'assets/files', to: 'files' },
@@ -48,10 +55,10 @@ var plugins = [
       staticSiteLoader: staticSiteLoader,
     },
   }),
-  new webpack.optimize.UglifyJsPlugin({
-    sourceMap: true,
-  }),
-  new WorkboxPlugin.GenerateSW({
+];
+
+if (process.env.NODE_ENV === 'production') {
+  plugins.push(new WorkboxPlugin.GenerateSW({
     include: [
       /\.js|\.css/,
     ],
@@ -78,8 +85,8 @@ var plugins = [
         handler: 'CacheFirst',
       },
     ],
-  }),
-];
+  }));
+}
 
 if (process.env.FEEDLY_REFRESH_TOKEN) {
   plugins.push(new feedlyContentLoader());
@@ -107,40 +114,59 @@ if (process.env.NODE_ENV === 'production') {
   }));
 }
 
-var styleLoader = ExtractTextPlugin.extract({
-  fallback: 'style-loader?sourceMap',
-  use: [{
-    loader: 'css-loader',
-    options: { sourceMap: true, minimize: true },
+var styleLoader = [
+  MiniCssExtractPlugin.loader,
+  {
+    loader: "css-loader",
+    options: {
+      sourceMap: true,
+    },
   }, {
-    loader: 'less-loader',
-    options: { sourceMap: true },
-  }],
-});
+    loader: 'postcss-loader', // Run post css actions
+    options: {
+      sourceMap: true, // 'inline',
+      plugins: function () { // post css plugins, can be exported to postcss.config.js
+        return [
+          require('precss'),
+          require('autoprefixer'),
+        ];
+      },
+    },
+  }, {
+    loader: 'sass-loader', // compiles Sass to CSS
+    options: {
+      sourceMap: true,
+    },
+  },
+];
+
+var mode = 'development';
+if (process.env.NODE_ENV === 'production') {
+  mode = process.env.NODE_ENV;
+}
+
 
 module.exports = {
+  mode,
   //enable source-maps
   devtool: 'source-map',
+  optimization: {
+    minimize: true,
+  },
 
   module: {
-    loaders: [
-      { test: /\.html$/, loader: "html-loader" },
-      { test: /\.(css|less)$/,
-        loader: styleLoader,
+    rules: [
+      { test: /\.html$/, use: "html-loader" },
+      {
+        test: /\.(css|scss)$/,
+        use: styleLoader,
       },
-      /*{
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        loaders: [
-          'file?hash=sha512&digest=hex&name=[hash].[ext]',
-          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
-        ],
-      },*/
-      { test: /\.(jpe?g|png|gif)$/, loader: 'file-loader' },
+      { test: /\.(jpe?g|png|gif)$/, use: 'file-loader' },
       // taken from gowravshekar/bootstrap-webpack
-      { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?mimetype=application/font-woff' }, //eslint-disable-line
-      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?mimetype=application/octet-stream' }, //eslint-disable-line
-      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader' },
-      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?mimetype=image/svg+xml' },
+      { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?mimetype=application/font-woff' }, //eslint-disable-line
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?mimetype=application/octet-stream' }, //eslint-disable-line
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: 'file-loader' },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?mimetype=image/svg+xml' },
     ],
   },
 
@@ -154,7 +180,7 @@ module.exports = {
   output: {
     filename: "[name].js",
     chunkFilename: "[id].js",
-    path: pathUtil.resolve(__dirname, './built'),
+    path: pathUtil.resolve(__dirname, 'built'),
     libraryTarget: 'umd',
     sourceMapFilename: '[file].map',
     devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
@@ -164,8 +190,13 @@ module.exports = {
   plugins: plugins,
 
   devServer: {
-    contentBase: "./built",
-    // overlay: true,
+    contentBase: pathUtil.resolve(__dirname, 'built'),
+    overlay: true,
+    // port: process.env.PORT,
+    // historyApiFallback: true,
+    // publicPath: "./built",
+    // open: false,
+    // hot: false
   },
 
 };

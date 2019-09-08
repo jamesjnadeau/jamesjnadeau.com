@@ -7,7 +7,7 @@ Description: My modifications to Clevertech's interviewing tool
 # Cleverhire: Automated interviewing
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/cleverhire.png" />
+	<img class="img-fluid img-rounded" src="/files/cleverhire.png" />
 </div>
 
 ***

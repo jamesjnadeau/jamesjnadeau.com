@@ -6,7 +6,7 @@ Description: Web Based PDF Proposal Tool
 #401K Advisors Proposal Research/Creation App
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/verisightplan.com.png" />
+	<img class="img-fluid img-rounded" src="/files/verisightplan.com.png" />
 </div>
 
 ***

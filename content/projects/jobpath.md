@@ -6,7 +6,7 @@ Description: How I took something that sold well, made it work right, and then s
 # JobPath
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/jobpath-afa.png" />
+	<img class="img-fluid img-rounded" src="/files/jobpath-afa.png" />
 </div>
 
 ***

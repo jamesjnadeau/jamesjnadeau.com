@@ -7,7 +7,7 @@ Description: My modifications to Clevertech's interviewing tool
 # Lookbooks: CRM/AM for the Fashion/Talent Industry
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/lookbooks.png" />
+	<img class="img-fluid img-rounded" src="/files/lookbooks.png" />
 </div>
 
 ***

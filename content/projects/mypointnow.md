@@ -8,7 +8,7 @@ Date: 01/01/2014
 # Cross Platfrom Mobile Applications Using Cordova
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/mypoint_systems.png" />
+	<img class="img-fluid img-rounded" src="/files/mypoint_systems.png" />
 </div>
 
 ***

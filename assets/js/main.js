@@ -25,13 +25,14 @@ var init_headroom = function() {
   // grab an element
   var myElement = document.querySelector("#header");
 
-  /* global Headroom */
+  // global Headroom
   // construct an instance of Headroom, passing the element
   var headroom = new Headroom(myElement);
   // initialise
   headroom.init();
 };
 init_headroom();
+
 //this does the page transitions/animations
 $(document).ready(function() {
   'use strict';

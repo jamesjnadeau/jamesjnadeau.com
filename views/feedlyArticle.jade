@@ -24,8 +24,8 @@ block content
     a.btn.btn-default(href=item.canonicalUrl target="_blank") Go
   hr.space
   if typeof item.content !== 'undefined'
-    .panel.panel-default
-      .panel-body
+    .card.card-default
+      .card-body
         .e-content.feedly-content
           | !{item.content.content}
   hr.space

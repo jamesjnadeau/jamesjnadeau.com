@@ -6,7 +6,7 @@ Description: Main website for the National Gardening Association
 #WheelsTV VSEO tool
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/wheelstv_vseo.png" />
+	<img class="img-fluid img-rounded" src="/files/wheelstv_vseo.png" />
 </div>
 
 ***

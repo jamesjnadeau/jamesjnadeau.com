@@ -6,7 +6,7 @@ Description: Main website for the National Gardening Association
 # CMS System For Non-Profit Education Site
 
 <div>
-	<img class="img-responsive img-rounded" src="/files/kidsgardening.org.png" />
+	<img class="img-fluid img-rounded" src="/files/kidsgardening.org.png" />
 </div>
 
 ***
