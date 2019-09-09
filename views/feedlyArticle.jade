@@ -9,7 +9,7 @@ block vars
 
 block content
   h1.h-entry #{item.title}
-  .row.small
+  .row.small.justify-content-between
     .col-xs-6
       | #{new Date(item.published).toLocaleDateString('en-US')}&emsp;|&emsp;
       span(title="Engagement metric from Feedly")
@@ -29,6 +29,6 @@ block content
         .e-content.feedly-content
           | !{item.content.content}
   hr.space
-  a.btn.btn-sm.btn-primary.pull-right(href=item.canonicalUrl target="_blank") View Source
+  a.btn.btn-sm.btn-primary.float-right(href=item.canonicalUrl target="_blank") View Source
   
-  pre.hidden #{JSON.stringify(item, null, 2)}
+  //- pre.hidden #{JSON.stringify(item, null, 2)}
