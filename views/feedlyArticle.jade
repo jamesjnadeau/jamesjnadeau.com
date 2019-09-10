@@ -9,7 +9,7 @@ block vars
 
 block content
   h1.h-entry #{item.title}
-  .row.small.justify-content-between
+  .row.justify-content-between.p-1
     .col-xs-6
       | #{new Date(item.published).toLocaleDateString('en-US')}&emsp;|&emsp;
       span(title="Engagement metric from Feedly")
@@ -19,7 +19,7 @@ block content
       span &emsp; Published by 
         span.p-author.h-card(rel="author") #{item.author} |&nbsp;
         a(href=item.origin.htmlUrl) #{item.origin.title}
-  .text-center
+  //- .text-center
     br
     a.btn.btn-default(href=item.canonicalUrl target="_blank") Go
   hr.space
