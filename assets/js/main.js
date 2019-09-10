@@ -27,7 +27,7 @@ var init_headroom = function() {
 
   // global Headroom
   // construct an instance of Headroom, passing the element
-  var headroom = new Headroom(myElement);
+  var headroom = new Headroom(myElement); // eslint-disable-line
   // initialise
   headroom.init();
 };

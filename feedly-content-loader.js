@@ -25,7 +25,7 @@ var sanitizeOptions = {
   allowedTags: [
     'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
     'nl', 'li', 'b', 'i', 'strong', 'em', 'strike', 'code', 'hr', 'br', 'div',
-    'table', 'thead', 'caption', 'tbody', 'tr', 'th', 'td', 'pre', 'iframe', 'img'
+    'table', 'thead', 'caption', 'tbody', 'tr', 'th', 'td', 'pre', 'iframe', 'img',
   ],
   allowedAttributes: {
     a: [
@@ -35,7 +35,7 @@ var sanitizeOptions = {
       'src', 'srcset',
     ],
     iframe: [
-      'src'
+      'src',
     ],
     '*': [
       'class', 'id',
@@ -44,11 +44,11 @@ var sanitizeOptions = {
   allowedIframeHostnames: ['www.youtube.com', 'player.vimeo.com'],
   // Lots of these won't come up by default because we don't allow them
   selfClosing: [
-    'img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta'
+    'img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta',
   ],
   // URL schemes we permit
   allowedSchemes: [
-    'https', 'mailto'
+    'https', 'mailto',
   ],
   allowedSchemesByTag: {},
   allowedSchemesAppliedToAttributes: [
@@ -67,7 +67,7 @@ if (process.env.FEEDLY_REFRESH_TOKEN) {
     // accessToken: process.env.FEEDLY_ACCESS_TOKEN,
   });
 } else {
-  console.warn('loading feedly-test-data, see env var FEEDLY_REFRESH_TOKEN to get real data')
+  console.warn('loading feedly-test-data, see env var FEEDLY_REFRESH_TOKEN to get real data');
   var data = require('./feedly-test-data.json');
   feedly = {
     request: function() {
@@ -99,7 +99,7 @@ function processContent(tagPath, compilation, items, done) {
       var relPath = 'curated/' + tagPath + '/' + item.published;
       var outputFileName = pathUtil.join(relPath, '/index.html')
         .replace(/^(\/|\\)/, ''); // Remove leading slashes for webpack-dev-server
-      
+
       // sanitize content
       var copy = Object.assign({}, item);
       if (copy.content && copy.content.content) {
@@ -116,8 +116,7 @@ function processContent(tagPath, compilation, items, done) {
         });
         copy.content.content = $.html();
       }
-      
-  
+
       var content = itemTemplate({
         item: copy,
       });
