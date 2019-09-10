@@ -24,11 +24,20 @@ block content
     a.btn.btn-default(href=item.canonicalUrl target="_blank") Go
   hr.space
   if typeof item.content !== 'undefined'
-    .card.card-default
-      .card-body
-        .e-content.feedly-content
+  .card.card-default
+    if typeof item.visual !== 'undefined' && item.visual.url !== 'none' && typeof item.content === 'undefined'
+      a(href=item.canonicalUrl)
+          img.card-img-top(src=item.visual.url)
+    .card-body
+      .e-content.feedly-content
+        if typeof item.content !== 'undefined'
           | !{item.content.content}
+        else if typeof item.summary  !== 'undefined'
+          | !{item.summary.content}
   hr.space
   a.btn.btn-sm.btn-primary.float-right(href=item.canonicalUrl target="_blank") View Source
   
-  //- pre.hidden #{JSON.stringify(item, null, 2)}
+  details
+    summary.small view data
+    pre.hidden #{JSON.stringify(item, null, 2)}
+
