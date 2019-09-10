@@ -18,7 +18,7 @@ block content
     .col-xs-6.text-right
       span &emsp; Published by 
         span.p-author.h-card(rel="author") #{item.author} |&nbsp;
-        a(href=item.origin.htmlUrl) #{item.origin.title}
+        a(href=item.origin.htmlUrl.replace('http:', '')) #{item.origin.title}
   //- .text-center
     br
     a.btn.btn-default(href=item.canonicalUrl target="_blank") Go
