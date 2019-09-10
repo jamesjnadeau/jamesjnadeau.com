@@ -11,3 +11,10 @@
   command = "yarn run dev" # Command to start your dev server
   port = 8080 # Port that the dev server will be listening on
   publish = "built" # If you use a _redirect file, provide the path to your static content folder
+
+
+# jamesnadeau.com
+[[redirects]]
+  from = "https://jamesnadeau.com/*"
+  to = "https://jamesjnadeau.com/:splat"
+  status = 301
