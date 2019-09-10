@@ -3,6 +3,8 @@ var pathUtil = require('path');
 var RawSource = require('webpack-sources/lib/RawSource');
 var FeedlyClient = require("node-feedly-developer-client");
 var jade = require('jade');
+var sanitizeHTML = require('sanitize-html');
+var cheerio = require('cheerio');
 
 // node cachemanager
 var cacheManager = require('cache-manager');
@@ -19,11 +21,63 @@ var diskCache = cacheManager.caching({
   },
 });
 
+var sanitizeOptions = {
+  allowedTags: [
+    'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
+    'nl', 'li', 'b', 'i', 'strong', 'em', 'strike', 'code', 'hr', 'br', 'div',
+    'table', 'thead', 'caption', 'tbody', 'tr', 'th', 'td', 'pre', 'iframe', 'img'
+  ],
+  allowedAttributes: {
+    a: [
+      'href', 'name', 'target',
+    ],
+    img: [
+      'src', 'srcset',
+    ],
+    iframe: [
+      'src'
+    ],
+    '*': [
+      'class', 'id',
+    ],
+  },
+  allowedIframeHostnames: ['www.youtube.com', 'player.vimeo.com'],
+  // Lots of these won't come up by default because we don't allow them
+  selfClosing: [
+    'img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta'
+  ],
+  // URL schemes we permit
+  allowedSchemes: [
+    'https', 'mailto'
+  ],
+  allowedSchemesByTag: {},
+  allowedSchemesAppliedToAttributes: [
+    'href', 'src', 'cite',
+  ],
+  allowProtocolRelative: true,
+  transformTags: {
+    // p: sanitizeHTML.simpleTransform('p', { class: 'embed-responsive embed-responsive-16by9' }),
+  },
+};
+
+var feedly;
 if (process.env.FEEDLY_REFRESH_TOKEN) {
-  var feedly = new FeedlyClient({
+  feedly = new FeedlyClient({
     refreshToken: process.env.FEEDLY_REFRESH_TOKEN,
     // accessToken: process.env.FEEDLY_ACCESS_TOKEN,
   });
+} else {
+  console.warn('loading feedly-test-data, see env var FEEDLY_REFRESH_TOKEN to get real data')
+  var data = require('./feedly-test-data.json');
+  feedly = {
+    request: function() {
+      return new Promise(function(resolve) {
+        resolve({
+          body: data,
+        });
+      });
+    },
+  };
 }
 
 //
@@ -45,9 +99,24 @@ function processContent(tagPath, compilation, items, done) {
       var relPath = 'curated/' + tagPath + '/' + item.published;
       var outputFileName = pathUtil.join(relPath, '/index.html')
         .replace(/^(\/|\\)/, ''); // Remove leading slashes for webpack-dev-server
-
+      
+      // sanitize content
+      var copy = Object.assign({}, item);
+      copy.content.content = sanitizeHTML(copy.content.content, sanitizeOptions);
+      // fix iframes and images
+      var $ = cheerio.load(copy.content.content);
+      $('iframe').each(function() {
+        var $this = $(this);
+        $this.parent().addClass('embed-responsive embed-responsive-16by9');
+      });
+      $('img').each(function() {
+        var $this = $(this);
+        $this.addClass('img-fluid');
+      });
+      copy.content.content = $.html();
+  
       var content = itemTemplate({
-        item,
+        item: copy,
       });
 
       compilation.assets[outputFileName] = new RawSource(content); // eslint-disable-line no-param-reassign,max-len

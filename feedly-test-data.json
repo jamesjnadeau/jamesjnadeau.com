@@ -1,0 +1,140 @@
+{
+  "id": "user/447f76f6-44df-414e-a9af-794a73847bdb/tag/Awesome",
+  "items": [{
+  "id": "yLHwCaE43Rw1y3K7e7JJPfLqBNbwl2gPdaXph+LEs60=_16c42f0b08e:6d00d39:4b2e0c8b",
+  "keywords": [
+    "Post",
+    "Video",
+    "Free Bird",
+    "LYNYRD SKYNYRD"
+  ],
+  "originId": "https://boingboing.net/?p=728905",
+  "fingerprint": "38b24c08",
+  "content": {
+    "content": "<p><iframe allowfullscreen=\"true\" src=\"https://www.youtube.com/embed/VGTaA6d3BXQ?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent\" width=\"970\" type=\"text/html\" height=\"546\"></iframe></p>\n<p>TIL: There are folks not familiar with Lynyrd Skynyrd's concert-closing song &quot;Free Bird.&quot; It seems nearly unimaginable for someone who grew up hearing the Southern rock band's signature 14-minute-long power ballad. (I mean, doesn't everyone know that you jokingly request bands to play it by yelling &quot;Free Bird!&quot;?) </p>\n<p>Enter YouTuber <a href=\"https://www.youtube.com/channel/UCKUCm3FepRrl-VKhq0Wwajg\">No Life Shaq</a>. He claims he's heard the band's name before but has never heard the song. Watch <a href=\"https://youtu.be/VGTaA6d3BXQ\">this video</a> of him listening to (and amusingly analyzing) it for the first time. I think he likes it, especially that guitar solo!</p>\n<p>(<a href=\"https://www.facebook.com/soapplantwacko/\">Soap Plant WACKO</a>)</p>",
+    "direction": "ltr"
+  },
+  "title": "First time hearing Lynyrd Skynyrd's \"Free Bird\"",
+  "author": "Rusty Blazenhoff",
+  "summary": {
+    "content": "<p></p>\n<p>TIL: There are folks not familiar with Lynyrd Skynyrd's concert-closing song &quot;Free Bird.&quot; It seems nearly unimaginable for someone who grew up hearing the Southern rock band's signature 14-minute-long power ballad. (I mean, doesn't everyone know that you jokingly request bands to play it by yelling &quot;Free Bird!&quot;?) </p>\n<p>Enter YouTuber <a href=\"https://www.youtube.com/channel/UCKUCm3FepRrl-VKhq0Wwajg\">No Life Shaq</a>. He claims he's heard the band's name before but has never heard the song. Watch <a href=\"https://youtu.be/VGTaA6d3BXQ\">this video</a> of him listening to (and amusingly analyzing) it for the first time. I think he likes it, especially that guitar solo!</p>\n<p>(<a href=\"https://www.facebook.com/soapplantwacko/\">Soap Plant WACKO</a>) <a href=\"https://boingboing.net/2019/07/30/first-time-hearing-lynyrd-skyn.html\">Read the rest </a></p>",
+    "direction": "ltr"
+  },
+  "alternate": [
+    {
+      "href": "https://boingboing.net/2019/07/30/first-time-hearing-lynyrd-skyn.html",
+      "type": "text/html"
+    }
+  ],
+  "crawled": 1564491165838,
+  "published": 1564490717000,
+  "origin": {
+    "streamId": "feed/http://boingboing.net/rss",
+    "title": "Boing Boing",
+    "htmlUrl": "https://boingboing.net"
+  },
+  "visual": {
+    "processor": "feedly-nikon-v3.1",
+    "url": "http://img.youtube.com/vi/VGTaA6d3BXQ/0.jpg",
+    "width": 480,
+    "height": 360,
+    "contentType": "image/jpeg"
+  },
+  "canonicalUrl": "https://boingboing.net/2019/07/30/first-time-hearing-lynyrd-skyn.html",
+  "unread": false,
+  "categories": [
+    {
+      "id": "user/447f76f6-44df-414e-a9af-794a73847bdb/category/global.must",
+      "label": "Must Read"
+    },
+    {
+      "id": "user/447f76f6-44df-414e-a9af-794a73847bdb/category/Marketing",
+      "label": "Marketing"
+    },
+    {
+      "id": "user/447f76f6-44df-414e-a9af-794a73847bdb/category/News",
+      "label": "News"
+    }
+  ],
+  "tags": [
+    {
+      "id": "user/447f76f6-44df-414e-a9af-794a73847bdb/tag/Laugh",
+      "label": "Laugh"
+    },
+    {
+      "id": "user/447f76f6-44df-414e-a9af-794a73847bdb/tag/Awesome",
+      "label": "Awesome"
+    },
+    {
+      "id": "user/447f76f6-44df-414e-a9af-794a73847bdb/tag/global.read",
+      "label": ""
+    }
+  ],
+  "commonTopics": [
+    {
+      "score": 126.51029988081974,
+      "id": "nlp/f/topic/3009",
+      "salienceLevel": "about",
+      "label": "music"
+    },
+    {
+      "score": 50.66532308158844,
+      "id": "nlp/f/topic/3004",
+      "salienceLevel": "about",
+      "label": "rock music"
+    },
+    {
+      "score": 0.857,
+      "id": "nlp/f/topic/625",
+      "salienceLevel": "about",
+      "label": "deals"
+    },
+    {
+      "score": 0.729,
+      "id": "nlp/f/topic/1523",
+      "salienceLevel": "mention",
+      "label": "music education"
+    }
+  ],
+  "entities": [
+    {
+      "mentions": [
+        {
+          "text": "Lynyrd Skynyrd"
+        }
+      ],
+      "id": "nlp/f/entity/wd:158462",
+      "salienceLevel": "about",
+      "label": "Lynyrd Skynyrd"
+    },
+    {
+      "mentions": [
+        {
+          "text": "guitar solo"
+        }
+      ],
+      "id": "nlp/f/entity/wd:2446979",
+      "salienceLevel": "about",
+      "label": "guitar solo"
+    },
+    {
+      "mentions": [
+        {
+          "text": "rock band"
+        }
+      ],
+      "id": "nlp/f/entity/wd:215380",
+      "salienceLevel": "mention",
+      "label": "band"
+    }
+  ],
+  "actionTimestamp": 1566726603100,
+  "engagement": 1389,
+  "webfeeds": {
+    "icon": "http://storage.googleapis.com/test-site-assets/yLHwCaE43Rw1y3K7e7JJPfLqBNbwl2gPdaXph-LEs60_oicon-14ebc38142e",
+    "relatedLayout": "card",
+    "relatedTarget": "browser",
+    "coverImage": "http://storage.googleapis.com/test-site-assets/yLHwCaE43Rw1y3K7e7JJPfLqBNbwl2gPdaXph-LEs60_ocover-14ebc384460"
+  }
+}]
+}

@@ -88,9 +88,9 @@ if (process.env.NODE_ENV === 'production') {
   }));
 }
 
-if (process.env.FEEDLY_REFRESH_TOKEN) {
-  plugins.push(new feedlyContentLoader());
-}
+// Feedly loader
+plugins.push(new feedlyContentLoader());
+
 
 if (process.env.NODE_ENV === 'production') {
   plugins.push(new PurgecssPlugin({
