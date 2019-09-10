@@ -102,18 +102,21 @@ function processContent(tagPath, compilation, items, done) {
       
       // sanitize content
       var copy = Object.assign({}, item);
-      copy.content.content = sanitizeHTML(copy.content.content, sanitizeOptions);
-      // fix iframes and images
-      var $ = cheerio.load(copy.content.content);
-      $('iframe').each(function() {
-        var $this = $(this);
-        $this.parent().addClass('embed-responsive embed-responsive-16by9');
-      });
-      $('img').each(function() {
-        var $this = $(this);
-        $this.addClass('img-fluid');
-      });
-      copy.content.content = $.html();
+      if (copy.content && copy.content.content) {
+        copy.content.content = sanitizeHTML(copy.content.content, sanitizeOptions);
+        // fix iframes and images
+        var $ = cheerio.load(copy.content.content);
+        $('iframe').each(function() {
+          var $this = $(this);
+          $this.parent().addClass('embed-responsive embed-responsive-16by9');
+        });
+        $('img').each(function() {
+          var $this = $(this);
+          $this.addClass('img-fluid');
+        });
+        copy.content.content = $.html();
+      }
+      
   
       var content = itemTemplate({
         item: copy,
