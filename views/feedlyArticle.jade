@@ -18,7 +18,7 @@ block content
     .col-xs-6.text-right
       span &emsp; Published by 
         span.p-author.h-card(rel="author") #{item.author} |&nbsp;
-        a(href=item.origin.htmlUrl.replace('http:', '')) #{item.origin.title}
+        a(href=item.origin.htmlUrl.replace('http:', '') rel="noopener") #{item.origin.title}
   //- .text-center
     br
     a.btn.btn-default(href=item.canonicalUrl target="_blank") Go
@@ -35,7 +35,7 @@ block content
         else if typeof item.summary  !== 'undefined'
           | !{item.summary.content}
   hr.space
-  a.btn.btn-sm.btn-primary.float-right(href=item.canonicalUrl target="_blank") View Source
+  a.btn.btn-sm.btn-primary.float-right(href=item.canonicalUrl target="_blank" rel="noopener") View Source
   
   details
     summary.small view data
