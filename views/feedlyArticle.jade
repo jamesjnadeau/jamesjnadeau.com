@@ -23,9 +23,9 @@ block content
     br
     a.btn.btn-default(href=item.canonicalUrl target="_blank") Go
   hr.space
-  if typeof item.content !== 'undefined'
   .card.card-default
-    if typeof item.visual !== 'undefined' && item.visual.url !== 'none' && typeof item.content === 'undefined'
+    -var missingImageContent = typeof item.content !== 'undefined' && item.content.content.indexOf('img') === -1 && item.content.content.indexOf('iframe') === -1
+    if typeof item.visual !== 'undefined' && item.visual.url !== 'none' && missingImageContent
       a(href=item.canonicalUrl)
           img.card-img-top(src=item.visual.url)
     .card-body
