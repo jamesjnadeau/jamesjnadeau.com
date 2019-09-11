@@ -1,4 +1,4 @@
-
+require('./consoleBanner');
 require("bootstrap/dist/js/bootstrap.js");
 // require("Lettering.js/jquery.lettering.js");
 require('./jquery.lettering.js');
