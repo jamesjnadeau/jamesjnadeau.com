@@ -9,7 +9,7 @@
     "dev:dashboard": "NODE_ENV=development webpack-dashboard -- npm run dev:webpack",
     "dev:webpack": "webpack-dev-server --progress --colors  --debug --output-pathinfo --host 0.0.0.0",
     "watch": "webpack --progress --colors --watch --debug --output-pathinfo",
-    "build": "webpack --progress --colors -p  --debug --output-pathinfo",
+    "build": "webpack --colors -p",
     "lint": "eslint .",
     "textlint": "textlint built",
     "stage": "dev_appserver.py --host 0.0.0.0 ./",
