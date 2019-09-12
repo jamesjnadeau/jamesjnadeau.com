@@ -18,3 +18,11 @@
   from = "https://jamesnadeau.com/*"
   to = "https://jamesjnadeau.com/:splat"
   status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "script-src 'self' https://www.google-analytics.com"
+    Feature-Policy = "autoplay 'none'; camera 'none'"
