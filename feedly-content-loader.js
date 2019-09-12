@@ -1,4 +1,5 @@
 var async = require('async');
+var _ = require('lodash');
 var pathUtil = require('path');
 var RawSource = require('webpack-sources/lib/RawSource');
 var FeedlyClient = require("node-feedly-developer-client");
@@ -101,11 +102,11 @@ function processContent(tagPath, compilation, items, done) {
         .replace(/^(\/|\\)/, ''); // Remove leading slashes for webpack-dev-server
 
       // sanitize content
-      var copy = Object.assign({}, item);
+      // var copy = Object.assign({}, item);
+      var copy = _.cloneDeep(item);
       if (copy.content && copy.content.content) {
-        copy.content.content = sanitizeHTML(copy.content.content, sanitizeOptions);
         // fix iframes and images
-        var $ = cheerio.load(copy.content.content);
+        var $ = cheerio.load(item.content.content);
         $('iframe').each(function() {
           var $this = $(this);
           $this.parent().addClass('embed-responsive embed-responsive-16by9');
@@ -113,8 +114,13 @@ function processContent(tagPath, compilation, items, done) {
         $('img').each(function() {
           var $this = $(this);
           $this.addClass('img-fluid');
+          var src = $this.attr('src');
+          if (src) {
+            $this.attr('src', src.replace('http:', ''));
+          }
         });
-        copy.content.content = $.html();
+        copy.content.unsanitized = $.html();
+        copy.content.content = sanitizeHTML(copy.content.unsanitized, sanitizeOptions);
       }
 
       var content = itemTemplate({

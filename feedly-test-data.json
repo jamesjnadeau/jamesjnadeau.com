@@ -252,5 +252,82 @@
     }
   ],
   "actionTimestamp": 1567592821386
+},{
+  "fingerprint": "361b42ab",
+  "id": "yLHwCaE43Rw1y3K7e7JJPfLqBNbwl2gPdaXph+LEs60=_15cd69c1a7a:1ecc41f:5b78a817",
+  "keywords": [
+    "Post",
+    "dog",
+    "doggos",
+    "fun",
+    "pets"
+  ],
+  "originId": "http://boingboing.net/?p=531331",
+  "origin": {
+    "streamId": "feed/http://boingboing.net/rss",
+    "title": "Boing Boing",
+    "htmlUrl": "http://boingboing.net"
+  },
+  "content": {
+    "content": "<html><head></head><body><p><img class=\"wp-post-image img-fluid\"></p><p>\nThis doggo is living life to the fullest.</p><p> <a>(more&#x2026;)</a></p></body></html>",
+    "direction": "ltr"
+  },
+  "title": "When the rhythm hits you and you're a dog in the car in the rain",
+  "published": 1498248920000,
+  "crawled": 1498249173626,
+  "alternate": [
+    {
+      "type": "text/html",
+      "href": "http://boingboing.net/2017/06/23/doberman-dancing.html"
+    }
+  ],
+  "author": "Xeni Jardin",
+  "summary": {
+    "content": "<p><img width=\"351\" alt=\"\" src=\"http://media.boingboing.net/wp-content/uploads/2017/06/ezgif-3-d9d04442ac.gif\" class=\"wp-post-image\" height=\"233\"></p><p>\nThis doggo is living life to the fullest.</p><p> <a href=\"http://boingboing.net/2017/06/23/doberman-dancing.html#more-531331\"><span>(more…)</span></a></p>",
+    "direction": "ltr"
+  },
+  "visual": {
+    "url": "https://i1.wp.com/media.boingboing.net/wp-content/uploads/2017/06/doggo.jpg?fit=600%2C397",
+    "width": 599,
+    "height": 397,
+    "processor": "feedly-nikon-v3.1",
+    "contentType": "image/jpeg"
+  },
+  "canonicalUrl": "http://boingboing.net/2017/06/23/doberman-dancing.html",
+  "ampUrl": "https://boingboing.net/2017/06/23/doberman-dancing.html/amp",
+  "cdnAmpUrl": "https://boingboing-net.cdn.ampproject.org/c/s/boingboing.net/2017/06/23/doberman-dancing.html/amp",
+  "unread": false,
+  "categories": [
+    {
+      "id": "user/447f76f6-44df-414e-a9af-794a73847bdb/category/global.must",
+      "label": "Must Read"
+    },
+    {
+      "id": "user/447f76f6-44df-414e-a9af-794a73847bdb/category/Marketing",
+      "label": "Marketing"
+    },
+    {
+      "id": "user/447f76f6-44df-414e-a9af-794a73847bdb/category/News",
+      "label": "News"
+    }
+  ],
+  "tags": [
+    {
+      "id": "user/447f76f6-44df-414e-a9af-794a73847bdb/tag/Walter",
+      "label": "Walter"
+    },
+    {
+      "id": "user/447f76f6-44df-414e-a9af-794a73847bdb/tag/global.read",
+      "label": ""
+    }
+  ],
+  "actionTimestamp": 1498256551695,
+  "engagement": 16,
+  "webfeeds": {
+    "icon": "http://storage.googleapis.com/test-site-assets/yLHwCaE43Rw1y3K7e7JJPfLqBNbwl2gPdaXph-LEs60_oicon-14ebc38142e",
+    "relatedLayout": "card",
+    "relatedTarget": "browser",
+    "coverImage": "http://storage.googleapis.com/test-site-assets/yLHwCaE43Rw1y3K7e7JJPfLqBNbwl2gPdaXph-LEs60_ocover-14ebc384460"
+  }
 }]
 }
