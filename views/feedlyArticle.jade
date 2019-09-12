@@ -35,7 +35,8 @@ block content
         else if typeof item.summary  !== 'undefined'
           | !{item.summary.content}
   hr.space
-  a.btn.btn-sm.btn-primary.float-right(href=item.canonicalUrl.replace('http:', '') target="_blank" rel="noopener") View Source
+  if item.canonicalUrl
+    a.btn.btn-sm.btn-primary.float-right(href=item.canonicalUrl.replace('http:', '') target="_blank" rel="noopener") View Source
   
   details
     summary.small view data
