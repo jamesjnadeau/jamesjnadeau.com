@@ -21,10 +21,6 @@ var env = require('./sanitizedEnv');
 
 var plugins = [
   new CleanWebpackPlugin(),
-  new BundleAnalyzerPlugin({
-    analyzerMode: 'static',
-    openAnalyzer: false, // access it at /report.html
-  }),
   new MiniCssExtractPlugin({
     // Options similar to the same options in webpackOptions.output
     // both options are optional
@@ -58,6 +54,10 @@ var plugins = [
 ];
 
 if (process.env.NODE_ENV === 'production') {
+  plugins.push(new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    openAnalyzer: false, // access it at /report.html
+  }));
   plugins.push(new WorkboxPlugin.GenerateSW({
     include: [
       /\.js|\.css/,
@@ -141,8 +141,12 @@ var styleLoader = [
 ];
 
 var mode = 'development';
+var optimization = {};
 if (process.env.NODE_ENV === 'production') {
   mode = process.env.NODE_ENV;
+  optimization = {
+    minimize: true,
+  };
 }
 
 
@@ -150,9 +154,7 @@ module.exports = {
   mode,
   //enable source-maps
   devtool: 'source-map',
-  optimization: {
-    minimize: true,
-  },
+  optimization,
 
   module: {
     rules: [
@@ -174,6 +176,8 @@ module.exports = {
     'site-generator': 'static-site-loader!./content',
     frontend: './assets/js/index.js',
     styles: './assets/styles/index.js',
+    impress: './assets/impress/index.js',
+    "impress-styles": './assets/impress/styles/index.js',
     // 'service-worker': './assets/js/service-worker.js',
   },
 

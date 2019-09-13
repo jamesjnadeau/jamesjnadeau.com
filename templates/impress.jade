@@ -1,0 +1,26 @@
+doctype html
+block vars
+
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    if title
+      title #{title}
+    if description
+      meta(name='description', content='#{description}')
+    if keywords 
+      meta(name='description', content='#{keywords}')
+    block head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1')
+    meta(name='author', content='James J Nadeau')
+    link(href='/impress-styles.css?v=#{version}', rel='stylesheet', type='text/css')
+      
+
+  body
+    block content
+      div !{content}
+
+    
+    script(src='/impress.js?v=#{version}')
+    block scripts
