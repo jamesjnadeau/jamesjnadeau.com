@@ -13,36 +13,50 @@ $container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px );
 @import "~bootstrap/scss/bootstrap";
 
 
+// basic step box/position, height/width is defined in template via vars
 .step {
   position: relative;
-  width: 900px;
-  margin: 20px auto;
-  box-sizing: border-box;
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-/*
-  ... and we enhance the styles for impress.js.
-
-  Basically we remove the margin and make inactive steps a little bit transparent.
-*/
-.impress-enabled .step {
-  opacity: 0;
-  transition:  opacity 1s;
+// defaults for show/hide
+.impress-enabled {
+  .step, .substep {
+    transition:  opacity 1.5s ease-in-out;
+  }
+  .step { opacity: .05; }
+  .substep { opacity: 0; }
+  .step.past, .substep.substep-visible {
+    display: flex;
+    opacity: 0.3;
+    transition: opacity 1.5s ease-in-out;
+  }
+  .substep.substep-visible {
+    display: block;
+  }
+  .step.active {
+    display: flex;
+    opacity: 1;
+    overflow: hidden;
+    transition:  opacity 1.5s ease-in-out;
+    .substep.substep-visible {
+      opacity: 1;
+    }
+  }
 }
-.impress-enabled .step.past {
-  margin: 0;
-  opacity: 0.3;
-  transition: opacity 1s;
-}
 
-.impress-enabled .step.active { opacity: 1 }
 
-// substep styling
-.substep { opacity: 0; }
-.substep.substep-visible { opacity: 1; transition: opacity 1s; }
 
 // hide toolbar on mouse timeout
 body.impress-mouse-timeout div#impress-toolbar {
+  display: none;
+}
+
+// hide notes
+.notes {
   display: none;
 }
 

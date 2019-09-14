@@ -1,4 +1,6 @@
 doctype html
+-var stepWidth = 900
+-var space = 1000;
 block vars
 
 html(lang='en')
@@ -15,6 +17,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1')
     meta(name='author', content='James J Nadeau')
     link(href='/impress-styles.css?v=#{version}', rel='stylesheet', type='text/css')
+    style .step { width: #{stepWidth}px; }
       
 
   body
