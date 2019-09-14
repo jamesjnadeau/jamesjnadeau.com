@@ -20,6 +20,13 @@ html(lang='en')
   body
     block content
       div !{content}
+    
+    block tools
+      #impress-toolbar.form-inline
+      .impress-progressbar
+        div
+      .impress-progress
+
 
     
     script(src='/impress.js?v=#{version}')

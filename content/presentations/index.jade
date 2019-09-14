@@ -1,35 +1,13 @@
-extends ../../templates/impress
+extends ../../templates/default
 
 block vars
-  -var title = 'James J Nadeau | Demo Presentation'
-  -var description = 'A demo presntation using impress.js'
+  -var title = 'James J Nadeau | Presentations'
+  -var description = 'Here are some presentation decks I\'ve used in the past.'
 
 block content
-  //- see https://impress.js.org/#/bored
-  //- style="position: absolute; transform-origin: left top; transition: all 1000ms ease-in-out 500ms; transform-style: preserve-3d; top: 50%; left: 50%; perspective: 1073.38px; transform: scale(0.931641);"
-  #impress()
-    -var x = 0;
-    -var y = 0;
-    -var z = 0;
-    -var space = 1000;
-    .step()
-      h1 Step One
-      p Body text
-    - x += space;
-    .step(data-x=x)
-      h1 Step Two
-      p Body text
-    - x += space;
-    .step(data-x=x data-rotate="180")
-      h1 Step Three upside down
-      p Body text
-    - x -= space;
-    - z += space
-    .step(data-x=x data-z=z)
-      h1 Step Four Above
-      p Body text
-    - y += space;
-    .step(data-x=x data-y=y data-z=z)
-      h1 Step Five  Down
-      p Body text
-    
+  .row
+    .col-md-6
+      ul.list-group.p-2
+        h3.list-group-item Demo's
+        a.list-group-item(href='/presentations/demo/' target="_blank") Copy of the impress.js demo
+        a.list-group-item(href='/presentations/simple/' target="_blank") A simple example

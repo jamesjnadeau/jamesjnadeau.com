@@ -13,27 +13,11 @@ $container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px );
 @import "~bootstrap/scss/bootstrap";
 
 
-/*
-    Now let's style the presentation steps.
-
-    We start with basics to make sure it displays correctly in everywhere ...
-*/
-
 .step {
   position: relative;
   width: 900px;
-  padding: 40px;
   margin: 20px auto;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing:    border-box;
-  -ms-box-sizing:     border-box;
-  -o-box-sizing:      border-box;
-  box-sizing:         border-box;
-
-  font-family: 'PT Serif', georgia, serif;
-  font-size: 48px;
-  line-height: 1.5;
+  box-sizing: border-box;
 }
 
 /*
@@ -42,55 +26,46 @@ $container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px );
   Basically we remove the margin and make inactive steps a little bit transparent.
 */
 .impress-enabled .step {
+  opacity: 0;
+  transition:  opacity 1s;
+}
+.impress-enabled .step.past {
   margin: 0;
   opacity: 0.3;
-
-  -webkit-transition: opacity 1s;
-  -moz-transition:    opacity 1s;
-  -ms-transition:     opacity 1s;
-  -o-transition:      opacity 1s;
-  transition:         opacity 1s;
+  transition: opacity 1s;
 }
 
 .impress-enabled .step.active { opacity: 1 }
 
-/*
-  These 'slide' step styles were heavily inspired by HTML5 Slides:
-  http://html5slides.googlecode.com/svn/trunk/styles.css
+// substep styling
+.substep { opacity: 0; }
+.substep.substep-visible { opacity: 1; transition: opacity 1s; }
 
-  ;)
-
-  They cover everything what you see on first three steps of the demo.
-*/
-.slide {
-  display: block;
-
-  width: 900px;
-  height: 700px;
-  padding: 40px 60px;
-
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, .3);
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
-
-  color: rgb(102, 102, 102);
-  text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
-
-  font-family: 'Open Sans', Arial, sans-serif;
-  font-size: 30px;
-  line-height: 36px;
-  letter-spacing: -1px;
+// hide toolbar on mouse timeout
+body.impress-mouse-timeout div#impress-toolbar {
+  display: none;
 }
 
-.slide q {
-  display: block;
-  font-size: 50px;
-  line-height: 72px;
 
-  margin-top: 100px;
+.impress-progressbar {
+  position: absolute;
+  right: 318px;
+  bottom: 1px;
+  left: 118px;
+  border-radius: 7px;
+  border: 2px solid rgba(100, 100, 100, 0.2);
 }
-
-.slide q strong {
-  white-space: nowrap;
+.impress-progressbar div {
+  width: 0;
+  height: 4px;
+  border-radius: 5px;
+  background: rgba(75, 75, 75, 0.4);
+  transition: width 1s linear;
+}
+.impress-progress {
+  position: absolute;
+  left: 59px;
+  bottom: 1px;
+  text-align: left;
+  opacity: 0.6;
 }
