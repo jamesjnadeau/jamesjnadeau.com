@@ -1,3 +1,5 @@
+var animateEnd = require('./animateEnd');
+
 // Google Analytics
 /* global ga */
 /* eslint-disable */
@@ -68,17 +70,40 @@ $(document).ready(function() {
     });
   };
   highlight_headers();
-  var $body = $('html, body'),
-    $loading = $('#loading'),
-    loading_timer;
+
+  var clearAnimation = function(target) {
+    target.classList.remove('observe-animated');
+    // clear animation
+    target.style.animation = 'none';
+    // Trigger a reflow causing the animation to kick off
+    void target.offsetHeight;
+    // set up animation to be ready to run 'again'
+    target.style.animation = null;
+    // trigger animation
+    target.classList.add('animated');
+  };
+
+  var $body = $('html, body');
+  var $loading = $('#loading');
+  var loading_timer;
+  var inAnimationClass = 'fadeInRight';
+  var outAnimationClass = 'fadeOutLeft';
+  var animating = false;
   $('#wrap').smoothState({
     // Runs when a link has been activated
     development: true,
     onStart: function() { // url, $container
-      var temp = $('.container.animated.fadeInRight');
-      temp.removeClass('fadeInRight').addClass('fadeOutLeft');
-      // Scroll user to the top
-      $body.animate({ scrollTop: 0 });
+      var temp = $('.container.animated.' + inAnimationClass);
+      temp.removeClass(inAnimationClass).addClass(outAnimationClass);
+      var el = temp.get(0);
+      animating = true;
+      animateEnd(el, function() {
+        animating = false;
+        // Scroll user to the top
+        $body.animate({ scrollTop: 0 });
+        console.log('animation done');
+      });
+      clearAnimation(el);
     },
     onProgress: function (url, $container) {
       $body.css('cursor', 'wait');
@@ -96,10 +121,17 @@ $(document).ready(function() {
       $body.css('cursor', 'auto');
       $body.find('a').css('cursor', 'auto');
       $content.removeClass('csspinner helicopter');
-      $container.html($content);
-      init_headroom();
-      highlight_headers();
-      ga_track_page();
+      var onAnimationEnd = function() {
+        if (animating) {
+          setTimeout(onAnimationEnd, 100);
+        } else {
+          $container.html($content);
+          init_headroom();
+          highlight_headers();
+          ga_track_page();
+        }
+      };
+      onAnimationEnd();
     },
     pageCacheSize: 0,
     prefetch: false,
