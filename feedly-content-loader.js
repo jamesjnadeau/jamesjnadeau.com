@@ -3,7 +3,7 @@ var _ = require('lodash');
 var pathUtil = require('path');
 var RawSource = require('webpack-sources/lib/RawSource');
 var FeedlyClient = require("node-feedly-developer-client");
-var jade = require('jade');
+var pug = require('pug');
 var sanitizeHTML = require('sanitize-html');
 var cheerio = require('cheerio');
 
@@ -84,10 +84,11 @@ if (process.env.FEEDLY_REFRESH_TOKEN) {
 //
 // templates
 //
-var itemTemplate = jade.compileFile(pathUtil.join(__dirname, '/views/feedlyArticle.jade'), {
+var itemTemplate = pug.compileFile(pathUtil.join(__dirname, '/views/feedlyArticle.jade'), {
   pretty: false,
 });
-var indexTemplate = jade.compileFile(pathUtil.join(__dirname, '/views/feedlyTagIndex.jade'), {
+
+var indexTemplate = pug.compileFile(pathUtil.join(__dirname, '/views/feedlyTagIndex.jade'), {
   pretty: false,
 });
 

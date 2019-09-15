@@ -1,3 +1,4 @@
+Error.stackTraceLimit = Infinity;
 
 require('dotenv').config();
 
@@ -11,7 +12,6 @@ var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var PurgecssPlugin = require('purgecss-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var staticSiteLoader = require('./static-site-loader');
-var feedlyContentLoader = require('./feedly-content-loader');
 var { CleanWebpackPlugin } = require('clean-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var WorkboxPlugin = require('workbox-webpack-plugin');
@@ -89,25 +89,36 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Feedly loader
-plugins.push(new feedlyContentLoader());
+if (!process.env.DISABLE_FEEDLY) {
+  var feedlyContentLoader = require('./feedly-content-loader');
+  plugins.push(new feedlyContentLoader());
+}
 
 
 if (process.env.NODE_ENV === 'production') {
   plugins.push(new PurgecssPlugin({
     paths: function () {
       var contentDir = pathUtil.resolve(__dirname, './content');
-      var files = glob.sync(contentDir + '/**', { //.(md|jade)
+      var files = glob.sync(contentDir + '/**', {
         nodir: true,
       });
 
       var templateDir = pathUtil.join(__dirname, 'templates');
-      files = files.concat(glob.sync(templateDir + '/**', { //.(md|jade)
+      files = files.concat(glob.sync(templateDir + '/**', {
         nodir: true,
       }));
+
+      var viewsDir = pathUtil.join(__dirname, 'views');
+      files = files.concat(glob.sync(viewsDir + '/**', {
+        nodir: true,
+      }));
+
       var jsDir = pathUtil.join(__dirname, 'assets/js');
-      files = files.concat(glob.sync(jsDir + '/**', { //.(md|jade)
+      files = files.concat(glob.sync(jsDir + '/**', {
         nodir: true,
       }));
+
+      files.push('feedly-content-loader.js');
 
       return files;
     },

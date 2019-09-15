@@ -10,6 +10,7 @@ block content
     .col
       ul.list-group
         each item in items
-          a.list-group-item(href="/curated/#{tagPath}/#{item.published}" title=item.title) 
+          a.list-group-item(href=`/curated/${tagPath}/${item.published}` title=item.title) 
             h5 #{item.title}
-            small.text-muted  &emsp;#{new Date(item.published).toLocaleDateString('en-US')} | #{item.origin.title}
+            -var publishDate = new Date(item.published).toLocaleDateString('en-US')
+            small.text-muted  &emsp;#{publishDate} | #{item.origin.title}

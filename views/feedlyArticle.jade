@@ -2,23 +2,25 @@ extends ../templates/default
 
 block vars
   -var title = item.title;
-  -var description = 
 
   block head
-    link(rel='canonical' href=item.canonicalUrl)
+    if item.canonicalUrl
+      link(rel='canonical' href=item.canonicalUrl)
 
 block content
   h1.h-entry #{item.title}
   .row.justify-content-between.p-1
     .col-xs-6
-      | #{new Date(item.published).toLocaleDateString('en-US')}&emsp;|&emsp;
+      - var myDate = new Date(item.published).toLocaleDateString('en-US');
+      | #{myDate}&emsp;|&emsp;
       span(title="Engagement metric from Feedly")
         span.glyphicon.glyphicon-thumbs-up
         | &nbsp;#{item.engagement}
     .col-xs-6.text-right
       span &emsp; Published by 
         span.p-author.h-card(rel="author") #{item.author} |&nbsp;
-        a(href=item.origin.htmlUrl.replace('http:', '') rel="noopener") #{item.origin.title}
+        -var href = item.origin.htmlUrl.replace('http:', '');
+        a(href=href rel="noopener") #{item.origin.title}
   //- .text-center
     br
     a.btn.btn-default(href=item.canonicalUrl target="_blank") Go
@@ -36,9 +38,11 @@ block content
           | !{item.summary.content}
   hr.space
   if item.canonicalUrl
-    a.btn.btn-sm.btn-primary.float-right(href=item.canonicalUrl.replace('http:', '') target="_blank" rel="noopener") View Source
+    -var url = item.canonicalUrl.replace('http:', '');
+    a.btn.btn-sm.btn-primary.float-right(href=url target="_blank" rel="noopener") View Source
   
   details
     summary.small view data
-    pre.hidden #{JSON.stringify(item, null, 2)}
+    - var debugContent = JSON.stringify(item, null, 2);
+    pre.hidden #{debugContent}
 

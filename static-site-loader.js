@@ -1,6 +1,6 @@
 var pathUtil = require('path');
 var marked = require('marked');
-var jade = require('jade');
+var pug = require('pug');
 var RSS = require('rss');
 var version = require('package')(__dirname).version;
 
@@ -20,36 +20,47 @@ module.exports = {
     //watch the content directory for changes
     this.addContextDependency(path);
     //Define our template path
-    var templatePath = 'templates/default.jade';
+    var templatePath = 'templates/default.pug';
     //watch the template for changes
     this.addDependency(templatePath);
     //Compile the template for use later
-    template = jade.compileFile(templatePath, { pretty: false });
+    template = pug.compileFile(templatePath, { pretty: false });
     // clear out shared vars for new run
     notJadeContent = [];
     tilURLs = [];
   },
   //Test if a file should be processed or not, should return true or false;
   testToInclude: function(path) { // stats, absPath
-    return pathUtil.extname(path) === '.md' || pathUtil.extname(path) === '.jade';
+    var extname = pathUtil.extname(path);
+    var allowed = ['.md', '.jade', '.pug'];
+    return allowed.indexOf(extname) !== -1;
   },
   //allows you to rewrite the url path that this will be uploaded to
   rewriteUrlPath: function(path, stats, absPath) {
     var extensionSize;
-    if (pathUtil.extname(path) === '.md') {
-      extensionSize = -3;
-    } else {
-      extensionSize = -5;
-      this.addDependency(absPath);
+    var extname = pathUtil.extname(path);
+    switch (extname) {
+      default:
+      case '.md':
+        extensionSize = -3;
+        break;
+      case '.jade':
+        extensionSize = -5;
+        break;
+      case '.pug':
+        extensionSize = -4;
     }
 
-    //strip out the extension
+    // strip out the extension
     var urlPath = path.slice(0, extensionSize);
 
-    //rewrite /index to be just /, making index.md files become the folder index properly
+    // watch this file for changes
+    this.addDependency(absPath);
+
+    // rewrite /index to be just /, making index.md files become the folder index properly
     urlPath = urlPath.replace('index', '');
 
-    //store these for later
+    // store these for later
     if (extensionSize === -3) {
       notJadeContent.push(urlPath);
     }
@@ -100,8 +111,8 @@ module.exports = {
 
       ensureCritical(fileContents);
     } else {
-      // new jade file type
-      ensureCritical(jade.render(content, {
+      // jade/pug file type
+      ensureCritical(pug.render(content, {
         pretty: false,
         filename: file.absPath,
         version: version,
