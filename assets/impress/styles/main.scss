@@ -9,6 +9,8 @@ $grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px );
 $container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px );
 
 @import "../../styles/font";
+$font-size-base: 2rem;
+
 
 @import "~bootstrap/scss/bootstrap";
 
@@ -33,6 +35,12 @@ $container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px );
     display: flex;
     opacity: 0.3;
     transition: opacity 1.5s ease-in-out;
+  }
+  .display-past .step.past, .display-past.step.past {
+    opacity: 1;
+  }
+  .display-always .step, .display-always.step {
+    opacity: 1;
   }
   .substep.substep-visible {
     display: block;
