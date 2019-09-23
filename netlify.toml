@@ -7,6 +7,9 @@
   # Default build command.
   command = "yarn run test && yarn run build"
 
+  # Functions
+  functions = "functions"
+
 [dev]
   command = "yarn run dev" # Command to start your dev server
   port = 8080 # Port that the dev server will be listening on
