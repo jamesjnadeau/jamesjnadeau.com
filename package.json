@@ -61,7 +61,6 @@
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "package": "^1.0.1",
-    "polyfill-service": "https://github.com/Financial-Times/polyfill-service",
     "popper.js": "^1.15.0",
     "postcss-loader": "^3.0.0",
     "precss": "^4.0.0",
