@@ -142,7 +142,7 @@ function getStreamContent(streamId) {
   return feedly.request('/v3/streams/contents?count=500&streamId=' + encodeURIComponent(streamId));
 }
 
-function getTag(tagName, compilation, count) {
+function getTag(tagName, compilation, count) { // eslint-disable-line
   var key = 'user/447f76f6-44df-414e-a9af-794a73847bdb/tag/' + tagName;
   return function loadAwesome(done) {
     diskCache.wrap(key, function() {
