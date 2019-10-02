@@ -2,6 +2,8 @@ extends ../templates/default
 
 block vars
   -var title = item.title;
+  if item.canonicalUrl
+    -var url = item.canonicalUrl.replace('http:', '');
 
   block head
     if item.canonicalUrl
@@ -28,7 +30,7 @@ block content
   .card.card-default
     -var missingImageContent = typeof item.content !== 'undefined' && item.content.content.indexOf('img') === -1 && item.content.content.indexOf('iframe') === -1
     if typeof item.visual !== 'undefined' && item.visual.url !== 'none' && missingImageContent
-      a(href=item.canonicalUrl)
+        a(href=url)
           img.card-img-top(src=item.visual.url.replace('http:', ''))
     .card-body
       .e-content.feedly-content
@@ -37,8 +39,7 @@ block content
         else if typeof item.summary  !== 'undefined'
           | !{item.summary.content}
   hr.space
-  if item.canonicalUrl
-    -var url = item.canonicalUrl.replace('http:', '');
+  
     a.btn.btn-sm.btn-primary.float-right(href=url target="_blank" rel="noopener") View Source
   
   details
