@@ -7,7 +7,7 @@ block vars
 
   block head
     if item.canonicalUrl
-      link(rel='canonical' href=item.canonicalUrl)
+      link(rel='canonical' href=url)
 
 block content
   h1.h-entry #{item.title}
@@ -23,9 +23,6 @@ block content
         span.p-author.h-card(rel="author") #{item.author} |&nbsp;
         -var href = item.origin.htmlUrl.replace('http:', '');
         a(href=href rel="noopener") #{item.origin.title}
-  //- .text-center
-    br
-    a.btn.btn-default(href=item.canonicalUrl target="_blank") Go
   hr.space
   .card.card-default
     -var missingImageContent = typeof item.content !== 'undefined' && item.content.content.indexOf('img') === -1 && item.content.content.indexOf('iframe') === -1
