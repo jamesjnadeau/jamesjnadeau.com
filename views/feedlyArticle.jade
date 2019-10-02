@@ -29,7 +29,7 @@ block content
     -var missingImageContent = typeof item.content !== 'undefined' && item.content.content.indexOf('img') === -1 && item.content.content.indexOf('iframe') === -1
     if typeof item.visual !== 'undefined' && item.visual.url !== 'none' && missingImageContent
       a(href=item.canonicalUrl)
-          img.card-img-top(src=item.visual.url)
+          img.card-img-top(src=item.visual.url.replace('http:', ''))
     .card-body
       .e-content.feedly-content
         if typeof item.content !== 'undefined'
