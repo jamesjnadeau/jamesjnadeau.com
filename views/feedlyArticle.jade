@@ -12,13 +12,13 @@ block vars
 block content
   h1.h-entry #{item.title}
   .row.justify-content-between.p-1
-    .col-xs-6
+    .col
       - var myDate = new Date(item.published).toLocaleDateString('en-US');
       | #{myDate}&emsp;|&emsp;
       span(title="Engagement metric from Feedly")
         span.glyphicon.glyphicon-thumbs-up
         | &nbsp;#{item.engagement}
-    .col-xs-6.text-right
+    .col.text-right
       span &emsp; Published by 
         span.p-author.h-card(rel="author") #{item.author} |&nbsp;
         -var href = item.origin.htmlUrl.replace('http:', '');
