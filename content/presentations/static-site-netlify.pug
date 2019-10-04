@@ -1,0 +1,120 @@
+extends ../../templates/impress
+
+block vars
+  -var title = 'James J Nadeau | Demo Presentation'
+  -var description = 'A demo presntation using impress.js'
+
+block head
+  
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism.css', rel='stylesheet', type='text/css')
+
+block content
+  -var space = space/2;
+  #impress()
+    .step()
+      h1 Static Sites
+      p Just HTML, CSS, and JS. 
+      p Sometimes called JAM stack(Javascript,API's &amp; Markup)
+      ul
+        li Why?
+        li How I like it.
+        li Netlify Goodness.
+    .step(data-rel-z=space data-rel-y=space)
+      h1 Why
+      ul.substep
+        li Simple - it's easy to reason about
+          ul
+            li The output is easy to inspect
+            li Compiles and optimizes itself on build
+            li There are source-maps
+            li Customizable but sane defaults.
+      ul.substep
+        li Fast - any server can dish flat files out asap
+          p It's just html, css, and js files.
+      ul.substep
+        li Scalable - Many solutions exist to scale it's assets on demand.
+          ul
+            li s3, Azure Blob Storage
+            li IIS, Apache
+            li Netlify...
+    .step(data-rel-z=space data-rel-y=space)
+      h1 Might not be a good fit:
+      ul
+        li Large eCommerce systems that change often
+        li Micro$oft Tools Requirement
+        li Brownfield On-Site DB.
+        li Others?
+    .step(data-rel-z=space data-rel-y=space)
+      h1 How
+      p There is a sea of options:
+      ul
+        li 
+          a(href="https://wyam.io/") Wyam
+          | &nbsp;A .NET based tool
+        li
+          a(href="https://jekyllrb.com/docs/github-pages/") Jekyll
+          | &nbsp;Popular site generate used with Github
+        li
+          a(href="https://gohugo.io/") Hugo
+          | &nbsp; "The world’s fastest framework for building websites" in go
+        li So many more....
+    .step(data-rel-z=space data-rel-y=space)
+      h1 Javascript&trade;
+      p JS is taking over the world.
+      p Offers endless pre-built solutions to common problems from the open source community.
+      p Large pool of people who can leverage it for&nbsp;
+        span.text-success good
+        | &nbsp;and 
+        span.text-danger evil
+        | .
+    .step(data-rel-z=space data-rel-y=space)
+      h1 Webpack
+      p Endlessly configurable assest bundeler for web assets
+      p Able to sense changes in files and hot reload.
+      p Well supported and documented.
+    .step(data-rel-z=space data-rel-y=space)
+      h1 Markdown
+      pre
+        code.language-markdown.
+          /*
+          Title: Page Title
+          Description: Meta description
+          */
+
+          # Header Title
+          Lorem Ipsum, yada, yada, yada.
+    .step(data-rel-z=space data-rel-y=space)
+      h1 Pug
+      p A css selector based html template language that relies on indentation. Div elements are implied if one is not specified
+      pre
+        code.language-pug.
+          extends ../templates/default
+          block vars
+            -var title = 'Page Title'
+            -var description = 'Meta description';
+          block content
+            h1 Header Title
+            .content.d-flex.flex-column
+              .card.card-default
+                .card-body
+                  p#customIdForHi
+                    | Hi,
+                  p Lorem Ipsum, yada, yada, yada.
+    .step(data-rel-z=space data-rel-y=space)
+      h1 Netlify
+    .step(data-rel-z=space data-rel-y=space)
+      h1 Netlify Build
+    .step(data-rel-z=space data-rel-y=space)
+      h1 Netlify Functions
+    .step(data-rel-z=space data-rel-y=space)
+      h1 Netlify Forms
+    .step(data-rel-z=space data-rel-y=space)
+      h1 Azure?
+    .step(data-rel-z=space data-rel-y=space)
+      h1 Future
+
+block scripts
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js")
+  script.
+    Prism.plugins.autoloader.languages_path = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/';

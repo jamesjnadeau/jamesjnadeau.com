@@ -91,3 +91,12 @@ body.impress-mouse-timeout div#impress-toolbar {
   text-align: left;
   opacity: 0.6;
 }
+
+// prism
+pre[class*="language-"] {
+  padding: .1em;
+  padding-left: .5em;
+}
+code[class*="language-"] {
+  font-size: .6em;
+}

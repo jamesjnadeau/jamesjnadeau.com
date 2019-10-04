@@ -27,5 +27,5 @@
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
     X-XSS-Protection = "1; mode=block"
-    Content-Security-Policy = "default-src https:; script-src 'unsafe-inline' 'self' https://www.google-analytics.com https://polyfill.io; style-src https: 'unsafe-inline'; img-src https: data:;"
+    Content-Security-Policy = "default-src https:; script-src 'unsafe-inline' 'self' https://www.google-analytics.com https://polyfill.io https://cdnjs.cloudflare.com; style-src https: 'unsafe-inline'; img-src https: data:;"
     Feature-Policy = "autoplay 'none'; camera 'none'"
