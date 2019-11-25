@@ -18,6 +18,10 @@
 
 # jamesnadeau.com
 [[redirects]]
+  from = "http://jamesnadeau.com/*"
+  to = "https://jamesjnadeau.com/:splat"
+  status = 301
+[[redirects]]
   from = "https://jamesnadeau.com/*"
   to = "https://jamesjnadeau.com/:splat"
   status = 301
