@@ -20,11 +20,11 @@
 [[redirects]]
   from = "http://jamesnadeau.com/*"
   to = "https://jamesjnadeau.com/:splat"
-  status = 301
+  force = true
 [[redirects]]
   from = "https://jamesnadeau.com/*"
   to = "https://jamesjnadeau.com/:splat"
-  status = 301
+  force = true
 
 [[headers]]
   for = "/*"
