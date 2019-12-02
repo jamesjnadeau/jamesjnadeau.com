@@ -3,6 +3,10 @@
     "collect": {
       "numberOfRuns": 3,
       "staticDistDir": "./built"
+      "url": [
+        "/",
+        "/projects/"
+      ],
     },
     "upload": {
       "target": "temporary-public-storage"
