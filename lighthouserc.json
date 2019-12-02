@@ -1,7 +1,8 @@
 {
   "ci": {
     "collect": {
-      "numberOfRuns": 3
+      "numberOfRuns": 3,
+      "staticDistDir": "./built"
     },
     "assert": {
       "preset": "lighthouse:recommended",
@@ -10,7 +11,6 @@
         "uses-webp-images": "off"
       }
     },
-    "staticDistDir": "./built",
     "upload": {
       "target": "temporary-public-storage"
     }
