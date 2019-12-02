@@ -1,4 +1,4 @@
-name: Node CI
+name: Build Node App
 
 on: [push]
 
