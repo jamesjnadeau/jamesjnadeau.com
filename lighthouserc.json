@@ -1,0 +1,18 @@
+{
+  "ci": {
+    "collect": {
+      "numberOfRuns": 3
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "offscreen-images": "off",
+        "uses-webp-images": "off"
+      }
+    },
+    "staticDistDir": "./built",
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

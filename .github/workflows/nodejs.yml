@@ -27,4 +27,4 @@ jobs:
     - name: run Lighthouse CI
       run: |
         npm install -g @lhci/cli@0.3.x
-        lhci autorun --upload.target=temporary-public-storage --staticDistDir=./built || echo "LHCI failed!"
+        lhci autorun || echo "LHCI failed!"
