@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x]
+        node-version: [10.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -24,3 +24,7 @@ jobs:
         yarn run build
       env:
         CI: true
+    - name: run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.3.x
+          lhci autorun --upload.target=temporary-public-storage --staticDistDir=./built || echo "LHCI failed!"
