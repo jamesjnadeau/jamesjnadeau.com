@@ -7,9 +7,9 @@ on:
     - cron: '0 4 * * *'
 jobs:
   build:
-    name: Request Netlify Webhook
+    name: Netlify Webhook to Build Site
     runs-on: ubuntu-latest
-    env: 
+    with: 
       -NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
     steps:
       - name: Curl request
