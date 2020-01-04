@@ -1,0 +1,12 @@
+---
+title: How to generate a git change log
+description: A quick tip on how to genearte a git change log from your commit history
+---
+
+h1 Generate a Changelog
+a(href="https://csswizardry.com/2017/05/little-things-i-like-to-do-with-git/#generate-a-changelog") Source
+p
+  pre.prettyprint.
+    git log --oneline --no-merges {{last tag}}..HEAD
+
+script(src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js")
