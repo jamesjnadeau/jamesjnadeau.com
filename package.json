@@ -7,21 +7,21 @@
     "node": ">=10.x"
   },
   "scripts": {
-    "dev": "run-p dev:*",
+    "dev": " npm-run-all -p dev:*",
     "dev:sapper": "sapper dev",
     "dev:admin": "webpack --colors --watch --config static/admin/webpack.config.js",
     "dev:styles": "webpack --colors --watch --config static/styles/webpack.config.js",
-    "build": "run-p build:*",
+    "build": " npm-run-all -p build:*",
     "build:sapper": "sapper build",
     "build:admin": "webpack -p --config static/admin/webpack.config.js",
     "build:styles": "webpack -p --config static/styles/webpack.config.js",
-    "export": "run-p build:admin build:styles && run export:sapper",
+    "export": " npm-run-all -p build:admin build:styles && run export:sapper",
     "export:sapper": "sapper export",
     "start": "yarn run dev",
     "start:server": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "run-p --race dev cy:run"
+    "test": " npm-run-all -p --race dev cy:run"
   },
   "dependencies": {
     "ace-builds": "^1.4.7",
