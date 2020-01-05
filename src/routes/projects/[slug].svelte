@@ -16,7 +16,8 @@
 </script>
 
 <script>
-	import { fadeIn, fadeOut } from "../_page_fade";
+	import { pageIn, pageOut } from "../_page_transition";
+	import { fly } from 'svelte/transition';
 	export let post;
 </script>
 
@@ -25,7 +26,7 @@
 	<title>{post.title}</title>
 </svelte:head>
 
-<div in:fadeIn out:fadeOut>
+<div in:fly={pageIn} out:fly={pageOut}>
 	<div class='content'>
 		{@html post.html}
 	</div>

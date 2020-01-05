@@ -1,12 +1,13 @@
 <script>
-  import { fadeIn, fadeOut } from "../_page_fade";
+  import { pageIn, pageOut } from "../_page_transition";
+  import { fly } from 'svelte/transition';
 </script>
 
 <svelte:head>
   <title>Today I ...</title>
 </svelte:head>
 
-<div in:fadeIn out:fadeOut>
+<div in:fly={pageIn} out:fly={pageOut}>
   <div class="card">
     <!-- Nav tabs-->
     <ul class="nav nav-tabs" role="tablist">

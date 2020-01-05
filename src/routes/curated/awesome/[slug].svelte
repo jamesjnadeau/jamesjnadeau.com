@@ -17,7 +17,8 @@
 </script>
 
 <script>
-  import { fadeIn, fadeOut } from "../../_page_fade";
+  import { pageIn, pageOut } from "../../_page_transition";
+  import { fly } from 'svelte/transition';
   export let item;
   let url = item.origin.htmlUrl.replace('http:', '');
 </script>
@@ -26,7 +27,7 @@
   <title>{item.title}</title>
 </svelte:head>
 
-<div in:fadeIn out:fadeOut>
+<div in:fly={pageIn} out:fly={pageOut}>
   <div class="content">
     <h1 class="h-entry">{item.title}</h1>
     <div class="row justify-content-between p-1">

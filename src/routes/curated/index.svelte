@@ -1,13 +1,14 @@
 
 <script>
-  import { fadeIn, fadeOut } from "../_page_fade";
+  import { pageIn, pageOut } from "../_page_transition";
+  import { fly } from 'svelte/transition';
 </script>
 
 <svelte:head>
   <title>Curated</title>
 </svelte:head>
 
-<div in:fadeIn out:fadeOut>
+<div in:fly={pageIn} out:fly={pageOut}>
   <h1 class="no-animation">Curated</h1>
   <hr class="space" />
   <h5 class="text-center">Here's the latest articles I've tagged in feedly.</h5>
