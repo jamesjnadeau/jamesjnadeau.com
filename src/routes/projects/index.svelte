@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Today I ...</title>
+  <title>Today I ...</title>
 </svelte:head>
 
 <div in:fadeIn out:fadeOut>
@@ -13,46 +13,105 @@
       <div class="col-md-6">
         <ul class="list-group p-2">
           <h3 class="list-group-item">Examples/Misc/HackVT</h3>
-          <a class="list-group-item" href="/projects/speak_and_spell">Speak and Spell in your Browser</a>
-          <a class="list-group-item" target="_blank" href="http://lnconsulting.com/" rel="noopener">LN Consulting</a>
-          <a class="list-group-item" href="/projects/example_jquery_mobile_app">Cordova Example App</a>
-          <a class="list-group-item" target="_blank" href="/wind/">My Wind Map</a>
-          <a class="list-group-item" target="_blank" href="https://chrome.google.com/webstore/detail/gremlinjs-testing-extensi/eamcocddjlpbghfbicddnloonlclafic">Gremlin.js Extension</a>
-          <a class="list-group-item" target="_blank" href="https://chrome.google.com/webstore/detail/gifshot-extension/dkdgkjlikbgmkdmckmmahjmjffafleae">Gifshot Extension</a>
-          <a class="list-group-item" target="_blank" href="https://chrome.google.com/webstore/detail/chrome-sniffer-updated-by/fbnlibmhkkkpncdgfolnijebgnmbdbhi">Updates to Chrome Sniffer</a>
-          <a class="list-group-item" href="/projects/vermontlegislation.org">VermontLegislation.org</a>
-          <a class="list-group-item" href="/projects/explorevermontfood.com">ExploreVermontFood.com</a>
+          <a class="list-group-item" href="/projects/speak_and_spell">
+            Speak and Spell in your Browser
+          </a>
+          <a
+            class="list-group-item"
+            target="_blank"
+            href="http://lnconsulting.com/"
+            rel="noopener">
+            LN Consulting
+          </a>
+          <a class="list-group-item" href="/projects/example_jquery_mobile_app">
+            Cordova Example App
+          </a>
+          <!-- <a class="list-group-item" target="_blank" href="/wind/">
+            My Wind Map
+          </a> -->
+          <a
+            class="list-group-item"
+            target="_blank"
+            href="https://chrome.google.com/webstore/detail/gremlinjs-testing-extensi/eamcocddjlpbghfbicddnloonlclafic">
+            Gremlin.js Extension
+          </a>
+          <a
+            class="list-group-item"
+            target="_blank"
+            href="https://chrome.google.com/webstore/detail/gifshot-extension/dkdgkjlikbgmkdmckmmahjmjffafleae">
+            Gifshot Extension
+          </a>
+          <a
+            class="list-group-item"
+            target="_blank"
+            href="https://chrome.google.com/webstore/detail/chrome-sniffer-updated-by/fbnlibmhkkkpncdgfolnijebgnmbdbhi">
+            Updates to Chrome Sniffer
+          </a>
+          <a class="list-group-item" href="/projects/vermontlegislation.org">
+            VermontLegislation.org
+          </a>
+          <a class="list-group-item" href="/projects/explorevermontfood.com">
+            ExploreVermontFood.com
+          </a>
         </ul>
         <ul class="list-group p-2">
-          <h3 class="list-group-item">National Gardening Association</h3><a class="list-group-item" href="/projects/garden.org">Garden.org</a>
-          <a class="list-group-item" href="/projects/kidsgardening.org">KidsGardening.org</a>
+          <h3 class="list-group-item">National Gardening Association</h3>
+          <a class="list-group-item" href="/projects/garden.org">Garden.org</a>
+          <a class="list-group-item" href="/projects/kidsgardening.org">
+            KidsGardening.org
+          </a>
         </ul>
         <ul class="list-group p-2">
-          <h3 class="list-group-item">Wheels TV</h3><a class="list-group-item" href="/projects/ffmpeg_crawler">ffmpeg Crawler and Transcoder/a>
-          <a class="list-group-item" href="/projects/vseo_tool">Video SEO tool</a>
+          <h3 class="list-group-item">Wheels TV</h3>
+          <a class="list-group-item" href="/projects/ffmpeg_crawler">
+            ffmpeg Crawler and Transcoder
+          </a>
+          <a class="list-group-item" href="/projects/vseo_tool">
+            Video SEO tool
+          </a>
         </ul>
       </div>
       <div class="col-md-6">
         <ul class="list-group p-2">
-          <h3 class="list-group-item">Clevertech</h3><a class="list-group-item" href="/projects/lookbooks">Lookbooks</a>
+          <h3 class="list-group-item">Clevertech</h3>
+          <a class="list-group-item" href="/projects/lookbooks">Lookbooks</a>
           <a class="list-group-item" href="/projects/cleverhire">CleverHire</a>
           <a class="list-group-item" href="/projects/clevermap">CleverMap</a>
           <a class="list-group-item" href="/projects/jobpath">JobPath</a>
           <a class="list-group-item" href="/projects/gigofund">GI Go Fund</a>
         </ul>
         <ul class="list-group p-2">
-          <h3 class="list-group-item">Bosch, Fujitsu, Aerco</h3><a class="list-group-item" href="bosch">Boschwaytogrow.com</a>
+          <h3 class="list-group-item">Bosch, Fujitsu, Aerco</h3>
+          <a class="list-group-item" href="bosch">Boschwaytogrow.com</a>
           <a class="list-group-item" href="fujitsu">Fujitsu Dealer Toolbox</a>
-          <!-- <a class="list-group-item" href="#" rel="no-follow" >Eternal Waterheater</a>--><a class="list-group-item" target="_blank" href="http://www.aercosmartsizing.com" rel="noopener">Aerco Smart Sizing</a>
+          <!-- <a class="list-group-item" href="#" rel="no-follow" >Eternal Waterheater</a>-->
+          <a
+            class="list-group-item"
+            target="_blank"
+            href="http://www.aercosmartsizing.com"
+            rel="noopener">
+            Aerco Smart Sizing
+          </a>
         </ul>
         <ul class="list-group p-2">
-          <h3 class="list-group-item">MBJ Consulting</h3><a class="list-group-item" href="/projects/verisightplan.com">Verisight Proposal Managment Tool</a>
+          <h3 class="list-group-item">MBJ Consulting</h3>
+          <a class="list-group-item" href="/projects/verisightplan.com">
+            Verisight Proposal Managment Tool
+          </a>
         </ul>
         <ul class="list-group p-2">
-          <h3 class="list-group-item">Red Barn Media Group</h3><a class="list-group-item" href="/projects/mypointnow">Mobile Applications: Roam, Venture</a>
-          <a class="list-group-item" target="_blank" href="/graph/index.html">Data Visualizations</a>
-          <a class="list-group-item" href="/projects/simplesaml">SAML>/a>
-          <a class="list-group-item" href="/projects/secureCRM">Secure CRM system for HVAC Manufacturers</a>
+          <h3 class="list-group-item">Red Barn Media Group</h3>
+          <a class="list-group-item" href="/projects/mypointnow">
+            Mobile Applications: Roam, Venture
+          </a>
+          <!-- <a class="list-group-item" target="_blank" href="/graph/index.html">
+            Data Visualizations
+          </a> -->
+          <a class="list-group-item" href="/projects/simplesaml">
+            SAML</a>
+          <a class="list-group-item" href="/projects/secureCRM">
+            Secure CRM system for HVAC Manufacturers
+          </a>
           <!-- <a class="list-group-item" href="#">Multisite Drupal Hosting System/a>
           <a class="list-group-item" href="#">Multi-user Support Ticket</a> -->
         </ul>
