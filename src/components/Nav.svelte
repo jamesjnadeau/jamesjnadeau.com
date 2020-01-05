@@ -42,10 +42,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul
         class="navbar-nav d-flex justify-content-around align-items-center w-100">
-        <a class="nav-item text-white p1" href="/projects/" class:selected={segment === 'projects'}>Projects</a>
-        <a class="nav-item text-white p1" href="/TIL/" class:selected={segment === 'TIL'}>Today I ...</a>
-        <a class="nav-item text-white p1" href="/curated/" class:selected={segment === 'curated'}>Curated</a>
-        <a class="nav-item text-white p1" href="/reference/" class:selected={segment === 'reference'}>Reference</a>
+        <a class="nav-item text-white p1" href="/projects/" class:active={segment === 'projects'}>Projects</a>
+        <a class="nav-item text-white p1" href="/TIL/" class:active={segment === 'TIL'}>Today I ...</a>
+        <a class="nav-item text-white p1" href="/curated/" class:active={segment === 'curated'}>Curated</a>
+        <a class="nav-item text-white p1" href="/reference/" class:active={segment === 'reference'}>Reference</a>
         <a
           class="nav-item text-white p1"
           href="https://github.com/jamesjnadeau/"

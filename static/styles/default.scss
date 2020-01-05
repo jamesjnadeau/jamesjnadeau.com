@@ -23,7 +23,7 @@ body {
 	text-align: center;
 }
 
-.navbar-nav a:hover {
+.navbar-nav a:hover, .navbar-nav a.active {
 	font-weight: bold;
 }
 
@@ -88,10 +88,6 @@ a.list-group-item {
 	text-decoration: none;
 }
 
-.navbar .active
-{
-	background-color: #E6E6E6;
-}
 
 .navbar, .dropdown-menu
 {
