@@ -17,7 +17,7 @@ var diskCache = cacheManager.caching({
   options: {
     ttl: 60 * 60, // seconds = 1 hour
     maxsize: 1000 * 1000 * 1000, // max size in bytes on disk = 1 GB
-    path: pathUtil.join(__dirname, '../../../cache'),
+    path: pathUtil.join('./cache'),
     preventfill: true,
   },
 });
@@ -136,7 +136,7 @@ async function getTag(tagName) { // eslint-disable-line
     diskCache.wrap(key, function() {
       return getStreamContent(key);
     }).then(({ body }) => { // response
-      console.info("Fetched", body.items.length, 'from feedly for tag', tagName);
+      // console.info("Found", body.items.length, 'from feedly for tag', tagName);
       // count += body.items.length; // eslint-disable-line no-param-reassign
 
       // create article pages
