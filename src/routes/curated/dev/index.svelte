@@ -11,6 +11,7 @@
 <script>
   import { pageIn, pageOut } from "../../_page_transition";
   import { fly } from 'svelte/transition';
+  import CuratedList from '../../../components/CuratedList.svelte';
   export let items;
   export let segment = 'dev';
 </script>
@@ -21,21 +22,5 @@
 
 <div in:fly={pageIn} out:fly={pageOut}>
   <h1 class="h-entry">Dev</h1>
-  <div class="row feedlyTagIndex">
-    <div class="col">
-      <ul class="list-group">
-        {#each items as item}
-          <a
-            class="list-group-item"
-            href="/curated/{segment}/{item.published}"
-            title="item.title">
-            <h5>{item.title}</h5>
-            <small class="text-muted">
-              &emsp;{new Date(item.published).toLocaleDateString('en-US')} | {item.origin.title}
-            </small>
-          </a>
-        {/each}
-      </ul>
-    </div>
-  </div>
+  <CuratedList items={items} segment={segment} />
 </div>

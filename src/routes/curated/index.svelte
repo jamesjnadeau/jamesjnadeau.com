@@ -18,9 +18,9 @@
       <ul class="list-group text-center">
         <a class="list-group-item" href="/curated/awesome">Awesome</a>
         <a class="list-group-item" href="/curated/dev">Dev</a>
-        <!-- <a class="list-group-item" href="/curated/laugh">Laugh</a>
+        <a class="list-group-item" href="/curated/laugh">Laugh</a>
         <a class="list-group-item" href="/curated/learn">Learn</a>
-        <a class="list-group-item" href="/curated/walter">Cute Things</a> -->
+        <a class="list-group-item" href="/curated/walter">Cute Things</a>
       </ul>
     </div>
   </div>

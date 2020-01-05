@@ -1,4 +1,5 @@
 <script context="module">
+  import CuratedItem from '../../../components/CuratedItem.svelte';
   let directory = "curated";
   let segment = 'dev';
   export async function preload({ params, query }) {
@@ -20,58 +21,14 @@
   import { pageIn, pageOut } from "../../_page_transition";
   import { fly } from 'svelte/transition';
   export let item;
-  let url = item.origin.htmlUrl.replace('http:', '');
+  
 </script>
 
 <svelte:head>
   <title>{item.title}</title>
 </svelte:head>
 
-<div in:fly={pageIn} out:fly={pageOut}>
-  <div class="content">
-    <h1 class="h-entry">{item.title}</h1>
-    <div class="row justify-content-between p-1">
-      <div class="col">
-        {new Date(item.published).toLocaleDateString('en-US')}&emsp;|&emsp;
-        <span title="Engagement metric from Feedly">
-          <span class="glyphicon glyphicon-thumbs-up" />
-          &nbsp;{item.engagement}
-        </span>
-      </div>
-      <div class="col text-right">
-        <span>
-          &emsp; Published by
-          <span class="p-author h-card" rel="author">
-            {item.author} |&nbsp;
-          </span>
-          <a href={url} rel="noopener">
-            {item.origin.title}
-          </a>
-        </span>
-      </div>
-    </div>
-    <hr class="space" />
-    <div class="card card-default">
-      <var>
-        
-      </var>
-	  <img class="card-img-top" src={item.visual.url.replace('http:', '')} />
-      <div class="card-body">
-        <div class="e-content feedly-content" />
-      </div>
-    </div>
-    <hr class="space" />
-    <a
-	  href={url}
-      class="btn btn-sm btn-primary float-right"
-      target="_blank"
-      rel="noopener">
-      View Source
-    </a>
-    <details>
-      <summary class="small">view data</summary>
-      <pre class="hidden">{JSON.stringify(item, null, 2)}</pre>
-    </details>
 
-  </div>
+<div in:fly={pageIn} out:fly={pageOut}>
+  <CuratedItem item={item} />
 </div>

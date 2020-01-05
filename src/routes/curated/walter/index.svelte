@@ -1,6 +1,6 @@
 <script context="module">
   export function preload({ params, query }) {
-    return this.fetch(`curated/awesome.json`)
+    return this.fetch(`curated/walter.json`)
       .then(r => r.json())
       .then(items => {
         return { items };
@@ -13,7 +13,7 @@
   import { fly } from 'svelte/transition';
   import CuratedList from '../../../components/CuratedList.svelte';
   export let items;
-  export let segment = 'awesome';
+  export let segment = 'walter';
 </script>
 
 <svelte:head>
@@ -21,6 +21,6 @@
 </svelte:head>
 
 <div in:fly={pageIn} out:fly={pageOut}>
-  <h1 class="h-entry">Awesome</h1>
+  <h1 class="h-entry">Cute Things</h1>
   <CuratedList items={items} segment={segment} />
 </div>
