@@ -127,7 +127,7 @@ function processContent(tagPath, items, resolve) {
 
 function getStreamContent(streamId) {
   // eslint-disable-next-line block-scoped-var
-  return feedly.request('/v3/streams/contents?count=500&streamId=' + encodeURIComponent(streamId));
+  return feedly.request('/v3/streams/contents?count=55&streamId=' + encodeURIComponent(streamId));
 }
 
 async function getTag(tagName) { // eslint-disable-line
