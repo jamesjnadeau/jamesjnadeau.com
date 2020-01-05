@@ -52,6 +52,7 @@
           rel="me">
           <img
             class="github-logo img-fluid"
+            alt="GitHub Octocat Mark"
             src="/files/GitHub-Mark-Light-120px-plus.png" />
         </a>
       </ul>
