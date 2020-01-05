@@ -74,6 +74,9 @@ if (process.env.NODE_ENV === 'production') {
   mode = process.env.NODE_ENV;
   optimization = {
     minimize: true,
+    splitChunks: {
+      chunks: 'all',
+    },
   };
 }
 
@@ -105,7 +108,7 @@ module.exports = {
 
   output: {
     filename: "[name].js",
-    chunkFilename: "[id].js",
+    chunkFilename: "[name].js",
     path: pathUtil.resolve(__dirname, 'built'),
     libraryTarget: 'umd',
     sourceMapFilename: '[file].map',

@@ -69,7 +69,7 @@ module.exports = {
 
   output: {
     filename: "[name]-built.js",
-    chunkFilename: "[id].js",
+    chunkFilename: "[name].js",
     path: pathUtil.resolve(__dirname),
     libraryTarget: 'umd',
     sourceMapFilename: '[file].map',
