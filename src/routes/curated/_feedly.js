@@ -3,6 +3,9 @@ var pathUtil = require('path');
 var FeedlyClient = require("node-feedly-developer-client");
 var sanitizeHTML = require('sanitize-html');
 var cheerio = require('cheerio');
+require('../../../dotenv');
+console.log('process.env.FEEDLY_REFRESH_TOKEN', process.env.FEEDLY_REFRESH_TOKEN);
+
 
 // node cachemanager
 var cacheManager = require('cache-manager');
@@ -14,7 +17,7 @@ var diskCache = cacheManager.caching({
   options: {
     ttl: 60 * 60, // seconds = 1 hour
     maxsize: 1000 * 1000 * 1000, // max size in bytes on disk = 1 GB
-    path: pathUtil.join(__dirname, '../../../cache'),
+    path: pathUtil.join(__dirname, '../../../../cache'),
     preventfill: true,
   },
 });
