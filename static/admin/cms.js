@@ -10,9 +10,13 @@ import "ace-builds/src-noconflict/mode-jade";
 import CMS from 'netlify-cms'
 
 var PugControl = createClass({
+  handleChange: function(value, e) {
+    this.props.onChange(value);
+  },
   render: function() {
     var value = this.props.value;
     return React.createElement(AceEditor, {
+      onChange: this.handleChange,
       name: 'jade-editor',
       value: value,
       mode: "jade",
