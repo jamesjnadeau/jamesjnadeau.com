@@ -5,8 +5,8 @@ publish_mode: editorial_workflow # Allows you to save drafts before publishing t
 media_folder: "static/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/uploads" # The src attribute for uploaded media will begin with /images/uploads
 
-site_url: https://flamboyant-chandrasekhar-a49eca.netlify.com
-display_url: https://flamboyant-chandrasekhar-a49eca.netlify.com
+site_url: https://jamesjnadeau.com
+display_url: https://jamesjnadeau.com
 
 collections:
   - name: "TIL" # Used in routes, e.g., /admin/collections/blog

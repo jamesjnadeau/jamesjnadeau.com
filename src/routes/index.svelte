@@ -8,6 +8,7 @@
 
   onMount(() => {
     if (netlifyIdentity) {
+      netlifyIdentity.init();
       netlifyIdentity.on("init", user => {
         if (!user) {
           netlifyIdentity.on("login", () => {
