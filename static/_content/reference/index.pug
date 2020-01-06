@@ -1,0 +1,161 @@
+extends ../../templates/default
+
+block vars
+  -var title = 'James J Nadeau | Reference'
+  -var description = 'Things I\'m saving for easy reference.'
+
+block content
+  .card
+    // Nav tabs
+    ul.nav.nav-tabs(role='tablist')
+      li.nav-item
+        a.nav-link.active(href='#quotes', role='tab', data-toggle='tab') quotes
+      li.nav-item
+        a.nav-link(href='#js', role='tab', data-toggle='tab') JS
+      li.nav-item
+        a.nav-link(href='#git', role='tab', data-toggle='tab') Git
+      li.nav-item
+        a.nav-link(href='#shell', role='tab', data-toggle='tab') Shell
+      li.nav-item
+        a.nav-link(href='#php', role='tab', data-toggle='tab') PHP
+      li.nav-item
+        a.nav-link(href='#misc', role='tab', data-toggle='tab') Misc
+      i.nav-item
+        a.nav-link(href='/presentations') Slides
+    // Tab panes
+    .tab-content.bg-light.py-3
+      #js.tab-pane.fade.in
+        ul.list-group.m-3
+          a.list-group-item(href='/reference/js_backtrace') Backtrace
+          a.list-group-item(href='/reference/js_callback') Callback
+          a.list-group-item(href='/reference/js_debounce') Debounce
+          a.list-group-item(href='/reference/js_Angular') Angular
+          a.list-group-item(href='/reference/jqm_google_analytics') jQuery Mobile Google Analytics
+      #git.tab-pane.fade
+        ul.list-group.m-3
+          a.list-group-item(href='/reference/git_flow') Flow
+          a.list-group-item(href='/reference/git_autocomplete') Autocomplete
+          a.list-group-item(href='/reference/git_local_ignore') Local .gitignore
+          a.list-group-item(href='/reference/git_theirs') Rebase Theirs
+      #shell.tab-pane.fade
+        ul.list-group.m-3
+          a.list-group-item(href='/reference/ssh_tunnel') SSH Tunneling
+          a.list-group-item(href='/reference/bash_profile') Bash Profile
+          a.list-group-item(href='/reference/counting_log_ips') Counting IP Addresses in Log Files
+          a.list-group-item(href='/reference/yum_history') Yum History/Undo
+          a.list-group-item(href='/reference/svn_add') SVN Add
+      #php.tab-pane.fade
+        ul.list-group.m-3
+          li.list-group-item
+            a(href='/reference/php_backtrace') Backtrace
+          li.list-group-item
+            a(href='/reference/php_cake_query_log') CakePHP 1.2 query log
+      #misc.tab-pane.fade
+        ul.list-group.m-3
+          a.list-group-item(href='/reference/letsencrypt') Lets Encrypt
+          a.list-group-item(href='/reference/stock_photos') Stock Photos
+          a.list-group-item(href='http://www.w3.org/TR/html5/forms.html#valid-e-mail-address') Email Addresses
+          a.list-group-item(href='/reference/chromebook') Chromebook Crouton
+          a.list-group-item(href='/reference/asus_laptop') Asus Laptop
+          a.list-group-item(href='/reference/gnome3_monitor_config') Gnome 3 Master Monitor
+          a.list-group-item(href='/reference/evoulent_mouse_config') Evoluent Mouse config for Linux
+          a.list-group-item(href='/reference/gource') Gource defaults
+          a.list-group-item(href='/reference/convert-video-to-png') Convert Video to png
+      #quotes.tab-pane.active.show.fade.in
+        .row.justify-content-center
+          .card.col-md-5.m-1.p-3
+            h4 Story Starter
+            |     When _____ , I want to _____ , so I can _____ .
+          .card.col-md-5.m-1.p-3
+            a(href="https://youtu.be/_yCz1TA0EL4") You should use [insert library/framework], it's the bestestest!
+          .card.col-md-5.m-1.p-3
+            | "A society grows great when old men plant trees whose shade they know they shall never sit in" ― Greek Proverb
+          .card.col-md-5.m-1.p-3
+            | “Grief can take care if itself, but to get the full value of a joy you must have somebody to divide it with.” ― Mark Twain
+          .card.col-md-5.m-1.p-3
+            |  “Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.” ― Buddha 
+          .card.col-md-5.m-1.p-3
+            | "Anything that works will be used in progressively more challenging applications, until it fails." ― Laurence J. Peter, The Generalized Peter Principle.
+          .card.col-md-5.m-1.p-3
+            | "The major difference between a thing that might go wrong and a thing that cannot possibly go wrong is that when a thing that cannot possibly go wrong goes wrong it usually turns out to be impossible to get at or repair." ― Douglas Adams
+          .card.col-md-5.m-1.p-3
+            | "Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure." ― Conway's Law
+          .card.col-md-5.m-1.p-3
+            |  “Knowledge comes, but wisdom lingers. It may not be difficult to store up in the mind a vast quantity of facts within a comparatively short time, but the ability to form judgments requires the severe discipline of hard work and the tempering heat of experience and maturity.” ― Calvin Coolidge
+          .card.col-md-5.m-1.p-3
+            | "The men who attempt to survive, not by means of reason, but by means of force, are attempting to survive by the method of animals." ― Ayn Rand
+          .card.col-md-5.m-1.p-3
+            | "Making bits harder to copy is like making water less wet." ― Bruce Schneier
+          .card.col-md-5.m-1.p-3
+            | "No one wants to die. Even people who want to go to heaven don't want to die to get there. And yet death is the destination we all share. No one has ever escaped it. And that is as it should be, because Death is very likely the single best invention of Life. It is Life's change agent. It clears out the old to make way for the new." ― Steve Jobs 
+          .card.col-md-5.m-1.p-3
+            | "Do not despair of our present difficulties but believe always in the promise and greatness of America, because nothing is inevitable here. Americans never quit. We never surrender. We never hide from history. We make history." ― John McCain
+          .card.col-md-5.m-1.p-3
+            | “Truth is, I'll never know all there is to know about you just as you will never know all there is to know about me. Humans are by nature too complicated to be understood fully. So, we can choose either to approach our fellow human beings with suspicion or to approach them with an open mind, a dash of optimism and a great deal of candour.” ― Tom Hanks 
+          .card.col-md-5.m-1.p-3
+            | “It is easier to fool the people then convince them they have been fooled.” - Samuel Clements
+          .card.col-md-5.m-1.p-3
+            | “Life shrinks or expands in proportion to one's courage.” ― Anais Nin
+          .card.col-md-5.m-1.p-3
+            | “Progress is impossible without change, and those who cannot change their minds cannot change anything.” ― George Bernard Shaw
+          .card.col-md-5.m-1.p-3
+            | “Patriotism is supporting your country all the time, and your government when it deserves it.” ― Mark Twain
+          .card.col-md-5.m-1.p-3
+            |  “Humility is not thinking less of yourself, it's thinking of yourself less.” ― Rick Warren
+          .card.col-md-5.m-1.p-3
+            | “I’ve always been very careful never to predict anything that has not already happened.” — Marshall McLuhan
+          .card.col-md-5.m-1.p-3
+            | “The cure for boredom is curiosity. There is no cure for curiosity.” — Dorothy Parker
+          .card.col-md-5.m-1.p-3
+            | “Decisions are made by those who show up.” — Jennifer Pahlka
+          .card.col-md-5.m-1.p-3
+            | “If at first the idea is not absurd, then there is no hope for it.” — Albert Einstein
+          .card.col-md-5.m-1.p-3
+            | “Not long ago what we have today was so implausible that nobody bothered to say it would never happen.“ — Marc Andreessen
+          .card.col-md-5.m-1.p-3
+            | "The first 90% of a project is a lot easier than the second 90%.” — Tim Sweeney
+          .card.col-md-5.m-1.p-3
+            | “If you don’t like change, you are going to like irrelevance even less.” — General Shinseki
+          .card.col-md-5.m-1.p-3
+            | "Let us realize the arc of the moral universe is long, but it bends toward justice" — Martin Luther King
+          .card.col-md-5.m-1.p-3
+            | "You aren’t wealthy until you have something that money can’t buy." — Garth Brooks
+          .card.col-md-5.m-1.p-3
+            | "I think I speak for everyone when I say no one can speak for all of us." —Glenn Fleishman
+          .card.col-md-5.m-1.p-3
+            | "The question isn’t who is going to let me: it’s who is going to stop me." — Ayn Rand
+          .card.col-md-5.m-1.p-3
+            | "No limit for better." — Harrison Ford
+          .card.col-md-5.m-1.p-3
+            | “I have never in my life envied a human being who led an easy life; I have envied a great many people who led difficult lives and led them well.” ― Theodore Roosevelt 
+          .card.col-md-5.m-1.p-3
+            | “What do we live for, if it is not to make life less difficult for each other?” — George Eliot
+          .card.col-md-5.m-1.p-3
+            | “At some point in life the world’s beauty becomes enough. You don’t need to photograph, paint or even remember it. It is enough.” — Toni Morrison
+          .card.col-md-5.m-1.p-3
+            | “The cradle rocks above an abyss, and common sense tells us that our existence is but a brief crack of light between two eternities of darkness.” — Vladimir Nabokov
+          .card.col-md-5.m-1.p-3
+            | "When an honest man learns he is mistaken, he will either cease to be mistaken, or he will cease to be an honest man." unknown
+          .card.col-md-5.m-1.p-3
+            | "Technology can be invented; human nature is something we're stuck with."&nbsp;
+            a(href="http://worrydream.com/#!/ABriefRantOnTheFutureOfInteractionDesign" rel="noopener") Bret Victor
+          .card.col-md-5.m-1.p-3
+            | “Do not hold your views too firmly. Every fool is fully convinced, and every one fully persuaded is a fool: the more erroneous his judgment the more firmly he holds it.” — Jesuit Baltasar Gracián
+          .card.col-md-5.m-1.p-3
+            | "It is our failure to become our perceived ideal that ultimately defines us and makes us unique." &emsp; Conan O’Brien
+          .card.col-md-5.m1.p-3
+            | "When a measure becomes a target, it ceases to be a good measure" &emsp; Goodhart's Law (Popular formulation)
+          .card.col-md-5.m1.p-3
+            | “The most courageous decision that you can make each day is to be in a good mood.” — Voltaire
+          .card.col-md-5.m1.p-3
+            | “Let everything happen to you: beauty and terror. Just keep going. No feeling is final.” — Rainer Maria Rilke
+          .card.col-md-5.m1.p-3
+            | “A good marriage is one in which each spouse secretly thinks he or she got the better deal, and this is true also of our friendships.” — Anne Lamott
+          .card.col-md-5.m-1.p-3
+            h4 Smile
+            p ᕕ( ᐛ )ᕗ
+            span ╰(´ڡ`)╯
+            p ᕕ( ˊᵕˋ )୨
+            span ʘ ͜ʖ ʘ
+            p ( ＾◡＾ )
+    
