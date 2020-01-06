@@ -6,8 +6,9 @@ const ASSETS = `cache${timestamp}`;
 // `files` is an array of everything in the `static` directory
 const to_cache = shell.concat(files);
 to_cache = to_cache.filter(function(file) {
-	return file.indexOf('.js') !== -1
-		|| file.indexOf('.css') !== -1;
+	return file.indexOf('admin/') === -1
+		&& (file.indexOf('.js') !== -1
+		|| file.indexOf('.css') !== -1);
 })
 const cached = new Set(to_cache);
 
