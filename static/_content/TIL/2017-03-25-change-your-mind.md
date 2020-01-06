@@ -1,6 +1,7 @@
 ---
 title: This Article Won’t Change Your Mind
 description: The facts on why facts alone can’t fight false beliefs
+date: 2017-03-25
 ---
 
 # [“This Article Won’t Change Your Mind”](https://www.theatlantic.com/science/archive/2017/03/this-article-wont-change-your-mind/519093/) 

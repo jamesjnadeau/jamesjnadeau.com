@@ -1,6 +1,7 @@
 ---
 title: A Great Semantic Web Analogy
 description: An idea to meaningfully describe the content of webpages in such a way that they can be programmatically connected to other webpages and start to amount to something larger than themselves.
+date: 2017-05-15
 ---
 
 # The Semantic Web, aka SemWeb

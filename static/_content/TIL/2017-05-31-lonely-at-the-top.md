@@ -1,6 +1,7 @@
 ---
 title: The loneliness of Donald Trump
 description: A great insight found in a piece about a little man.
+date: 2017-05-31
 ---
 
 # Rebecca Solnit: The Loneliness of Donald Trump
