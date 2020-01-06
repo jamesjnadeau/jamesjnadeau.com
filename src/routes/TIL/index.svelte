@@ -12,6 +12,10 @@
   import { pageIn, pageOut } from "../_page_transition";
   import { fly } from 'svelte/transition';
   export let posts;
+
+  function formatDate(date) {
+    return new Date(date).toLocaleDateString();
+  }
 </script>
 
 <style>
@@ -34,11 +38,11 @@
   <p class="lead text-center">
     A collection of things I found interesting at the time.
   </p>
-  <!-- <p class="text-center">
-    <a href="rss.xml" target="_blank">
-      <img src="/files/rss.svg" height="20px" />
+  <p class="text-center">
+    <a href="/TIL/rss.xml" target="_blank">
+      <img alt="rss download beacon" src="/files/rss.svg" height="20px" />
     </a>
-  </p> -->
+  </p>
   <div class="row">
     <div class="col-md-8 offset-md-2">
       <ul class="list-group">
@@ -47,8 +51,16 @@
           <a
             class="list-group-item"
             rel="prefetch" href="TIL/{post.slug}">
-            <!-- <b>8/19</b> -->
-            {post.title}
+            <div class="row">
+              <div class="col-auto">
+                {post.title}
+              </div>
+              {#if post.date}
+                <div class="col align-self-end text-right" >
+                  {formatDate(post.date)}
+                </div>
+              {/if}
+            </div>
           </a>
         {/each}
       </ul>
