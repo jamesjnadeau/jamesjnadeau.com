@@ -15,7 +15,7 @@
     "build:sapper": "sapper build",
     "build:admin": "webpack -p --config static/admin/webpack.config.js",
     "build:styles": "webpack -p --config static/styles/webpack.config.js",
-    "export": " run-p build:admin build:styles && yarn run export:sapper --no-timeout",
+    "export": " run-p build:admin build:styles && yarn run export:sapper",
     "export:sapper": "sapper export",
     "start": "yarn run dev",
     "start:server": "node __sapper__/build",
