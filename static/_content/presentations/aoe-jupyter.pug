@@ -1,247 +1,246 @@
-extends ../../templates/impress
+---
+title: James J Nadeau | Demo Presentation
+description: A demo presntation using impress.js
+---
 
-block vars
-  -var title = 'James J Nadeau | Demo Presentation'
-  -var description = 'A demo presntation using impress.js'
 
-block content
-  //- see https://impress.js.org/#/bored
-  //- style="position: absolute; transform-origin: left top; transition: all 1000ms ease-in-out 500ms; transform-style: preserve-3d; top: 50%; left: 50%; perspective: 1073.38px; transform: scale(0.931641);"
-  #impress()
-    #intro.step()
-      h1 Introduction
-      .lead.substep
-        p What I'm talking about today?
+//- see https://impress.js.org/#/bored
+//- style="position: absolute; transform-origin: left top; transition: all 1000ms ease-in-out 500ms; transform-style: preserve-3d; top: 50%; left: 50%; perspective: 1073.38px; transform: scale(0.931641);"
+#impress()
+  #intro.step()
+    h1 Introduction
+    .lead.substep
+      p What I'm talking about today?
+      ul
+        li Client, scope, and where we come in
+      ul.substep
+        li Technology -> Jupyter Notebooks -> Python
+      ul.substep
+        li.substep Status & Future Goals
+  #Who-We-are.step(data-rel-x=space data-rel-z=-space)
+    h1
+      | Who We are
+      
+    ul
+      li
+        | James Nadeau - Tech Lead - 
+        a(href='http://jamesnadeau.com') http://jamesnadeau.com
+      li Scott Lewis - Developer - needs to make his own website :)
+  #what.step(data-rel-x=space data-rel-z=-space)
+    h1
+      | What We're Doing?
+    .row
+      .col-6
         ul
-          li Client, scope, and where we come in
+          li
+            h4#Agency-of-Education
+              | Agency of Education
         ul.substep
-          li Technology -> Jupyter Notebooks -> Python
+          li
+            h4(id='"Enterprise-Environtment"')
+              | "Enterprise Environtment"
         ul.substep
-          li.substep Status & Future Goals
-    #Who-We-are.step(data-rel-x=space data-rel-z=-space)
-      h1
-        | Who We are
+          li
+            h4(id='Jupyter-&-Python')
+              | Jupyter & Python
+      .col-6
+        img.img-fluid(src='https://pbs.twimg.com/profile_images/2856737044/07bbf2306621cbe8fc015b819d762229_400x400.png')
+            
         
-      ul
-        li
-          | James Nadeau - Tech Lead - 
-          a(href='http://jamesnadeau.com') http://jamesnadeau.com
-        li Scott Lewis - Developer - needs to make his own website :)
-    #what.step(data-rel-x=space data-rel-z=-space)
-      h1
-        | What We're Doing?
-      .row
-        .col-6
-          ul
-            li
-              h4#Agency-of-Education
-                | Agency of Education
-          ul.substep
-            li
-              h4(id='"Enterprise-Environtment"')
-                | "Enterprise Environtment"
-          ul.substep
-            li
-              h4(id='Jupyter-&-Python')
-                | Jupyter & Python
-        .col-6
-          img.img-fluid(src='https://pbs.twimg.com/profile_images/2856737044/07bbf2306621cbe8fc015b819d762229_400x400.png')
-              
-          
-    #past-current-status.step(data-rel-x=space data-rel-z=-space)
-      h1
-        | Past & Current Status
-      .substep
-        p
-          img(src='https://media1.tenor.com/images/e691908a373dd106c3109a22941e9089/tenor.gif?itemid=5207369', style='display: block; margin-left: 20%;', width='350')
-    #past-current-status-2.step(data-rel-x=space data-rel-z=-space)
-      h1
-        | Past & Current Status
-      ul
-        li
-          | Turnover and Leadership Vacuum
-          ul
-            li Head of AOE ADS "Re-assigned"
-            li Half of ADS staff has left since we started
-            li Many AOE staff have also left
-        .substep
-          ul
-            li
-              | Access and CSV(Excell) Everywhere
-              ul
-                li Processes have high touch points, are not cost effective, and error prone.
-                li Silos of knowledge, documentation, and willpower
-    #past-current-status-3.step.small(data-rel-x=space data-rel-z=-space )
-      h1
-        | Past & Current Status
-      ul
-        li
-          | Everyone knows a little
-          ul
-            li SQL is everywhere and most staff can leverage it
-            li A few have experience with R and other similar scripting languages
-      .substep
-        ul
-          li
-            | SLDS (State Longitudinal Database) Project caused headaches
-            ul
-              li 3 year project, finished last month after 6.5 years
-              li
-                | Source of all data 
-                em from the field
-                |  (aka schools)
-              li Other aditional data sources that require manual processes to load
-      .substep
-        ul
-          li
-            | Reporting - Who cares about what they do?
-            ul
-              li Federal -> Grants/Funding
-              li Public/Legislative -> Budget & Legal requirements, Taxes...
-              li Internal -> Ad-Hoc reporting needed to run day to day operations
-    #how-can-we-help.step(data-rel-x=space data-rel-z=-space )
-      h2
-        | How can we help?
-      p The Statement of Work(SOW)
-      blockquote.small
-        p
-          | Support desired project and program outcomes through analysis, design, development,
-          | and implementation of major internal and external systems and sub-systems integration and automation work.
-        p
-          | Serve as expert support for technical and data staff at project meetings and act as liaison between users and vendors
-        p
-          | Collaborate with management to develop, document, and implement system strategies and standards. May act as 
-          strong server administrator
-          | . May act in a 
-          strong team leadership
-          |  fashion for other agency development staff for duration of the work.
-      .substep 
-        h4(id='Takeaway:-Broad-Scope,-Freedom-to-make-descisions')
-          | Takeaway: Broad Scope, Freedom to make descisions
-    #short-long-term.step(data-rel-x=space data-rel-z=-space data-rotate-y=-90)
-      h1#Short-Term
-        | Short Term
-      ul
-        li Get the SLDS under state resources -> Reduce Risk and increases access to data
-        li Reduce risk on critical infrastrucutre through automation and auditing
-        li Help people get their work done faster using automation -> Save Agency $$$
-      .substep
-        h1#Long-Term
-          | Long Term
-        ul
-          li Federal Generate Tool -> Reporting
-          li Data Mart (CEDS) -> Compatibility
-          li Power BI -> Reporting
-          li Consistancy -> Sanity and Process Organization
-    #tools.step(data-rel-x=space data-rel-z=-space )
-      h1(id='Tools?')
-        | Tools?
-      .substep
-        h2#Needs
-          | Needs
-        ul
-          li Scripts to Automate work
-          li Flexible Licensing
-          li Easy Developer Experience
-          li Data Scientist Friendly
-          li Broad availability of libraies and utilities
-          li Fits in Micro$ofts ecosystem
-        h3(id='Anyone-have-any-ideas?')
-          | Anyone have any ideas?
-    #jupyter.step(data-rel-x=space data-rel-z=-space )
-      h1#Jupyter
-        | Jupyter
-      p Documentation and Code in one place!
-      .substep
-        h3(id='What-is-it?')
-          strong What is it?
-        ul
-          li
-            code Interactive Computing
-            |  kind of like a REPL = Read–eval–print loop
-          li At it's Core is a messaging protocal that allows communication with a "kernel"
-          li
-            | Started with iPython, but has been extended to support multiple languages and GUI's
-            ul
-              li iCSharp, iJavascript, R
-              li Lab, Nteract, PaperMill
-      .substep
-        h3(id='Who-else-uses-it?')
-          strong Who else uses it?
-          
-        ul
-          li Netflix, Micro$oft, IBM, Soundcloud, rackspace, etc...
-    #good-fit.step(data-rel-x=space data-rel-z=-space )
-      h1#Jupyter
-        | Jupyter
-        
-      h3(id="Why-it's-a-good-fit")
-        strong Why it's a good fit
-      ul
-        li Automation - Data, software & browser
-        li
-          | Opens up options to use the right tool for the job
-          | You can use what language makes sense
-        li Connects to any DB system out there
-        li Provides more options for input/output than SQL alone
-        li Can be run on a schedule, and the output artifact is easy for users to review
-        li Can produce interactive reports and GUI's
-    #demo.step(data-rel-x=space data-rel-z=-space data-rotate-y=-45)
-      h1#Demo
-        | Demo
-                  
-    #its-just-json.step(data-rel-x=space data-rel-z=-space )
-      h1(id="It's-just-JSON")
-        | It's just JSON
-      .highlight
-        pre.
-          \n                                 
-    #future-status.step(data-rel-x=space data-rel-z=-space )
-      h1#Future-Status
-        | Future Status
-                  
-      .substep
-        ul
-          li
-            | CEDS - DataMart
-            ul
-              li Consistant way to access data people need to do their jobs
-              li Specs to work with external parties going forward
-      .substep
-        ul
-          li
-            | Generate ETL process
-            ul
-              li Create a SSIS package to migrate data automatically for fedral reporting
-              li Stand up Generate Tool on state resources
-      .substep
-        ul
-          li
-            | Remaking the world
-            ul
-              li Wrangle the code that determines our taxes! (Average Daily Membership)
-              li Rewrite all internal process so they can be automated
-    #lessons-learned.step(data-rel-x=space data-rel-z=-space data-rotate-y=-180)
-      h1#Lessons-Learned
-        | Lessons Learned
-        
-      ul
-        li Data Science and Python are so hot right now!
-        li The state is slow
-        li The ADS shake up a number of years ago is still having effects
-        li
-          | People don't actually want to program
-          ul
-            li of a certain age
-            li "not a programmer"
-            li checked out emmotionally
+  #past-current-status.step(data-rel-x=space data-rel-z=-space)
+    h1
+      | Past & Current Status
+    .substep
       p
-        img.img-fluid(src='https://media2.giphy.com/media/l4KhVp1aGeqzeMDok/giphy.gif?cid=790b761180e85fa312b93537aadf47ce5b849e2c6bc00374&rid=giphy.gif')
-    #fin.step(data-rel-x=space data-rel-z=-space data-rotate-y=-0)
-      h1(id='When-does-it-end?')
-        | When does it end?
-      .substep 
-
-        h3 Client responded with :)
+        img(src='https://media1.tenor.com/images/e691908a373dd106c3109a22941e9089/tenor.gif?itemid=5207369', style='display: block; margin-left: 20%;', width='350')
+  #past-current-status-2.step(data-rel-x=space data-rel-z=-space)
+    h1
+      | Past & Current Status
+    ul
+      li
+        | Turnover and Leadership Vacuum
+        ul
+          li Head of AOE ADS "Re-assigned"
+          li Half of ADS staff has left since we started
+          li Many AOE staff have also left
+      .substep
+        ul
+          li
+            | Access and CSV(Excell) Everywhere
+            ul
+              li Processes have high touch points, are not cost effective, and error prone.
+              li Silos of knowledge, documentation, and willpower
+  #past-current-status-3.step.small(data-rel-x=space data-rel-z=-space )
+    h1
+      | Past & Current Status
+    ul
+      li
+        | Everyone knows a little
+        ul
+          li SQL is everywhere and most staff can leverage it
+          li A few have experience with R and other similar scripting languages
+    .substep
+      ul
+        li
+          | SLDS (State Longitudinal Database) Project caused headaches
+          ul
+            li 3 year project, finished last month after 6.5 years
+            li
+              | Source of all data 
+              em from the field
+              |  (aka schools)
+            li Other aditional data sources that require manual processes to load
+    .substep
+      ul
+        li
+          | Reporting - Who cares about what they do?
+          ul
+            li Federal -> Grants/Funding
+            li Public/Legislative -> Budget & Legal requirements, Taxes...
+            li Internal -> Ad-Hoc reporting needed to run day to day operations
+  #how-can-we-help.step(data-rel-x=space data-rel-z=-space )
+    h2
+      | How can we help?
+    p The Statement of Work(SOW)
+    blockquote.small
+      p
+        | Support desired project and program outcomes through analysis, design, development,
+        | and implementation of major internal and external systems and sub-systems integration and automation work.
+      p
+        | Serve as expert support for technical and data staff at project meetings and act as liaison between users and vendors
+      p
+        | Collaborate with management to develop, document, and implement system strategies and standards. May act as 
+        strong server administrator
+        | . May act in a 
+        strong team leadership
+        |  fashion for other agency development staff for duration of the work.
+    .substep 
+      h4(id='Takeaway:-Broad-Scope,-Freedom-to-make-descisions')
+        | Takeaway: Broad Scope, Freedom to make descisions
+  #short-long-term.step(data-rel-x=space data-rel-z=-space data-rotate-y=-90)
+    h1#Short-Term
+      | Short Term
+    ul
+      li Get the SLDS under state resources -> Reduce Risk and increases access to data
+      li Reduce risk on critical infrastrucutre through automation and auditing
+      li Help people get their work done faster using automation -> Save Agency $$$
+    .substep
+      h1#Long-Term
+        | Long Term
+      ul
+        li Federal Generate Tool -> Reporting
+        li Data Mart (CEDS) -> Compatibility
+        li Power BI -> Reporting
+        li Consistancy -> Sanity and Process Organization
+  #tools.step(data-rel-x=space data-rel-z=-space )
+    h1(id='Tools?')
+      | Tools?
+    .substep
+      h2#Needs
+        | Needs
+      ul
+        li Scripts to Automate work
+        li Flexible Licensing
+        li Easy Developer Experience
+        li Data Scientist Friendly
+        li Broad availability of libraies and utilities
+        li Fits in Micro$ofts ecosystem
+      h3(id='Anyone-have-any-ideas?')
+        | Anyone have any ideas?
+  #jupyter.step(data-rel-x=space data-rel-z=-space )
+    h1#Jupyter
+      | Jupyter
+    p Documentation and Code in one place!
+    .substep
+      h3(id='What-is-it?')
+        strong What is it?
+      ul
+        li
+          code Interactive Computing
+          |  kind of like a REPL = Read–eval–print loop
+        li At it's Core is a messaging protocal that allows communication with a "kernel"
+        li
+          | Started with iPython, but has been extended to support multiple languages and GUI's
+          ul
+            li iCSharp, iJavascript, R
+            li Lab, Nteract, PaperMill
+    .substep
+      h3(id='Who-else-uses-it?')
+        strong Who else uses it?
         
-        img.img-fluid(src='http://giphygifs.s3.amazonaws.com/media/hEwkspP1OllJK/giphy.gif')
+      ul
+        li Netflix, Micro$oft, IBM, Soundcloud, rackspace, etc...
+  #good-fit.step(data-rel-x=space data-rel-z=-space )
+    h1#Jupyter
+      | Jupyter
+      
+    h3(id="Why-it's-a-good-fit")
+      strong Why it's a good fit
+    ul
+      li Automation - Data, software & browser
+      li
+        | Opens up options to use the right tool for the job
+        | You can use what language makes sense
+      li Connects to any DB system out there
+      li Provides more options for input/output than SQL alone
+      li Can be run on a schedule, and the output artifact is easy for users to review
+      li Can produce interactive reports and GUI's
+  #demo.step(data-rel-x=space data-rel-z=-space data-rotate-y=-45)
+    h1#Demo
+      | Demo
+                
+  #its-just-json.step(data-rel-x=space data-rel-z=-space )
+    h1(id="It's-just-JSON")
+      | It's just JSON
+    .highlight
+      pre.
+        \n                                 
+  #future-status.step(data-rel-x=space data-rel-z=-space )
+    h1#Future-Status
+      | Future Status
+                
+    .substep
+      ul
+        li
+          | CEDS - DataMart
+          ul
+            li Consistant way to access data people need to do their jobs
+            li Specs to work with external parties going forward
+    .substep
+      ul
+        li
+          | Generate ETL process
+          ul
+            li Create a SSIS package to migrate data automatically for fedral reporting
+            li Stand up Generate Tool on state resources
+    .substep
+      ul
+        li
+          | Remaking the world
+          ul
+            li Wrangle the code that determines our taxes! (Average Daily Membership)
+            li Rewrite all internal process so they can be automated
+  #lessons-learned.step(data-rel-x=space data-rel-z=-space data-rotate-y=-180)
+    h1#Lessons-Learned
+      | Lessons Learned
+      
+    ul
+      li Data Science and Python are so hot right now!
+      li The state is slow
+      li The ADS shake up a number of years ago is still having effects
+      li
+        | People don't actually want to program
+        ul
+          li of a certain age
+          li "not a programmer"
+          li checked out emmotionally
+    p
+      img.img-fluid(src='https://media2.giphy.com/media/l4KhVp1aGeqzeMDok/giphy.gif?cid=790b761180e85fa312b93537aadf47ce5b849e2c6bc00374&rid=giphy.gif')
+  #fin.step(data-rel-x=space data-rel-z=-space data-rotate-y=-0)
+    h1(id='When-does-it-end?')
+      | When does it end?
+    .substep 
+
+      h3 Client responded with :)
+      
+      img.img-fluid(src='http://giphygifs.s3.amazonaws.com/media/hEwkspP1OllJK/giphy.gif')

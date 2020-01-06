@@ -1,47 +1,45 @@
-extends ../../templates/impress
+---
+title: James J Nadeau | Demo Presentation
+description: A demo presntation using impress.js
+---
 
-block vars
-  -var title = 'James J Nadeau | Demo Presentation'
-  -var description = 'A demo presntation using impress.js'
-
-block content
-  //- see https://impress.js.org/#/bored
-  //- style="position: absolute; transform-origin: left top; transition: all 1000ms ease-in-out 500ms; transform-style: preserve-3d; top: 50%; left: 50%; perspective: 1073.38px; transform: scale(0.931641);"
-  #impress()
-    .step()
-      h1.font-italic Continers
-      hr
-      h5 What are they?
-      small.text-muted.pl-5 Dockerfiles, images, and what not.
-      h5 Why do we need them? 
-      small.text-muted.pl-5 Easier to be excellent to each other.
-      h5 Some Examples
-      small.text-muted.pl-5 Like an onion, but with shell scripts
-      h5 Kubernetes
-      small.text-muted.pl-5 aka Why Docker as a Business is doomed.
-    .step(data-rel-x=space/2 data-rel-z=-space)
-      .row
-        .col.px-3
-          img.substep.img-fluid(src="https://media.giphy.com/media/3o7527pa7qs9kCG78A/giphy.gif")
-        .col.px-3
-          h1 What?
-          p.substep like a vm
-          p.substep it's just a script
-          p.substep Create a disk image that can run 
-            span.font-italic anywhere &tm;
-    .step(data-rel-x=space/2 data-rel-z=-space)
-      h1 Why
-      p Everything is written down and versioned
-      p Portable, build once, run anywhere
-    .step(data-rel-x=space/2 data-rel-z=-space )
-      .row
-        .col
-          h1 K8s
-        .col.px-3
-          img.substep.w-100(src='http://giphygifs.s3.amazonaws.com/media/ofOZDh48tsrBK/giphy.gif')
-      
-    .step(data-rel-x=space/2 data-rel-z=-space )
-      h1 Step Two
+//- see https://impress.js.org/#/bored
+//- style="position: absolute; transform-origin: left top; transition: all 1000ms ease-in-out 500ms; transform-style: preserve-3d; top: 50%; left: 50%; perspective: 1073.38px; transform: scale(0.931641);"
+#impress()
+  .step()
+    h1.font-italic Continers
+    hr
+    h5 What are they?
+    small.text-muted.pl-5 Dockerfiles, images, and what not.
+    h5 Why do we need them? 
+    small.text-muted.pl-5 Easier to be excellent to each other.
+    h5 Some Examples
+    small.text-muted.pl-5 Like an onion, but with shell scripts
+    h5 Kubernetes
+    small.text-muted.pl-5 aka Why Docker as a Business is doomed.
+  .step(data-rel-x=space/2 data-rel-z=-space)
+    .row
+      .col.px-3
+        img.substep.img-fluid(src="https://media.giphy.com/media/3o7527pa7qs9kCG78A/giphy.gif")
+      .col.px-3
+        h1 What?
+        p.substep like a vm
+        p.substep it's just a script
+        p.substep Create a disk image that can run 
+          span.font-italic anywhere &tm;
+  .step(data-rel-x=space/2 data-rel-z=-space)
+    h1 Why
+    p Everything is written down and versioned
+    p Portable, build once, run anywhere
+  .step(data-rel-x=space/2 data-rel-z=-space )
+    .row
+      .col
+        h1 K8s
+      .col.px-3
+        img.substep.w-100(src='http://giphygifs.s3.amazonaws.com/media/ofOZDh48tsrBK/giphy.gif')
+    
+  .step(data-rel-x=space/2 data-rel-z=-space )
+    h1 Step Two
     
     
         

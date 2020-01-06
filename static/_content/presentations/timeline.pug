@@ -1,91 +1,86 @@
-extends ../../templates/impress
+---
+title: James J Nadeau | Demo Presentation
+description: A demo presntation using impress.js
+---
 
-block vars
-  -var title = 'James J Nadeau | Demo Presentation'
-  -var description = 'A demo presntation using impress.js'
-  -var space = 500;
+#impress()
+  -var x = 0;
+  -var y = 0;
+  -var z = 0;
+  
+  .step.display-always()
+    h1 January
+  .step(data-x=x data-y=space)
+    h1 New Years
 
-block content
-  //- see https://impress.js.org/#/bored
-  //- style="position: absolute; transform-origin: left top; transition: all 1000ms ease-in-out 500ms; transform-style: preserve-3d; top: 50%; left: 50%; perspective: 1073.38px; transform: scale(0.931641);"
-  #impress()
-    -var x = 0;
-    -var y = 0;
-    -var z = 0;
-    
-    .step.display-always()
-      h1 January
-    .step(data-x=x data-y=space)
-      h1 New Years
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 February
+  .step(data-x=x data-y=-space)
+    h1 Valentines Day
+    h3 14th
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 February
-    .step(data-x=x data-y=-space)
-      h1 Valentines Day
-      h3 14th
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 March
+  .step(data-x=x data-y=space)
+    h1 St. Patricks Day
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 March
-    .step(data-x=x data-y=space)
-      h1 St. Patricks Day
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 April
+  .step(data-x=x data-y=-space)
+    h1 Spring!
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 April
-    .step(data-x=x data-y=-space)
-      h1 Spring!
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 May
+  .step(data-x=x data-y=space)
+    h1 Memorial Day
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 May
-    .step(data-x=x data-y=space)
-      h1 Memorial Day
+  - x += space;
+  .step.display-always(data-x=x data-y=0) 
+    h1 June
+  .step(data-x=x data-y=-space)
+    h1 Summer
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0) 
-      h1 June
-    .step(data-x=x data-y=-space)
-      h1 Summer
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 July
+  .step(data-x=x data-y=space)
+    h1 America's Birthday
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 July
-    .step(data-x=x data-y=space)
-      h1 America's Birthday
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 August
+  .step(data-x=x data-y=-space)
+    h1 Hott!!!
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 August
-    .step(data-x=x data-y=-space)
-      h1 Hott!!!
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 September
+  .step(data-x=x data-y=space)
+    h1 Football Starts!
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 September
-    .step(data-x=x data-y=space)
-      h1 Football Starts!
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 October
+  .step(data-x=x data-y=-space)
+    h1 Halloween!
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 October
-    .step(data-x=x data-y=-space)
-      h1 Halloween!
-
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 November
-    .step(data-x=x data-y=space)
-      h1 Thanks Giving
-    -
-      x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 December
-    .step(data-x=x data-y=-space)
-      h1 Holidays
-    
-    #overview.step.display-always(data-x=space*5  data-z="3000" data-scale=2)
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 November
+  .step(data-x=x data-y=space)
+    h1 Thanks Giving
+  -
+    x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 December
+  .step(data-x=x data-y=-space)
+    h1 Holidays
+  
+  #overview.step.display-always(data-x=space*5  data-z="3000" data-scale=2)
 
 
 

@@ -1,27 +1,25 @@
-extends ../../templates/default
+---
+title: James J Nadeau | Presentations
+description: Here are some presentation decks I\'ve used in the past.
+---
 
-block vars
-  -var title = 'James J Nadeau | Presentations'
-  -var description = 'Here are some presentation decks I\'ve used in the past.'
-
-block content
-  h1 Presentations / Slides
-  .card.text-center.p-3
-    p.lead A collection of presentations I've made using 
-      a(href="https://github.com/impress/impress.js/" rel="noopener") impress.js
-  .row.justify-content-center
-    .col-md-6
-      ul.list-group.p-2
-        h3.list-group-item Demo's
-        a.list-group-item(href='/presentations/demo/' target="_blank") Copy of the impress.js demo
-        a.list-group-item(href='/presentations/simple/' target="_blank") A simple example
-        a.list-group-item(href='/presentations/timeline/' target="_blank") A timeline example(not done)
-        a.list-group-item(href='/presentations/circle/' target="_blank") A circle example(not done)
-      
-      ul.list-group.p-2
-        h3.list-group-item C2
-        a.list-group-item(href='/presentations/aoe-jupyter/' target="_blank") AOE & Jupyter
-        a.list-group-item(href='/presentations/static-site-netlify/' target="_blank") Static Site & Netlify
-        a.list-group-item(href='/presentations/containers/' target="_blank") Containers
+h1 Presentations / Slides
+.card.text-center.p-3
+  p.lead A collection of presentations I've made using 
+    a(href="https://github.com/impress/impress.js/" rel="noopener") impress.js
+.row.justify-content-center
+  .col-md-6
+    ul.list-group.p-2
+      h3.list-group-item Demo's
+      a.list-group-item(href='/presentations/demo/' target="_blank") Copy of the impress.js demo
+      a.list-group-item(href='/presentations/simple/' target="_blank") A simple example
+      a.list-group-item(href='/presentations/timeline/' target="_blank") A timeline example(not done)
+      a.list-group-item(href='/presentations/circle/' target="_blank") A circle example(not done)
+    
+    ul.list-group.p-2
+      h3.list-group-item C2
+      a.list-group-item(href='/presentations/aoe-jupyter/' target="_blank") AOE & Jupyter
+      a.list-group-item(href='/presentations/static-site-netlify/' target="_blank") Static Site & Netlify
+      a.list-group-item(href='/presentations/containers/' target="_blank") Containers
 
 

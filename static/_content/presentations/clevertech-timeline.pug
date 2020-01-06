@@ -1,152 +1,149 @@
-extends ../../templates/impress
+---
+title: James J Nadeau | Demo Presentation
+description: A demo presntation using impress.js
+---
 
-block vars
-  -var title = 'James J Nadeau | Demo Presentation'
-  -var description = 'A demo presntation using impress.js'
-  -var space = 500;
 
-block content
-  //- see https://impress.js.org/#/bored
-  //- style="position: absolute; transform-origin: left top; transition: all 1000ms ease-in-out 500ms; transform-style: preserve-3d; top: 50%; left: 50%; perspective: 1073.38px; transform: scale(0.931641);"
-  #impress()
-    -var x = 0;
-    -var y = 0;
-    -var z = 0;
+-var space = 500;
+#impress()
+  -var x = 0;
+  -var y = 0;
+  -var z = 0;
+  
+  .step.display-always()
+    h1 January 2019
+  .step(data-x=x data-y=space)
+    h1 Start at C2
+    h3 Fixed issue when contact form stopped working
+    h3 Various changes to site for mobile UX optimization
+    h3 Updated a SHRM page
+    h3 Altered theme system so new themes are auto-deteteced/created
+    h3 Created 8 affiliate themes and pushed them live.
+    h3 Made some updates to military profile display.
+    h3 Created an environment variable to turn off the about link on certian themes
+    h3 Updted t-mobile theme in a hurry before a presentation.
+    h3 Updated manager export with additional fields
+
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 February
+  .step(data-x=x data-y=-space)
+    h3 Cleaned up some outstanding issues on affiliate sites
+    h3 Fixed issue with inconsistant zip codes across profiles
+    h3 Fixed ReCaptcha signup issue
+    h3 Created USBank job feed import process
+    h3 Updated Affiliates page
+    h3 Helped finish the Copyright DB export
+    h3 Created first draft Bluestar Families Theme
+    h3 Debugged issue for ie11 and got help from Andres with a fix
+    h3 Began work on Bluestar Families integration for JobPath
+    h3 Cleaned up old now unused payment forms
+    h3 Fixed Job Details page issue if state was not defined.
+    h3 Made pricing page updates for SHRM
+    h3 Changed logo and and some text for Empire Vets
+    h3 Performed tasks necssary to begin a Jeans for Troops fundraising season and created documentation on how to do so.
+
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 March
+  .step(data-x=x data-y=space)
+    h3 Made 4th round of updaes to Bluestar sign up process
+    h3 Created CEG and first draft Window World themes,
+    h3 Debugged Payment questions by SHRM
+    h3 Implemented Coupon Code System for AFA theme.
+    h3 Completed various edits to Empire Vets Pages
+    h3 Various bug fixes to platform requested by Jack.
     
-    .step.display-always()
-      h1 January 2019
-    .step(data-x=x data-y=space)
-      h1 Start at C2
-      h3 Fixed issue when contact form stopped working
-      h3 Various changes to site for mobile UX optimization
-      h3 Updated a SHRM page
-      h3 Altered theme system so new themes are auto-deteteced/created
-      h3 Created 8 affiliate themes and pushed them live.
-      h3 Made some updates to military profile display.
-      h3 Created an environment variable to turn off the about link on certian themes
-      h3 Updted t-mobile theme in a hurry before a presentation.
-      h3 Updated manager export with additional fields
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 February
-    .step(data-x=x data-y=-space)
-      h3 Cleaned up some outstanding issues on affiliate sites
-      h3 Fixed issue with inconsistant zip codes across profiles
-      h3 Fixed ReCaptcha signup issue
-      h3 Created USBank job feed import process
-      h3 Updated Affiliates page
-      h3 Helped finish the Copyright DB export
-      h3 Created first draft Bluestar Families Theme
-      h3 Debugged issue for ie11 and got help from Andres with a fix
-      h3 Began work on Bluestar Families integration for JobPath
-      h3 Cleaned up old now unused payment forms
-      h3 Fixed Job Details page issue if state was not defined.
-      h3 Made pricing page updates for SHRM
-      h3 Changed logo and and some text for Empire Vets
-      h3 Performed tasks necssary to begin a Jeans for Troops fundraising season and created documentation on how to do so.
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 April
+  .step(data-x=x data-y=-space)
+    h3 Debugged issue with CI tests failing randomly
+    h3 Created capture build failure artifacts system for CI
+    h3 Reworked Job Search system with Jan to have forward/back buttons
+    h3 Pushed Blustar Families live after serveral more rounds of changes
+    h3 Sha, Amber, and Deanna Join the team, helped onboard and answered questions
+    h3 Created some new documentation
+    h3 Site wide spelling mistake fixes that amber found
+    h3 Created a custom email scrape per request from Alex M.
+    h3 Created initial Bluestar data import
+    h3 Minor changes to gigofund email system
+    h3 Debugged issue with dev site causing gigofund mailing system to fail.
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 March
-    .step(data-x=x data-y=space)
-      h3 Made 4th round of updaes to Bluestar sign up process
-      h3 Created CEG and first draft Window World themes,
-      h3 Debugged Payment questions by SHRM
-      h3 Implemented Coupon Code System for AFA theme.
-      h3 Completed various edits to Empire Vets Pages
-      h3 Various bug fixes to platform requested by Jack.
-      
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 May
+  .step(data-x=x data-y=space)
+    h3 Completed our side of the Bluestar implementation
+    h3 Update Admin UI to allow searching by source theme
+    h3 Implemented next buttons on sign-up process system wide
+    h3 Debugged dev site issues for both gigofund and jobpath
+    h3 Various bug fixes and code cleaning
+    h3 More changes for Bluestar sign up
+    h3 Updated terms and conditions per request from James F.
+    h3 Jake Joins the team
+    h3 Helped team get accustomed to code and answered many questions
+    h3 Created seal team swim fundraiser system and pushed live.
+    h3 Fixed various spelling issues found on gigofund
+  .step(data-x=x+space data-y=space)
+    h1 Kuty asks if I have another job, I say I do, and ask what the problem with that is, and what he thinks the next steps should be.
+    h1 he asks me to keep working to help with knowledge transfer, and said that he would continue to pay me for my time.
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 April
-    .step(data-x=x data-y=-space)
-      h3 Debugged issue with CI tests failing randomly
-      h3 Created capture build failure artifacts system for CI
-      h3 Reworked Job Search system with Jan to have forward/back buttons
-      h3 Pushed Blustar Families live after serveral more rounds of changes
-      h3 Sha, Amber, and Deanna Join the team, helped onboard and answered questions
-      h3 Created some new documentation
-      h3 Site wide spelling mistake fixes that amber found
-      h3 Created a custom email scrape per request from Alex M.
-      h3 Created initial Bluestar data import
-      h3 Minor changes to gigofund email system
-      h3 Debugged issue with dev site causing gigofund mailing system to fail.
+  - x += space;
+  .step.display-always(data-x=x data-y=0) 
+    h1 June
+  .step(data-x=x data-y=-space)
+    h3 Fixed api app on the dev server to enable QA for window world
+    h3 Attempted changing Job search config to improve results with Jake
+    h3 Fixed Admin job editing
+    h3 Debugged issue with secondary categories after running the import process
+    h3 Added Admin UI secondary category search ability
+    h3 Added resume parsing to bluestar sign up
+    h3 Fixed issue with Suburban propane widget
+    h3 Updated Employer Job editing UI per request from SHRM
+    h3 Set up Dev Environment for gigofund and fixed test payment system for QA
+    h3 Created various documenation about gigofund processes
+    h3 Fixed outstanding issue with seal team swim admin UI
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 May
-    .step(data-x=x data-y=space)
-      h3 Completed our side of the Bluestar implementation
-      h3 Update Admin UI to allow searching by source theme
-      h3 Implemented next buttons on sign-up process system wide
-      h3 Debugged dev site issues for both gigofund and jobpath
-      h3 Various bug fixes and code cleaning
-      h3 More changes for Bluestar sign up
-      h3 Updated terms and conditions per request from James F.
-      h3 Jake Joins the team
-      h3 Helped team get accustomed to code and answered many questions
-      h3 Created seal team swim fundraiser system and pushed live.
-      h3 Fixed various spelling issues found on gigofund
-    .step(data-x=x+space data-y=space)
-      h1 Kuty asks if I have another job, I say I do, and ask what the problem with that is, and what he thinks the next steps should be.
-      h1 he asks me to keep working to help with knowledge transfer, and said that he would continue to pay me for my time.
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 July
+  .step(data-x=x data-y=space)
+    h3 Fist time I was not paid
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0) 
-      h1 June
-    .step(data-x=x data-y=-space)
-      h3 Fixed api app on the dev server to enable QA for window world
-      h3 Attempted changing Job search config to improve results with Jake
-      h3 Fixed Admin job editing
-      h3 Debugged issue with secondary categories after running the import process
-      h3 Added Admin UI secondary category search ability
-      h3 Added resume parsing to bluestar sign up
-      h3 Fixed issue with Suburban propane widget
-      h3 Updated Employer Job editing UI per request from SHRM
-      h3 Set up Dev Environment for gigofund and fixed test payment system for QA
-      h3 Created various documenation about gigofund processes
-      h3 Fixed outstanding issue with seal team swim admin UI
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 August
+  .step(data-x=x data-y=-space)
+    h3 2nd time I was not paid
+    h3 Accounts with Clevertech were disabled without warning.
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 July
-    .step(data-x=x data-y=space)
-      h3 Fist time I was not paid
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 September
+  .step(data-x=x data-y=space)
+    h1 Football Starts!
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 August
-    .step(data-x=x data-y=-space)
-      h3 2nd time I was not paid
-      h3 Accounts with Clevertech were disabled without warning.
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 October
+  .step(data-x=x data-y=-space)
+    h1 Halloween!
 
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 September
-    .step(data-x=x data-y=space)
-      h1 Football Starts!
-
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 October
-    .step(data-x=x data-y=-space)
-      h1 Halloween!
-
-    - x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 November
-    .step(data-x=x data-y=space)
-      h1 Thanks Giving
-    -
-      x += space;
-    .step.display-always(data-x=x data-y=0)
-      h1 December
-    .step(data-x=x data-y=-space)
-      h1 Holidays
-    
-    #overview.step.display-always(data-x=space*5  data-z="3000" data-scale=2)
+  - x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 November
+  .step(data-x=x data-y=space)
+    h1 Thanks Giving
+  -
+    x += space;
+  .step.display-always(data-x=x data-y=0)
+    h1 December
+  .step(data-x=x data-y=-space)
+    h1 Holidays
+  
+  #overview.step.display-always(data-x=space*5  data-z="3000" data-scale=2)
 
 
 
