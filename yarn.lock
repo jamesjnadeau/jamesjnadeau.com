@@ -3282,6 +3282,11 @@ import-local@2.0.0:
     pkg-dir "^3.0.0"
     resolve-cwd "^2.0.0"
 
+impress.js@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/impress.js/-/impress.js-1.0.0.tgz#a73f86bf8bc6748fc8822809d8d764a607d0b846"
+  integrity sha1-pz+Gv4vGdI/IgigJ2NdkpgfQuEY=
+
 imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
