@@ -1,33 +1,6 @@
-import React from "react";
-import { render } from "react-dom";
-import AceEditor from "react-ace";
+import CMS from 'netlify-cms';
+import controlComponent from 'netlify-cms-widget-code/dist/esm/CodeControl';
 
-import "ace-builds/src-noconflict/ace.js";
-import "ace-builds/src-noconflict/theme-github";
-import "ace-builds/src-noconflict/mode-jade";
-
-
-import CMS from 'netlify-cms'
-
-var PugControl = createClass({
-  handleChange: function(value, e) {
-    this.props.onChange(value);
-  },
-  render: function() {
-    var value = this.props.value;
-    return React.createElement(AceEditor, {
-      onChange: this.handleChange,
-      name: 'jade-editor',
-      value: value,
-      mode: "jade",
-      // theme: "github",
-      style: {
-        border: '1px solid #eee',
-        width: '100%',
-      },
-    });
-  }
-});
 
 var PugPreview = createClass({
   render: function() {
@@ -49,4 +22,9 @@ var PugPreview = createClass({
   }
 });
 
-CMS.registerWidget('pug', PugControl, PugPreview);
+// CMS.registerWidget('pug', PugControl, PugPreview);
+CMS.registerWidget('pug', controlComponent, PugPreview);
+CMS.getWidget('pug').codeMirrorConfig = {
+  mode: 'pug',
+  theme: 'default',
+};

@@ -20,7 +20,7 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Date", name: "date", widget: "date"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "pug"}
+      - {label: "Body", name: "body", widget: "pug", output_code_only: true}
   - name: "Presentations" # Used in routes, e.g., /admin/collections/blog
     label: "Prsentations." # Used in the UI
     folder: "static/_content/presentations" # The path to the folder where the documents are stored
@@ -32,4 +32,4 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Date", name: "date", widget: "date"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "code", output_code_only: true, default_language: 'jade' }
+      - {label: "Body", name: "body", widget: "code", output_code_only: true, default_language: 'pug' }
