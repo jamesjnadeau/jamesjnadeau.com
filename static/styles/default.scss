@@ -36,6 +36,10 @@ body {
 	max-width: map-get($grid-breakpoints, lg);
 }
 
+#full-width-container {
+	padding-top: 80px;
+}
+
 h1
 {
 	font-family: 'Noto Serif', serif;
