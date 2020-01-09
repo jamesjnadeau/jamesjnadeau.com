@@ -6,8 +6,9 @@ description: A demo presntation using impress.js
 //- block head
   //- link(href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism.css', rel='stylesheet', type='text/css')
 
+- var space = 10000;
 
--var space = space/2;
+- space = space/2;
 #impress()
   .step()
     h1 Static Sites
@@ -46,6 +47,9 @@ description: A demo presntation using impress.js
     h1 How
     p There is a sea of options:
     ul
+      li 
+        a(href="https://sapper.svelte.dev/") Sapper
+        | &nbsp;A JS based solution
       li 
         a(href="https://wyam.io/") Wyam
         | &nbsp;A .NET based tool

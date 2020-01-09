@@ -27,7 +27,7 @@
 <!--
 <h1>{post.title}</h1>
 -->
-<div in:fly={pageIn} out:fly={pageOut}>
+<div id="container" class="container" in:fly={pageIn} out:fly={pageOut}>
 	<div class='content'>
 		{@html post.html}
 	</div>
