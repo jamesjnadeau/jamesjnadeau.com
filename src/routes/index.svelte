@@ -29,7 +29,7 @@
 </svelte:head>
 
 <div in:fly={pageIn} out:fly={pageOut}>
-  <div id="container" class="container animated fadeInRight">
+  <div id="container" class="container">
     <div class="content">
       <h1>Senior Systems Engineer</h1>
       <div>

@@ -1,6 +1,6 @@
 
 <main>
-  <div id="container" class="container animated fadeInRight">
+  <div id="container" class="container">
     <slot></slot>
   </div>
 </main>
