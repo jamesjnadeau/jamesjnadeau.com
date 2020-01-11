@@ -22,7 +22,7 @@ async function loadPage(post, parseContent=false) {
     switch(data.ext) {
       case '.pug':
         data.html = pug.render(meta.body, {
-          pretty: false,
+          pretty: true,
           filename: path.resolve(post),
         })
         break;

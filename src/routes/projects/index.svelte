@@ -83,8 +83,8 @@
         </ul>
         <ul class="list-group p-2">
           <h3 class="list-group-item">Bosch, Fujitsu, Aerco</h3>
-          <a class="list-group-item" href="bosch">Boschwaytogrow.com</a>
-          <a class="list-group-item" href="fujitsu">Fujitsu Dealer Toolbox</a>
+          <a class="list-group-item" href="/projects/bosch">Boschwaytogrow.com</a>
+          <a class="list-group-item" href="/projects/fujitsu">Fujitsu Dealer Toolbox</a>
           <!-- <a class="list-group-item" href="#" rel="no-follow" >Eternal Waterheater</a>-->
           <a
             class="list-group-item"

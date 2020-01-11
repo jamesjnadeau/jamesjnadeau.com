@@ -1,9 +1,8 @@
-/*
-Title: Git Rebase theirs
-Description: Git flow quick reference
-Author: James Nadeau
+---
+title: Git Rebase theirs
+description: Git flow quick reference
 Date: 10/21/2018
-*/
+---
 
 # Git Rebase Theirs
 

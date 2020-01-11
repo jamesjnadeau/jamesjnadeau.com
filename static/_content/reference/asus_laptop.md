@@ -1,7 +1,7 @@
-/*
-Title: Asus Laptop Notes
-Description: This description will go in the meta description tag
-Author: James Nadeau
+---
+title: Asus Laptop Notes
+description: This description will go in the meta description tag
+
 Date: 01/01/2014
 */
 

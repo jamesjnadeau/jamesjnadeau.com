@@ -1,9 +1,8 @@
-/*
-Title: Sane Defaults for Gource
-Description: defaults I use for gource
-Author: James Nadeau
-Date: 03/14/2015
-*/
+---
+title: Sane Defaults for Gource
+description: defaults I use for gource
+date: 03/14/2015
+---
 
 defaults
 

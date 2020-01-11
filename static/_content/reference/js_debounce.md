@@ -1,9 +1,8 @@
-/*
-Title: Debouncing Javascript
-Description: This description will go in the meta description tag
-Author: James Nadeau
-Date: 05/05/2014
-*/
+---
+title: Debouncing Javascript
+description: This description will go in the meta description tag
+date: 05/05/2014
+---
 
 ##Debounce
 

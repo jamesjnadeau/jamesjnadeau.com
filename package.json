@@ -18,7 +18,7 @@
     "build:styles": "webpack -p --config static/styles/webpack.config.js",
     "build:impress": "webpack -p --config static/impress/webpack.config.js",
     "export": " run-p build:admin build:styles build:impress && yarn run export:sapper",
-    "export:sapper": "sapper export --entry \"/ /404 /projects /curated /refrence\"",
+    "export:sapper": "sapper export --entry \"/ /404 /projects /curated /reference\"",
     "stage:export": "http-server __sapper__/export",
     "start": "yarn run dev",
     "start:server": "node __sapper__/build",

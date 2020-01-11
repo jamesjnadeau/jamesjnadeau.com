@@ -1,9 +1,8 @@
-/*
-Title: SSH Tunnels
-Description: SSH tunnel reference
-Author: James Nadeau
-Date: 09/25/2014
-*/
+---
+title: SSH Tunnels
+description: SSH tunnel reference
+date: 09/25/2014
+---
 
 Reverse Tunnel
 

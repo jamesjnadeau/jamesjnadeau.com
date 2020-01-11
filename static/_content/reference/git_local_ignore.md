@@ -1,6 +1,6 @@
-/*
-Title: Local .gitignore
-Description: A localized .gitignore file just for your local machine.
+---
+title: Local .gitignore
+description: A localized .gitignore file just for your local machine.
 */
 
 # Git Autocomplete

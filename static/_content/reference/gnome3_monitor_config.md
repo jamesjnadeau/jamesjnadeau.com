@@ -1,9 +1,8 @@
-/*
-Title: Gnome3 Monitor Config
-Description: This description will go in the meta description tag
-Author: James Nadeau
-Date: 01/01/2014
-*/
+---
+title: Gnome3 Monitor Config
+description: This description will go in the meta description tag
+date: 01/01/2014
+---
 
 <p>
 	Needed to change the primary monitor on my laptop when using an external monitor.

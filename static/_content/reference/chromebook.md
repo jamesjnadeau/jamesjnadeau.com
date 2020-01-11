@@ -1,7 +1,7 @@
-/*
-Title: Chromebook Crouton
-Description: Git flow quick reference
-Author: James Nadeau
+---
+title: Chromebook Crouton
+description: Git flow quick reference
+
 Date: 01/01/2014
 */
 

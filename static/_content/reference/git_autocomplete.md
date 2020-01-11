@@ -1,6 +1,6 @@
-/*
-Title: Reference
-Description: Things I'm saving for easy reference
+---
+title: Reference
+description: Things I'm saving for easy reference
 */
 
 # Git Autocomplete

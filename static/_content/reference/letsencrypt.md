@@ -1,9 +1,8 @@
-/*
-Title: Let's Encrypt quick push to google app engine
-Description: defaults I use for gource
-Author: James Nadeau
-Date: 03/14/2015
-*/
+---
+title: Let's Encrypt quick push to google app engine
+description: defaults I use for gource
+date: 03/14/2015
+---
 
 Quick steps to get a ssl cert and key from let's encrypt
   ```

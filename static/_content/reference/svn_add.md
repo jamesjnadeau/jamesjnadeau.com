@@ -1,9 +1,8 @@
-/*
+---
 Title: SVN add
-Description: This description will go in the meta description tag
-Author: James Nadeau
+description: This description will go in the meta description tag
 Date: 01/01/2014
-*/
+---
 
 ## Ultimate SVN add
 

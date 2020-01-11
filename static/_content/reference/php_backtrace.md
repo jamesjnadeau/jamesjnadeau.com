@@ -1,9 +1,8 @@
-/*
-Title: PHP backtrace
-Description: An easy way to get what called this particular funciton.
-Author: James Nadeau
-Date: 10/29/2014
-*/
+---
+title: PHP backtrace
+description: An easy way to get what called this particular funciton.
+date: 10/29/2014
+---
 
 #Get PHP Calling Funciton
 

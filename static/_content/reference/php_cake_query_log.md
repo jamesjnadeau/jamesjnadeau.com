@@ -1,12 +1,11 @@
-/*
-Title: CakePHP 1.2 Last Query 
-Description: Used this for lookbooks a lot
-Author: James Nadeau
-Date: 3/3/2015
-*/
+---
+title: CakePHP 1.2 Last Query 
+description: Used this for lookbooks a lot
+date: 3/3/2015
+---
 
 
-
+```php
 	function getLastQuery()
 	{
 		$dbo = $this->getDatasource();
@@ -14,3 +13,4 @@ Date: 3/3/2015
 
 		return end($logs);
 	}
+```

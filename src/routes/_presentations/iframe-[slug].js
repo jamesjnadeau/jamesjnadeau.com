@@ -10,13 +10,11 @@ export const iframeDocEnd = '<div class="form-inline" id="impress-toolbar"></div
 export async function get(req, res) {
     const { slug } = req.params;
     const filePath = path.normalize('static/_content/presentations/' + slug + '.pug');
-    console.log(filePath)
     const post = await loadPage(filePath, true);
 
     res.writeHead(200, {
         'Content-Type': 'text/html'
     });
-    console.log(post);
 
     res.end(iframeDocStart + post.html + iframeDocEnd);
 }

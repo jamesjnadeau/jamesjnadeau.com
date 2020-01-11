@@ -1,7 +1,7 @@
-/*
-Title: Git flow
-Description: Git flow quick reference
-Author: James Nadeau
+---
+title: Git flow
+description: Git flow quick reference
+
 Date: 01/01/2014
 */
 

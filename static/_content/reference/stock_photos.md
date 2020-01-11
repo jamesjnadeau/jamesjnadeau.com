@@ -1,9 +1,8 @@
-/*
-Title: Stock Photos
-Description: links to wonderful, free, stock photos
-Author: James Nadeau
-Date: 01/01/2014
-*/
+---
+title: Stock Photos
+description: links to wonderful, free, stock photos
+date: 01/01/2014
+---
 
 # Stock Photos
 
