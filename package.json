@@ -2,7 +2,7 @@
   "name": "jamesjnadeau.com",
   "description": "TODO",
   "version": "0.0.1",
-  "license": "FSFULLR",
+  "license": "WTFPL",
   "engines": {
     "node": ">=10.x"
   },
