@@ -32,7 +32,7 @@ if (!!item.visual.url) {
     <hr class="space" />
     <div class="card card-default">
       {#if visual_url}
-	    <img class="card-img-top" src={visual_url} />
+	    <img alt="article related image - sorry, alt not available from feedly" class="card-img-top" src={visual_url} />
       {/if}
       <div class="card-body">
         <div class="e-content feedly-content" />
