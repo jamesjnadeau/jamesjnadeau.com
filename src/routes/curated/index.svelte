@@ -1,14 +1,13 @@
 
 <script>
-  import { pageIn, pageOut } from "../_page_transition";
-  import { fly } from 'svelte/transition';
+  import PageTransition from "../../components/PageTransition"
 </script>
 
 <svelte:head>
   <title>Curated</title>
 </svelte:head>
 
-<div in:fly={pageIn} out:fly={pageOut}>
+<PageTransition>
   <h1 class="no-animation">Curated</h1>
   <hr class="space" />
   <h5 class="text-center">Here's the latest articles I've tagged in feedly.</h5>
@@ -25,4 +24,4 @@
     </div>
   </div>
 
-</div>
+</PageTransition>

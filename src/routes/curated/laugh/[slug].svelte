@@ -1,5 +1,5 @@
 <script context="module">
-  import CuratedItem from '../../../components/CuratedItem.svelte';
+  
   let directory = "curated";
   let segment = 'laugh';
   export async function preload({ params, query }) {
@@ -18,8 +18,8 @@
 </script>
 
 <script>
-  import { pageIn, pageOut } from "../../_page_transition";
-  import { fly } from 'svelte/transition';
+  import PageTransition from "../../../components/PageTransition";
+  import CuratedItem from '../../../components/CuratedItem.svelte';
   export let item;
   
 </script>
@@ -29,6 +29,6 @@
 </svelte:head>
 
 
-<div in:fly={pageIn} out:fly={pageOut}>
+<PageTransition>
   <CuratedItem item={item} />
-</div>
+</PageTransition>

@@ -16,8 +16,7 @@
 </script>
 
 <script>
-	import { pageIn, pageOut } from "../_page_transition";
-	import { fly } from 'svelte/transition';
+	import PageTransition from "../../components/PageTransition";
 	export let post;
 </script>
 

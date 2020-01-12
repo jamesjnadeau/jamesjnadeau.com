@@ -17,8 +17,7 @@
 
 <script>
   import CuratedItem from '../../../components/CuratedItem.svelte';
-  import { pageIn, pageOut } from "../../_page_transition";
-  import { fly } from 'svelte/transition';
+  import PageTransition from "../../../components/PageTransition";
   export let item;
   let url = item.origin.htmlUrl.replace('http:', '');
 </script>
@@ -27,6 +26,6 @@
   <title>{item.title}</title>
 </svelte:head>
 
-<div in:fly={pageIn} out:fly={pageOut}>
+<PageTransition>
   <CuratedItem item={item} />
-</div>
+</PageTransition>

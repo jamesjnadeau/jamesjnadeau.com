@@ -9,8 +9,7 @@
 </script>
 
 <script>
-  import { pageIn, pageOut } from "../_page_transition";
-  import { fly } from 'svelte/transition';
+  import PageTransition from "../../components/PageTransition";
   export let posts;
 
   function formatDate(date) {
@@ -29,7 +28,7 @@
   <title>Today I ...</title>
 </svelte:head>
 
-<div in:fly={pageIn} out:fly={pageOut}>
+<PageTransition>
   <h1 class="no-animation">
     Today I ...
     <br />
@@ -66,4 +65,4 @@
       </ul>
     </div>
   </div>
-</div>
+</PageTransition>

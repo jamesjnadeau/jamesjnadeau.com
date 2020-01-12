@@ -32,7 +32,7 @@
   <title>{post.title}</title>
 </svelte:head>
 
-<div in:fly={pageIn} out:fly={pageOut}> 
+<PageTransition> 
   
   <div class="card">
     <iframe 

@@ -11,7 +11,7 @@
 	<title>Title</title>
 </svelte:head>
 
-<div in:fly={pageIn} out:fly={pageOut}>
+<PageTransition>
 	<div class='content'>
 		<h1>Hi!</h1>
 	</div>

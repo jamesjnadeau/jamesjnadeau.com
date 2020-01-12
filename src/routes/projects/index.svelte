@@ -1,13 +1,12 @@
 <script>
-  import { pageIn, pageOut } from "../_page_transition";
-  import { fly } from 'svelte/transition';
+  import PageTransition from "../../components/PageTransition";
 </script>
 
 <svelte:head>
   <title>Today I ...</title>
 </svelte:head>
 
-<div in:fly={pageIn} out:fly={pageOut}>
+<PageTransition>
   <h1>Projects I've Worked on</h1>
   <div>
     <div class="row">
@@ -119,4 +118,4 @@
       </div>
     </div>
   </div>
-</div>
+</PageTransition>
