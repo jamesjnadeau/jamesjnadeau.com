@@ -57,8 +57,8 @@
           </a>
           <a
             class="nav-item text-white p1"
-            href="/TIL/"
-            class:active={segment === 'TIL'}>
+            href="/til/"
+            class:active={segment === 'til'}>
             Today I ...
           </a>
           <a
