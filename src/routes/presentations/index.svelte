@@ -26,8 +26,10 @@
 <!--
 <h1>{post.title}</h1>
 -->
-<div id="container" class="container" in:fly={pageIn} out:fly={pageOut}>
-	<div class='content'>
-		{@html post.html}
+<PageTransition>
+	<div id="container" class="container">
+		<div class='content'>
+			{@html post.html}
+		</div>
 	</div>
-</div>
+</PageTransition>
