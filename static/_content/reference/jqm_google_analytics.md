@@ -4,7 +4,7 @@ description: This description will go in the meta description tag
 date: 01/01/2014
 ---
 
-#Tracking page loads with ajax page transitions
+# Tracking page loads with ajax page transitions
 <div>
 	<div class="content well" >
 	I use the following snippet before fully loading jQuery Mobile(or any page that uses ajax loading, including this one) to set up Google Analytics.
@@ -12,7 +12,8 @@ date: 01/01/2014
 </div>
 
 
-###Better/New
+### Better/New
+```js
 		// Google Analytics
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -41,8 +42,9 @@ date: 01/01/2014
 		...Ajax Load a page....
 		ga_track_page();
 	
-
-###Old Style
+```
+### Old Style
+```js
 	/* 
 	 * Google Analytics
 	 */
@@ -78,5 +80,5 @@ date: 01/01/2014
 	        console.log(err);
 	    }
 	}
-
+```
 [Source](http://blog.mojotech.com/post/29501319906/google-analytics-within-jquery-mobile)
