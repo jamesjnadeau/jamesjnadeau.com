@@ -11,11 +11,12 @@ const filtered_cache = to_cache.filter(function(file) {
 		file.substr(0, 6) === 'client'
 		|| file.substr(0, 12) === 'styles/built'
 	) && (
-		file.indexOf('.js') !== -1
-		|| file.indexOf('.css') !== -1
+		file.substr(file.length-3, 3) === '.js'
+		|| file.substr(file.length-4, 4) === '.css'
 	);
 });
 const cached = new Set(filtered_cache);
+console.log('filtered_cache', filtered_cache);
 
 self.addEventListener('install', event => {
 	event.waitUntil(
