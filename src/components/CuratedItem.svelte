@@ -2,7 +2,7 @@
 export let item;
 let url = item.origin.htmlUrl.replace('http:', '');
 let visual_url = false;
-if (!!item.visual.url) {
+if (!!item.visual && !!item.visual.url) {
     visual_url = item.visual.url.replace('http:', '');
 }
 </script>
@@ -31,8 +31,16 @@ if (!!item.visual.url) {
     </div>
     <hr class="space" />
     <div class="card card-default">
+      <h4 class="text-center">
+        {#each item.entities as entity}
+          <span class="badge badge-secondary">
+            {entity.label}
+          </span>
+          &emsp;
+        {/each}
+      </h4>
       {#if visual_url}
-	    <img alt="article related image - sorry, alt not available from feedly" class="card-img-top" src={visual_url} />
+	      <img alt="article related image - sorry, alt not available from feedly" class="card-img-top" src={visual_url} />
       {/if}
       <div class="card-body">
         <div class="e-content feedly-content" />
