@@ -7,14 +7,14 @@
   let duration = 500;
   let distance = 1000
 
-  let inDelay = duration + 50;
+  let inDelay = duration + 100;
   let outDelay = 0;
 
 
   export const pageIn = {
     x: distance,
     duration,
-    inDelay,
+    delay: inDelay,
   }
 
 
