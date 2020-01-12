@@ -32,12 +32,14 @@ if (!!item.visual && !!item.visual.url) {
     <hr class="space" />
     <div class="card card-default">
       <h4 class="text-center">
-        {#each item.entities as entity}
-          <span class="badge badge-secondary">
-            {entity.label}
-          </span>
-          &emsp;
-        {/each}
+        {#if item.entities}
+          {#each item.entities as entity}
+            <span class="badge badge-secondary">
+              {entity.label}
+            </span>
+            &emsp;
+          {/each}
+        {/if}
       </h4>
       {#if visual_url}
 	      <img alt="article related image - sorry, alt not available from feedly" class="card-img-top" src={visual_url} />
