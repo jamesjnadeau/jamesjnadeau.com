@@ -21,13 +21,20 @@
     console.log("isOpen", isOpen);
     isOpen = !isOpen;
   }
+
+  function linkClicked() {
+    // close afer a click and menu is open
+    if (isOpen && windowWidth < minWidth) {
+      toggleOpen();
+    } 
+  }
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="header">
   <div class="container p-2">
-    <a class="brand navbar-brand" href="/">
+    <a class="brand navbar-brand" href="/" on:click={linkClicked}>
       <span
         class="h-card u-url u-uid"
         rel="me"
@@ -52,31 +59,36 @@
           <a
             class="nav-item text-white p1"
             href="/projects/"
-            class:active={segment === 'projects'}>
+            class:active={segment === 'projects'}
+            on:click={linkClicked}>
             Projects
           </a>
           <a
             class="nav-item text-white p1"
             href="/til/"
-            class:active={segment === 'til'}>
+            class:active={segment === 'til'}
+            on:click={linkClicked}>
             Today I ...
           </a>
           <a
             class="nav-item text-white p1"
             href="/curated/"
-            class:active={segment === 'curated'}>
+            class:active={segment === 'curated'}
+            on:click={linkClicked}>
             Curated
           </a>
           <a
             class="nav-item text-white p1"
             href="/reference/"
-            class:active={segment === 'reference'}>
+            class:active={segment === 'reference'}
+            on:click={linkClicked}>
             Reference
           </a>
           <a
             class="nav-item text-white p1"
             href="https://github.com/jamesjnadeau/"
-            rel="me">
+            rel="me"
+            on:click={linkClicked}>
             <img
               class="github-logo img-fluid"
               alt="GitHub Octocat Mark"
