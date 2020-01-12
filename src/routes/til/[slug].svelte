@@ -1,5 +1,5 @@
 <script context="module">
-	let directory = 'TIL';
+	let directory = 'til';
 	export async function preload({ params, query }) {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte

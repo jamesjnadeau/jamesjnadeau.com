@@ -6,7 +6,7 @@ export async function get(req, res) {
 	const { slug } = req.params;
 
 	// List the Markdown files and return their filenames
-  const posts = await loadDirPage('TIL', slug);
+  const posts = await loadDirPage('til', slug);
 
 	await jsonPageResponse(posts, req, res);
 }

@@ -1,6 +1,6 @@
 <script context="module">
   export function preload({ params, query }) {
-    return this.fetch(`TIL.json`)
+    return this.fetch(`til.json`)
       .then(r => r.json())
       .then(posts => {
         return { posts };
@@ -39,7 +39,7 @@
     A collection of things I found interesting at the time.
   </p>
   <p class="text-center">
-    <a href="/TIL/rss.xml" target="_blank">
+    <a href="/til/rss.xml" target="_blank">
       <img alt="rss download beacon" src="/files/rss.svg" height="20px" />
     </a>
   </p>
@@ -50,7 +50,7 @@
         <!-- <h3 class="list-group-item text-center">2019</h3> -->
           <a
             class="list-group-item"
-            rel="prefetch" href="TIL/{post.slug}">
+            rel="prefetch" href="til/{post.slug}">
             <div class="row">
               <div class="col-auto">
                 {post.title}

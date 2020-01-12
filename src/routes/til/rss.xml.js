@@ -10,7 +10,7 @@ var feedOptions = {
 
 export async function get(req, res) {
   // load posts
-  const posts = await loadDir('TIL');
+  const posts = await loadDir('til');
 
   const postsFrontMatter = await Promise.all(
     posts.map(loadPage),
@@ -22,7 +22,7 @@ export async function get(req, res) {
   // Create rss feed
   var feed = new RSS(feedOptions);
   postsFrontMatter.forEach(function(post) {
-    var url = 'TIL/' + post.slug;
+    var url = 'til/' + post.slug;
     if (post.date) {
       feed.item({
         date: new Date(post.date),
