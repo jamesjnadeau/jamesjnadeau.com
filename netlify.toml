@@ -5,7 +5,7 @@
   publish = "__sapper__/export"
 
   # Default build command.
-  command = "yarn install --prod=false && yarn run export"
+  command = "yarn install --prod=false && yarn run export && yarn run test"
 
   # Functions
   # functions = "functions"

@@ -24,7 +24,7 @@
     "start:server": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "npm-run-all --race dev cy:run"
+    "test": "npm-run-all -p --race stage:export cy:run"
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
@@ -34,6 +34,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "compression": "^1.7.1",
     "css-loader": "^3.4.0",
+    "cypress": "^3.8.2",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "file-loader": "^5.0.2",
