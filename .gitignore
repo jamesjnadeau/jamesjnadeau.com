@@ -12,5 +12,5 @@ yarn-error.log
 /cypress/screenshots/
 /__sapper__/
 static/admin/cms-built.js
-static/admin/cms-built.js.map
+static/admin/cms-built.js.*
 static/styles/built
