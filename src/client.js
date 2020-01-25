@@ -5,6 +5,6 @@ sapper.start({
 	target: document.querySelector('#sapper')
 });
 
-if (process.env.TRACKING_ID) {
-	googleAnalytics(process.env.TRACKING_ID);
+if (process.env.GA_TRACKING_ID) {
+	googleAnalytics(process.env.GA_TRACKING_ID);
 }
