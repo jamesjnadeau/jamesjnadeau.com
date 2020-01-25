@@ -6,7 +6,10 @@ const pkg = require('./package.json');
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 
-const alias = { svelte: path.resolve('node_modules', 'svelte') };
+const alias = { 
+	svelte: path.resolve('node_modules', 'svelte'),
+	src: path.resolve('src'),
+};
 const extensions = ['.mjs', '.js', '.json', '.svelte', '.html'];
 const mainFields = ['svelte', 'module', 'browser', 'main'];
 
@@ -36,7 +39,8 @@ module.exports = {
 			// dev && new webpack.HotModuleReplacementPlugin(),
 			new webpack.DefinePlugin({
 				'process.browser': true,
-				'process.env.NODE_ENV': JSON.stringify(mode)
+				'process.env.NODE_ENV': JSON.stringify(mode),
+				'process.env.GA_TRACKING_ID': JSON.stringify(process.env.GA_TRACKING_ID || false),
 			}),
 		].filter(Boolean),
 		devtool: dev && 'inline-source-map'
