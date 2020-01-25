@@ -12,7 +12,8 @@ describe('Sapper template app', () => {
 		// cy.get('nav a.nav-item').and('have.attr', 'href')
 		//   .and('eq', '/til')
 		// 	.contains('Today I').click();
-		cy.url().should('include', '/til');
+		cy.wait(1000);
+		cy.url().should('include', 'til');
 		cy.get('a.list-group-item').contains('First').click();
 	});
 
