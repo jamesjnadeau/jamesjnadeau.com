@@ -5,10 +5,11 @@
 </script>
 
 <svelte:head>
-  <title>Today I ...</title>
+  <title>Reference</title>
 </svelte:head>
 
 <PageTransition>
+  <h1 class="text-center">Reference</h1>
   <div class="card">
     <!-- Nav tabs-->
     <ul class="nav nav-tabs" role="tablist">
@@ -80,7 +81,7 @@
     <div class="tab-content bg-light py-3">
       {#if activeTab === 'js'}
         <div
-          class="tab-pane fade in show"
+          class="tab-pane"
           id="js"
           class:active={activeTab === 'js'}>
           <ul class="list-group m-3">
@@ -100,7 +101,7 @@
           </ul>
         </div>
       {:else if activeTab === 'git'}
-        <div class="tab-pane fade" id="git" class:active={activeTab === 'git'}>
+        <div class="tab-pane" id="git" class:active={activeTab === 'git'}>
           <ul class="list-group m-3">
             <a class="list-group-item" href="/reference/git_flow">Flow</a>
             <a class="list-group-item" href="/reference/git_autocomplete">
@@ -116,7 +117,7 @@
         </div>
       {:else if activeTab === 'shell'}
         <div
-          class="tab-pane fade"
+          class="tab-pane"
           id="shell"
           class:active={activeTab === 'shell'}>
           <ul class="list-group m-3">
@@ -136,7 +137,7 @@
           </ul>
         </div>
       {:else if activeTab === 'php'}
-        <div class="tab-pane fade" id="php" class:active={activeTab === 'php'}>
+        <div class="tab-pane show" id="php" class:active={activeTab === 'php'}>
           <ul class="list-group m-3">
             <li class="list-group-item">
               <a href="/reference/php_backtrace">Backtrace</a>
@@ -148,7 +149,7 @@
         </div>
       {:else if activeTab === 'misc'}
         <div
-          class="tab-pane fade in"
+          class="tab-pane show"
           id="misc"
           class:active={activeTab === 'misc'}>
           <ul class="list-group m-3">
@@ -185,9 +186,8 @@
         </div>
       {:else if activeTab === 'quotes'}
         <div
-          class="tab-pane fade in show"
-          id="quotes"
-          class:active={activeTab === 'qutoes'}>
+          class="tab-pane active"
+          id="quotes">
           <div class="row justify-content-center">
             <div class="card col-md-5 m-1 p-3">
               <h4>Story Starter</h4>

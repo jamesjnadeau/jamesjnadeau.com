@@ -26,24 +26,11 @@
 </script>
 
 <style>
-  /* :root {
-    --header-height: 80px;
-  } */
   header {
     height: var(--header-height);
     position: fixed;
     z-index: 1;
   }
-  main {
-    min-height: 100vh;
-    padding-top: 120px;
-  }
-  /* .pin {
-    top: 0;
-  }
-  .unpin {
-    top: calc(var(--header-height) * -1);
-  } */
 </style>
 
 <svelte:window bind:scrollY={y}/>
