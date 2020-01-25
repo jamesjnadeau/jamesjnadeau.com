@@ -52,7 +52,7 @@
       <span class="navbar-toggler-icon" />
     </button>
     {#if isOpen}
-      <div class="navbar-collapse" id="navbarSupportedContent" transition:slide>
+      <div class="navbar-collapse" id="navbarSupportedContent" transition:slide|local>
         <ul
           class="navbar-nav d-flex justify-content-around align-items-center
           w-100">
