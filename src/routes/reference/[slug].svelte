@@ -26,7 +26,7 @@
 </svelte:head>
 
 <PageTransition>
-	<div class='content'>
+	<div class='content card p-3'>
 		{@html post.html}
 	</div>
 </PageTransition>
