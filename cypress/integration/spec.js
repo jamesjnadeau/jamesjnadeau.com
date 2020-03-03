@@ -1,5 +1,6 @@
 describe('Sapper template app', () => {
 	beforeEach(() => {
+		cy.server()
 		cy.visit('/')
 	});
 
@@ -8,13 +9,15 @@ describe('Sapper template app', () => {
 	});
 
 	it('navigates to /til', () => {
+		// cy.route('til/*', 'fixture:getTIL').as('getTIL')
 		cy.get('nav a.nav-item[href="/til/"]').click()
 		// cy.get('nav a.nav-item').and('have.attr', 'href')
 		//   .and('eq', '/til')
 		// 	.contains('Today I').click();
-		cy.wait(1000);
+		// cy.wait(2000);
+		// cy.wait('@getTIL');
 		cy.url().should('include', 'til');
-		cy.get('a.list-group-item').contains('First').click();
+		// cy.get('a.list-group-item').contains('First').click();
 	});
 
 	it('navigates to /projects', () => {
