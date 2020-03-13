@@ -4,7 +4,7 @@
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte
 		
-		const res = await this.fetch(directory + `/index.json`);
+		const res = await this.fetch(directory + `.json`);
 		const data = await res.json();
 
 		if (res.status === 200) {
@@ -27,9 +27,7 @@
 <h1>{post.title}</h1>
 -->
 <PageTransition>
-	<div id="container" class="container">
-		<div class='content'>
-			{@html post.html}
-		</div>
+	<div class='content'>
+		{@html post.html}
 	</div>
 </PageTransition>
