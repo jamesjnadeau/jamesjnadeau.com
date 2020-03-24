@@ -37,6 +37,10 @@
 <PageTransition>
   <div id="container" class="container">
     <div class="content">
+      <template lang="pug">
+        h1 Senior Systems Engineer
+        
+      </template>
       <h1>Senior Systems Engineer</h1>
       <div>
         <img

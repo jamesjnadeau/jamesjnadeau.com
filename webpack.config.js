@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const config = require('sapper/config/webpack.js');
 const pkg = require('./package.json');
+const svelteConfig = require('./svelte.config');
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -42,6 +43,7 @@ module.exports = {
 				'process.env.NODE_ENV': JSON.stringify(mode),
 				'process.env.GA_TRACKING_ID': JSON.stringify(process.env.GA_TRACKING_ID || false),
 			}),
+			svelteConfig.preprocess,
 		].filter(Boolean),
 		devtool: dev && 'inline-source-map'
 	},
@@ -68,6 +70,9 @@ module.exports = {
 			]
 		},
 		mode: process.env.NODE_ENV,
+		plugins: [
+			svelteConfig.preprocess,
+		],
 		performance: {
 			hints: false // it doesn't matter if server.js is large
 		}
