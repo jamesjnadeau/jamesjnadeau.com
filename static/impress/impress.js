@@ -155,6 +155,7 @@
 
         // We can't be sure that `classList` is supported
         body.className += " impress-not-supported ";
+        console.log('impress not supported');
     }
 
     // GLOBALS AND DEFAULTS
@@ -195,7 +196,7 @@
         // running code that may use features not implemented in the browser.
         if ( !impressSupported ) {
             return {
-                init: empty,
+                init: function() {console.log('impress not supported')},
                 goto: empty,
                 prev: empty,
                 next: empty,

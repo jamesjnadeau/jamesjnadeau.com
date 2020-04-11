@@ -1,6 +1,2 @@
 // import 'impress.js/js/impress.js';
-
-window.impress().init();
-$('#impress-toolbar button').addClass('btn btn-outline-dark mx-1');
-$('#impress-toolbar select').addClass('form-control mx-1');
-console.log('here')
+// this is now done in a base script tag in the template
