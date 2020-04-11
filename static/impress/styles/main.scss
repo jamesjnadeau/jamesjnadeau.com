@@ -31,12 +31,14 @@ $font-size-base: 2rem;
     transition:  opacity 1.5s ease-in-out;
   }
   .step { opacity: .05; }
+  .step.hidden { opacity: 0; }
   .substep { opacity: 0; }
   .step.past, .substep.substep-visible {
     display: flex;
     opacity: 0.3;
     transition: opacity 1.5s ease-in-out;
   }
+  .step.past.hidden-past { opacity: 0; }
   .display-past .step.past, .display-past.step.past {
     opacity: 1;
   }
