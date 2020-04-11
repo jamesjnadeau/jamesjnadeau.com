@@ -1,5 +1,6 @@
 var pathUtil = require('path');
 var glob = require('glob');
+var webpack = require('webpack');
 //Plugins
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PurgecssPlugin = require('purgecss-webpack-plugin');
@@ -10,6 +11,12 @@ var plugins = [
   new MiniCssExtractPlugin({
     filename: '[name].css',
     chunkFilename: '[id].css',
+  }),
+  new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    'window.jQuery': 'jquery',
+    'window.$': "jquery",
   }),
 ];
 

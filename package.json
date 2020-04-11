@@ -42,6 +42,7 @@
     "glob": "^7.1.6",
     "http-server": "^0.12.1",
     "impress.js": "^1.0.0",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.15",
     "markdown-it": "^10.0.0",
     "marked": "^0.8.0",
