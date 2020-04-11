@@ -20,35 +20,6 @@ var plugins = [
   }),
 ];
 
-if (process.env.NODE_ENV === 'production') {
-  plugins.push(new PurgecssPlugin({
-    paths: function () {
-      var contentDir = pathUtil.resolve(__dirname, '../_content');
-      var files = glob.sync(contentDir + '/**', {
-        nodir: true,
-      });
-
-      var routesDir = pathUtil.join(__dirname, '../../src/routes');
-      files = files.concat(glob.sync(routesDir + '/**', {
-        nodir: true,
-      }));
-
-      var componentsDir = pathUtil.join(__dirname, '../../src/components');
-      files = files.concat(glob.sync(componentsDir + '/**', {
-        nodir: true,
-      }));
-
-      var templateDir = pathUtil.join(__dirname, '../../src/');
-      files = files.concat(glob.sync(templateDir + '/*.html', {
-        nodir: true,
-      }));
-
-      return files;
-    },
-  }));
-}
-
-
 var styleLoader = [
   MiniCssExtractPlugin.loader,
   {
