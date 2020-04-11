@@ -16,9 +16,6 @@ $font-size-base: 2rem;
 }
 
 
-@import "~bootstrap/scss/bootstrap";
-
-
 // basic step box/position, height/width is defined in template via vars
 .step {
   position: relative;
@@ -60,8 +57,6 @@ $font-size-base: 2rem;
   }
 }
 
-
-
 // hide toolbar on mouse timeout
 body.impress-mouse-timeout div#impress-toolbar {
   display: none;
@@ -71,7 +66,6 @@ body.impress-mouse-timeout div#impress-toolbar {
 .notes {
   display: none;
 }
-
 
 .impress-progressbar {
   position: absolute;
@@ -104,3 +98,5 @@ pre[class*="language-"] {
 code[class*="language-"] {
   font-size: .6em;
 }
+
+@import "~bootstrap/scss/bootstrap";
