@@ -5,7 +5,9 @@ export const iframeDocStart = '<head><meta charset="utf-8"><meta http-equiv="X-U
 + '<style>.step {width: 900px;}</style></head><body>';
 // post.html
 export const iframeDocEnd = '<div class="form-inline" id="impress-toolbar"></div><div class="impress-progressbar"><div></div></div><div class="impress-progress"></div>'
-+ '<script src="/impress/built/impress.js"></script></body>';
++'<script src="/impress/impress-1.1.js"></script>'
++ '<script src="/impress/built/impress.js"></script>'
++ '</body>';
 
 export async function get(req, res) {
     const { slug } = req.params;

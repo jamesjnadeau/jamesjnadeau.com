@@ -1,4 +1,4 @@
-import 'impress.js/js/impress.js';
+// import 'impress.js/js/impress.js';
 
 window.impress().init();
 $('#impress-toolbar button').addClass('btn btn-outline-dark mx-1');
