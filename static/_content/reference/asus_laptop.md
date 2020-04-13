@@ -3,7 +3,7 @@ title: Asus Laptop Notes
 description: This description will go in the meta description tag
 
 Date: 01/01/2014
-*/
+---
 
 <div>
 	<img class="right content-secondary" src="/files/asus_laptop.jpg" />

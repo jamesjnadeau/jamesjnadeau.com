@@ -97,6 +97,9 @@
         <a class="nav-link" href="/reference/windows">Windows</a>
       </i>
       <i class="nav-item">
+        <a class="nav-link" href="/reference/Jupyter">Jupyter</a>
+      </i>
+      <i class="nav-item">
         <a class="nav-link" href="/presentations">Slides</a>
       </i>
     </ul>
