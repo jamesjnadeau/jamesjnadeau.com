@@ -4,15 +4,22 @@ description: Is turning off UAC hacking?`
 ---
 
 #impress()
-  -var space = 1200;
+  -var space = 1500;
   .step()
-    h1 Request 3rd Party Review
-    p All of my actions used supported features of the operating system.
-    p I request that a knowledgable 3rd party review the technical facts at hand and determine if my actions were a hack or attempt to break into an unauthorized system.
-    p ADS's actions feel retalitory.
-    p What message does it send to others who find a problem?
+    h1 A story about a laptop
+    p.substep 📅 Which is functioning as a paperweight since 6/10/2020
+    p.substep 🏄🏽 Issued for my personal use
+    p.substep 🏡 Connected to my personal network
+    p.substep 🚙 Powered by my electricity
+  
+  .step(data-rel-x=space)
+    h1 Where I'm coming from
+    p.substep 🤓 Previously, I installed software division wide    
+    p.substep 🚌 Peers have admin access already
+    p.substep 🕴 Told by ADS staff member I should have admin rights to machine.
+    p.substep 🧑‍💼 Informed manager that I could work around current missing admin rights easily. ADS staff also heard this.
 
-  .step(data-rel-x=space) 
+  .step(data-rel-y=space/2, data-rel-z=space) 
     h3 Unauthorized
     p not having official permission or approval.
     small.ml-3 "unauthorized access to the computer system"
@@ -20,12 +27,12 @@ description: Is turning off UAC hacking?`
     p the action or process of obtaining or retrieving information stored in a computer's memory.
     small.ml-3 "this prevents unauthorized access or inadvertent deletion of the file"
   
-  .step(data-rel-x=space)
+  .step(data-rel-x=space/2, data-rel-z=space)
     h1 Policy
     a(href="https://humanresources.vermont.gov/sites/humanresources/files/documents/Labor_Relations_Policy_EEO/Policy_Procedure_Manual/Number_11.7_ELECTRONIC_COMMUNICATIONS_AND_INTERNET_USE.pdf") 
       | ELECTRONIC COMMUNICATIONS AND INTERNET USE Number 11.7
     p RULES FOR USE OF SYSTEMS OR INTERNET SERVICES #5:
-  .step(data-rel-x=space)
+  .step(data-rel-x=space, data-rel-y=0, data-rel-z=0)
     blockquote
       | "State employees must conform to reasonable professional standards for use of
       |  Internet services as detailed in this guideline. This includes a prohibition against any
@@ -38,7 +45,8 @@ description: Is turning off UAC hacking?`
       |  electronically stored information, 
       u  unless acting within the proper scope of official duties."
 
-  .step(data-rel-x=space)
+
+  .step(data-rel-x=0, data-rel-y=space/2, data-rel-z=space)
     h1 My Actions Were..
     p.substep ✅ Authorized - I was told I should have admin rights.
     p.substep ✅ Proffesional - Leveraged my expertise to help solve a problem
@@ -46,29 +54,22 @@ description: Is turning off UAC hacking?`
     .substep
       a.btn.btn-xl.btn-primary(href="/files/Geller_Nadeau_06.24.2020.pdf" target="_blank") Letter From my Supervisor Explaining Authorization
 
-  .step(data-rel-x=space)
+  .step(data-rel-x=-space, data-rel-y=0, data-rel-z=0)
     h1 My Actions Did Not...
     p.substep ❌ Impair the operation of any computer system
     p.substep ❌ Crack, break, hack, or misuse any state resourse
     p.substep ❌ Cause risk, harm or cost to the state
 
-  .step(data-rel-x=space)
+  .step(data-rel-x=0, data-rel-y=space/2, data-rel-z=space)
     h1 My Intent
     p.substep 💻 Tasked with installing software on a newly issued laptop
     p.substep 🕧 I am a Former partner/contractor for ADS
     p.substep 🦉 Previously advised on software to use Division wide
-    p.substep 🇺🇸 Working for state to have freedom to easily access tools/data
+    p.substep 🇺🇸 I'm working here to have easy access tools/data to help the state
     p.substep 😕 I have never been issued a laptop without admin access
-    p.substep 🗣 Was open about actions and intent from the start
+    p.substep 🗣 I have been open about actions and intent from the start
 
-  .step(data-rel-x=space)
-    h1 What I Knew
-    p.substep 🤓 Previously, I installed software division wide    
-    p.substep 🚌 Peers have admin access already
-    p.substep 🕴 Told by ADS staff member I should have admin rights to machine.
-    p.substep 🧑‍💼 Informed manager that I could work around current missing admin rights easily. ADS staff also heard this.
-
-  .step(data-rel-x=space)
+  .step(data-rel-x=space, data-rel-y=0, data-rel-z=0)
     h2 What's my official duty?
     p Install Software I need to do my job, Visual Studio, Python, etc
     p Use a computer system which I exclusively have been issued for my own work purposes
@@ -87,14 +88,16 @@ description: Is turning off UAC hacking?`
           li Turned off only what was blocking me from installing software (UAC)
     p.substep File is supported by Windows, meant for mandatory settings for a local machine.
     p.substep Also ran a security Scan to test if laptop was secured properly
-  .step(data-rel-x=space)
-    h1 Equivalent Story
+  
+  .step(data-rel-x=space, data-rotate-z=180)
+    h1 The Equivalent Story
     p.substep A mover is asked to head to an address and move some furniture inside a house.
     p.substep The key to get in is not where they were told it would be.
     p.substep Owner was consulted and confirms they can go inside
-    p.substep Looking at the building, the front window is open and they can easily get in.
-    p.substep Suddenly they notice an alarm goes off. 
+    p.substep Looking at the building, the front window is wide open and they can easily get in.
+    p.substep Suddenly the mover notices an alarm going off. Owner calls and asked what happened?
     p.substep Wait for Security to come and explain what happened.
+  
   .step(data-rel-x=space)
     h1 What?
     p What party has been damaged or penelized by my actions?
@@ -105,7 +108,17 @@ description: Is turning off UAC hacking?`
     p Why didn't ADS talk to me about intent?
     p Why didn't they ask if I should have these permissions?
     p Why has no information been sent to me with updates on this situation?
-    p Why is it assumed guilty when every action I've been open and upfront about.
+    p Why am I assumed guilty?
+
+  .step(data-rel-x=space)
+    h1 My only interaction with ADS about this:
+
+    a.btn.btn-warning(href="/files/talk_with_Ladouceur,David_on_Microsoft_Teams.pdf" target="_blank") I'm afraid I can't do that, David
     
-    
+  .step()
+    h1 Request 3rd Party Review
+    p All of my actions used supported features of the operating system.
+    p I request that a knowledgable 3rd party review the technical facts at hand and determine if my actions were a hack or attempt to break into an unauthorized system.
+    p ADS's actions feel retalitory.
+    p What message does it send to others who find a problem?📅 
         
