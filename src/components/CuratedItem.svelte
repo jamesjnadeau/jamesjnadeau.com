@@ -1,6 +1,6 @@
 <script>
 export let item;
-let url = item.origin.htmlUrl.replace('http:', '');
+let url = item.canonicalUrl.replace('http:', '');
 let visual_url = false;
 if (!!item.visual && !!item.visual.url) {
     visual_url = item.visual.url.replace('http:', '');
@@ -44,9 +44,9 @@ if (!!item.visual && !!item.visual.url) {
       {#if visual_url}
 	      <img alt="article related image - sorry, alt not available from feedly" class="card-img-top" src={visual_url} />
       {/if}
-      <div class="card-body">
+<!--       <div class="card-body">
         <div class="e-content feedly-content" />
-      </div>
+      </div> -->
     </div>
     <hr class="space" />
     <a
