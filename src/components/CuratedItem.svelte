@@ -2,7 +2,7 @@
 export let item;
 let url = item.canonicalUrl.replace('http:', '');
 let visual_url = false;
-if (!!item.visual && !!item.visual.url) {
+if (!!item.visual && !!item.visual.url && item.visual_url != 'none') {
     visual_url = item.visual.url.replace('http:', '');
 }
 </script>
