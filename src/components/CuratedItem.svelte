@@ -1,9 +1,20 @@
 <script>
 export let item;
-let url = item.canonicalUrl.replace('http:', '');
+let url
+if (item.canonicalUrl){
+  url = item.canonicalUrl.replace('http:', '');
+} else {
+  url = item.originId;
+}
+
 let visual_url = false;
 if (!!item.visual && !!item.visual.url && item.visual.url != 'none') {
     visual_url = item.visual.url.replace('http:', '');
+}
+
+let engagement = '?';
+if (item.engagement) {
+  engagement = item.engagement
 }
 </script>
 
@@ -14,7 +25,7 @@ if (!!item.visual && !!item.visual.url && item.visual.url != 'none') {
         {new Date(item.published).toLocaleDateString('en-US')}&emsp;-&emsp;
         <span title="Engagement metric from Feedly">
           <span class="glyphicon glyphicon-thumbs-up" />
-          🖒&nbsp;{item.engagement}
+          🖒&nbsp;{engagement}
         </span>
       </div>
       <div class="col text-right">
