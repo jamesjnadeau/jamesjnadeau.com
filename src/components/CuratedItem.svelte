@@ -47,7 +47,7 @@ if (item.engagement) {
           href={url}
           target="_blank"
           rel="noopener">
-	        <img alt="article related image - sorry, alt not available from feedly" class="card-img-top" src={visual_url} />
+	        <img alt="article related - sorry, alt not available from feedly" class="card-img-top" src={visual_url} />
         </a>
       {/if}
       
