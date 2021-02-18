@@ -5,7 +5,7 @@ description: Main website for the National Gardening Association
 
 <div>
 	<a class="pull-right" href="https://play.google.com/store/apps/details?id=com.jamesjnadeau.app" target="_blank" >
-		<img src="http://developer.android.com/images/brand/en_app_rgb_wo_60.png" style="margin-bottom: 10px;"/>
+		<img src="https://developer.android.com/images/brand/en_app_rgb_wo_60.png" style="margin-bottom: 10px;"/>
 	</a>
 </div>
 
