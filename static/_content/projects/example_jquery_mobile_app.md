@@ -3,6 +3,11 @@ title: jQuery Mobile / Cordova Example App
 description: Main website for the National Gardening Association
 ---
 
+<div class="alert alert-warning">
+	<p>Please note this app was taken down because it was no longer maintained.</p>
+	<a href="https://github.com/jamesjnadeau/app.jamesjnadeau.com">You can view the code here</a>
+</div>
+
 <div>
 	<a class="pull-right" href="https://play.google.com/store/apps/details?id=com.jamesjnadeau.app" target="_blank" >
 		<img src="https://developer.android.com/images/brand/en_app_rgb_wo_60.png" style="margin-bottom: 10px;"/>
