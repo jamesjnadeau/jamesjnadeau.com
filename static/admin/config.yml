@@ -34,3 +34,26 @@ collections:
       - {label: "Date", name: "date", widget: "date"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "code", output_code_only: true, default_language: 'pug' }
+
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Reference Index"
+        name: "home"
+        file: "static/_content/reference/index.pug"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - {label: "Body", name: "body", widget: "code", output_code_only: true, default_language: 'pug' }
+      # - label: "Locations Page"
+      #   name: "locations"
+      #   file: "site/content/locations.yml"
+      #   fields:
+      #     - {label: Title, name: title, widget: string}
+      #     - {label: Intro, name: intro, widget: markdown}
+      #     - label: Locations
+      #       name: locations
+      #       widget: list
+      #       fields:
+      #         - {label: Name, name: name, widget: string}
+      #         - {label: Address, name: address, widget: string}
