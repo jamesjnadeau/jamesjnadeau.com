@@ -9,9 +9,9 @@
   "scripts": {
     "dev": " run-p dev:*",
     "dev:sapper": "sapper dev",
-    "dev:admin": "webpack --colors --watch --config static/admin/webpack.config.js",
-    "dev:styles": "webpack --colors --watch --config static/styles/webpack.config.js",
-    "dev:impress": "webpack --colors --watch --config static/impress/webpack.config.js",
+    "dev:admin": "webpack --watch --config static/admin/webpack.config.js",
+    "dev:styles": "webpack --watch --config static/styles/webpack.config.js",
+    "dev:impress": "webpack --watch --config static/impress/webpack.config.js",
     "build": " run-p build:*",
     "build:sapper": "sapper build",
     "build:admin": "webpack -p --config static/admin/webpack.config.js",
