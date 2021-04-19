@@ -1,0 +1,184 @@
+---
+title: James J Nadeau | AOE DMAT Presentation
+description: A presentation about how I automated a validation and reporting process for the Vermont Agency of Education.
+---
+
+- var xspace = 1100;
+- var yspace = 750;
+- var zspace = 1000;
+
+#impress()
+    .step()
+        h1#user-content-welcome(mlp='1')
+            | Welcome
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=welcome' aria-labelledby='user-content-welcome')
+        ul(mlp='2')
+            li(mlp='3') This is just a presentation, we&apos;ll have many more discussions abou tthis
+            li(mlp='5')
+            | If you have questions, Please enter them in the chat, we&apos;ll try and address them at the end.
+            li(mlp='7')
+            | We&apos;ll be having a meeting in 2 weeks to discuss this with folks in a regular town hall meeting environment.
+    .step(data-rel-z=zspace data-rel-x=-xspace data-rel-y=yspace)
+        h1(id='user-content-%F0%9F%93%88-topics-today' mlp='9')
+            | &#x1F4C8; Topics Today
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=%F0%9F%93%88-topics-today' aria-labelledby='user-content-%F0%9F%93%88-topics-today')
+        ul(mlp='10')
+            li(mlp='11') Where we are, what are the Options?
+            li(mlp='13') Goals, Possibilities, and Benefits
+            li(mlp='15') Lay out a path forward
+    .step(data-rel-z=0 data-rel-x=2*xspace data-rel-y=0)
+        h1(id='user-content-%F0%9F%93%8B-options' mlp='17')
+            | &#x1F4CB; Options
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=%F0%9F%93%8B-options' aria-labelledby='user-content-%F0%9F%93%8B-options')
+        ol(mlp='18')
+            li(mlp='19') Statewide SIS required(edFi behind the scenes)
+            li(mlp='21') Use EdFi to replace EdFusion
+            li(mlp='23') State Master Contracts with selected SIS Vendors&ZeroWidthSpace;(edFi behind the scenes)
+            li(mlp='25') Do Nothing
+    .step(data-rel-z=zspace data-rel-x=-xspace data-rel-y=yspace)
+        h1(id='user-content-%F0%9F%98%A5-reality' mlp='27')
+            | &#x1F625; Reality
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=%F0%9F%98%A5-reality' aria-labelledby='user-content-%F0%9F%98%A5-reality')
+        ul(mlp='28')
+            li(mlp='29') Option 4 is of the table
+            li(mlp='31') Options 1, 2, 3 are still on the table
+            li(mlp='33') Awaiting legislative action for option 1 or 3 to move forward
+        
+        substep(mlp='35') All ways forward involve EdFi
+    .step(data-rel-z=5*zspace data-rel-x=0 data-rel-y=0 data-rotate-x="15")
+        h1(id='user-content-%F0%9F%8C%A0-goals' mlp='37')
+            | &#x1F320; Goals
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=%F0%9F%8C%A0-goals' aria-labelledby='user-content-%F0%9F%8C%A0-goals')
+        ul(mlp='38')
+            li(mlp='39') We are going to start small and try out EdFi to those willing
+            li(mlp='41') We will listen to your feedback and try to continually improve
+            li(mlp='43') If it works out, it will eventually be the required reporting process
+            li(mlp='45') &#x1F955; First iteration to remove the need for student/staff matching process
+    .step(data-rel-z=-2*zspace data-rel-x=0 data-rel-y=yspace data-rotate=180)
+        h1(id='user-content-%E2%98%A3-warning!' mlp='47')
+            | &#x2623; Warning!
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=%E2%98%A3-warning!' aria-labelledby='user-content-%E2%98%A3-warning!')
+        ul(mlp='48')
+            li(mlp='49') We&apos;ll need to use wording that implies it&apos;s a state reporting requirement
+            li(mlp='51')
+            | The hope is this won&apos;t cost you anything(because they&apos;ve already done this for other states)
+            li(mlp='53') More to come on this.
+    .step(data-rel-z=zspace data-rel-x=4*xspace data-rel-y=-3*yspace)
+        h1(id='user-content-%F0%9F%A4%A9-edfi' mlp='55')
+            | &#x1F929; EdFi
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=%F0%9F%A4%A9-edfi' aria-labelledby='user-content-%F0%9F%A4%A9-edfi')
+        ul(mlp='56')
+            li(mlp='57')
+            | Ed-Fi securely and seamlessly connects education data systems.
+            ul(mlp='59')
+                li(mlp='60') DATA MODEL
+                li REST API
+                li State Level ODS
+            li(mlp='62') SIS manages syncing/sending data to State
+            li(mlp='64') Handles data quality issues at the source
+            li(mlp='66') Two way syncing is possible
+            li(mlp='68') &quot;Just Works&quot; - Other states: WI, NB, SC, AZ ....
+    .step(data-rel-z=zspace data-rel-x=0 data-rel-y=yspace)
+        h1(id='user-content-%E2%98%82-benefits' mlp='70')
+            | &#x2602; Benefits 1/2
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=%E2%98%82-benefits' aria-labelledby='user-content-%E2%98%82-benefits')
+        ul(mlp='71')
+            li(mlp='97') Open Source - low cost
+            li(mlp='72')
+                strong(mlp='74') 🎂 No more EdFusion 
+            li(mlp='75') 🍰 No more csv files
+            li(mlp='77')
+                | 🥞 Enables real-time capture
+            li(mlp='80') 📈 Shorter feedback loops, better data sharing
+            li(mlp='82') 🙭 We all can react and update changing requirements more quickly(P-EBT).
+    .step(data-rel-z=0 data-rel-x=0 data-rel-y=yspace)
+        h1()
+            | &#x2602; Benefits 2/2
+        h4 Better Tools/Reporting
+        ul
+            li(mlp='87') Student and staff matching/id&apos;s are seamlessly handled behind the scenes for you
+            li(mlp='89') Ability to transfer student data between SU&apos;s via state
+            li(mlp='91')
+                | Web interface to ensure folks are entering their data corectly.
+            li(mlp='93')
+                | We hope to develop the ability to notify SU staff directly about missing data issues.
+            li(mlp='95') Teacher portals for students showing assessment and other information
+           
+    .step(data-rel-z=4*zspace data-rel-x=-2*xspace data-rel-y=-3*yspace data-rotate-x="45")
+        h1(id='user-content-how-%E2%81%89' mlp='99')
+            | How &#x2049;
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=how-%E2%81%89' aria-labelledby='user-content-how-%E2%81%89')
+        ul(mlp='100')
+            li(mlp='101')
+                | State releases the requirements and we notify SIS vendor, giving them about a year to get set up
+            li(mlp='103')
+                | We&apos;ll release new requirements each year as needed. Your vendor will conform to these changes. 
+            li You'll have about a year of warning for new requirements.
+            li(mlp='105') This summer/fall we hope to release a dev api for SIS vendors to develop off of.
+    .step(data-rel-z=zspace data-rel-x=xspace data-rel-y=yspace data-rotate-x="45")
+        h1(id='user-content-%F0%9F%93%85-each-year' mlp='107')
+            | &#x1F4C5; Each Year
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=%F0%9F%93%85-each-year' aria-labelledby='user-content-%F0%9F%93%85-each-year')
+        p(mlp='108') Starting in July 2022:
+        ul(mlp='109')
+            li(mlp='110') State gives SU&apos;s a login and an api url/endpoint to configure your SIS.
+            li(mlp='112')
+                | Each year, in July, State will issue you unique login and url for the coming school year.
+            li(mlp='114') State will keep 3 years of API&apos;s up so data can be updated/corrected.
+    .step(data-rel-z=zspace data-rel-x=xspace data-rel-y=yspace data-rotate-x="45")
+        h1#user-content-future-path-forward(mlp='116')
+            | 🚲 Future 1/2
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=future-path-forward' aria-labelledby='user-content-future-path-forward')
+        p *Subject to change
+        ul(mlp='117')
+            li(mlp='118')
+            h3(id='user-content-phase-1-(2022%2C-sy23)' mlp='119')
+                | Phase 1 (2022, SY23)
+                a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=phase-1-(2022%2C-sy23)' aria-labelledby='user-content-phase-1-(2022%2C-sy23)')
+            | Try with those willing to participate, provide matching
+            li(mlp='121')
+            h3(id='user-content-phase-2-(2024%2C-sy25)' mlp='122')
+                | Phase 2 (2024, SY25)
+                a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=phase-2-(2024%2C-sy25)' aria-labelledby='user-content-phase-2-(2024%2C-sy25)')
+            ul(mlp='123')
+                li(mlp='124') Require all student and staff matching to run through edfi
+                li(mlp='126') Try Special ED and IDEA reporting through EdFi to those willing
+    .step(data-rel-z=zspace data-rel-x=0 data-rel-y=yspace data-rotate-x="45")
+        h1#user-content-future-path-forward(mlp='116')
+            | 🏎 Future 2/2
+            h3(id='user-content-phase-3--(2025%2C-sy26)' mlp='129')
+                | Phase 3 -(2025, SY26)
+                a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=phase-3--(2025%2C-sy26)' aria-labelledby='user-content-phase-3--(2025%2C-sy26)')
+            | EdFi will be the only way to do data submissions
+            li(mlp='131')
+            h3(id='user-content-phase-4-(2026%2C-sy27)' mlp='132')
+                | Phase 4 (2026, SY27)
+                a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=phase-4-(2026%2C-sy27)' aria-labelledby='user-content-phase-4-(2026%2C-sy27)')
+            | Special ED and IDEA reporting is done through EdFi
+            li(mlp='134')
+            h3(id='user-content-phase-5-(2027%2C-sy28)-%F0%9F%9A%80-finance-%3F' mlp='135')
+                | Phase 5 (2027, SY28) &#x1F680; Finance ?
+                a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=phase-5-(2027%2C-sy28)-%F0%9F%9A%80-finance-%3F' aria-labelledby='user-content-phase-5-(2027%2C-sy28)-%F0%9F%9A%80-finance-%3F')
+            | I think, EdFi just released this, and I&apos;m not in charge.
+            br
+            | But if the above works out, I think this is where we are headed
+    .step(data-rel-z=zspace data-rel-x=xspace data-rel-y=yspace)
+        h1
+            | Disclaimer
+        p Everything here is subject to change.
+        p We are trying this out, if it doesn't work we'll respond to your feedback.
+        p The hope is to make it better for all, not just the state.
+    .step(data-rel-z=zspace data-rel-x=xspace data-rel-y=yspace)
+        h1#user-content-questions(mlp='137')
+            | Questions
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=questions' aria-labelledby='user-content-questions')
+        p
+            strong We are looking for your feedback!
+        ul 
+            li Use the chat now and we'll answer the ones we have time for.
+            li Contact the SLDS Support Group via email 
+
+    .step(data-rel-z=zspace data-rel-x=xspace data-rel-y=yspace)
+        h1#user-content-survey(mlp='138')
+            | Survey
+            a.shareHeaderAnchor(href='https://dev.azure.com/education-vermont/Enterprise%20Data%20Environment/_wiki/wikis/Enterprise-Data-Environment.wiki/847/%F0%9F%8E%81-Field-Presentation?anchor=survey' aria-labelledby='user-content-survey')
