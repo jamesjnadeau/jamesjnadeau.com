@@ -37,3 +37,15 @@ A space to store stuff about Jupyter that I'll most likely use again.
     ]
 }
 ```
+
+## Jupyter Notbook config
+
+```json
+{ 
+    "codeCellConfig": { 
+        "lineNumbers": true,
+        "lineWrap": "on", 
+    },
+    "kernelShutdown": true,
+}
+```
