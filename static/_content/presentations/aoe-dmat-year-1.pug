@@ -1,0 +1,96 @@
+---
+title: James J Nadeau | AOE DMAT Year 1 Presentation
+description: A presentation about how I automated a validation and reporting process for the Vermont Agency of Education.
+---
+
+- var xspace = 1100;
+- var yspace = 1200;
+- var zspace = 1000;
+
+#impress()
+    .step()
+        h1#user-content-welcome(mlp='1')
+            | Welcome
+        p The following is a presentation of the accomplishments of my first year at AOE leading the DMAT team.
+        ul(mlp='2')
+            li(mlp='3') Updated critical processes to modern tools
+            li(mlp='5') 
+                | Created the Data Reporting Knowledge Base
+            li(mlp='7')
+                | Created a road map for the future with EdFi
+    .step(data-rel-z=zspace data-rel-x=xspace data-rel-y=yspace  data-rotate="-90")
+        h1 "Master" List Processes 
+        p Used to match person information to a unique identifier for them in the states systems 
+        p Inherited a Student process
+        p Took over Staff process after someone retired.
+    .step(data-rel-z=0 data-rel-x=xspace data-rel-y=-yspace/2)
+        h1 Staff Master Process 
+        ul
+            li Was: Highly manual Access process run once a week
+            li Now: Fully automated, runs everyday.
+    
+    .step(data-rel-z=0 data-rel-x=0 data-rel-y=yspace/2)
+        h1 Student Master Process
+        ul
+            li Was: Click Heavy manual Access process run as needed, no parallelism.
+            li Now: Jupyter Voila UI automating and making the process more consistant.
+        p.substep Eliminated hours of manual matching for the Indy Census
+        p.substep Standardized on using EdFusion for most external matching requests were possible.
+    
+    .step(data-rel-z=0 data-rel-x=-xspace data-rel-y=yspace data-rotate="-90")
+        h1 ADM 
+        ul
+            li Was: Manual Access and Oracle Process that took 30 minutes a day
+            li Now: Fully automated, Jupyter Only, runs on a schedule without human intervention.
+        p.substep Created Jupyter Voila UI to aid in supporting ADM questions 
+        p.substep Removed DMAD's Oracle dependency 
+    
+    .step(data-rel-x=0 data-rotate="-90")
+        h1 Organizations & Contacts
+        ul
+            li Was: Clumsy manual Oracle process managed by Glenn Bouchard
+            li Now: Manged in Sharepoint, available to everyone.
+        p.substep This year we have a Form for Super's to confirm infromation and submit changes.
+        p.substep Also in Cognito Forms, hopeful saving future problems.
+    
+    .step(data-rotate="-90")
+        h1 Knowledge Base
+        ul
+            li Was: Information was spread out among several pages, excel files, and newsletters.
+            li Now: One information hub that is searchable, accessible, and easy to maintain.
+
+    .step(data-rel-z=zspace*3 data-rel-x=xspace*2 data-rel-y=-1.5*yspace)
+        h1 EdFi Roadmap
+        h3 2021 - SY2022
+        ul
+            li Stand up test API & Ask vendors to implement
+            li Provide initial Data Governance document and request feedback
+        
+    .step(data-rel-z=zspace data-rel-x=xspace/2 data-rel-y=yspace)
+        h3 2022 - SY2023
+        ul
+            li Initial pilot with those willing, 17 signed up so far of 52
+            li Provides student and staff permnumber matching automatically
+        h3 2023 - SY2024
+        ul
+            li Announce EdFi required if pilot successful
+            li Begin Work on other processes like IDEA/SPED, Direct Cert and Foster Care status being passed through EdFi via monthly batch
+    .step()
+        h3 2024 - SY2025
+        ul
+            li EdFi submissions required SY25 and forward
+            li Pilot other processes
+            li Pilot IDEA/SPED data via EdFi
+        h3 2025 - SY2026
+        ul
+            li Announce other data required via EdFi if pilot successful
+            li 2nd year of EdFi data
+    .step()
+        h3 2026 - SY2027
+        ul
+            li IDEA/SPED data submitted through EdFi
+            li
+                | Staff has time and tools to perform predictive modeling and create actionable dashboards and tools for LEA&apos;s admin and educational staff.
+        h3 2027 - SY2028 
+        ul 
+            li ? Pilot EdFi for finance?
