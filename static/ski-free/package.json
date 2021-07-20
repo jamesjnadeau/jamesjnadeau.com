@@ -9,9 +9,9 @@
     "author": "dan.wash@ceros.com",
     "license": "",
     "engines": {
-        "node": "8.17.0"
+        "node": "14.17.3"
     },
     "dependencies": {
-        "http-server": "^0.10.0"
+        "http-server": "^0.12.0"
     }
 }
