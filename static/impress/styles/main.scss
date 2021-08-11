@@ -26,7 +26,7 @@ $font-size-base: 2rem;
 }
 
 // defaults for show/hide
-.impress-enabled {
+.impress-enabled #impress:not(.disable-animation) {
   .step, .substep {
     transition:  opacity 1.5s ease-in-out;
   }

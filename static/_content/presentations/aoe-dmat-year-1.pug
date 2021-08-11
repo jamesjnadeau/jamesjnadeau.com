@@ -6,8 +6,8 @@ description: A presentation about how I automated a validation and reporting pro
 - var xspace = 1100;
 - var yspace = 1200;
 - var zspace = 1000;
-
-#impress()
+//- .disable-animation()
+#impress
     .step()
         h1#user-content-welcome(mlp='1')
             | Welcome
@@ -23,6 +23,7 @@ description: A presentation about how I automated a validation and reporting pro
         p Used to match person information to a unique identifier 
         p.substep Inherited the Student process
         p.substep Took over Staff process after someone retired.
+    
     .step(data-rel-z=0 data-rel-x=xspace data-rel-y=-yspace/2)
         h1 Staff Master Process 
         ul
@@ -40,6 +41,14 @@ description: A presentation about how I automated a validation and reporting pro
         p.substep Standardized on using EdFusion for most external matching requests were possible.
     
     .step(data-rel-z=0 data-rel-x=-xspace data-rel-y=yspace data-rotate="-90")
+        h1 Jupyter Hub 
+        ul
+            li Was: Jupyter was installed on everyones machine individually
+            li Now: Users can connect to Hub which is located/updated centrally
+        p.substep Jupyter is sitting next to DB machine, faster access, less bandwidth wasted
+        p.substep Instant upgrade to those with older machines, scalable to fit our needs.
+
+    .step(data-rel-x=0 data-rotate="-90")
         h1 ADM 
         ul
             li Was: Manual M$ Access and Oracle Process that took 30 minutes a day
@@ -61,14 +70,14 @@ description: A presentation about how I automated a validation and reporting pro
             li Was: Information was spread out among several pages, excel files, and newsletters.
             li Now: One information hub that is searchable, accessible, and easy to maintain.
 
-    .step(data-rel-z=zspace*3 data-rel-x=xspace*2 data-rel-y=-1.5*yspace)
+    .step()
         h1 EdFi Roadmap
         h3 2021 - SY2022
         ul
             li Stand up test API & Ask vendors to implement
             li Provide initial Data Governance document and request feedback
         
-    .step(data-rel-z=zspace data-rel-x=xspace/2 data-rel-y=yspace)
+    .step(data-rel-z=zspace data-rel-x=xspace data-rel-y=-yspace/2)
         h3 2022 - SY2023
         ul
             li Initial pilot with those willing, 17 signed up so far of 52
@@ -96,7 +105,7 @@ description: A presentation about how I automated a validation and reporting pro
         h3 2027 - SY2028 
         ul 
             li ? Pilot EdFi for finance?
-    .step()
+    .step(data-rel-z=8*zspace data-rel-x=-4*xspace data-rel-y=4*yspace data-rotate-x="-30" )
         h1 Next Year 
         ul
             li CEDS & Generate
