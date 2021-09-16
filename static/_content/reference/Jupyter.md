@@ -43,6 +43,7 @@ A space to store stuff about Jupyter that I'll most likely use again.
 ```json
 { 
     "codeCellConfig": { 
+        "autoClosingBrackets": true,
         "lineNumbers": true,
         "lineWrap": "on", 
     },
