@@ -52,7 +52,7 @@
     "netlify-cms-widget-code": "^1.1.1",
     "netlify-identity-widget": "^1.5.6",
     "node-feedly-developer-client": "^0.0.3",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "polka": "next",
     "postcss-loader": "^3.0.0",
     "precss": "^4.0.0",
