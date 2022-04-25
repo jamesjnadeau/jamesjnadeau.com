@@ -1,0 +1,91 @@
+---
+title: James J Nadeau | AOE DMAD RFP Presentation
+description: A presentation about what the State of Vermont is hoping to get from our RFP for Ed-Fi Services. 
+---
+
+- var xspace = 1500;
+- var yspace = 1500;
+- var zspace = 500;
+//- .disable-animation()
+#impress
+    .step()
+        h1#user-content-welcome(mlp='1')
+            | Welcome 👋
+        p This presentation hopes to cover:
+        ul(mlp='2')
+            li(mlp='3')
+                | 📉 What we currently do.
+            li(mlp='5') 
+                | 📈 What we want to do.
+            li(mlp='7')
+                | ❓ Why we need help?
+        p Please put your questions in the chat and we'll get to them at the end.
+    .step(data-rel-x=xspace data-rel-z=zspace)
+        h1 📉 What do we currently do
+        p We have a custom built csv/sftp based system.
+        p It's hard to use and maintain.
+        p The feedback and collection cycle is slow.
+    .step(data-rel-z=4*zspace data-rel-x=-.5*xspace data-rel-y=.75*yspace)
+        h1 📈 What we want to do. 
+        ul  
+            li Use Ed-Fi as a collection mechanism for our federal and state reporting
+            li Leverage open souce and state community created tools to reduce costs 
+            li Be ready to easily adapt to future changes
+            li Systems we want to integrate:
+                ul 
+                    li Student/Staff identity
+                    li Analytics Middle Tier
+                    li Data Quality Reports and Dashboards
+                    
+
+
+    
+    .step(data-rel-z=0 data-rel-x=0 data-rel-y=yspace/2)
+        h1 ❓ Why we need help?
+        ul
+            li We've never done this before.
+            li We're seeking best practices and what other states have had success with.
+            li We have goals and we know we need help to achive them in the timeframe allotted.
+    
+    .step()
+        h1 EdFi Roadmap
+        h3 2021 - SY2022
+        ul
+            li Stand up Sandbox API in March of 22
+            li Provide initial knowledge base area and request feedback
+        
+    .step(data-rel-z=zspace data-rel-x=xspace data-rel-y=-yspace/2)
+        h3 2022 - SY2023
+        ul
+            li Initial pilot with those willing, 20 signed up so far of ~50
+           
+        h3 2023 - SY2024
+        ul
+            li Announce EdFi required if pilot successful
+            li Announce EdFi Standard for Vermont
+            li Provide student and staff permnumber matching through identity api
+            li Provide Direct Certitifcation for Free or Reduced Lunch Status
+            li Begin Work on other processes like IDEA/SPED, and Foster Care status being passed through EdFi via monthly batch
+    .step()
+        h3 2024 - SY2025
+        ul
+            li EdFi submissions required SY25 and forward
+            li Pilot other processes
+            li Pilot IDEA/SPED data via EdFi
+        h3 2025 - SY2026
+        ul
+            li Announce other data required via EdFi if pilot successful
+            li 2nd year of EdFi data
+    .step()
+        h3 2026 - SY2027
+        ul
+            li IDEA/SPED data submitted through EdFi
+            li
+                | Staff has time and tools to perform predictive modeling and create actionable dashboards and tools for LEA&apos;s admin and educational staff.
+        h3 2027 - SY2028 
+        ul 
+            li ? Pilot EdFi for finance?
+    .step(data-rel-z=8*zspace data-rel-x=-4*xspace data-rel-y=4*yspace data-rotate-x="-30" )
+        h1 They End 🌈
+        p Thank you for your time.
+        p Any Questions?
