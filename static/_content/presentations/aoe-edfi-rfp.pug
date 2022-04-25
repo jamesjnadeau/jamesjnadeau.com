@@ -11,7 +11,7 @@ description: A presentation about what the State of Vermont is hoping to get fro
     .step()
         h1#user-content-welcome(mlp='1')
             | Welcome 👋
-        p This presentation hopes to cover:
+        p I hope to cover:
         ul(mlp='2')
             li(mlp='3')
                 | 📉 What we currently do.
@@ -25,22 +25,25 @@ description: A presentation about what the State of Vermont is hoping to get fro
         p We have a custom built csv/sftp based system.
         p It's hard to use and maintain.
         p The feedback and collection cycle is slow.
+    
     .step(data-rel-z=4*zspace data-rel-x=-.5*xspace data-rel-y=.75*yspace)
         h1 📈 What we want to do. 
         ul  
-            li Use Ed-Fi as a collection mechanism for our federal and state reporting
             li Leverage open souce and state community created tools to reduce costs 
+            li Reduce the burden on LEA's
+            li Easily meet for our federal and state reporting through CEDS
+    
+    .step(data-rel-z=0 data-rel-x=xspace data-rel-y=0)
+        h1 📈 What we want to do.(2)
+        ul
             li Be ready to easily adapt to future changes
-            li Systems we want to integrate:
+            li Systems we want to integrate with Ed-Fi over time:
                 ul 
-                    li Student/Staff identity
                     li Analytics Middle Tier
                     li Data Quality Reports and Dashboards
-                    
-
-
+                    li Student/Staff identity
     
-    .step(data-rel-z=0 data-rel-x=0 data-rel-y=yspace/2)
+    .step()
         h1 ❓ Why we need help?
         ul
             li We've never done this before.
@@ -58,20 +61,21 @@ description: A presentation about what the State of Vermont is hoping to get fro
         h3 2022 - SY2023
         ul
             li Initial pilot with those willing, 20 signed up so far of ~50
-           
+            li Build Data Quality checks and other integrations for reporting
+            li Determine the changes Vermont requires to Ed-Fi 
+            li Announce Ed-Fi Standard and release Sandbox for Vendors
+     .step() 
         h3 2023 - SY2024
         ul
-            li Announce EdFi required if pilot successful
-            li Announce EdFi Standard for Vermont
-            li Provide student and staff permnumber matching through identity api
-            li Provide Direct Certitifcation for Free or Reduced Lunch Status
+            li Announce EdFi Required for SY2025
+            li Develop student and staff permnumber matching through identity api
+            li Develop Direct Certitifcation for Free or Reduced Lunch Status process
             li Begin Work on other processes like IDEA/SPED, and Foster Care status being passed through EdFi via monthly batch
     .step()
         h3 2024 - SY2025
         ul
-            li EdFi submissions required SY25 and forward
-            li Pilot other processes
-            li Pilot IDEA/SPED data via EdFi
+            li EdFi submissions required this year and forward
+            li Pilot other processes via EdFi: IDEA/SPED, CTE, Foster 
         h3 2025 - SY2026
         ul
             li Announce other data required via EdFi if pilot successful
@@ -82,10 +86,10 @@ description: A presentation about what the State of Vermont is hoping to get fro
             li IDEA/SPED data submitted through EdFi
             li
                 | Staff has time and tools to perform predictive modeling and create actionable dashboards and tools for LEA&apos;s admin and educational staff.
-        h3 2027 - SY2028 
-        ul 
-            li ? Pilot EdFi for finance?
+            li Foster Care data passed back to SU's
+            li CTE data collected via edfi
+
     .step(data-rel-z=8*zspace data-rel-x=-4*xspace data-rel-y=4*yspace data-rotate-x="-30" )
-        h1 They End 🌈
+        h1 The End 🌈
         p Thank you for your time.
         p Any Questions?
