@@ -128,6 +128,7 @@
         </div>
       {:else if activeTab === 'git'}
         <div class="tab-pane" id="git" class:active={activeTab === 'git'}>
+          <p class="m-3 p-3"><code>git config pull.rebase true</code></p>
           <ul class="list-group m-3">
             <a class="list-group-item" href="/reference/git_flow">Flow</a>
             <a class="list-group-item" href="/reference/git_autocomplete">
