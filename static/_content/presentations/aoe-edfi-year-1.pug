@@ -1,0 +1,132 @@
+---
+title: James J Nadeau | AOE DMAD RFP Presentation
+description: A presentation about what the State of Vermont is hoping to get from our RFP for Ed-Fi Services. 
+---
+
+- var xspace = 1500;
+- var yspace = 1500;
+- var zspace = 500;
+//- .disable-animation()
+#impress
+    .step()
+        h1#user-content-welcome(mlp='1')
+            | Welcome 👋
+        p I hope to cover:
+        ul(mlp='2')
+            li(mlp='3')
+                | 📉 What we currently do.
+            li(mlp='5') 
+                | 📈 What we want to do.
+            li(mlp='7')
+                | ❓ How will we get there?
+        p Please feel free to ask any clarifying questions by raising your hand.
+    .step(data-rel-x=xspace data-rel-z=zspace)
+        h1 💻 Who am I?
+        p 🚶 Been in VT for most of my life.
+        p ⚙️ Computer and Systems Engineer with 20ish years of experience
+        p 🛠️ Was an IT contractor for AOE from 2019-2020
+        p 🆘 Joined AOE as Education Data Admin June 2020
+    
+    .step(data-rel-x=xspace data-rel-z=zspace)
+        h1 📉 What do we currently do
+        p 🏚 We have a custom built csv/sftp based system.
+        p 👷🏻‍♀️ It's hard to use and maintain.
+        p ⏱ The feedback and collection cycle is slow.
+    
+    .step(data-rel-z=4*zspace data-rel-x=-.5*xspace data-rel-y=.75*yspace)
+        h1 📈 What we want to do. 
+        ul  
+            li 🛞 Leverage open souce and state community created tools
+            li 🚕 Reduce the burden on LEA's
+            li 🏛 Continue to provide federal and state reporting
+            li 📈 Provide LEA's an integration platform
+
+    .step(data-rel-z=0 data-rel-x=xspace data-rel-y=0)
+        h1 📈 What we want to do.(2)
+        ul
+            li 🏗 Be ready to easily adapt to future changes
+            li 🖧 Systems Integration Goals:
+                ul 
+                    li 🧾 Data Quality Reports and Dashboards
+                    li 🆔 Student/Staff Identity
+                    li 🧪 Assesment Rostering
+                    li 🖖 Allow LEA's to integrate 
+    .step()
+        h1 ❓ What is Ed-Fi?
+        ul
+            li ® Data Standard and Technology to help store and exchange education data.
+                br
+                | Providing:
+                ul 
+                    ol 🕸️ Web based API and Authentication Administration through tokens 
+                    ol 💽 Operational Data Store
+    .step()
+        h1 ❓ What is Ed-Fi? (2)
+        ul
+            li 🤗 Open Source - you own the code, community helps build and maintin it.
+            li Very useful for LEA's
+                br
+                | Providing:
+                ul 
+                    ol 🖧 Central Integration Point
+                    ol 🔏 Limited Access
+                    ol 🆙 "Off The Shelf" Solutions for Reporting, LMS, SIS...
+
+    .step()
+        h1 ❓ How?
+        ul
+            li 🐢 We're going to go slow.
+            li 😨 We want and will use your feedback.
+            li 😎 We're not going on our own, using other states as a guide.
+            li ✅ We're working with your SIS vendors now to confirm their integrations work.
+    
+    .step()
+        h1 EdFi Roadmap
+        h3 Prior to 2020
+        ul
+            li Conductected meetings with stakeholders to determine current path 
+            li Determined State wide SIS is not for us 
+            li Announeced our intention to try Ed-Fi out as a path forward
+    
+    .step()
+        h1 EdFi Roadmap
+        h3 2021 - SY2022
+        ul
+            li Stood up Sandbox API in March of 22 for Vendors
+            li Provide initial knowledge base area and request feedback
+            li Collected a test group of 20 willing LEA's
+        
+    .step(data-rel-z=zspace data-rel-x=xspace data-rel-y=-yspace/2)
+        h3 2022 - SY2023
+        ul
+            li Initial pilot with those willing
+            li Develop Direct Certifcation for Free or Reduced Lunch data exchange process
+            li Build Data Quality checks and other integrations for reporting
+            li Customize Ed-Fi Standard for Vermonts specific needs
+            li Announce Vermont Ed-Fi Customizations and release Sandbox for Vendors
+    .step() 
+        h3 2023 - SY2024
+        ul
+            li Announce EdFi Required for SY2025
+            li Develop student and staff permnumber matching through identity api
+            li Begin Work on other processes like IDEA/SPED, and Foster Care status being passed through EdFi via monthly batch
+    .step()
+        h3 2024 - SY2025
+        ul
+            li EdFi submissions required this year and forward
+            li Pilot other processes via EdFi: IDEA/SPED, CTE, Foster 
+        h3 2025 - SY2026
+        ul
+            li Announce other data required via EdFi if pilot successful
+            li 2nd year of EdFi data
+    .step()
+        h3 2026 - SY2027
+        ul
+            li IDEA/SPED data submitted through EdFi
+            li Foster Care data passed back to SU's
+            li CTE data collected via Ed-Fi
+
+    .step(data-rel-z=8*zspace data-rel-x=-4*xspace data-rel-y=4*yspace data-rotate-x="-30" )
+        h1 The End 🌈
+        p Thank you for your time.
+        p Any Questions?
