@@ -50,3 +50,19 @@ A space to store stuff about Jupyter that I'll most likely use again.
     "kernelShutdown": true,
 }
 ```
+
+## Paste into browser console to set, then refresh
+
+```js
+var cell = Jupyter.notebook.get_selected_cell();
+var config = cell.config;
+var patch = { 
+    "codeCellConfig": { 
+        "autoClosingBrackets": true,
+        "lineNumbers": true,
+        "lineWrap": "on", 
+    },
+    "kernelShutdown": true,
+}
+config.update(patch)
+```
