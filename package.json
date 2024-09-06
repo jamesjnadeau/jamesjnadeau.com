@@ -27,7 +27,7 @@
     "test": "npm-run-all -p --race stage:export cy:run"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^5.0.0",
     "cache-manager": "^2.10.1",
     "cache-manager-fs": "^1.0.8",
     "cheerio": "^1.0.0-rc.3",
