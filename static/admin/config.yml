@@ -11,7 +11,7 @@ display_url: https://jamesjnadeau.com
 collections:
   - name: "TIL" # Used in routes, e.g., /admin/collections/blog
     label: "Today I ..." # Used in the UI
-    folder: "static/_content/til" # The path to the folder where the documents are stored
+    folder: "content/til" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., title.md
     summary: "{{year}}-{{month}}-{{day}} - {{title}}"
@@ -24,7 +24,7 @@ collections:
       - {label: "Body", name: "body", widget: "pug", output_code_only: true}
   - name: "Presentations" # Used in routes, e.g., /admin/collections/blog
     label: "Prsentations." # Used in the UI
-    folder: "static/_content/presentations" # The path to the folder where the documents are stored
+    folder: "content/presentations" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., title.md
     preview_path: "/presentations/{{slug}}"
@@ -40,7 +40,7 @@ collections:
     files:
       - label: "Reference Index"
         name: "home"
-        file: "static/_content/reference/index.pug"
+        file: "content/reference/index.pug"
         fields:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Description", name: "description", widget: "string"}
