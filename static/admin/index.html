@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel='icon' type='image/png' href='/icons/favicon-32x32.png' />
   <title>Content Manager</title>
   <style>
     .CodeMirror {
@@ -15,10 +16,14 @@
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="https://pugjs.org/js/pug.js" ></script>
-  <script src="pug-loader.js" ></script>
+  <script src="/admin/pug-loader.js" ></script>
+  <script>
+    window.CMS_MANUAL_INIT = true;
+  </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <script>
+    const { CMS, initCMS: init } = window;
     CMS.registerPreviewStyle('/styles/main.css');
 
     var PugPreview = createClass({
@@ -41,14 +46,13 @@
       }
     });
 
-    // CMS.registerWidget('pug', PugControl, PugPreview);
-    CMS.registerWidget('pug', controlComponent, PugPreview);
+    CMS.registerWidget('pug', 'code', PugPreview);
     CMS.getWidget('pug').codeMirrorConfig = {
       mode: 'pug',
       theme: 'default',
     };
 
-    var TILPreview = createClass({
+    var sitePreview = createClass({
       render: function() {
         var entry = this.props.entry;
         return h('div', {},
@@ -61,7 +65,11 @@
       }
     });
 
-    CMS.registerPreviewTemplate("TIL", TILPreview);
+    CMS.registerPreviewTemplate("TIL", sitePreview);
+    CMS.registerPreviewTemplate("pages", sitePreview);
+
+    // manual cms init
+    init();
   </script>
 
 </body>
