@@ -11,9 +11,9 @@
   # functions = "functions"
 
 [dev]
-  command = "yarn run dev" # Command to start your dev server
+  command = "npm run dev" # Command to start your dev server
   port = 3000 # Port that the dev server will be listening on
-  publish = "__sapper__" # If you use a _redirect file, provide the path to your static content folder
+  publish = "_site"
 # jamesnadeau.com
 [[redirects]]
   from = "http://jamesnadeau.com/*"
@@ -29,5 +29,5 @@
 #   [headers.values]
 #     X-Frame-Options = "SAMEORIGIN"
 #     X-XSS-Protection = "1; mode=block"
-#     Content-Security-Policy = "default-src https:; script-src 'unsafe-inline' 'self' https://www.google-analytics.com https://polyfill.io https://cdnjs.cloudflare.com; style-src https: 'unsafe-inline'; img-src https: data:;"
+#     Content-Security-Policy = "default-src https:; script-src 'unsafe-inline' 'self' https://www.google-analytics.com https://polyfill.io https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src https: 'unsafe-inline'; img-src https: data:;"
 #     Feature-Policy = "autoplay 'none'; camera 'none'"
