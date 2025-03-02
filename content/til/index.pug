@@ -16,17 +16,16 @@ p.text-center
 .row
   .col-md-8.offset-md-2
     ul.list-group
-      each item in collections.TIL
-        // <h3 class="list-group-item text-center">2019</h3>
-        a.list-group-item(rel='prefetch' href=item.data.page.url)
-          .row
-            .col-auto
-              | #{item.data.title}
-        //-     |               {#if post.date}
-        //-     .col.align-self-end.text-right
-        //-       | {formatDate(post.date)}
-        //-     |               {/if}
-        //- |         {/each}
+      - var getDate = function(date) { return new Date(date); }
+      - var compareDates = function(a, b) { return getDate(b.data.Date) - getDate(a.data.Date); }
+      each item in collections.TIL.sort(compareDates)
+        if item.data.page.url != '/til/'
+          a.list-group-item(rel='prefetch' href=item.data.page.url)
+            .row
+              .col-auto
+                | #{item.data.title}
+              .col.align-self-end.text-right
+              | #{new Date(item.data.Date).toLocaleDateString()}
 
 
 
