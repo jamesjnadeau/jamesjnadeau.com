@@ -1,0 +1,35 @@
+---
+title: Today I ...
+eleventyNavigation:
+  key: TIL
+---
+
+h1.no-animation
+  | Today I ...
+  br
+  span.lead [ Found, Learned, Saw, Read, Experienced, Grew ]
+p.lead.text-center
+  | A collection of things I found interesting at the time.
+p.text-center
+  a(href='/til/rss.xml' target='_blank')
+    img(alt='rss download beacon' src='/files/rss.svg' height='20px')
+.row
+  .col-md-8.offset-md-2
+    ul.list-group
+      - var getDate = function(date) { return new Date(date); }
+      - var compareDates = function(a, b) { return getDate(b.data.Date) - getDate(a.data.Date); }
+      each item in collections.TIL.sort(compareDates)
+        if item.data.page.url != '/til/'
+          a.list-group-item(rel='prefetch' href=item.data.page.url)
+            .row
+              .col-auto
+                | #{item.data.title}
+              .col.align-self-end.text-right
+              | #{new Date(item.data.Date).toLocaleDateString()}
+
+
+
+  
+
+
+
