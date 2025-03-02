@@ -20,9 +20,7 @@
     "@11ty/eleventy-plugin-pug": "https://gitpkg.vercel.app/jamesjnadeau/eleventy-plugin-template-languages/pug?main",
     "@11ty/eleventy-plugin-rss": "^2.0.3",
     "bootstrap": "^5.3.3",
-    "sass": "^1.85.1"
-  },
-  "devDependencies": {
+    "sass": "^1.85.1",
     "npm-run-all": "*"
   }
 }
