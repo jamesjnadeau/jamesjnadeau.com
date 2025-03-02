@@ -61,6 +61,16 @@
     debug "^4.3.5"
     pug "^3.0.3"
 
+"@11ty/eleventy-plugin-rss@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.npmjs.org/@11ty/eleventy-plugin-rss/-/eleventy-plugin-rss-2.0.3.tgz"
+  integrity sha512-ubK97uahCLpKhORLfblgxLcoaNqTcKde1cH8CeRKNTFoUuuDSEjWZtodV9fKrg+uOp5X74dO43z1/io6hhs5Bw==
+  dependencies:
+    "@11ty/eleventy-utils" "^2.0.0"
+    "@11ty/posthtml-urls" "^1.0.1"
+    debug "^4.4.0"
+    posthtml "^0.16.6"
+
 "@11ty/eleventy-utils@^1.0.2", "@11ty/eleventy-utils@^1.0.3":
   version "1.0.3"
   resolved "https://registry.npmjs.org/@11ty/eleventy-utils/-/eleventy-utils-1.0.3.tgz"
@@ -122,7 +132,7 @@
   resolved "https://registry.npmjs.org/@11ty/lodash-custom/-/lodash-custom-4.17.21.tgz"
   integrity sha512-Mqt6im1xpb1Ykn3nbcCovWXK3ggywRJa+IXIdoz4wIIK+cvozADH63lexcuPpGS/gJ6/m2JxyyXDyupkMr5DHw==
 
-"@11ty/posthtml-urls@^1.0.0":
+"@11ty/posthtml-urls@^1.0.0", "@11ty/posthtml-urls@^1.0.1":
   version "1.0.1"
   resolved "https://registry.npmjs.org/@11ty/posthtml-urls/-/posthtml-urls-1.0.1.tgz"
   integrity sha512-6EFN/yYSxC/OzYXpq4gXDyDMlX/W+2MgCvvoxf11X1z76bqkqFJ8eep5RiBWfGT5j0323a1pwpelcJJdR46MCw==

@@ -1,8 +1,12 @@
 
 import pugPlugin from "@11ty/eleventy-plugin-pug";
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import * as sass from "sass";
 import path from 'node:path';
+
+let default_title = 'James J Nadeau | Senior Systems Engineer'
+let default_description = ''
 
 export default async function(eleventyConfig) {
 
@@ -31,8 +35,8 @@ export default async function(eleventyConfig) {
     eleventyConfig.addGlobalData("layout", "layouts/main.pug");
 
     // defaul title/descriptions
-    eleventyConfig.addGlobalData("title", "James J Nadeau | Senior Systems Engineer");
-    eleventyConfig.addGlobalData("description", "");
+    eleventyConfig.addGlobalData("title", default_title);
+    eleventyConfig.addGlobalData("description", default_description);
 
     // configure bundles - not currently used?
     eleventyConfig.addBundle("css");
@@ -64,6 +68,25 @@ export default async function(eleventyConfig) {
 		},
 	});
 
+    // rss feed
+    eleventyConfig.addPlugin(feedPlugin, {
+		type: "rss", // or "atom", "json"
+		outputPath: "/til/rss.xml",
+		collection: {
+			name: "TIL", // iterate over `collections.posts`
+			limit: 10,     // 0 means no limit
+		},
+		metadata: {
+			language: "en",
+			title: "Today I ... by James Nadeau",
+			subtitle: "A collection of things I found interesting at the time..",
+			base: "https://jamesjnadeau.com/",
+			author: {
+				name: "James Nadeau",
+				email: "", // Optional
+			}
+		}
+	});
 
     // console.log(eleventyConfig)
 };
