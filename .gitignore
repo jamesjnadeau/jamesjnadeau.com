@@ -15,3 +15,6 @@ yarn-error.log
 static/admin/cms-built.js
 static/admin/cms-built.js.*
 static/styles/built
+
+# Local Netlify folder
+.netlify

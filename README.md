@@ -2,9 +2,13 @@ My personal website
 ===
 http://jamesjnadeau.com
 
-This is a first draft site generator created with webpack. I originally committed to making my content in markedown with a custom header used in PHP's PicoCMS.
+~~This is a first draft site generator created with webpack. I originally committed to making my content in markedown with a custom header used in PHP's PicoCMS.~~
+
+This now uses eleventy.
 
 ## npm install / node_modules note
+
+I don't do this anymore, but I've left this here for my refernce..
 
 TLDR;
 
