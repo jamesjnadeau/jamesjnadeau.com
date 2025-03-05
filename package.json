@@ -9,9 +9,9 @@
   },
   "scripts": {
     "dev": " run-p dev:*",
-    "dev:11venty": "npx @11ty/eleventy --config .eleventy.js --serve",
+    "dev:11venty": "npx --node-options='--experimental-require-module' @11ty/eleventy --config .eleventy.js --serve",
     "build": "NODE_ENV=production run-p build:*",
-    "build:11venty": "npx @11ty/eleventy --config .eleventy.js",
+    "build:11venty": "npx --node-options='--experimental-require-module' @11ty/eleventy --config .eleventy.js",
     "export": " run-p build:11venty"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "@11ty/eleventy-plugin-rss": "^2.0.3",
     "bootstrap": "^5.3.3",
     "eleventy-plugin-purgecss": "^0.5.0",
+    "eleventy-sass": "^3.0.0-beta.0",
     "npm-run-all": "*",
     "sass": "^1.85.1"
   }

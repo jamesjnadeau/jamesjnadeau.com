@@ -4,8 +4,11 @@ import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import * as sass from "sass";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
+import eleventySass from "eleventy-sass";
+
 import path from 'node:path';
 import fs from 'node:fs';
+import url from 'node:url';
 
 let default_title = 'James J Nadeau | Senior Systems Engineer'
 let default_description = ''
@@ -51,33 +54,46 @@ export default async function(eleventyConfig) {
     // add sass config, see https://www.11ty.dev/docs/languages/custom/#example-add-sass-support-to-eleventy
     eleventyConfig.addTemplateFormats("scss");
     let node_modules_path = './node_modules'
-	// Creates the extension for use
-	eleventyConfig.addExtension("scss", {
-		outputFileExtension: "css", // default: "html"
 
-		// `compile` is called once per .scss file in the input directory
-		compile: async function (inputContent) {
-			// This is the render function, `data` is the full data cascade
-            const compiler = await sass.initAsyncCompiler();
-			return async (data) => {
-                // console.log()
-                let my_path = path.dirname(data.page.inputPath)
-                // let result = sass.compileString(inputContent, {
-                let result = await compiler.compileAsync(data.page.inputPath, {
-                    loadPaths: [my_path, node_modules_path],
-                    quietDeps: true,
-                    sourceMap: true,
-                    style: 'compressed',
-                });
-                // await new Promise(function(resolve, reject) {
-                //     fs.writeFile(`${data.page.outputPath}.map`, result.sourceMap.sourcesContent, resolve);
-                // });
+    eleventyConfig.addPlugin(eleventySass, {
+        sass: {
+            loadPaths: [node_modules_path],
+            quietDeps: true,
+            style: "compressed",
+            sourceMap: true,
+          },
+    });
+
+    // Legacy method perscribed in eleventy docs, above works better and has source maps
+	// Creates the extension for use
+	// eleventyConfig.addExtension("scss", {
+	// 	outputFileExtension: "css", // default: "html"
+
+	// 	// `compile` is called once per .scss file in the input directory
+	// 	compile: async function (inputContent) {
+	// 		// This is the render function, `data` is the full data cascade
+    //         const compiler = await sass.initAsyncCompiler();
+	// 		return async (data) => {
+    //             // console.log()
+    //             let my_path = path.dirname(data.page.inputPath)
+    //             // let result = sass.compileString(inputContent, {
+    //             let result = await compiler.compileAsync(data.page.inputPath, {
+    //                 loadPaths: [my_path, node_modules_path],
+    //                 quietDeps: true,
+    //                 sourceMap: true,
+    //                 style: 'compressed',
+    //             });
+    //             let inputURL = url.pathToFileURL(path.resolve(data.page.inputPath)).href;
+
+    //             // await new Promise(function(resolve, reject) {
+    //             //     fs.writeFile(`${data.page.outputPath}.map`, result.sourceMap.sourcesContent, resolve);
+    //             // });
                 
-                return result.css;
+    //             return result.css;
                 
-			};
-		},
-	});
+	// 		};
+	// 	},
+	// });
 
     // purge-css
     if (process.env.NODE_ENV === "production") {
