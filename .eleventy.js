@@ -3,7 +3,9 @@ import pugPlugin from "@11ty/eleventy-plugin-pug";
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import * as sass from "sass";
+import purgeCssPlugin from "eleventy-plugin-purgecss";
 import path from 'node:path';
+import fs from 'node:fs';
 
 let default_title = 'James J Nadeau | Senior Systems Engineer'
 let default_description = ''
@@ -55,18 +57,44 @@ export default async function(eleventyConfig) {
 
 		// `compile` is called once per .scss file in the input directory
 		compile: async function (inputContent) {
-
 			// This is the render function, `data` is the full data cascade
+            const compiler = await sass.initAsyncCompiler();
 			return async (data) => {
+                // console.log()
                 let my_path = path.dirname(data.page.inputPath)
-                let result = sass.compileString(inputContent, {
+                // let result = sass.compileString(inputContent, {
+                let result = await compiler.compileAsync(data.page.inputPath, {
                     loadPaths: [my_path, node_modules_path],
                     quietDeps: true,
+                    sourceMap: true,
+                    style: 'compressed',
                 });
-				return result.css;
+                // await new Promise(function(resolve, reject) {
+                //     fs.writeFile(`${data.page.outputPath}.map`, result.sourceMap.sourcesContent, resolve);
+                // });
+                
+                return result.css;
+                
 			};
 		},
 	});
+
+    // purge-css
+    if (process.env.NODE_ENV === "production") {
+        eleventyConfig.addPlugin(purgeCssPlugin, {
+            // Optional: Specify the location of your PurgeCSS config
+            config:  {
+                // Content files referencing CSS classes
+                content: ["./_site/**/*.html", "./_site/**/*.js"],
+            
+                // CSS files to be purged in-place
+                css: ["./_site/**/*.css"],
+            },
+
+            // Optional: Set quiet: true to suppress terminal output
+            quiet: false,
+        });
+    }
 
     // rss feed
     eleventyConfig.addPlugin(feedPlugin, {

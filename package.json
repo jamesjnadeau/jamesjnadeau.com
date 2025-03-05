@@ -10,7 +10,7 @@
   "scripts": {
     "dev": " run-p dev:*",
     "dev:11venty": "npx @11ty/eleventy --config .eleventy.js --serve",
-    "build": " run-p build:*",
+    "build": "NODE_ENV=production run-p build:*",
     "build:11venty": "npx @11ty/eleventy --config .eleventy.js",
     "export": " run-p build:11venty"
   },
@@ -20,7 +20,8 @@
     "@11ty/eleventy-plugin-pug": "https://gitpkg.vercel.app/jamesjnadeau/eleventy-plugin-template-languages/pug?main",
     "@11ty/eleventy-plugin-rss": "^2.0.3",
     "bootstrap": "^5.3.3",
-    "sass": "^1.85.1",
-    "npm-run-all": "*"
+    "eleventy-plugin-purgecss": "^0.5.0",
+    "npm-run-all": "*",
+    "sass": "^1.85.1"
   }
 }
