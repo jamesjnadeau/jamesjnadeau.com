@@ -10,6 +10,7 @@
   "scripts": {
     "dev": " run-p dev:*",
     "dev:11venty": "npx --node-options='--experimental-require-module' @11ty/eleventy --config .eleventy.js --serve",
+    "dev-netlify": "npx netlify-cli dev",
     "build": "NODE_ENV=production run-p build:*",
     "build:11venty": "npx --node-options='--experimental-require-module' @11ty/eleventy --config .eleventy.js",
     "export": " run-p build:11venty"
@@ -22,6 +23,7 @@
     "bootstrap": "^5.3.3",
     "eleventy-plugin-purgecss": "^0.5.0",
     "eleventy-sass": "^3.0.0-beta.0",
+    "netlify-cli": "^19.0.2",
     "npm-run-all": "*",
     "sass": "^1.85.1"
   }
