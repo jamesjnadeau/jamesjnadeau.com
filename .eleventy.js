@@ -6,12 +6,65 @@ import * as sass from "sass";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
 import eleventySass from "eleventy-sass";
 
+import { rollup } from 'rollup';
+import loadConfigFile from 'rollup/loadConfigFile';
+// import rollupConfig from './rollup.config.js'
+
 import path from 'node:path';
 import fs from 'node:fs';
 import url from 'node:url';
 
 let default_title = 'James J Nadeau | Senior Systems Engineer'
 let default_description = ''
+
+async function rollup_build() {
+	// let bundle;
+	// let buildFailed = false;
+	// try {
+	// 	// Create a bundle. If you are using TypeScript or a runtime that
+	// 	// supports it, you can write
+	// 	//
+	// 	await using bundle = await rollup(inputOptions);
+
+    //     // write bundle to output
+	// 	await bundle.generate(outputOptions);
+	// } catch (error) {
+	// 	buildFailed = true;
+	// 	// do some error reporting
+	// 	console.error(error);
+	// }
+	// if (bundle) {
+	// 	// closes the bundle
+	// 	await bundle.close();
+	// }
+	// process.exit(buildFailed ? 1 : 0);
+
+    await loadConfigFile(path.resolve(import.meta.dirname, 'rollup.config.js'), {
+        format: 'es'
+    }).then(async ({ options, warnings }) => {
+        console.log('ROLLUP CONFIG LOADED');
+        // "warnings" wraps the default `onwarn` handler passed by the CLI.
+        // This prints all warnings up to this point:
+        console.log(`We currently have ${warnings.count} warnings`);
+    
+        // This prints all deferred warnings
+        warnings.flush();
+    
+        // options is an array of "inputOptions" objects with an additional
+        // "output" property that contains an array of "outputOptions".
+        // The following will generate all outputs for all inputs, and write
+        // them to disk the same way the CLI does it:
+        for (const optionsObj of options) {
+            const bundle = await rollup(optionsObj);
+            await Promise.all(optionsObj.output.map(bundle.write)).then(async () => {
+                console.log('ROLLUP BUNDLE GENERATED');
+            });
+        }
+    
+        // You can also pass this directly to "rollup.watch"
+        // rollup.watch(options);
+    });
+}
 
 export default async function(eleventyConfig) {
 
@@ -96,21 +149,31 @@ export default async function(eleventyConfig) {
 	// });
 
     // purge-css
-    if (process.env.NODE_ENV === "production") {
-        eleventyConfig.addPlugin(purgeCssPlugin, {
-            // Optional: Specify the location of your PurgeCSS config
-            config:  {
-                // Content files referencing CSS classes
-                content: ["./_site/**/*.html", "./_site/**/*.js"],
+    // if (process.env.NODE_ENV === "production") {
+    //     eleventyConfig.addPlugin(purgeCssPlugin, {
+    //         // Optional: Specify the location of your PurgeCSS config
+    //         config:  {
+    //             // Content files referencing CSS classes
+    //             content: ["./_site/**/*.html", "./_site/**/*.js"],
             
-                // CSS files to be purged in-place
-                css: ["./_site/**/*.css"],
-            },
+    //             // CSS files to be purged in-place
+    //             css: ["./_site/**/*.css"],
+    //         },
 
-            // Optional: Set quiet: true to suppress terminal output
-            quiet: false,
-        });
-    }
+    //         // Optional: Set quiet: true to suppress terminal output
+    //         quiet: false,
+    //     });
+    // }
+
+    // rollup
+    eleventyConfig.on(
+		"eleventy.after",
+		async ({ dir, results, runMode, outputMode }) => {
+			// Run me after the build ends
+            await rollup_build();
+            console.log('ROLLUP COMPLETE -- ROLL OUT');
+		}
+	);
 
     // rss feed
     eleventyConfig.addPlugin(feedPlugin, {
