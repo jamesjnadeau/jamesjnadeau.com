@@ -14,7 +14,7 @@ export default {
     // dir: 'rolled',
     dir: './_site',
     sourcemap: true,
-    format: 'esm',
+    format: 'iife',
     assetFileNames: '[name][extname]',
     // assetFileNames: '[originalFileName]',
   },
