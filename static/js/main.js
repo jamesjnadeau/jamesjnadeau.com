@@ -52,4 +52,8 @@ barba.init({
     }]
 });
 
-console.log('LOADED');
+if(true) {
+    import('../contentTools/editor.js').then(() => {
+        console.log('Content tools loaded');
+    });
+} 

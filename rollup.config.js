@@ -3,6 +3,7 @@ import { copy } from '@web/rollup-plugin-copy';
 // import styles from 'rollup-plugin-styles';
 // import browsersync from 'rollup-plugin-browsersync';
 import nodeResolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import html from '@web/rollup-plugin-html';
 import path from 'path';
 
@@ -35,6 +36,10 @@ export default {
       // minify: prod,
       flattenOutput: false,
       extractAssets: false,
+    }),
+    commonjs({ // see https://stackoverflow.com/a/74126843
+      include: /node_modules/,
+      requireReturnsDefault: 'auto', // <---- this solves default issue
     }),
     // prod && terser({ output: { comments: false }, ecma: 2020, warnings: true, module: true, compress: { unsafe: true, passes: 2 } }),
     // !prod ? browsersync({ server: 'dist' }) : [],

@@ -44,8 +44,8 @@ body
 
   #wrap(data-barba="wrapper")
     #container.container.md-8.animated.fadeInRight(data-barba="container" data-barba-namespace=page.url)
-      .content()
-      | !{content}
+      .content(data-editable data-name="main-content")
+        | !{content}
     
 
 
