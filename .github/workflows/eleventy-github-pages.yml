@@ -37,6 +37,6 @@ jobs:
       # Path of the directory containing the static assets.
       # path: # default is _site/
       # Duration after which artifact will expire in days.
-      retention-days: 5 # optional, default is 1
+      # retention-days: 5 # optional, default is 1
     
     
