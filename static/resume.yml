@@ -1,0 +1,263 @@
+cv:
+  name: "James Nadeau"
+  location: "Weybridge, VT"
+  email: "james.nadeau@gmail.com"
+  phone: "+1-609-999-9995"
+  website: "https://jamesjnadeau.com"
+  social_networks:
+    - network: "GitHub"
+      username: "jamesjnadeau"
+  sections:
+    skills:
+      - label: "Experience"
+        details: "20 years servicing and developing software and data systems, 12 years consulting happy clients. Specializing in securing, upgrading and managing legacy services and systems."
+      - label: "Leadership"
+        details: "Technical and business leader for many teams, some as large as 25 team members. Managing developers and support staff for over 10 years."
+      - label: "Planning"
+        details: "Enterprise Level Data Systems Architecture using Databricks,Plotly, PowerBI and Python/R"
+      - label: "Cloud Ready"
+        details: "Cloud Scale Web Systems and API’s hosted on AWS, Google Cloud, and Azure"
+      - label: "Languages/Frameworks"
+        details: "Python/Spark, Javascript/Node.js, Bash, PHP, SQL, XML, Vue, React, Svelte"
+      - label: "Technologies/Systems"
+        details: "Linux, Docker, MySQL, Postgres, SQL Server, AWS, Azure, Google Cloud, Redis, CI/CD, CRM, ERP, REST, GraphQL"
+    Work Experience:
+      - company: "Vermont Agency of Education"
+        position: "Education Data Administrator/Engineer"
+        date:
+        start_date: "2020-06"
+        end_date: "present"
+        location: "Montpelier, VT"
+        summary: "Lead the agency's data technology initiatives. Led teams ranging from 4 to 25 members over many projects."
+        highlights:
+          - "**Automated countless tasks through python** and scheduled jobs, saving thousands of man hours per year."
+          - "Made support documentation easy to use by creating a public facing knowledge base. Cut email questions and unique identification process time by 50% for the State Longitudinal Data System support group."
+          - "**Created and administrated a Jupyter Hub** environment to manage the IDE and tooling across the division. The system was Integrated with Active Directory and used Kerberos tokens to authenticate."
+          - "**Migrated Jupyter Hub system to Databricks** to comply with security and logging requirements. Migrated Cron based scripts to Databricks Jobs & Pipelines. Created a streaming pipeline to deal with 54 million rows of data that changed nightly."
+          - "**Turned statute into code.** Calculated key elements of education data used to determine state education taxes. Ensured accuracy and quality by creating a data quality system and related dashboards."
+          - "**Worked with 52 local education agencies across 4 different student information system providers** to ensure a smooth transition between data collection systems. Provide support to data quality issues from data managers."
+          - "**Architected systems and services** using docker deployments, Kubernetes and Apache Airflow deployments for Ed-Fi and other tools. "
+      - company: "Competitive Computing (C2)"
+        position: "Software Engineer & Tech Lead"
+        date:
+        start_date: "2018-01"
+        end_date: "2020-06"
+        location: "Colchester, VT"
+        summary: "Worked on various enterprise projects. Create website systems, CI/CD workflows and architecture decisions."
+        highlights:
+          - "Through the use of systems I helped create, 1,389 hours of manual work each year and over 40,000 touch points removed from data processing efforts. **One contract was extended 3 times** due to the client wanting more work fom me and my team."
+          - "Converted legacy Oracle sql procedures to python, **my bill was payed back** in reduced licensing fees, let alone reducing technical debt and risk for my client."
+          - "**Represented clients** technical interests in contract negotiations, training, and stack choices."
+          - "**Mentored other staff** on the use of Python/Node.js and coding best practices."
+      - company: "Clevertech.biz"
+        position: "Senior Developer and Project Manager"
+        date:
+        start_date: "2014"
+        end_date: "2018"
+        location: "New York, New York"
+        summary: "Created applications and websites for clients, advised architecture choices, and helped troubleshoot escalated issues. Created new project boilerplate based on NodeJS, Redis and Docker deploying to Kubernetes."
+        highlights:
+          - "Worked to create version 2.0 of the lookbooks application in use by Getty Image’s artists. I contributed major parts to the upgrade including adding **drag and drop asset management, an HTML5 based uploader**, a migration to a template based front end UI from existing jQuery."
+          - "**Increased the page load speed** client side on several projects. Added external integrations to existing applications."
+          - "Used a **Docker based infrastructure to deploy scalable API’s** and backend processors capable of sending millions of custom generated emails per day. Used event driven architecture to achieve scale and cost savings."
+          - "Implemented a Docker/Jenkins/ESLint based project boilerplate that is now used on all new projects, deployed to Kubernetes via CI/CD. Provided oversight on DevOps operations and escalations."
+          - "Provided technical leadership to various projects ranging from ordering AI driven taxis to using XBOX Kinect peripherals to do package size/volume estimates in near real time for sorting systems."
+      - company: "for MBJ Consulting and Wheelstv.com"
+        position: "Software Contractor"
+        date:
+        start_date: "2013"
+        end_date: "2014"
+        location: "Vergennes, VT"
+        summary: "I went into business for myself and developed custom solutions for my customers."
+        highlights:
+          - "Created video SEO tool that would add pre/post rolls and overlays to a set of car promotion videos, then upload them to youtube/facebook/vimeo through a website/dashboard. Also created an encoding to output various formats."
+          - "Provided Department of Labor form 5500 Data in a consolidated database that allows quick searching and comparison benchmarking."
+          - "Designed and developed 401K portfolio research and creation tool for Verisight Inc. that generated PDF proposals for its customers. Also worked with DOL form 5500 data analysis and conversion to an REST API"
+      - company: "Red Barn Media Group"
+        position: "Senior Developer and Systems Architect"
+        date:
+        start_date: "2011"
+        end_date: "2013"
+        location: "Charlotte, VT"
+        summary: "Lead a team of 3 developers and 1 designer creating apps and services for the HVAC manufacturer and installer industries"
+        highlights:
+          - "**Provided technical consultation and estimates**. Handled any technical escalations that others could not solve."
+          - "Created Apache Cordova and jQuery Mobile based Mobile applications using Camera QR code capture."
+          - "Integrated with external companies and services including: Brainshark, Twillio, SAML, Google Maps, Mailgun"
+          - "Added browser based phone support into our systems with twillio, immediately converting incoming calls to support tickets and allowed support team tracking. Saved countless hours per week"
+          - "Created real time analytics of system health and marketing targets. Implemented Invoicing System that all accounting now goes through."
+          - "Made Custom Drupal Modules and deployment system to bridge gap between desired system functionality and Drupal Core."
+      - company: "National Gardening Association"
+        position: "IT Administrator & Developer"
+        date:
+        start_date: "2007"
+        end_date: "2011"
+        location: "S. Burlington, VT"
+        summary: "garden.org, kidsgardening.org. In charge of all IT related tasks for the organization. Administered Internal Network, Mail Server, External Connections, and Internal VOIP network. Started and promoted Facebook page to 10,000 users within 3 months."
+        highlights:
+          - "Administered many Linux Servers of various flavors and vintage; serving over 5 million web pages per year for internal and external large, demanding clients: Home Depot, Scotts, Subaru, Yum, Growers Supply, FDA, USDA."
+          - "Created a load balanced smtp cluster for the bulk sending of over 2 million email newsletters per month."
+          - "Migrated content and applications over to Drupal based system involving several developers and designers."
+      - company: "RPI Distance Education Department"
+        position: "System Admin & Support Coordinator"
+        date:
+        start_date: "2003"
+        end_date: "2007"
+        location: "Troy, NY"
+        summary: "Helped establish RPI as a leader in distance education. Administered linux and windows based servers. Worked with other departments for infrastructure set up and problems. Answered calls for support line. Helped design and create web pages, taught others to do the same. I had a nice office on campus as a undergrad!"
+        highlights:
+    education:
+      - institution: "Rensselaer Polytechnic Institute"
+        area: "Computer Science and Systems Engineering"
+        degree: "BS"
+        grade:
+        date:
+        start_date: "2002"
+        end_date: "2007"
+        location: "Troy, NY, USA"
+        summary:
+  sort_entries: "chronological"
+design:
+  theme: "engineeringresumes"
+  page:
+    size: "us-letter"
+    top_margin: "2cm"
+    bottom_margin: "2cm"
+    left_margin: "2cm"
+    right_margin: "2cm"
+    show_page_numbering: false
+    show_last_updated_date: true
+  colors:
+    text: "rgb(0, 0, 0)"
+    name: "rgb(0, 0, 0)"
+    connections: "rgb(0, 0, 0)"
+    section_titles: "rgb(0, 0, 0)"
+    links: "rgb(0, 0, 0)"
+    last_updated_date_and_page_numbering: "rgb(128, 128, 128)"
+  text:
+    font_family: "XCharter"
+    font_size: "10pt"
+    leading: "0.6em"
+    alignment: "justified"
+    date_and_location_column_alignment: "right"
+  links:
+    underline: true
+    use_external_link_icon: false
+  header:
+    name_font_family: "XCharter"
+    name_font_size: "25pt"
+    name_bold: false
+    small_caps_for_name: false
+    photo_width: "3.5cm"
+    vertical_space_between_name_and_connections: "0.7cm"
+    vertical_space_between_connections_and_first_section: "0.7cm"
+    horizontal_space_between_connections: "0.5cm"
+    connections_font_family: "XCharter"
+    separator_between_connections: "|"
+    use_icons_for_connections: false
+    use_urls_as_placeholders_for_connections: true
+    make_connections_links: true
+    alignment: "center"
+  section_titles:
+    type: "with-full-line"
+    font_family: "XCharter"
+    font_size: "1.2em"
+    bold: true
+    small_caps: false
+    line_thickness: "0.5pt"
+    vertical_space_above: "0.55cm"
+    vertical_space_below: "0.3cm"
+  entries:
+    date_and_location_width: "4.15cm"
+    left_and_right_margin: "0cm"
+    horizontal_space_between_columns: "0.1cm"
+    vertical_space_between_entries: "0.4cm"
+    allow_page_break_in_sections: true
+    allow_page_break_in_entries: true
+    short_second_row: false
+    show_time_spans_in: []
+  highlights:
+    bullet: "•"
+    nested_bullet: "-"
+    top_margin: "0.25cm"
+    left_margin: "0cm"
+    vertical_space_between_highlights: "0.19cm"
+    horizontal_space_between_bullet_and_highlight: "0.3em"
+    summary_left_margin: "0cm"
+  entry_types:
+    one_line_entry:
+      template: "**LABEL:** DETAILS"
+    education_entry:
+      main_column_first_row_template: "**INSTITUTION**, DEGREE in AREA -- LOCATION"
+      degree_column_template:
+      degree_column_width: "1cm"
+      main_column_second_row_template: |-
+        SUMMARY
+        HIGHLIGHTS
+      date_and_location_column_template: "DATE"
+    normal_entry:
+      main_column_first_row_template: "**NAME** -- **LOCATION**"
+      main_column_second_row_template: |-
+        SUMMARY
+        HIGHLIGHTS
+      date_and_location_column_template: "DATE"
+    experience_entry:
+      main_column_first_row_template: "**POSITION**, COMPANY -- LOCATION"
+      main_column_second_row_template: |-
+        SUMMARY
+        HIGHLIGHTS
+      date_and_location_column_template: "DATE"
+    publication_entry:
+      main_column_first_row_template: "**TITLE**"
+      main_column_second_row_template: |-
+        AUTHORS
+        URL (JOURNAL)
+      main_column_second_row_without_journal_template: |-
+        AUTHORS
+        URL
+      main_column_second_row_without_url_template: |-
+        AUTHORS
+        JOURNAL
+      date_and_location_column_template: "DATE"
+locale:
+  language: "en"
+  phone_number_format: "national"
+  page_numbering_template: "NAME - Page PAGE_NUMBER of TOTAL_PAGES"
+  last_updated_date_template: "Last updated in TODAY"
+  date_template: "MONTH_ABBREVIATION YEAR"
+  month: "month"
+  months: "months"
+  year: "year"
+  years: "years"
+  present: "present"
+  to: "–"
+  abbreviations_for_months:
+    - "Jan"
+    - "Feb"
+    - "Mar"
+    - "Apr"
+    - "May"
+    - "June"
+    - "July"
+    - "Aug"
+    - "Sept"
+    - "Oct"
+    - "Nov"
+    - "Dec"
+  full_names_of_months:
+    - "January"
+    - "February"
+    - "March"
+    - "April"
+    - "May"
+    - "June"
+    - "July"
+    - "August"
+    - "September"
+    - "October"
+    - "November"
+    - "December"
+rendercv_settings:
+  date: "2025-10-28"
+  bold_keywords: []
+  sort_entries: "none"
