@@ -29,12 +29,14 @@ jobs:
 
     - name: Upload Github Pages Artifact
       uses: actions/upload-pages-artifact@v4.0.0
+      with:
+          path: _site/
       # Artifact name
       # name: # optional, default is github-pages
       # Path of the directory containing the static assets.
       # path: # default is _site/
       # Duration after which artifact will expire in days.
-      # retention-days: 5 # optional, default is 1
+          retention-days: 5 # optional, default is 1
     
    # Deploy job
   deploy:
