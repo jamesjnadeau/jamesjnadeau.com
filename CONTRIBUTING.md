@@ -1,6 +1,10 @@
 ## What should I know before committing code
 
-### Project specific setup/requirements to be aware of
+### Setup
+
+Node 24 (`nvm use`), then `npm ci`. See [README.md](README.md) for the content
+authoring rules — the test suite enforces them, so it's worth reading before you
+add a post.
 
 ### Reporting Bugs
 > Please use the projects github Issues to report bugs.
@@ -19,17 +23,45 @@
 `npm run test:lighthouse` runs separately — it's slower and its performance
 numbers vary with machine load, so it isn't part of `npm test`.
 
-CI runs all of the above and will not deploy unless they pass.
+CI runs all of the above and will not deploy unless they pass. Pull requests are
+built and tested but never published.
 
-Two checks carry a documented backlog rather than failing outright:
+#### Common failures
+
+| Message | Cause |
+| --- | --- |
+| `Data cascade value for 'date' is invalid` | A `date:` that isn't ISO 8601 — usually `MM/DD/YYYY`. |
+| `"Date" should be "date"` | Capitalised front matter key. Eleventy ignores it silently; only the test catches it. |
+| `descriptions are not copy-pasted across pages` | Two pages share a `description:`. Write a distinct one rather than deleting the field. |
+| `incomplete explicit mapping pair` | A YAML value containing `: ` — quote the whole description. |
+| `front-end JS is self-hosted` | A `<script src="https://...">` crept in. Vendor the library through `addPassthroughCopy` in `.eleventy.js` instead. |
+| `RSS order diverges from the /til/ index order` | The feed and the index disagree, usually from a hand-rolled sort. Both should read `date:`. |
+
+#### Deliberate exceptions
+
+Some checks carry a documented backlog rather than failing outright. Each waiver
+names its reason; shrink these lists, don't grow them.
 
 - `.htmlvalidate.decks.json` downgrades several rules for `content/presentations/`.
   The impress.js decks have markup issues (emoji-derived heading ids, lists nested
-  under headings) that predate this suite. Promote rules back to `error` as decks
-  get cleaned up; don't add new entries.
+  under headings) that predate this suite. Content pages stay strict — promote
+  rules back to `error` as decks get cleaned up.
 - `test/a11y/axe.test.js` waives `meta-viewport` for decks, because impress.js
-  rewrites the viewport at runtime. Lighthouse waives deck `color-contrast` for
-  the same structural reason: inactive steps sit at `opacity: .05` by design.
+  rewrites the viewport at runtime.
+- `lighthouserc.cjs` drops decks to a warning for accessibility, because inactive
+  impress.js steps sit at `opacity: .05` by design and Lighthouse reads that as
+  unreadable text.
+- Lighthouse performance, SEO, and best-practices are warnings everywhere. Runner
+  CPU contention swings those scores enough that gating on them produces random
+  red builds.
+- `_site/graph/`, `_site/impress/`, `_site/ski-free/`, and `_site/wind/` are
+  third-party pages copied verbatim from `static/` and aren't validated.
+
+#### Adding a check
+
+Content invariants that a generic validator can't know belong in
+`test/content/`. `frontmatter.test.js` reads `content/` directly and needs no
+build; `output.test.js` asserts against `_site/` and requires one.
 
 ## Styleguides
 

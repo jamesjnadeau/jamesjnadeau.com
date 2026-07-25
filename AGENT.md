@@ -21,6 +21,12 @@ npm run test:lighthouse   # separate: slower, load-sensitive
 
 `npm run build` cleans `_site/` first — Eleventy does not remove stale output on
 its own, and leftover files from a previous build will fail the output tests.
+If you see a test blaming a file you already deleted, you have a dirty `_site/`.
+
+The a11y and Lighthouse checks need a headless Chrome. Puppeteer downloads one on
+`npm ci`; `npx puppeteer browsers install chrome` fixes it if install scripts were
+blocked. `scripts/lighthouse.mjs` resolves that browser for Lighthouse CI, which
+otherwise only looks for a system Chrome — don't call `lhci` directly.
 
 ## Layout
 
@@ -34,7 +40,10 @@ its own, and leftover files from a previous build will fail the output tests.
 | [content/reference/](content/reference/) | Reference pages |
 | [content/styles/](content/styles/) | Sass; `main.scss` and `impressjs.scss` are the entry points |
 | [static/](static/) | Passthrough-copied to site root |
-| [test/](test/) | Test suite (`node:test`) |
+| `test/content/` | Source + built-output invariants (`node:test`, no browser) |
+| `test/a11y/` | axe-core scan; needs a server, driven by `test:a11y` |
+| `test/urls.json` | The ~10 representative URLs a11y and Lighthouse both scan |
+| `scripts/` | Build/test helpers |
 | `_site/` | Build output — gitignored, never edit or commit |
 
 ## Conventions
@@ -45,6 +54,8 @@ its own, and leftover files from a previous build will fail the output tests.
   capitalised key silently does nothing and `test:content` will fail. Dates must
   be ISO 8601; Eleventy parses them with Luxon and a `MM/DD/YYYY` value **fails
   the build**.
+- **`description:` must be unique per page** and is asserted against placeholder
+  text. Quote any value containing `: ` or YAML parsing breaks.
 - **Sass partials must be `_`-prefixed** or eleventy-sass compiles them into
   standalone orphan CSS files.
 - **Front-end JS is vendored from `node_modules`** via passthrough copy in
@@ -63,18 +74,27 @@ its own, and leftover files from a previous build will fail the output tests.
   deliberate. Add a `permalink:` if you must rename.
 - `content/til/index.pug` sets `eleventyExcludeFromCollections: [TIL]` so it stays
   out of its own RSS feed. Don't remove it.
-- Two checks carry a documented backlog: `.htmlvalidate.decks.json` relaxes rules
-  for the presentation decks, and `test/a11y/axe.test.js` waives `meta-viewport`
-  there. Both list reasons — shrink these, don't grow them.
-- `static/files/` holds ~40MB of assets, some unreferenced but still published.
-  See the note below before deleting anything there.
+- **The presentation decks are held to a lower bar on purpose.**
+  `.htmlvalidate.decks.json` relaxes markup rules there, `test/a11y/axe.test.js`
+  waives `meta-viewport`, and `lighthouserc.cjs` drops decks to an accessibility
+  warning. Content pages stay strict. Every waiver states its reason — shrink
+  these lists, don't grow them, and don't extend a deck waiver to content pages.
+- `static/files/` holds ~15MB of assets, a number of them unreferenced but still
+  published. Being unlinked is not the same as being private — everything under
+  `static/` is fetchable by path. Check before adding anything sensitive.
+- Adding a page to `test/urls.json` costs a Lighthouse run and an axe run. Ten
+  URLs covering both layouts is the intent, not full coverage — the pages are
+  template-generated, so breadth buys little.
 
 ## Unresolved
 
-`static/files/clevertech_stinks/` (25MB) and `static/files/wheelstv/` (2.9MB) are
-linked from nowhere but deployed publicly. The former contains invoices and a
-work-for-hire agreement. This is flagged for the owner's decision — do not delete
-or unpublish without asking.
+`static/files/clevertech_stinks/` (invoices and a work-for-hire agreement) was
+removed from the working tree, but **it is still in git history** and therefore
+still recoverable from any clone. Purging it needs a history rewrite
+(`git filter-repo`) and a force-push, which has not been done.
+
+`static/files/wheelstv/` (2.9MB of video) is also unreferenced but still
+published. Left in place — flagged, not decided.
 
 ## Deployment
 

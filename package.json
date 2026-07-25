@@ -21,7 +21,7 @@
     "test:links:external": "linkinator _site --recurse --silent --retry --timeout 10000",
     "test:a11y": "start-server-and-test serve:site http://127.0.0.1:8080 test:a11y:run",
     "test:a11y:run": "node --test \"test/a11y/*.test.js\"",
-    "test:lighthouse": "lhci autorun",
+    "test:lighthouse": "node scripts/lighthouse.mjs",
     "test:all": "npm run test && npm run test:lighthouse",
     "clean": "rm -rf _site",
     "test:html:pages": "html-validate \"_site/*.html\" \"_site/til/**/*.html\" \"_site/projects/**/*.html\" \"_site/reference/**/*.html\"",
