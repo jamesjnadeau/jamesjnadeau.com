@@ -4,8 +4,12 @@
   # been specified, include it in the publish directory path.
   publish = "_site"
 
-  # Default build command.
-  command = "npm install  && npm run export"
+  # Default build command. `--omit=dev` skips the test toolchain (Puppeteer,
+  # Lighthouse, netlify-cli), none of which the build itself needs.
+  command = "npm ci --omit=dev && npm run export"
+
+[build.environment]
+  PUPPETEER_SKIP_DOWNLOAD = "1"
 
   # Functions
   # functions = "functions"

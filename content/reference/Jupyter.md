@@ -1,8 +1,8 @@
 ---
 title: Jupyter Notes
-description: This description will go in the meta description tag
+description: "Jupyter notes: Lab keyboard shortcuts and things worth remembering."
 
-Date: 04/13/2020
+date: 2020-04-13
 ---
 # Jupyter
 

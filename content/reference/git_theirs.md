@@ -1,7 +1,7 @@
 ---
 title: Git Rebase theirs
-description: Git flow quick reference
-Date: 10/21/2018
+description: Which side 'theirs' actually refers to during a git rebase, and how to resolve it.
+date: 2018-10-21
 ---
 
 # Git Rebase Theirs

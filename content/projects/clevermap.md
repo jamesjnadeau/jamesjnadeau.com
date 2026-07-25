@@ -1,6 +1,6 @@
 --- 
 title: CleverMap 
-description: My modifications to Clevertech's interviewing tool 
+description: "CleverMap: a mapping and territory visualization tool built at Clevertech."
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Git flow
 description: Git flow quick reference
-Date: 01/01/2014
+date: 2014-01-01
 ---
 
 #Quick Reference

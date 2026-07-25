@@ -1,6 +1,6 @@
 ---
 title: FFMpeg Crawler
-description: Main website for the National Gardening Association
+description: A file crawler, logger, and video transcoding pipeline built on ffmpeg for WheelsTV.
 ---
 
 # File Crawler, Logging, and Transcoding

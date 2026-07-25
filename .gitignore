@@ -1,4 +1,3 @@
-built
 _site
 .settings
 *.log
@@ -8,13 +7,9 @@ cache*
 old
 
 /node_modules/
-/src/node_modules/@sapper/
-yarn-error.log
-/cypress/screenshots/
-/__sapper__/
-static/admin/cms-built.js
-static/admin/cms-built.js.*
-static/styles/built
 
 # Local Netlify folder
 .netlify
+
+# Lighthouse CI output
+.lighthouseci/

@@ -7,34 +7,34 @@ h1.text-center Reference
 .card
   // Nav tabs
   ul.nav.nav-tabs(role='tablist')
-    li.nav-item
-      button.nav-link(role='tab' data-bs-toggle="tab" data-bs-target="#quotes" type="button" )
+    li.nav-item(role='presentation')
+      button#quotes-tab.nav-link.active(role='tab' data-bs-toggle="tab" data-bs-target="#quotes" type="button" aria-controls='quotes' aria-selected='true')
         | quotes
-    li.nav-item
-      button.nav-link(role='tab' data-bs-toggle="tab" data-bs-target="#js" type="button")
+    li.nav-item(role='presentation')
+      button#js-tab.nav-link(role='tab' data-bs-toggle="tab" data-bs-target="#js" type="button" aria-controls='js' aria-selected='false')
         | JS
-    li.nav-item
-      button.nav-link(role='tab' data-bs-toggle="tab" data-bs-target="#git" type="button")
+    li.nav-item(role='presentation')
+      button#git-tab.nav-link(role='tab' data-bs-toggle="tab" data-bs-target="#git" type="button" aria-controls='git' aria-selected='false')
         | Git
-    li.nav-item
-      button.nav-link(role='tab' data-bs-toggle="tab" data-bs-target="#shell" type="button")
+    li.nav-item(role='presentation')
+      button#shell-tab.nav-link(role='tab' data-bs-toggle="tab" data-bs-target="#shell" type="button" aria-controls='shell' aria-selected='false')
         | Shell
-    li.nav-item
-      button.nav-link(role='tab' data-bs-toggle="tab" data-bs-target="#php" type="button")
+    li.nav-item(role='presentation')
+      button#php-tab.nav-link(role='tab' data-bs-toggle="tab" data-bs-target="#php" type="button" aria-controls='php' aria-selected='false')
         | PHP
-    li.nav-item
-      button.nav-link(role='tab' data-bs-toggle="tab" data-bs-target="#misc" type="button")
+    li.nav-item(role='presentation')
+      button#misc-tab.nav-link(role='tab' data-bs-toggle="tab" data-bs-target="#misc" type="button" aria-controls='misc' aria-selected='false')
         | Misc
-    i.nav-item
+    li.nav-item(role='presentation')
       a.nav-link(href='/reference/windows') Windows
-    i.nav-item
+    li.nav-item(role='presentation')
       a.nav-link(href='/reference/Jupyter') Jupyter
-    i.nav-item
+    li.nav-item(role='presentation')
       a.nav-link(href='/presentations') Slides
   // Tab panes
   .tab-content.bg-light.py-3
-    #js.tab-pane
-      ul.list-group.m-3
+    #js.tab-pane(role='tabpanel' aria-labelledby='js-tab' tabindex='0')
+      div.list-group.m-3
         a.list-group-item(href='/reference/js_backtrace')
           | Backtrace
         a.list-group-item(href='/reference/js_callback')
@@ -44,10 +44,10 @@ h1.text-center Reference
         a.list-group-item(href='/reference/js_Angular') Angular
         a.list-group-item(href='/reference/jqm_google_analytics')
           | jQuery Mobile Google Analytics
-    #git.tab-pane
+    #git.tab-pane(role='tabpanel' aria-labelledby='git-tab' tabindex='0')
       p.m-3.p-3
         code git config pull.rebase true
-      ul.list-group.m-3
+      div.list-group.m-3
         a.list-group-item(href='/reference/git_flow') Flow
         a.list-group-item(href='/reference/git_autocomplete')
           | Autocomplete
@@ -55,8 +55,8 @@ h1.text-center Reference
           | Local .gitignore
         a.list-group-item(href='/reference/git_theirs')
           | Rebase Theirs
-    #shell.tab-pane
-      ul.list-group.m-3
+    #shell.tab-pane(role='tabpanel' aria-labelledby='shell-tab' tabindex='0')
+      div.list-group.m-3
         a.list-group-item(href='/reference/ssh_tunnel')
           | SSH Tunneling
         a.list-group-item(href='/reference/bash_profile')
@@ -66,14 +66,12 @@ h1.text-center Reference
         a.list-group-item(href='/reference/yum_history')
           | Yum History/Undo
         a.list-group-item(href='/reference/svn_add') SVN Add
-    #php.tab-pane
-      ul.list-group.m-3
-        li.list-group-item
-          a(href='/reference/php_backtrace') Backtrace
-        li.list-group-item
-          a(href='/reference/php_cake_query_log') CakePHP 1.2 query log
-    #misc.tab-pane
-      ul.list-group.m-3
+    #php.tab-pane(role='tabpanel' aria-labelledby='php-tab' tabindex='0')
+      div.list-group.m-3
+        a.list-group-item(href='/reference/php_backtrace') Backtrace
+        a.list-group-item(href='/reference/php_cake_query_log') CakePHP 1.2 query log
+    #misc.tab-pane(role='tabpanel' aria-labelledby='misc-tab' tabindex='0')
+      div.list-group.m-3
         a.list-group-item(href='/reference/letsencrypt')
           | Lets Encrypt
         a.list-group-item(href='/reference/stock_photos')
@@ -92,7 +90,7 @@ h1.text-center Reference
           | Gource defaults
         a.list-group-item(href='/reference/convert-video-to-png')
           | Convert Video to png
-    #quotes.tab-pane.active
+    #quotes.tab-pane.active(role='tabpanel' aria-labelledby='quotes-tab' tabindex='0')
       .row.justify-content-center
         .card.col-md-5.m-3.p-3
           h4 Story Starter

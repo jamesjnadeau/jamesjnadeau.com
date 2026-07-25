@@ -1,7 +1,7 @@
 ---
 title: Evoluent Mouse config for Linux
-description: This description will go in the meta description tag
-Date: 01/01/2014
+description: Xorg configuration for getting an Evoluent vertical mouse working on Linux.
+date: 2014-01-01
 ---
 
 ## Evoluent Mouse config for Linux

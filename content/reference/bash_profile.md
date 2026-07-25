@@ -1,12 +1,16 @@
 ---
 title: Bash Profile
-description: This description will go in the meta description tag
+description: The .bashrc I normally start from, with aliases and prompt setup.
 
-Date: 01/01/2014
+date: 2014-01-01
 ---
 
 <p>Here's the contents of my bashrc file I normally use:</p>
-<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag" title=".baschrc">
+
+`.bashrc`
+
+```bash
+
 # .bashrc
 
 # Source global definitions
@@ -112,14 +116,21 @@ alias website_images='wget -r -l1 --no-parent -nH -nd -P/tmp -A".gif,.jpg" "$1"'
 "\e[B": history-search-forward
 set show-all-if-ambiguous on
 set completion-ignore-case on
-</pre>
+```
+
 
 <p>Found this recently and it's proven much more functional then the normal ^r I was using before.</p>
 <p><a href="https://coderwall.com/p/oqtj8w">https://coderwall.com/p/oqtj8w</a></p>
 
-<pre class="brush: bash; auto-links: true; collapse: false; first-line: 1; html-script: false; smart-tabs: true; tab-size: 4; toolbar: true; codetag" title=".inputrc">#from: https://coderwall.com/p/oqtj8w
+
+`.inputrc`
+
+```bash
+#from: https://coderwall.com/p/oqtj8w
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 set show-all-if-ambiguous on
-set completion-ignore-case on<font face="Lucida Grande, Lucida Sans Unicode, sans-serif"><span style="font-size: 11px; line-height: 16.25px; white-space: normal;">
-</span></font></pre>
+set completion-ignore-case on
+```
+
+

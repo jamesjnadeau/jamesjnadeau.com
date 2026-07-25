@@ -1,30 +1,53 @@
 {
   "name": "jamesjnadeau.com",
-  "description": "TODO",
+  "description": "Personal website of James J Nadeau, built with Eleventy.",
   "type": "module",
   "version": "0.0.1",
   "license": "WTFPL",
   "engines": {
-    "node": ">=22.x"
+    "node": ">=24"
   },
   "scripts": {
-    "dev": " run-p dev:*",
-    "dev:11venty": "npx --node-options='--experimental-require-module' @11ty/eleventy --config .eleventy.js --serve",
-    "dev-netlify": "npx netlify-cli dev",
-    "build": "NODE_ENV=production run-p build:*",
-    "build:11venty": "npx --node-options='--experimental-require-module' @11ty/eleventy --config .eleventy.js",
-    "export": " run-p build:11venty"
+    "dev": "eleventy --config .eleventy.js --serve",
+    "dev-netlify": "netlify dev",
+    "build": "NODE_ENV=production npm run clean && NODE_ENV=production eleventy --config .eleventy.js",
+    "export": "npm run build",
+    "serve:site": "http-server _site -p 8080 --silent",
+    "lint": "npm run test:html",
+    "test": "npm run build && npm run test:content && npm run test:html && npm run test:links && npm run test:a11y",
+    "test:content": "node --test \"test/content/*.test.js\"",
+    "test:html": "npm run test:html:pages && npm run test:html:decks",
+    "test:links": "linkinator _site --recurse --silent --skip \"^https?://(?!(localhost|127\\.0\\.0\\.1))\"",
+    "test:links:external": "linkinator _site --recurse --silent --retry --timeout 10000",
+    "test:a11y": "start-server-and-test serve:site http://127.0.0.1:8080 test:a11y:run",
+    "test:a11y:run": "node --test \"test/a11y/*.test.js\"",
+    "test:lighthouse": "node scripts/lighthouse.mjs",
+    "test:all": "npm run test && npm run test:lighthouse",
+    "clean": "rm -rf _site",
+    "test:html:pages": "html-validate \"_site/*.html\" \"_site/til/**/*.html\" \"_site/projects/**/*.html\" \"_site/reference/**/*.html\"",
+    "test:html:decks": "html-validate --config .htmlvalidate.decks.json \"_site/presentations/**/*.html\""
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-pug": "^1.0.0",
     "@11ty/eleventy-plugin-rss": "^2.0.3",
+    "@barba/core": "^2.10.3",
     "bootstrap": "^5.3.3",
     "eleventy-plugin-purgecss": "^0.5.0",
     "eleventy-sass": "^3.0.0-beta.0",
-    "netlify-cli": "^19.0.2",
-    "npm-run-all": "*",
+    "headroom.js": "^0.12.0",
     "sass": "^1.85.1"
+  },
+  "devDependencies": {
+    "@axe-core/puppeteer": "^4.12.1",
+    "@lhci/cli": "^0.15.1",
+    "gray-matter": "^4.0.3",
+    "html-validate": "^11.5.6",
+    "http-server": "^14.1.1",
+    "linkinator": "^8.0.2",
+    "netlify-cli": "^27.0.0",
+    "puppeteer": "^25.3.0",
+    "start-server-and-test": "^3.0.11"
   }
 }

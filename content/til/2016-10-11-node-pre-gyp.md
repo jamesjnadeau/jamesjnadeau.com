@@ -1,7 +1,7 @@
 ---
 title: Forcing a build with node-pre-gyp
 description: Getting musl libc to force compilation in node sub-modules
-Date: 2016-10-11
+date: 2016-10-11
 ---
 
 # TIL: about node-pre-gyp

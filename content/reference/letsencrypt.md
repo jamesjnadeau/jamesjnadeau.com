@@ -1,7 +1,7 @@
 ---
 title: Let's Encrypt quick push to google app engine
-description: defaults I use for gource
-Date: 03/14/2015
+description: Quick steps for issuing a Let's Encrypt cert and pushing it to Google App Engine.
+date: 2015-03-14
 ---
 
 Quick steps to get a ssl cert and key from let's encrypt

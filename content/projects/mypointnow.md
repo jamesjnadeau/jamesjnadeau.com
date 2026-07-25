@@ -1,6 +1,6 @@
 ---
 title: Mypointnow
-description: This description will go in the meta description tag
+description: Cross-platform mobile applications for MyPoint Systems built with Cordova.
 ---
 
 # Cross Platfrom Mobile Applications Using Cordova

@@ -1,7 +1,7 @@
 ---
 title: Gnome3 Monitor Config
-description: This description will go in the meta description tag
-Date: 01/01/2014
+description: Using xrandr to set the primary monitor under Gnome 3 with an external display.
+date: 2014-01-01
 ---
 
 <p>

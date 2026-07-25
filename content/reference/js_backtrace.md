@@ -1,7 +1,7 @@
 ---
-title: Debouncing Javascript
-description: This description will go in the meta description tag
-Date: 10/05/2014
+title: JavaScript Backtrace
+description: Getting a readable JavaScript stack trace from the browser console.
+date: 2014-10-05
 ---
 
 ##backtrace

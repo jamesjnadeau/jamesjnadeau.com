@@ -1,7 +1,7 @@
 ---
 title: CakePHP 1.2 Last Query 
 description: Used this for lookbooks a lot
-Date: 3/3/2015
+date: 2015-03-03
 ---
 
 

@@ -1,13 +1,13 @@
 ---
 title: Speak and Spell with Angular.js
-description: This description will go in the meta description tag
+description: A browser-based recreation of the classic Speak & Spell, written in Angular.js.
 ---
 
 # Browser Based Speak and Spell
 
 <div>
 	<a href="http://speakandspell.jamesjnadeau.com">
-		<img class="img-fluid img-rounded" style="" src="/files/speak_and_spell.jpg" />
+		<img class="img-fluid img-rounded" src="/files/speak_and_spell.jpg" alt="Screenshot of the browser-based Speak and Spell" />
 	</a>
 </div>
 

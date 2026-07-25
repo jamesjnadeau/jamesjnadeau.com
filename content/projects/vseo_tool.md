@@ -1,6 +1,6 @@
 ---
 title: VSEO Tool
-description: Main website for the National Gardening Association
+description: A video SEO tool built for WheelsTV to generate syndication metadata.
 ---
 
 #WheelsTV VSEO tool

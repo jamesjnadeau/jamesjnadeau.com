@@ -1,7 +1,7 @@
 ---
 title: Angular Notes
-description: This description will go in the meta description tag
-Date: 05/05/2014
+description: Angular.js debugging notes, including inspecting scope from the browser console.
+date: 2014-05-05
 ---
 
 ##Inspect Scope

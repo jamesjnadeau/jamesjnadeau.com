@@ -1,6 +1,6 @@
 ---
 title: Lookbooks 
-description: My modifications to Clevertech's interviewing tool 
+description: "Lookbooks: a CRM and account management platform for the fashion and talent industry."
 ---
 
 

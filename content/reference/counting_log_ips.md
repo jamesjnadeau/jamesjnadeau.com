@@ -1,7 +1,7 @@
 ---
 title: Counting IP's in Logs
-description: This description will go in the meta description tag
-Date: 01/01/2014
+description: A one-liner for counting IP addresses in gzipped Apache log files.
+date: 2014-01-01
 ---
 
 How to count ip addresses in apache log files:

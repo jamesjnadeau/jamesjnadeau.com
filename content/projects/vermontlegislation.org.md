@@ -1,6 +1,6 @@
 ---
 title: Vermont Legislation App for HackVT 2013
-description: This description will go in the meta description tag
+description: A HackVT 2013 app for browsing bills and votes from the Vermont legislature.
 ---
 
 # Vermont Legislation App for HackVT 2013
