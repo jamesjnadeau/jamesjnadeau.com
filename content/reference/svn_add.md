@@ -1,7 +1,7 @@
 ---
-Title: SVN add
-description: This description will go in the meta description tag
-Date: 01/01/2014
+title: SVN add
+description: A recursive svn add that handles the files other people's commits leave behind.
+date: 2014-01-01
 ---
 
 ## Ultimate SVN add

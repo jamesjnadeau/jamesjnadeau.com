@@ -1,6 +1,6 @@
 ---
 title: KidsGardening.org
-description: Main website for the National Gardening Association
+description: KidsGardening.org — youth gardening programs and curriculum for the National Gardening Association.
 ---
 
 # CMS System For Non-Profit Education Site

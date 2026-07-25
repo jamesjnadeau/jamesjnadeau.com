@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "extends": ["./.htmlvalidate.json"],
+  "rules": {
+    "valid-id": "warn",
+    "no-raw-characters": "warn",
+    "element-permitted-content": "warn",
+    "element-permitted-parent": "warn",
+    "no-dup-id": "warn",
+    "wcag/h30": "warn",
+    "unrecognized-char-ref": "warn",
+    "parser-error": "warn"
+  }
+}

@@ -1,6 +1,6 @@
 ---
 title: SimpleSAML PHP
-description: This description will go in the meta description tag
+description: Single sign-on across several client sites using SimpleSAMLphp.
 ---
 
 #Single Sign on with SAML

@@ -1,8 +1,8 @@
 ---
 title: Asus Laptop Notes
-description: This description will go in the meta description tag
+description: Notes on running Linux on an Asus S500CA VivoBook Touch, including audio and ethernet fixes.
 
-Date: 01/01/2014
+date: 2014-01-01
 ---
 
 <div>
@@ -26,7 +26,7 @@ Needed to change the primary monitor on my laptop when using an external monitor
 
 ## Headphone ## 
 
-Probably Related to my <a href="/reference/asus-laptop-ethernet-fix">Ethernet Trouble</a>, 
+Probably related to my ethernet trouble (below),
 the headphone jack on my new laptop mysteriously stopped working.
 
 Running the following, along with a shutdown/startup cycle fixed the issue. 

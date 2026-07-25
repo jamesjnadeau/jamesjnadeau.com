@@ -11,7 +11,7 @@ import fs from 'node:fs';
 import url from 'node:url';
 
 let default_title = 'James J Nadeau | Senior Systems Engineer'
-let default_description = ''
+let default_description = 'Personal site of James J Nadeau, Senior Systems Engineer — projects, notes, and presentations.'
 
 export default async function(eleventyConfig) {
 
@@ -50,6 +50,14 @@ export default async function(eleventyConfig) {
     // Directory Passthroughs
     // Copy `static/` to `_site/subfolder/img`
 	eleventyConfig.addPassthroughCopy({ static: "/" });
+
+    // Vendor front-end JS from node_modules instead of a CDN, so the built site
+    // is self-contained and reproducible (and Bootstrap's JS matches its Sass).
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js": "js/bootstrap.bundle.min.js",
+        "node_modules/headroom.js/dist/headroom.min.js": "js/headroom.min.js",
+        "node_modules/@barba/core/dist/barba.umd.js": "js/barba.umd.js",
+    });
 
     // add sass config, see https://www.11ty.dev/docs/languages/custom/#example-add-sass-support-to-eleventy
     eleventyConfig.addTemplateFormats("scss");
@@ -132,6 +140,12 @@ export default async function(eleventyConfig) {
 		}
 	});
 
-    // console.log(eleventyConfig)
+    // Code blocks scroll horizontally, which makes them a scrollable region.
+    // Those need to be keyboard-focusable or the content is unreachable without
+    // a mouse (axe: scrollable-region-focusable).
+    eleventyConfig.addTransform("focusableCodeBlocks", function (content) {
+        if (!this.page.outputPath?.endsWith(".html")) return content;
+        return content.replace(/<pre(?![^>]*\btabindex=)/g, '<pre tabindex="0"');
+    });
 };
 

@@ -1,7 +1,7 @@
 ---
 title: PHP backtrace
 description: An easy way to get what called this particular funciton.
-Date: 10/29/2014
+date: 2014-10-29
 ---
 
 #Get PHP Calling Funciton

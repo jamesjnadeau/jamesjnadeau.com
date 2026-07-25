@@ -1,7 +1,7 @@
 ---
 title: Feynman Technique
-description: The facts on why facts alone can’t fight false beliefs
-Date: 2017-05-14
+description: Learn anything in four steps by explaining it simply — the Feynman technique.
+date: 2017-05-14
 ---
 
 # Feynman Technique

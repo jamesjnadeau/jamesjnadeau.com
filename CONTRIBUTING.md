@@ -6,13 +6,34 @@
 > Please use the projects github Issues to report bugs.
 
 ### Testing
-> See `npm run test` for how tests are started. This command must return without error
-> for Continuous Integration(CI) to pass your work as acceptable. This command is run as part of
-> `npm run build`.
+
+`npm test` builds the site and then runs, in order:
+
+| Check | Catches |
+| --- | --- |
+| `test:content` | Front matter problems (bad dates, placeholder or duplicated descriptions) and built-output regressions (missing `<html lang>`, "Invalid Date", RSS/index order drift) |
+| `test:html` | Invalid markup |
+| `test:links` | Internal 404s |
+| `test:a11y` | axe-core WCAG 2 A/AA violations |
+
+`npm run test:lighthouse` runs separately — it's slower and its performance
+numbers vary with machine load, so it isn't part of `npm test`.
+
+CI runs all of the above and will not deploy unless they pass.
+
+Two checks carry a documented backlog rather than failing outright:
+
+- `.htmlvalidate.decks.json` downgrades several rules for `content/presentations/`.
+  The impress.js decks have markup issues (emoji-derived heading ids, lists nested
+  under headings) that predate this suite. Promote rules back to `error` as decks
+  get cleaned up; don't add new entries.
+- `test/a11y/axe.test.js` waives `meta-viewport` for decks, because impress.js
+  rewrites the viewport at runtime. Lighthouse waives deck `color-contrast` for
+  the same structural reason: inactive steps sit at `opacity: .05` by design.
 
 ## Styleguides
 
-### Git Commit Messagesu
+### Git Commit Messages
 * Add/Allow pre-commit hooks that run `npm run build` to ensure your commits clean and ready before getting into the repo
 * Use the present tense ("Add feature" not "Added feature")
 * Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
@@ -45,6 +66,3 @@
     * 📈 :chart_with_upwards_trend: `:chart_with_upwards_trend:` Doing config changes for dev/production when pushing things live.
     * :squirrel: `:squirrel:` Ship It - when moving code from development to staging/production
     * Others... be creative! :chart_with_upwards_trend: :bicyclist: :house_with_garden:
-## Tests/Specs
-
-There is some selenium/webdriver.io based specs that were started, but I could not get them to run on the jenkins build instance consistantly.

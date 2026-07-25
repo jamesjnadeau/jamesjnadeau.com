@@ -1,7 +1,7 @@
 ---
 title: Sane Defaults for Gource
 description: defaults I use for gource
-Date: 03/14/2015
+date: 2015-03-14
 ---
 
 defaults

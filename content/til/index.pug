@@ -1,5 +1,8 @@
 ---
 title: Today I ...
+description: A collection of things I found interesting at the time.
+eleventyExcludeFromCollections:
+  - TIL
 eleventyNavigation:
   key: TIL
 ---
@@ -12,20 +15,19 @@ p.lead.text-center
   | A collection of things I found interesting at the time.
 p.text-center
   a(href='/til/rss.xml' target='_blank')
-    img(alt='rss download beacon' src='/files/rss.svg' height='20px')
+    img(alt='rss download beacon' src='/files/rss.svg' height='20' width='20')
 .row
   .col-md-8.offset-md-2
-    ul.list-group
-      - var getDate = function(date) { return new Date(date); }
-      - var compareDates = function(a, b) { return getDate(b.data.Date) - getDate(a.data.Date); }
-      each item in collections.TIL.sort(compareDates)
-        if item.data.page.url != '/til/'
-          a.list-group-item(rel='prefetch' href=item.data.page.url)
-            .row
-              .col-auto
-                | #{item.data.title}
-              .col.align-self-end.text-right
-              | #{new Date(item.data.Date).toLocaleDateString()}
+    div.list-group
+      - var compareDates = function(a, b) { return new Date(b.date) - new Date(a.date); }
+      each item in collections.TIL.slice().sort(compareDates)
+        a.list-group-item(href=item.url)
+          .row
+            .col-auto
+              | #{item.data.title}
+            .col.align-self-end.text-right
+              time(datetime=new Date(item.date).toISOString())
+                | #{new Date(item.date).toLocaleDateString('en-US', { timeZone: 'UTC' })}
 
 
 

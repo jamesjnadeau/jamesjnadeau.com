@@ -1,6 +1,6 @@
 ---
 title: ExploreVermontFood.com HackVT 2012
-description: This description will go in the meta description tag
+description: "A solo entry for HackVT 2012: a site for exploring locally produced Vermont food."
 ---
 
 # ExploreVermontFood.com HackVT 2012

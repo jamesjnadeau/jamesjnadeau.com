@@ -1,6 +1,6 @@
 ---
 title: jQuery Mobile / Cordova Example App
-description: Main website for the National Gardening Association
+description: An example mobile app built with jQuery Mobile and Cordova; source still on GitHub.
 ---
 
 <div class="alert alert-warning">
@@ -10,14 +10,14 @@ description: Main website for the National Gardening Association
 
 <div>
 	<a class="pull-right" href="https://play.google.com/store/apps/details?id=com.jamesjnadeau.app" target="_blank" >
-		<img src="https://developer.android.com/images/brand/en_app_rgb_wo_60.png" style="margin-bottom: 10px;"/>
+		<img src="https://developer.android.com/images/brand/en_app_rgb_wo_60.png" style="margin-bottom: 10px;" alt="Get it on Google Play" />
 	</a>
 </div>
 
 ##Example jQuery Mobile / Cordova App
 
 <div>
-	<img class="right content-secondary" src="/files/app.jamesjnadeau.com.png" />
+	<img class="right content-secondary" src="/files/app.jamesjnadeau.com.png" alt="Screenshot of the example jQuery Mobile app" />
 </div>
 
 ***

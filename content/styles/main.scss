@@ -1,3 +1,4 @@
+@use "sass:map";
 
 @use "animate.css";
 
@@ -15,6 +16,10 @@ $grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px ),
 // Define the maximum width of `.container` for different screen sizes.
 $container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px ),
 
+// Bootstrap's default link blue is 4.15:1 on white, just short of the 4.5:1
+// WCAG AA threshold. Darken it so body links pass.
+$link-color: #0a58ca,
+
 );
 
 
@@ -22,7 +27,7 @@ $container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px ),
 	font-family: regular.$font-family-serif;
   }
   
-  @media (max-width: map-get(bootstrap.$grid-breakpoints, md)) {
+  @media (max-width: map.get(bootstrap.$grid-breakpoints, md)) {
 	html {
 	  font-size: .9rem;
 	}
@@ -48,7 +53,7 @@ body {
 .brand.navbar-brand
 {
 	font-family: 'Rock Salt', cursive;
-	color: #2489ce;
+	color: #5cb3ee;
 	font-size: 21px;
 }
 
@@ -70,7 +75,7 @@ body {
 
 #container {
 	padding-top: 80px;
-	max-width: map-get(bootstrap.$grid-breakpoints, lg);
+	max-width: map.get(bootstrap.$grid-breakpoints, lg);
 }
 
 #full-width-container {
@@ -145,7 +150,7 @@ a.list-group-item {
 .container blockquote,
 .container h3:not(.list-group-item),
 .container h2 {
-	max-width: map-get(bootstrap.$grid-breakpoints, lg);
+	max-width: map.get(bootstrap.$grid-breakpoints, lg);
 }
 
 blockquote {
@@ -195,7 +200,7 @@ body {
 	}
 }
 
-@media (max-width: map-get(bootstrap.$grid-breakpoints, lg))
+@media (max-width: map.get(bootstrap.$grid-breakpoints, lg))
 {
 	h1
 	{
@@ -206,7 +211,7 @@ body {
 		padding: 15px 0;
 	}
 }
-@media (min-width: map-get(bootstrap.$grid-breakpoints, lg))
+@media (min-width: map.get(bootstrap.$grid-breakpoints, lg))
 {
 	h1
 	{

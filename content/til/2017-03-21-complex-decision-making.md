@@ -1,7 +1,7 @@
 ---
 title: Algorithms and Complex decision making
 description: How just removing the human element and using simple hueristics can get you far
-Date: 2017-03-21
+date: 2017-03-21
 ---
 
 # Today I Read

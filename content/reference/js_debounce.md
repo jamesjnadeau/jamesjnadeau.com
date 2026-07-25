@@ -1,7 +1,7 @@
 ---
 title: Debouncing Javascript
-description: This description will go in the meta description tag
-Date: 05/05/2014
+description: A debounce helper for throttling user and server interaction in JavaScript.
+date: 2014-05-05
 ---
 
 ##Debounce

@@ -6,7 +6,7 @@ description: Main website for the National Gardening Association
 # Garden.org: Content... Content everywhere
 
 <div>
-	<img class="img-fluid img-rounded" src="/files/garden.org.png" />
+	<img class="img-fluid img-rounded" src="/files/garden.org.png" alt="Screenshot of the Garden.org home page" />
 </div>
 
 ***

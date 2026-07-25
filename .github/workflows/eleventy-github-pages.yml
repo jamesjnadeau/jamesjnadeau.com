@@ -1,5 +1,6 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+# Builds the site once, runs the test suite against those exact bytes, and only
+# then publishes to GitHub Pages. Pull requests are built and tested but never
+# deployed.
 
 name: Eleventy Github Pages
 
@@ -9,54 +10,88 @@ on:
   pull_request:
     branches: [ "master" ]
 
+# ubuntu-latest ships google-chrome-stable, so neither Puppeteer nor Lighthouse
+# needs to download its own copy (~170MB) on every run.
+env:
+  PUPPETEER_SKIP_DOWNLOAD: "1"
+  PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome
+  CHROME_PATH: /usr/bin/google-chrome
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install 
-    - run: npm run build --if-present
-    # - run: npm test
-
-    - name: Upload Github Pages Artifact
-      uses: actions/upload-pages-artifact@v4.0.0
-      with:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - name: Upload built site
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
           path: _site/
-      # Artifact name
-      # name: # optional, default is github-pages
-      # Path of the directory containing the static assets.
-      # path: # default is _site/
-      # Duration after which artifact will expire in days.
-          retention-days: 5 # optional, default is 1
-    
-   # Deploy job
-  deploy:
-    # Add a dependency to the build job
+          retention-days: 1
+
+  test:
     needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+      - run: npm ci
+
+      # Test the artifact rather than rebuilding, so what ships is what passed.
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: _site
+
+      - run: npm run test:content
+      - run: npm run test:html
+      - run: npm run test:links
+      - run: npm run test:a11y
+
+      - name: Lighthouse
+        run: npm run test:lighthouse
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse
+          path: .lighthouseci/
+          retention-days: 5
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    runs-on: ubuntu-latest
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source
 
-    # Deploy to the github-pages environment
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    # Specify runner + deployment step
-    runs-on: ubuntu-latest
     steps:
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: _site
+      - name: Upload Github Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site/
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
-
+        uses: actions/deploy-pages@v4

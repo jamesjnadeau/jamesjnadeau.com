@@ -1,8 +1,8 @@
 ---
 title: Chromebook Crouton
-description: Git flow quick reference
+description: Setting up Crouton on a Chromebook to run a Linux desktop alongside ChromeOS.
 
-Date: 01/01/2014
+date: 2014-01-01
 ---
 
 #Chromebook Setup

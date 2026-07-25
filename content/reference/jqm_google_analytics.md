@@ -1,7 +1,7 @@
 ---
 title: jQuery Mobile Google Analytics
-description: This description will go in the meta description tag
-Date: 01/01/2014
+description: Tracking page loads in Google Analytics when jQuery Mobile loads pages over ajax.
+date: 2014-01-01
 ---
 
 # Tracking page loads with ajax page transitions
