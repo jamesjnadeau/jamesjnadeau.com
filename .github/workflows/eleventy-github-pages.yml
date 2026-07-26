@@ -1,6 +1,7 @@
 # Builds the site once, runs the test suite against those exact bytes, and only
 # then publishes to GitHub Pages. Pull requests are built and tested but never
-# deployed.
+# deployed. GitHub Pages is the only host — jamesjnadeau.com is served from the
+# artifact this workflow uploads.
 
 name: Eleventy Github Pages
 
@@ -9,6 +10,17 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+
+# Read-only by default. The deploy job re-grants itself exactly what Pages needs.
+permissions:
+  contents: read
+
+# One run per branch. A superseded pull request run is cancelled; a master run
+# is not, because cancelling between test and deploy can leave Pages serving a
+# half-published artifact.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 # ubuntu-latest ships google-chrome-stable, so neither Puppeteer nor Lighthouse
 # needs to download its own copy (~170MB) on every run.
@@ -20,14 +32,20 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
-      - run: npm ci
+
+      # --omit=dev on purpose: the build must not depend on the test toolchain.
+      # This is the only thing keeping the dependencies/devDependencies split
+      # honest now that nothing else builds this site.
+      - run: npm ci --omit=dev
       - run: npm run build
+
       - name: Upload built site
         uses: actions/upload-artifact@v4
         with:
@@ -38,6 +56,7 @@ jobs:
   test:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -72,11 +91,18 @@ jobs:
     needs: test
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source
+
+    # Pages allows one deployment at a time; queue rather than cancel so a
+    # merge train doesn't drop the newest commit's publish.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
 
     environment:
       name: github-pages

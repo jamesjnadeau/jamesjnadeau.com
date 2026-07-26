@@ -8,8 +8,5 @@ old
 
 /node_modules/
 
-# Local Netlify folder
-.netlify
-
 # Lighthouse CI output
 .lighthouseci/

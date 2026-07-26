@@ -98,9 +98,15 @@ published. Left in place — flagged, not decided.
 
 ## Deployment
 
-`master` deploys two ways. GitHub Actions builds → tests → deploys to Pages (PRs
-are tested, never published). Netlify builds with `npm ci --omit=dev` and holds
-the `jamesnadeau.com` redirects.
+GitHub Pages only. `master` goes build → test → deploy in
+`.github/workflows/eleventy-github-pages.yml`; PRs are tested, never published.
+The build job installs with `npm ci --omit=dev`, so anything the build itself
+needs belongs in `dependencies` — putting it in `devDependencies` passes locally
+and fails CI. The custom domain is a repo Pages setting, not a `CNAME` file.
+
+Pages is a dumb static file server: no redirects, no custom headers, no
+server-side anything. Don't add config files that assume otherwise (`netlify.toml`,
+`_redirects`, `.htaccess`) — they ship as dead weight and mislead the next reader.
 
 ## Commit style
 

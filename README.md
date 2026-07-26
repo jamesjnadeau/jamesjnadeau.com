@@ -72,8 +72,12 @@ Projects, reference pages, and presentations work the same way; see
 
 ## Deployment
 
-Both targets build from `master`:
+GitHub Pages is the only host. `.github/workflows/eleventy-github-pages.yml`
+builds from `master`, runs the full suite against those exact bytes, and only
+then publishes. Pull requests are tested but never published.
 
-- **GitHub Pages** via `.github/workflows/eleventy-github-pages.yml` — builds,
-  runs the full suite, and only then deploys. Pull requests are tested but not published.
-- **Netlify** via `netlify.toml` — also holds the `jamesnadeau.com` → `jamesjnadeau.com` redirects.
+The custom domain (`jamesjnadeau.com`) lives in the repository's Pages settings,
+not in a `CNAME` file — deployments made from a workflow don't read one.
+
+Pages serves static files and nothing else: no redirect rules, no custom
+headers. Anything of that sort has to happen at the DNS/registrar level.
