@@ -1,12 +1,13 @@
 // Asserts the ContentTools editor is wired to this site: the package's files
 // are served whole from /cms/, the config agrees with the content and with the
 // pages the build wrote, and the Netlify glue routes GitHub calls through Git
-// Gateway. Requires `npm run build` first, like output.test.js.
+// Gateway. Also the Pug editor's config and bundle (/admin/pug/). Requires
+// `npm run build` first, like output.test.js.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import matter from 'gray-matter';
-import { parseConfig, entryForUrl, entryPath, findCollection, TOKEN_KEY as PACKAGE_TOKEN_KEY } from '@jamesjnadeau/content-tools/cms';
+import { parseConfig, entryForUrl, entryPath, findCollection, pagePath, TOKEN_KEY as PACKAGE_TOKEN_KEY } from '@jamesjnadeau/content-tools/cms';
 
 const SITE = '_site';
 const PACKAGE = 'node_modules/@jamesjnadeau/content-tools/dist';
@@ -300,4 +301,58 @@ test('a token handed over from /admin/ outlives having no session', async () => 
   const session = storage({ [TOKEN_KEY]: 'handed-over' });
   await fileWith({ user: null, session });
   assert.equal(session.getItem(TOKEN_KEY), 'handed-over');
+});
+
+// --- the Pug editor (/admin/pug/) --------------------------------------------
+
+const PUG_RAW = matter(`---\n${readFileSync('static/cms-pug-config.yml', 'utf8')}\n---\n`).data;
+const PUG_CONFIG = parseConfig(PUG_RAW);
+
+// Both editors write to the one repository through the one gateway, and a
+// draft is opened on the same deploy previews.
+test('the Pug editor edits the same repository as the markdown editor', () => {
+  assert.deepEqual(PUG_RAW.backend, RAW.backend);
+  assert.deepEqual(PUG_RAW.site, RAW.site);
+});
+
+// Each editor's screens skip pull requests for collections it doesn't have.
+// Sharing a name would put a Pug post's draft in the markdown screens, which
+// would try to edit it as markdown, and the reverse.
+test('the Pug collections are named apart from the markdown ones', () => {
+  const markdownNames = new Set(RAW.collections.map((c) => c.name));
+  assert.deepEqual(PUG_RAW.collections.filter((c) => markdownNames.has(c.name)).map((c) => c.name), []);
+  assert.deepEqual(PUG_RAW.collections.filter((c) => c.create || c.delete).map((c) => c.name), []);
+});
+
+// The editor opens the file `folder` + slug + `.pug` names and previews the
+// page `page:` names; both have to be the ones Eleventy built from it.
+test('every Pug post maps to its own file and page', () => {
+  const bad = PUG_CONFIG.collections.flatMap((collection) => {
+    const dir = collection.folder.replace(/^content\//, '');
+    return readdirSync(collection.folder)
+      .filter((f) => f.endsWith('.pug') && f !== 'index.pug')
+      .flatMap((f) => {
+        const slug = f.slice(0, -'.pug'.length);
+        const url = `/${dir}/${slug}/`;
+        const errs = [];
+        if (entryPath(collection, slug) !== `${collection.folder}/${f}`) errs.push(`${slug}: wrong file`);
+        if (pagePath(PUG_CONFIG, collection, slug) !== url) errs.push(`${slug}: wrong page`);
+        if (!existsSync(`${SITE}${url}index.html`)) errs.push(`${url}: not built`);
+        return errs;
+      });
+  });
+  assert.deepEqual(bad, []);
+});
+
+// Bundled at build time rather than copied, so it only exists if the build's
+// esbuild step ran. It imports the site glue from /cms/ at runtime.
+test('the Pug editor is built, and what it imports is served', () => {
+  const bundle = readFileSync(`${SITE}/cms-pug/pug-editor.js`, 'utf8');
+  assert.ok(existsSync(`${SITE}/admin/pug/index.html`));
+  assert.ok(existsSync(`${SITE}/cms-pug-config.yml`));
+  // The statements esbuild writes for what it left external. Looser patterns
+  // match example code in the error messages of Pug's bundled JS parser.
+  const imports = [...bundle.matchAll(/\bimport\s*\{[\w\s,$]*\}\s*from\s*["']([^"']+)["']/g)].map(([, spec]) => spec);
+  assert.deepEqual([...new Set(imports)], ['/cms/netlify.js']);
+  assert.ok(existsSync(`${SITE}/cms/netlify.js`));
 });
