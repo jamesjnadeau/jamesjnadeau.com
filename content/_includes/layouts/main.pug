@@ -43,6 +43,42 @@ html(lang='en')
           | !{content}
 
     //- Scripts
+    //- Editing. Whether this visitor is an author: signed in with Netlify
+    //- Identity, handed a token by /admin/, or asking with ?cms-edit. A
+    //- reader's browser answers a few storage lookups here and loads nothing.
+    //- Defined on every page, because it also keeps Barba off for an author
+    //- (below), including on the Pug pages they navigate through.
+    //-
+    //- Identity's invite and password-reset emails link to the site root with
+    //- a token in the fragment, and only the Identity widget can finish them,
+    //- so those load it, and send the new author on to /admin/.
+    script.
+      window.cmsAuthoring = (function () {
+        function held(storage, key) {
+          try {
+            return window[storage].getItem(key) !== null;
+          } catch (e) {
+            return false;
+          }
+        }
+        return held('localStorage', 'gotrue.user')
+          || held('sessionStorage', 'content-tools:github-token')
+          || new URLSearchParams(location.search).has('cms-edit')
+          || location.hash.indexOf('cms-token=') !== -1;
+      })();
+      if (/(confirmation|invite|recovery|email_change)_token=/.test(location.hash)) {
+        var identity = document.createElement('script');
+        identity.src = '/js/netlify-identity-widget.js';
+        identity.onload = function () {
+          window.netlifyIdentity.on('login', function () { location.href = '/admin/'; });
+        };
+        document.head.append(identity);
+      }
+    if cmsEntry
+      //- The in-page editor, on a markdown page, for an author only
+      //- (static/cms/boot.js loads the ContentTools package's edit.js).
+      script(type='module').
+        if (window.cmsAuthoring) import('/cms/boot.js');
     script(src='/js/bootstrap.bundle.min.js')
     script(src='/js/headroom.min.js')
     script(src='/js/barba.umd.js')
@@ -62,7 +98,10 @@ html(lang='en')
     script().
       var inAnimationClass = 'fadeInRight';
       var outAnimationClass = 'fadeOutLeft';
-      barba.init({
+      // An author gets plain page loads. The in-page editor binds to the entry
+      // it started on, and Barba swaps #container without a load, so an author
+      // navigating by transition would be editing a page that is gone.
+      if (!window.cmsAuthoring) barba.init({
         transitions: [{
           name: 'default-transition',
           leave(data) {
