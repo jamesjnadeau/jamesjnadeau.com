@@ -2,7 +2,8 @@ My personal website
 ===
 https://jamesjnadeau.com
 
-Built with [Eleventy](https://www.11ty.dev/) using Pug templates, Markdown, and Sass.
+Built with [Eleventy](https://www.11ty.dev/) using Pug templates, Markdown, and Sass,
+and hosted on [Netlify](https://www.netlify.com/).
 
 ## Getting started
 
@@ -10,9 +11,16 @@ Requires Node 24 (see `.nvmrc`).
 
 ```bash
 nvm use
+export NODE_AUTH_TOKEN=ghp_…   # classic PAT with read:packages
 npm ci
 npm run dev      # dev server on :8080
 ```
+
+`NODE_AUTH_TOKEN` is needed because the page editor,
+[`@jamesjnadeau/content-tools`](https://github.com/jamesjnadeau/ContentTools),
+is installed from GitHub Packages, which requires a token even for public
+packages. Make a *classic* personal access token with only `read:packages`;
+`.npmrc` reads it from the environment, so never write it into a file here.
 
 The accessibility and Lighthouse checks drive a headless Chrome that Puppeteer
 downloads during `npm ci`. If your npm blocks install scripts and those checks
@@ -33,6 +41,7 @@ npx puppeteer browsers install chrome
 | `npm run test:html` | HTML validation |
 | `npm run test:links` | Internal link check (no network) |
 | `npm run test:a11y` | axe-core accessibility scan |
+| `npm run test:cms` | Smoke test of the in-page editor in headless Chrome |
 | `npm run test:lighthouse` | Lighthouse budgets (not part of `npm test`) |
 | `npm run test:links:external` | Outbound link check — slow, weekly in CI |
 
@@ -70,14 +79,32 @@ if you need to rename one without breaking the old link.
 Projects, reference pages, and presentations work the same way; see
 [CONTRIBUTING.md](CONTRIBUTING.md) for what each check enforces.
 
+## Editing a page on the site
+
+The markdown pages (projects, reference pages, and the older TIL posts) can be
+edited right on the page:
+
+1. Go to `/admin/` on the Netlify site and press **Sign in** (a Netlify
+   Identity account; accounts are invite-only).
+2. Pick a page and press **Edit**, or just open any markdown page while signed
+   in. Press the **pencil** at the top left and type into the page.
+3. Press **Submit for review**. The change becomes a pull request against
+   `master`, with its own deploy preview, and goes live when it's merged.
+
+Pug pages (newer TIL posts, the index pages, presentations) aren't editable
+this way. See `AGENT.md` for how it's wired up.
+
 ## Deployment
 
-GitHub Pages is the only host. `.github/workflows/eleventy-github-pages.yml`
-builds from `master`, runs the full suite against those exact bytes, and only
-then publishes. Pull requests are tested but never published.
+Netlify builds and hosts the site, configured by `netlify.toml`: every push to
+`master` deploys, and every pull request gets a deploy preview. The Netlify
+site is https://poetic-tarsier-d94f11.netlify.app. It needs `NODE_AUTH_TOKEN`
+(see above) set in its environment variables, and hosts Netlify Identity and
+Git Gateway for the page editor.
 
-The custom domain (`jamesjnadeau.com`) lives in the repository's Pages settings,
-not in a `CNAME` file — deployments made from a workflow don't read one.
-
-Pages serves static files and nothing else: no redirect rules, no custom
-headers. Anything of that sort has to happen at the DNS/registrar level.
+The move off GitHub Pages is in progress: until the `jamesjnadeau.com` domain
+points at Netlify, `.github/workflows/eleventy-github-pages.yml` still builds,
+tests and publishes `master` to Pages. The page editor only works on the
+Netlify URL until then. Once the domain moves, that workflow's deploy job and
+the repository's Pages setting go; the workflow stays as the pull request test
+gate either way.

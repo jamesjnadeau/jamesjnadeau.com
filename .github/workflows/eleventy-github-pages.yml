@@ -1,7 +1,11 @@
 # Builds the site once, runs the test suite against those exact bytes, and only
 # then publishes to GitHub Pages. Pull requests are built and tested but never
-# deployed. GitHub Pages is the only host — jamesjnadeau.com is served from the
-# artifact this workflow uploads.
+# deployed.
+#
+# The site is moving to Netlify (netlify.toml), which builds and deploys it on
+# its own, pull request previews included. Until jamesjnadeau.com points at
+# Netlify, the deploy job below still publishes to Pages; once it does, delete
+# the deploy job and keep build + test as the pull request gate.
 
 name: Eleventy Github Pages
 
@@ -14,6 +18,11 @@ on:
 # Read-only by default. The deploy job re-grants itself exactly what Pages needs.
 permissions:
   contents: read
+  # Installing @jamesjnadeau/content-tools from GitHub Packages, which needs a
+  # token even for a public package. The package is public, so any workflow's
+  # GITHUB_TOKEN can read it; if it's ever made private again, grant this
+  # repository Read under the package's "Manage Actions access".
+  packages: read
 
 # One run per branch. A superseded pull request run is cancelled; a master run
 # is not, because cancelling between test and deploy can leave Pages serving a
@@ -39,11 +48,16 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
+          # @jamesjnadeau/content-tools comes from GitHub Packages (see .npmrc).
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@jamesjnadeau'
 
       # --omit=dev on purpose: the build must not depend on the test toolchain.
-      # This is the only thing keeping the dependencies/devDependencies split
-      # honest now that nothing else builds this site.
+      # Netlify installs devDependencies too, so this is the only thing keeping
+      # the dependencies/devDependencies split honest.
       - run: npm ci --omit=dev
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run build
 
       - name: Upload built site
@@ -63,7 +77,12 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
+          # @jamesjnadeau/content-tools comes from GitHub Packages (see .npmrc).
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@jamesjnadeau'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Test the artifact rather than rebuilding, so what ships is what passed.
       - name: Download built site
@@ -76,6 +95,7 @@ jobs:
       - run: npm run test:html
       - run: npm run test:links
       - run: npm run test:a11y
+      - run: npm run test:cms
 
       - name: Lighthouse
         run: npm run test:lighthouse

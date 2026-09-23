@@ -10,6 +10,11 @@ on:
 
 permissions:
   contents: read
+  # Installing @jamesjnadeau/content-tools from GitHub Packages, which needs a
+  # token even for a public package. The package is public, so any workflow's
+  # GITHUB_TOKEN can read it; if it's ever made private again, grant this
+  # repository Read under the package's "Manage Actions access".
+  packages: read
 
 jobs:
   links:
@@ -21,7 +26,12 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
+          # @jamesjnadeau/content-tools comes from GitHub Packages (see .npmrc).
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@jamesjnadeau'
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run build
       - name: Check external links
         run: npm run test:links:external

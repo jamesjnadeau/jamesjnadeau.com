@@ -1,0 +1,64 @@
+# Configuration for ContentTools (@jamesjnadeau/content-tools), the editor at
+# /admin/ and on the site's own markdown pages. Served at /cms-config.yml,
+# which is where the in-page editor looks for it.
+#
+# Authors sign in with Netlify Identity, and ContentTools talks to GitHub
+# through Netlify's Git Gateway (static/cms/netlify.js), so `repo` and `branch`
+# here must match the repository the gateway is connected to in the Netlify
+# dashboard, and the constants in netlify.js (a test checks the second). Every
+# save opens a pull request against `branch`; nothing reaches the live site
+# until somebody merges it.
+#
+# Markdown only. Each collection is one folder's .md files; the Pug pages in
+# the same folders are not entries. Pages say which entry they are themselves
+# (content/_data/eleventyComputed.js, whose folder list a test holds equal to
+# these collections), so `page:` below is what /admin/ builds its Edit links
+# from, and `body:` is what the in-page editor replaces.
+#
+# `create` and `delete` are left off: the editor changes pages that exist, and
+# new ones are still written by hand.
+
+backend:
+  repo: jamesjnadeau/jamesjnadeau.com
+  branch: master
+
+site:
+  # A pull request's Netlify deploy preview, so a page whose changes are still
+  # under review can be edited on the page it will become.
+  preview: https://deploy-preview-{{pr}}--poetic-tarsier-d94f11.netlify.app
+
+media:
+  folder: static/uploads
+  publicPath: /uploads
+
+collections:
+  - name: projects
+    label: Projects
+    folder: content/projects
+    page: /projects/{{slug}}/
+    # The element around the rendered markdown in layouts/main.pug. The
+    # editor replaces its children, so it must hold the body and nothing else.
+    body: '[data-cms-body]'
+    fields:
+      - {name: title, label: Title, widget: string, required: true}
+      - {name: description, label: Description, widget: string}
+
+  - name: reference
+    label: Reference
+    folder: content/reference
+    page: /reference/{{slug}}/
+    body: '[data-cms-body]'
+    fields:
+      - {name: title, label: Title, widget: string, required: true}
+      - {name: description, label: Description, widget: string}
+      - {name: date, label: Date, widget: date}
+
+  - name: til
+    label: Today I ...
+    folder: content/til
+    page: /til/{{slug}}/
+    body: '[data-cms-body]'
+    fields:
+      - {name: title, label: Title, widget: string, required: true}
+      - {name: description, label: Description, widget: string}
+      - {name: date, label: Date, widget: date, required: true}

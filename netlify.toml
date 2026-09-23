@@ -1,0 +1,18 @@
+# Netlify builds the same site GitHub Pages does
+# (.github/workflows/eleventy-github-pages.yml). It also hosts Netlify Identity
+# and Git Gateway for the ContentTools editor. jamesjnadeau.com is still served
+# by GitHub Pages until the domain moves; until then this site is at
+# https://poetic-tarsier-d94f11.netlify.app.
+#
+# Node comes from .nvmrc, which Netlify reads, so no NODE_VERSION here: one
+# pinned version for Actions, Netlify and local dev.
+
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  # Netlify installs devDependencies, and Puppeteer's postinstall would
+  # download ~170MB of Chrome on every build for the a11y tests, which only
+  # run in GitHub Actions. The build itself never starts a browser.
+  PUPPETEER_SKIP_DOWNLOAD = "1"
