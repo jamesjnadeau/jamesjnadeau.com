@@ -5,9 +5,16 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import matter from 'gray-matter';
+import { parseConfig, entryForUrl, entryPath, findCollection, TOKEN_KEY as PACKAGE_TOKEN_KEY } from '@jamesjnadeau/content-tools/cms';
 
 const SITE = '_site';
 const PACKAGE = 'node_modules/@jamesjnadeau/content-tools/dist';
+
+// Read the way the editor reads it, then validated by the package itself,
+// which names the offending path in a ConfigError.
+const RAW = matter(`---\n${readFileSync('static/cms-config.yml', 'utf8')}\n---\n`).data;
+const CONFIG = parseConfig(RAW);
 
 if (!existsSync(SITE)) {
   throw new Error(`${SITE}/ not found — run \`npm run build\` before these tests`);
@@ -46,7 +53,19 @@ test('the editor stylesheet is served exactly as the package ships it', () => {
 // --- which pages are entries ------------------------------------------------
 
 const { default: computed } = await import('../../content/_data/eleventyComputed.js');
-const FOLDERS = ['projects', 'reference', 'til'];
+const FOLDERS = RAW.collections.map((c) => c.name);
+
+// The collections are the folders the pages call entries, and the folder
+// names are the collection names, so "projects/bosch" means the same thing on
+// the page and in the config.
+test('the config edits exactly the folders whose pages declare themselves entries', () => {
+  assert.deepEqual(RAW.collections.map((c) => c.folder), FOLDERS.map((dir) => `content/${dir}`));
+  const claimed = ['projects', 'reference', 'til', 'presentations', 'styles']
+    .filter((dir) => computed.cmsEntry({ page: { inputPath: `./content/${dir}/x.md` } }) !== null);
+  assert.deepEqual(claimed, FOLDERS);
+  assert.equal(computed.cmsEntry({ page: { inputPath: './content/til/x.pug' } }), null);
+  assert.equal(computed.cmsEntry({ page: { inputPath: './content/til/deeper/x.md' } }), null);
+});
 
 const markdown = FOLDERS.flatMap((dir) => readdirSync(`content/${dir}`)
   .filter((f) => f.endsWith('.md'))
@@ -82,4 +101,203 @@ test('no Pug page claims to be an entry', () => {
       .map((f) => `/${dir}/${f.slice(0, -'.pug'.length)}/`))];
   const bad = pug.filter((url) => /cms:entry|data-cms-body/.test(built(url)));
   assert.deepEqual(bad, []);
+});
+
+// --- the config -------------------------------------------------------------
+
+// /admin/ builds each entry's Edit link from `page:`, and the editor reads and
+// writes the file `folder` + slug names. Both directions have to land on the
+// page Eleventy actually built from that file.
+test('every markdown page maps to its own file and back', () => {
+  const bad = markdown.flatMap(({ dir, slug }) => {
+    const url = `https://poetic-tarsier-d94f11.netlify.app/${dir}/${slug}/`;
+    const found = entryForUrl(CONFIG, url);
+    if (found?.collection !== dir || found?.slug !== slug) return [`${url} -> ${JSON.stringify(found)}`];
+    const file = entryPath(findCollection(CONFIG, dir), slug);
+    return file === `content/${dir}/${slug}.md` ? [] : [`${dir}/${slug} -> ${file}`];
+  });
+  assert.deepEqual(bad, []);
+});
+
+// Front matter keys are lower case site-wide (frontmatter.test.js), and a
+// field the files don't use is a field the editor would start adding to them.
+test('the fields are the front matter keys the files use', () => {
+  for (const collection of RAW.collections) {
+    const used = new Set(markdown.filter((m) => m.dir === collection.name)
+      .flatMap(({ dir, slug }) => Object.keys(matter(readFileSync(`content/${dir}/${slug}.md`, 'utf8')).data)));
+    assert.deepEqual(collection.fields.map((f) => f.name).sort(), [...used].sort(), collection.name);
+  }
+});
+
+// Nothing to add or remove pages with yet: new pages are written by hand.
+test('the editor can change pages but not create or delete them', () => {
+  assert.deepEqual(RAW.collections.filter((c) => c.create || c.delete).map((c) => c.name), []);
+});
+
+// --- the Netlify glue (static/cms/) ------------------------------------------
+
+// The glue is copied into the same folder as the package's dist/. A file of
+// the same name in a future release would silently replace ours, or ours it.
+test('the site glue shares no name with the package', () => {
+  const shipped = new Set(readdirSync(PACKAGE));
+  assert.deepEqual(readdirSync('static/cms').filter((f) => shipped.has(f)), []);
+});
+
+// The glue reroutes calls for one repository and branch; a config pointed
+// anywhere else would go straight to api.github.com with a Netlify JWT.
+test('the Git Gateway glue and the config name the same repository', () => {
+  const glue = readFileSync('static/cms/netlify.js', 'utf8');
+  assert.equal(glue.match(/const REPO = '([^']+)'/)[1], RAW.backend.repo);
+  assert.equal(glue.match(/const BRANCH = '([^']+)'/)[1], RAW.backend.branch);
+});
+
+// The glue files the Identity JWT under the key edit.js looks for, and edit.js
+// only wakes up when that key holds something. The glue can't import it (edit.js
+// would come with it, for every page), so it spells it out; this is the check.
+test('the glue files tokens where the editor looks for them', async () => {
+  const { TOKEN_KEY } = await import('../../static/cms/netlify.js');
+  assert.equal(TOKEN_KEY, PACKAGE_TOKEN_KEY);
+});
+
+// --- gatewayFetch --------------------------------------------------------
+
+async function gateway() {
+  const calls = [];
+  globalThis.window = {
+    fetch: async (url, init) => {
+      calls.push({ url, init });
+      return new Response('[]');
+    },
+  };
+  const { gatewayFetch } = await import('../../static/cms/netlify.js');
+  return { fetch: gatewayFetch(), calls };
+}
+
+test('repository API calls go to the Git Gateway, with the rest of the path', async () => {
+  const { fetch, calls } = await gateway();
+  const repo = `https://api.github.com/repos/${RAW.backend.repo}`;
+  await fetch(`${repo}/contents/content%2Fprojects?ref=master`, {
+    headers: { Authorization: 'Bearer handed-over', 'X-GitHub-Api-Version': '2022-11-28' },
+  });
+  await fetch(`${repo}/git/blobs`, { method: 'POST', body: '{}' });
+  await fetch('https://api.github.com/repositories/123/pulls?state=open&page=2');
+
+  assert.deepEqual(calls.map((c) => c.url), [
+    '/.netlify/git/github/contents/content%2Fprojects?ref=master',
+    '/.netlify/git/github/git/blobs',
+    '/.netlify/git/github/pulls?state=open&page=2',
+  ]);
+  // With no Identity session in this browser, the token already on the
+  // request (handed over from /admin/) is left alone.
+  assert.equal(calls[0].init.headers.get('Authorization'), 'Bearer handed-over');
+  assert.equal(calls[0].init.headers.has('X-GitHub-Api-Version'), false);
+  assert.equal(calls[1].init.method, 'POST');
+});
+
+// The gateway does not proxy the repository's own metadata, which the admin
+// screens read once at sign-in to check the author may push.
+test('repository metadata is answered locally', async () => {
+  const { fetch, calls } = await gateway();
+  const response = await fetch(`https://api.github.com/repos/${RAW.backend.repo}`);
+  assert.deepEqual(await response.json(), {
+    default_branch: RAW.backend.branch,
+    permissions: { push: true },
+  });
+  assert.deepEqual(calls, []);
+});
+
+test('everything else is fetched untouched', async () => {
+  const { fetch, calls } = await gateway();
+  await fetch('/cms-config.yml');
+  await fetch('https://api.github.com/repos/someone/else/contents/x');
+  assert.deepEqual(calls.map((c) => c.url), [
+    '/cms-config.yml',
+    'https://api.github.com/repos/someone/else/contents/x',
+  ]);
+});
+
+// Every change reaches GitHub as the Git Gateway's one account, so the glue
+// names the signed-in editor on the pull request and as each commit's author.
+test('pull requests and commits name the signed-in editor', async () => {
+  const { fetch, calls } = await gateway();
+  globalThis.window.netlifyIdentity = {
+    currentUser: () => ({
+      email: 'author@example.com',
+      user_metadata: { full_name: 'Pat Author' },
+      jwt: async () => 'fresh-jwt',
+    }),
+  };
+  globalThis.localStorage = { getItem: () => '{}' };
+  try {
+    const repo = `https://api.github.com/repos/${RAW.backend.repo}`;
+    const post = (rest, body) => fetch(`${repo}${rest}`, { method: 'POST', body: JSON.stringify(body) });
+    await post('/pulls', { title: 'Update projects/x', body: '', head: 'cms/x', base: 'master' });
+    await post('/git/commits', { message: 'Update projects/x', tree: 't', parents: ['p'] });
+    await post('/git/blobs', { content: 'x' });
+
+    const [pull, commit, blob] = calls.map((c) => JSON.parse(c.init.body));
+    assert.equal(pull.body, 'Submitted by Pat Author (author@example.com) through the site editor.');
+    assert.equal(pull.title, 'Update projects/x');
+    assert.equal(commit.author.name, 'Pat Author');
+    assert.equal(commit.author.email, 'author@example.com');
+    assert.equal(commit.message, 'Update projects/x');
+    assert.deepEqual(blob, { content: 'x' });
+    assert.equal(calls[0].init.headers.get('Authorization'), 'Bearer fresh-jwt');
+  } finally {
+    delete globalThis.localStorage;
+  }
+});
+
+// --- fileSessionToken ----------------------------------------------------
+
+function storage(entries = {}) {
+  const map = new Map(Object.entries(entries));
+  return {
+    getItem: (k) => (map.has(k) ? map.get(k) : null),
+    setItem: (k, v) => map.set(k, String(v)),
+    removeItem: (k) => map.delete(k),
+    has: (k) => map.has(k),
+  };
+}
+
+async function fileWith({ user, session }) {
+  globalThis.window ??= {};
+  globalThis.window.netlifyIdentity ??= {};
+  const { identity, fileSessionToken } = await import('../../static/cms/netlify.js');
+  // The widget is loaded once and kept, so it is the kept one that answers.
+  (await identity()).currentUser = () => user;
+  globalThis.localStorage = storage(user ? { 'gotrue.user': '{}' } : {});
+  globalThis.sessionStorage = session;
+  try {
+    await fileSessionToken();
+  } finally {
+    delete globalThis.localStorage;
+    delete globalThis.sessionStorage;
+  }
+}
+
+test('a signed-in author has their JWT filed for the in-page editor', async () => {
+  const { TOKEN_KEY } = await import('../../static/cms/netlify.js');
+  const session = storage();
+  await fileWith({ user: { jwt: async () => 'jwt' }, session });
+  assert.equal(session.getItem(TOKEN_KEY), 'jwt');
+});
+
+// Signing out reloads the page; a JWT still filed from the session that
+// ended would bring the editor straight back up.
+test('signing out takes back the token the session filed', async () => {
+  const { TOKEN_KEY } = await import('../../static/cms/netlify.js');
+  const session = storage();
+  await fileWith({ user: { jwt: async () => 'jwt' }, session });
+  await fileWith({ user: null, session });
+  assert.equal(session.has(TOKEN_KEY), false);
+});
+
+// A deploy preview opened from /admin/ has no session of its own; the token
+// handed across is the only one it has, and must stay.
+test('a token handed over from /admin/ outlives having no session', async () => {
+  const { TOKEN_KEY } = await import('../../static/cms/netlify.js');
+  const session = storage({ [TOKEN_KEY]: 'handed-over' });
+  await fileWith({ user: null, session });
+  assert.equal(session.getItem(TOKEN_KEY), 'handed-over');
 });
