@@ -1,8 +1,8 @@
-# Netlify builds the same site GitHub Pages does
-# (.github/workflows/eleventy-github-pages.yml). It also hosts Netlify Identity
-# and Git Gateway for the ContentTools editor. jamesjnadeau.com is still served
-# by GitHub Pages until the domain moves; until then this site is at
-# https://poetic-tarsier-d94f11.netlify.app.
+# Netlify builds and hosts jamesjnadeau.com (also at
+# https://poetic-tarsier-d94f11.netlify.app), deploys every push to master, and
+# builds a deploy preview for each pull request. It also hosts Netlify Identity
+# and Git Gateway for the ContentTools editor. GitHub Actions
+# (.github/workflows/ci.yml) tests every change but publishes nothing.
 #
 # Node comes from .nvmrc, which Netlify reads, so no NODE_VERSION here: one
 # pinned version for Actions, Netlify and local dev.

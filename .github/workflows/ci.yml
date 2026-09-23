@@ -1,13 +1,9 @@
-# Builds the site once, runs the test suite against those exact bytes, and only
-# then publishes to GitHub Pages. Pull requests are built and tested but never
-# deployed.
-#
-# The site is moving to Netlify (netlify.toml), which builds and deploys it on
-# its own, pull request previews included. Until jamesjnadeau.com points at
-# Netlify, the deploy job below still publishes to Pages; once it does, delete
-# the deploy job and keep build + test as the pull request gate.
+# Builds the site once and runs the whole test suite against those exact bytes,
+# on every pull request and every push to master. It publishes nothing: Netlify
+# builds and deploys the site itself (netlify.toml), with a deploy preview for
+# each pull request, so this is the gate a change has to pass, not the deploy.
 
-name: Eleventy Github Pages
+name: CI
 
 on:
   push:
@@ -15,7 +11,7 @@ on:
   pull_request:
     branches: [ "master" ]
 
-# Read-only by default. The deploy job re-grants itself exactly what Pages needs.
+# Read-only: this workflow only builds and tests.
 permissions:
   contents: read
   # Installing @jamesjnadeau/content-tools from GitHub Packages, which needs a
@@ -24,9 +20,8 @@ permissions:
   # repository Read under the package's "Manage Actions access".
   packages: read
 
-# One run per branch. A superseded pull request run is cancelled; a master run
-# is not, because cancelling between test and deploy can leave Pages serving a
-# half-published artifact.
+# One run per branch. A superseded pull request run is cancelled; master runs
+# all finish, so every merged commit has a result.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -84,7 +79,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Test the artifact rather than rebuilding, so what ships is what passed.
+      # Test the build job's artifact rather than rebuilding, so the checks run
+      # against one build made with --omit=dev, as a production build would be.
       - name: Download built site
         uses: actions/download-artifact@v4
         with:
@@ -106,38 +102,3 @@ jobs:
           name: lighthouse
           path: .lighthouseci/
           retention-days: 5
-
-  deploy:
-    needs: test
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
-
-    # Pages allows one deployment at a time; queue rather than cancel so a
-    # merge train doesn't drop the newest commit's publish.
-    concurrency:
-      group: pages
-      cancel-in-progress: false
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Download built site
-        uses: actions/download-artifact@v4
-        with:
-          name: site
-          path: _site
-      - name: Upload Github Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site/
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4

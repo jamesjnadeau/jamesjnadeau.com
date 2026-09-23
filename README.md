@@ -84,7 +84,7 @@ Projects, reference pages, and presentations work the same way; see
 The markdown pages (projects, reference pages, and the older TIL posts) can be
 edited right on the page:
 
-1. Go to `/admin/` on the Netlify site and press **Sign in** (a Netlify
+1. Go to https://jamesjnadeau.com/admin/ and press **Sign in** (a Netlify
    Identity account; accounts are invite-only).
 2. Pick a page and press **Edit**, or just open any markdown page while signed
    in. Press the **pencil** at the top left and type into the page.
@@ -97,14 +97,11 @@ this way. See `AGENT.md` for how it's wired up.
 ## Deployment
 
 Netlify builds and hosts the site, configured by `netlify.toml`: every push to
-`master` deploys, and every pull request gets a deploy preview. The Netlify
-site is https://poetic-tarsier-d94f11.netlify.app. It needs `NODE_AUTH_TOKEN`
-(see above) set in its environment variables, and hosts Netlify Identity and
-Git Gateway for the page editor.
+`master` deploys to https://jamesjnadeau.com, and every pull request gets a
+deploy preview. The Netlify site (also reachable at
+https://poetic-tarsier-d94f11.netlify.app) needs `NODE_AUTH_TOKEN` (see above)
+in its environment variables, and hosts Netlify Identity and Git Gateway for
+the page editor.
 
-The move off GitHub Pages is in progress: until the `jamesjnadeau.com` domain
-points at Netlify, `.github/workflows/eleventy-github-pages.yml` still builds,
-tests and publishes `master` to Pages. The page editor only works on the
-Netlify URL until then. Once the domain moves, that workflow's deploy job and
-the repository's Pages setting go; the workflow stays as the pull request test
-gate either way.
+`.github/workflows/ci.yml` builds and tests every pull request and every push
+to `master`. It publishes nothing; it's the gate a change has to pass.

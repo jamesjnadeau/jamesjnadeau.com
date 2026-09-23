@@ -157,33 +157,24 @@ published. Left in place — flagged, not decided.
 
 ## Deployment
 
-**Netlify is the host.** The site is moving off GitHub Pages: Netlify builds it
-from `netlify.toml` (`npm run build`, publish `_site/`, Node from `.nvmrc`),
-deploys `master`, and builds a deploy preview for every pull request at
-`https://deploy-preview-<n>--poetic-tarsier-d94f11.netlify.app`. It also hosts
-Netlify Identity and Git Gateway for the editor, which GitHub Pages can't.
-The Netlify site is https://poetic-tarsier-d94f11.netlify.app.
+**Netlify builds and hosts jamesjnadeau.com**, configured by `netlify.toml`
+(`npm run build`, publish `_site/`, Node from `.nvmrc`). It deploys `master`
+and builds a deploy preview for every pull request at
+`https://deploy-preview-<n>--poetic-tarsier-d94f11.netlify.app`; the site is
+also at https://poetic-tarsier-d94f11.netlify.app. It hosts Netlify Identity
+and Git Gateway for the editor.
 
-**Until `jamesjnadeau.com` points at Netlify**, GitHub Pages still serves it:
-`.github/workflows/eleventy-github-pages.yml` runs build → test → deploy on
-`master`. On the live domain the editor can't sign anyone in, because there is
-no `/.netlify/` behind it; edit on the Netlify URL. When the domain moves,
-delete that workflow's `deploy` job and the repo's Pages setting, and keep
-build + test as the pull request gate.
-
-GitHub Actions still runs the full suite on every pull request. Its build job
-installs with `npm ci --omit=dev`, so anything the build itself needs belongs in
-`dependencies`; putting it in `devDependencies` passes locally and on Netlify
-(which installs both) and fails CI.
+`.github/workflows/ci.yml` builds and runs the full suite on every pull
+request and every push to `master`, and publishes nothing. Its build job
+installs with `npm ci --omit=dev`, so anything the build itself needs belongs
+in `dependencies`; putting it in `devDependencies` passes locally and on
+Netlify (which installs both) and fails CI.
 
 Netlify needs, in the dashboard rather than the repo: `NODE_AUTH_TOKEN` (for
 GitHub Packages; see *Commands*), Identity enabled with invite-only
 registration, and Git Gateway connected to `jamesjnadeau/jamesjnadeau.com`.
 Identity's invite and password-reset emails link to the site root; the layout
 loads the widget for those links and sends the author on to `/admin/`.
-
-Netlify-only behavior (`_redirects`, custom headers, functions) is fine to add
-once the domain has moved. Before then, the live site would silently lack it.
 
 ## Commit style
 
