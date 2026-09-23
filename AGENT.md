@@ -53,11 +53,13 @@ otherwise only looks for a system Chrome — don't call `lhci` directly.
 | [static/](static/) | Passthrough-copied to site root |
 | `test/content/` | Source + built-output invariants (`node:test`, no browser) |
 | `test/a11y/` | axe-core scan; needs a server, driven by `test:a11y` |
-| `test/cms/` | Puppeteer smoke test of the in-page editor, driven by `test:cms` |
+| `test/cms/` | Puppeteer smoke tests of the in-page editor and the Pug editor, driven by `test:cms` |
 | `content/_data/eleventyComputed.js` | `cmsEntry`: which markdown pages are editable |
 | `content/admin/` | `/admin/`, the ContentTools management screens |
 | `static/cms/` | Site glue for the editor: Netlify Identity + Git Gateway (`netlify.js`), the in-page loader (`boot.js`) |
 | `static/cms-config.yml` | ContentTools config: repository, collections, fields |
+| `content/admin/pug.pug`, `cms-src/` | `/admin/pug/`, the Pug editor; `cms-src/` is bundled into `_site/cms-pug/` by esbuild |
+| `static/cms-pug-config.yml` | The Pug editor's collections (`til-pug`, …) |
 | `netlify.toml` | Netlify build config |
 | `test/urls.json` | The ~10 representative URLs a11y and Lighthouse both scan |
 | `scripts/` | Build/test helpers |
@@ -118,6 +120,39 @@ built from is `docs/superpowers/plans/2026-09-22-contenttools-markdown-editor.md
 - Readers load nothing: the inline script in `main.pug` sets
   `window.cmsAuthoring` from an Identity session, a handed-over token or
   `?cms-edit`, and only then imports `/cms/boot.js`.
+
+### Pug posts
+
+ContentTools can't edit Pug, because there's no markdown to write back, so the Pug
+posts have their own screen at `/admin/pug/`: CodeMirror on the left, a live
+preview on the right, and **Submit for review**.
+
+- It's the site's code (`cms-src/pug-editor.js`), built from ContentTools' git
+  layer (`@jamesjnadeau/content-tools/cms`: `CmsRepo` reads the file and
+  saves it as a `cms/<collection>/<slug>` pull request), the Pug compiler and
+  CodeMirror. The **whole file**, front matter included, is edited as text,
+  so a save commits exactly what's in the editor.
+- **Bundled at build time.** An `eleventy.before` hook in `.eleventy.js` runs
+  esbuild into `_site/cms-pug/pug-editor.js`. `esbuild` and everything it
+  bundles are `dependencies`, not dev, because the Actions build omits dev.
+  Pug is written for Node: `cms-src/shims/` stands in for `fs`, `os`, `path`,
+  `assert` and `resolve`, which is enough for posts, but `include` and filters
+  can't work in the preview. The bundle imports `static/cms/netlify.js`
+  from `/cms/` at runtime, so both editors share one sign-in.
+- **Its own config, `static/cms-pug-config.yml`**, with collections named
+  `til-pug`, `reference-pug` and `projects-pug`. Each editor skips pull
+  requests for collections it doesn't know, so the names keep the two apart.
+  Don't rename them to match the markdown ones. `backend` and `site` must
+  equal `cms-config.yml`'s; `test/content/cms.test.js` checks.
+- **The preview is the published page.** The page loads the post's built URL
+  in a same-origin iframe and replaces `#container`'s children with its own
+  render. The render gets only the post's front matter as locals, not
+  Eleventy's data cascade, which is why `index.pug` pages aren't offered. It
+  applies the `focusableCodeBlocks` transform itself, so keep the two in
+  step. `test/cms/pug.test.js` checks the preview renders every Pug post
+  exactly as the build did.
+- None of this touches the markdown editor. `cms-config.yml`,
+  `eleventyComputed.js`, `boot.js` and `main.pug` don't know it exists.
 
 ## Gotchas
 

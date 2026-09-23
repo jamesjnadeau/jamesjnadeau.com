@@ -91,8 +91,18 @@ edited right on the page:
 3. Press **Submit for review**. The change becomes a pull request against
    `master`, with its own deploy preview, and goes live when it's merged.
 
-Pug pages (newer TIL posts, the index pages, presentations) aren't editable
-this way. See `AGENT.md` for how it's wired up.
+The Pug posts (the newer TIL posts and `reference/convert-video-to-png`) have
+their own editor, with the source on one side and a live preview on the other:
+
+1. Go to `/admin/pug/` (or the **Edit Pug posts** link at `/admin/`) and sign
+   in the same way.
+2. Pick a post, then edit its Pug. The preview is the published page with your
+   version swapped in, and it updates as you type. A Pug error shows under it
+   with the line number.
+3. Press **Submit for review**. It opens a pull request, the same as above.
+
+The index pages and presentations aren't editable either way. See `AGENT.md`
+for how it's wired up.
 
 ## Deployment
 
