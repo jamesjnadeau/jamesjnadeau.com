@@ -19,8 +19,9 @@ on:
 permissions:
   contents: read
   # Installing @jamesjnadeau/content-tools from GitHub Packages, which needs a
-  # token even for a public package. The package grants this repository read
-  # access in its "Manage Actions access" settings.
+  # token even for a public package. The package is public, so any workflow's
+  # GITHUB_TOKEN can read it; if it's ever made private again, grant this
+  # repository Read under the package's "Manage Actions access".
   packages: read
 
 # One run per branch. A superseded pull request run is cancelled; a master run
