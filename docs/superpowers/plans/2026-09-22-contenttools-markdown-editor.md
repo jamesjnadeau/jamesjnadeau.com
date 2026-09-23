@@ -32,11 +32,8 @@ content/_includes/layouts/main.pug                on cmsEntry pages: <meta name=
 1. **The published package, not a vendored build**, per the request.
 2. **Markdown files only**, per the request: three folder collections (`projects`, `reference`, `til`), `create: false`, `delete: false`. The editor edits existing entries; new pages are still written by hand.
 3. **Netlify Identity for sign-in** (user, mid-planning): the site is now deployable to Netlify, and Identity is the provider. Authors need a site login, not a GitHub token. Writes go through Git Gateway, which holds the GitHub credential in the Netlify dashboard.
-
-## Open questions (answer before Task 4)
-
-- **The Netlify site's name**, for `site.preview: https://deploy-preview-{{pr}}--<name>.netlify.app`. Without it, drafts (entries with an unmerged pull request) can only be edited from `/admin/`, not on their page.
-- **Where the Netlify build config lives.** Nothing Netlify-related is in the repo (`origin/master` ends at `5792aaa remove netlify`), so it's presumably the dashboard. Task 8 documents whichever it is. If you want a `netlify.toml`, say so: `AGENT.md` currently forbids one, and Task 8 rewrites that rule either way.
+4. **The Netlify site is `poetic-tarsier-d94f11`** (https://poetic-tarsier-d94f11.netlify.app). Its deploy previews are `https://deploy-preview-{{pr}}--poetic-tarsier-d94f11.netlify.app`, which is `site.preview` in the config.
+5. **The Netlify build is configured by `netlify.toml`** in the repo, not the dashboard. It was added with this plan (`npm run build`, publish `_site`, Node from `.nvmrc`, `PUPPETEER_SKIP_DOWNLOAD=1`), and the Deployment section of `AGENT.md` was updated to match. The editor tasks below change it only where they say so.
 
 ## Global constraints
 
@@ -64,6 +61,7 @@ content/_includes/layouts/main.pug                on cmsEntry pages: <meta name=
 | `content/admin/index.pug` | new | `/admin/` |
 | `test/content/cms.test.js` | new | config ↔ content ↔ build invariants, gateway glue |
 | `test/cms/edit.test.js` | new | Puppeteer smoke: bar appears on `?cms-edit` |
+| `netlify.toml` | exists | added with this plan; the Netlify build only needs `NODE_AUTH_TOKEN` set in the dashboard |
 | `.github/workflows/eleventy-github-pages.yml` | changed | registry auth, `packages: read`, run `test:cms` |
 | `AGENT.md`, `README.md` | changed | how editing works, the registry token, Netlify |
 
@@ -116,7 +114,7 @@ Nothing else can start until the package installs. Everything later assumes the 
 
 - [ ] **Step 6: Grant Actions access (manual, in GitHub).** Package settings → *Manage Actions access* → add `jamesjnadeau/jamesjnadeau.com` with *Read*. Without it the job's `GITHUB_TOKEN` gets a 403 from the registry, even though you own both.
 
-- [ ] **Step 7: Netlify env var (manual, in Netlify).** Site configuration → Environment variables → `NODE_AUTH_TOKEN` = a classic PAT with `read:packages` only, scoped to *Builds*. Trigger a deploy and confirm `npm install` succeeds in the Netlify log.
+- [ ] **Step 7: Netlify env var (manual, in Netlify).** Don't put the token in `netlify.toml`, which is public. Site configuration → Environment variables → `NODE_AUTH_TOKEN` = a classic PAT with `read:packages` only, scoped to *Builds*. Trigger a deploy and confirm `npm install` succeeds in the Netlify log.
 
 - [ ] **Step 8: Commit** `.npmrc`, `package.json`, `package-lock.json`: `⬆️ Add ContentTools and the Netlify Identity widget`.
 
@@ -249,6 +247,8 @@ Nothing else can start until the package installs. Everything later assumes the 
 
 ### Task 4: The config
 
+`site.preview` points at `poetic-tarsier-d94f11`'s deploy previews (Decision 4).
+
 **Files:** `static/cms-config.yml`, `test/content/cms.test.js`
 
 - [ ] **Step 1: Failing tests.** These import the package's own validator and URL mapping, both of which run without a DOM:
@@ -261,7 +261,7 @@ Nothing else can start until the package installs. Everything later assumes the 
 
   - `parseConfig` accepts it.
   - The collection names are exactly the folders `eleventyComputed.js` recognises (read the regex out of the file, or export the list from it and import it).
-  - For every markdown file, `entryForUrl(config, 'https://example.netlify.app/<dir>/<basename>/')` returns `{collection: <dir>, slug: <basename>}`. That's the direction `/admin/` uses to build Edit links. It also catches a `page:` template that disagrees with Eleventy's URLs.
+  - For every markdown file, `entryForUrl(config, 'https://poetic-tarsier-d94f11.netlify.app/<dir>/<basename>/')` returns `{collection: <dir>, slug: <basename>}`. That's the direction `/admin/` uses to build Edit links. It also catches a `page:` template that disagrees with Eleventy's URLs.
   - `backend.repo`/`branch` match `netlify.js`'s `REPO`/`BRANCH` (ported from VFO).
   - Every `fields[].name` is lower case.
 
@@ -291,8 +291,8 @@ Nothing else can start until the package installs. Everything later assumes the 
 
   site:
     # A pull request's Netlify deploy preview, so a draft can be edited on the
-    # page it will become. (Open question: the site name.)
-    preview: https://deploy-preview-{{pr}}--<netlify-site-name>.netlify.app
+    # page it will become.
+    preview: https://deploy-preview-{{pr}}--poetic-tarsier-d94f11.netlify.app
 
   media:
     folder: static/uploads
@@ -412,7 +412,7 @@ Nothing else can start until the package installs. Everything later assumes the 
   - **Layout:** rows for `static/cms/`, `static/cms-config.yml`, `content/admin/`, `content/_data/eleventyComputed.js`, `test/cms/`.
   - **Conventions:** the passthrough copy comes from `node_modules/@jamesjnadeau/content-tools`, with the pinned version and how to upgrade (bump, build, `test:cms`, round-trip check). Only `.md` pages in the three folders are editable, and the editable set is decided in `eleventyComputed.js` and the config together, which a test keeps in step. `[data-cms-body]` must hold the rendered body and nothing else.
   - **Gotchas:** Barba is off for authors, and why. Renaming a markdown file changes its entry as well as its URL. An open `cms/<collection>/<slug>` pull request is where that entry's edits live.
-  - **Deployment:** rewrite. It currently says "GitHub Pages only", "the custom domain is a repo Pages setting" and "don't add `netlify.toml`". State the real arrangement: GitHub Pages still serves `jamesjnadeau.com` until the domain moves; Netlify builds the same site and hosts Identity and Git Gateway; **editing works only on the Netlify URL until then**, because GitHub Pages has no `/.netlify/` endpoints. Say where the Netlify build config lives (open question).
+  - **Deployment:** already describes both hosts and `netlify.toml` (done with this plan). Add that **editing works only on https://poetic-tarsier-d94f11.netlify.app until the domain moves**, because GitHub Pages has no `/.netlify/` endpoints, and that the Netlify build needs `NODE_AUTH_TOKEN` in its environment.
 - [ ] `README.md`: a short "Editing" section, like VFO's. Sign in at `/admin/`, open a page, press the pencil, then **Submit for review** → a pull request.
 - [ ] Commit: `📝 Document in-page editing`.
 
@@ -422,7 +422,7 @@ Nothing in CI can prove this part: that a real save through a real gateway is a 
 
 - [ ] **Netlify dashboard:** enable Identity. Set registration to **invite only**. Enable **Git Gateway** and connect it to `jamesjnadeau/jamesjnadeau.com`. Invite yourself and accept the email. The link lands on the site root with `#invite_token=`, which Task 5 Step 2 handles.
 - [ ] **Old `cms/*` branches:** the repo has `cms/TIL/…` and `cms/Presentations/…` branches from an earlier CMS (2020–21). ContentTools names its branches `cms/<collection>/<slug>` and resets a leftover `cms/` branch with no open PR onto `master`. The names here are lower case (`cms/til/…`) so they don't collide, but delete the old ones if they're dead, so nobody has to wonder whose they are.
-- [ ] On `https://<site>.netlify.app/admin/`: sign in, open **Projects → bosch**, press **Edit**. On the page, press the pencil. Only the post should get hover outlines, not the nav. Change one word in one paragraph and press **Submit for review**.
+- [ ] On `https://poetic-tarsier-d94f11.netlify.app/admin/`: sign in, open **Projects → bosch**, press **Edit**. On the page, press the pencil. Only the post should get hover outlines, not the nav. Change one word in one paragraph and press **Submit for review**.
 - [ ] Open the PR. **The diff must be that one paragraph.** Front matter is byte-identical, and the raw `<div><img …></div>` block and the `***` rules are untouched. Commit author is you (from `signed()`), and the PR body says "Submitted by …".
 - [ ] Edit a TIL's `date` from the bar and confirm the file gets an ISO date and `test:content` passes on the PR.
 - [ ] Confirm the Netlify deploy preview builds (it needs `NODE_AUTH_TOKEN` too). Open the draft from `/admin/` and check it edits on the preview.

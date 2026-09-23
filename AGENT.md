@@ -98,15 +98,23 @@ published. Left in place — flagged, not decided.
 
 ## Deployment
 
-GitHub Pages only. `master` goes build → test → deploy in
+Two hosts build the same site, for now.
+
+**GitHub Pages serves jamesjnadeau.com.** `master` goes build → test → deploy in
 `.github/workflows/eleventy-github-pages.yml`; PRs are tested, never published.
 The build job installs with `npm ci --omit=dev`, so anything the build itself
 needs belongs in `dependencies` — putting it in `devDependencies` passes locally
 and fails CI. The custom domain is a repo Pages setting, not a `CNAME` file.
 
+**Netlify builds it too**, at https://poetic-tarsier-d94f11.netlify.app, with
+deploy previews for pull requests. It's configured by `netlify.toml` and is
+there for Netlify Identity (sign-in for the planned ContentTools editor, see
+`docs/superpowers/plans/2026-09-22-contenttools-markdown-editor.md`). The domain
+has not moved; once it does, the Pages deploy job goes.
+
 Pages is a dumb static file server: no redirects, no custom headers, no
-server-side anything. Don't add config files that assume otherwise (`netlify.toml`,
-`_redirects`, `.htaccess`) — they ship as dead weight and mislead the next reader.
+server-side anything. Until the domain moves, don't add `_redirects`, headers or
+other Netlify-only behavior that the live site would silently lack.
 
 ## Commit style
 
