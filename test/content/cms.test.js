@@ -42,3 +42,44 @@ test('the editor stylesheet is served exactly as the package ships it', () => {
   const shipped = readFileSync(`${PACKAGE}/content-tools-content.min.css`);
   assert.ok(readFileSync(`${SITE}/cms/content-tools-content.min.css`).equals(shipped));
 });
+
+// --- which pages are entries ------------------------------------------------
+
+const { default: computed } = await import('../../content/_data/eleventyComputed.js');
+const FOLDERS = ['projects', 'reference', 'til'];
+
+const markdown = FOLDERS.flatMap((dir) => readdirSync(`content/${dir}`)
+  .filter((f) => f.endsWith('.md'))
+  .map((f) => ({ dir, slug: f.slice(0, -'.md'.length) })));
+
+const built = (url) => readFileSync(`${SITE}${url}index.html`, 'utf8');
+
+test('there are markdown pages to edit', () => {
+  assert.ok(markdown.length > 40, `only ${markdown.length} markdown pages`);
+});
+
+// The slug is the file name verbatim: TIL URLs keep their date prefix here,
+// and garden.org.md and Jupyter.md keep their dots and case.
+test('every markdown page says which entry it is, and holds its body in one element', () => {
+  const bad = markdown.flatMap(({ dir, slug }) => {
+    const url = `/${dir}/${slug}/`;
+    if (!existsSync(`${SITE}${url}index.html`)) return [`${url}: not built`];
+    const html = built(url);
+    const errs = [];
+    if (!html.includes(`<meta name="cms:entry" content="${dir}/${slug}">`)) errs.push(`${url}: no cms:entry meta`);
+    if (html.split('data-cms-body').length !== 2) errs.push(`${url}: not exactly one data-cms-body`);
+    return errs;
+  });
+  assert.deepEqual(bad, []);
+});
+
+// A Pug page that declared itself would send a signed-in author's editor off
+// to read a .md file that doesn't exist.
+test('no Pug page claims to be an entry', () => {
+  const pug = ['/', '/projects/', '/reference/', '/til/', '/presentations/',
+    ...['til', 'reference'].flatMap((dir) => readdirSync(`content/${dir}`)
+      .filter((f) => f.endsWith('.pug') && f !== 'index.pug')
+      .map((f) => `/${dir}/${f.slice(0, -'.pug'.length)}/`))];
+  const bad = pug.filter((url) => /cms:entry|data-cms-body/.test(built(url)));
+  assert.deepEqual(bad, []);
+});

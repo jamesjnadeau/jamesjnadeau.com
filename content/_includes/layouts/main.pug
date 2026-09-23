@@ -7,6 +7,9 @@ html(lang='en')
     title=title
     if description
       meta(name='description', content=description)
+    if cmsEntry
+      //- ContentTools: this page is an editable entry (content/_data/eleventyComputed.js).
+      meta(name='cms:entry' content=cmsEntry)
 
     link(rel='icon' type='image/png' href='/icons/favicon-32x32.png')
     link(rel='stylesheet', href='/styles/main.css')
@@ -32,7 +35,12 @@ html(lang='en')
     //- end nav
     #wrap(data-barba="wrapper")
       #container.container.md-8.animated.fadeInRight(data-barba="container" data-barba-namespace=page.url)
-        | !{content}
+        if cmsEntry
+          //- The editor replaces this element's children with its own render of
+          //- the markdown, so it must hold the rendered body and nothing else.
+          div(data-cms-body) !{content}
+        else
+          | !{content}
 
     //- Scripts
     script(src='/js/bootstrap.bundle.min.js')
