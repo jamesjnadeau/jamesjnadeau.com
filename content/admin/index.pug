@@ -32,9 +32,17 @@ html(lang='en')
       html, body { height: 100%; }
       body { margin: 0; }
       content-tools-cms { display: block; height: 100%; }
+      .pug-link {
+        position: fixed; left: 1rem; bottom: 1rem; z-index: 1;
+        padding: .4rem .8rem; border-radius: 4px; background: #333; color: #fff;
+        font: 14px system-ui, sans-serif; text-decoration: none;
+      }
   body
     noscript
       p Editing the site needs JavaScript enabled.
+    //- The screens below edit markdown. Pug posts have their own editor,
+    //- with the source beside a live preview (content/admin/pug.pug).
+    a.pug-link(href='/admin/pug/') Edit Pug posts →
     //- Created from script rather than written as a tag, so `auth` and
     //- `fetch` are assigned after the element is defined and before it
     //- loads its config: a property set on a not-yet-upgraded element

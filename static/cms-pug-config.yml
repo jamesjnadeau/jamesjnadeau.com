@@ -1,0 +1,47 @@
+# Configuration for the Pug editor at /admin/pug/ (cms-src/pug-editor.js),
+# which edits the Pug posts that ContentTools' in-page editor can't: it only
+# edits markdown, and static/cms-config.yml is its config.
+#
+# It reads and saves through the same ContentTools git layer, Netlify
+# Identity and Git Gateway, so `backend` and `site` must match
+# cms-config.yml's (a test compares them). Every save opens a pull request
+# against `branch` on a `cms/<collection>/<slug>` branch.
+#
+# The collections are named apart from the markdown ones on purpose. Each
+# config's screens skip pull requests for collections they don't have, so
+# `til-pug` drafts never show up at /admin/, and markdown drafts never show
+# up here. A folder's index.pug lists the section from Eleventy data a
+# browser preview doesn't have, so the editor leaves it out.
+
+backend:
+  repo: jamesjnadeau/jamesjnadeau.com
+  branch: master
+
+site:
+  preview: https://deploy-preview-{{pr}}--poetic-tarsier-d94f11.netlify.app
+
+# Required by the config format. This editor uploads nothing; the same
+# folder as cms-config.yml's, so the two can't disagree.
+media:
+  folder: static/uploads
+  publicPath: /uploads
+
+collections:
+  - name: til-pug
+    label: Today I …
+    folder: content/til
+    extension: pug
+    page: /til/{{slug}}/
+    body: '#container'
+  - name: reference-pug
+    label: Reference
+    folder: content/reference
+    extension: pug
+    page: /reference/{{slug}}/
+    body: '#container'
+  - name: projects-pug
+    label: Projects
+    folder: content/projects
+    extension: pug
+    page: /projects/{{slug}}/
+    body: '#container'

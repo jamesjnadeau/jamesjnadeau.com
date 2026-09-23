@@ -5,6 +5,7 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import * as sass from "sass";
 import purgeCssPlugin from "eleventy-plugin-purgecss";
 import eleventySass from "eleventy-sass";
+import * as esbuild from "esbuild";
 
 import path from 'node:path';
 import fs from 'node:fs';
@@ -77,6 +78,40 @@ export default async function(eleventyConfig) {
         [`${contentTools}/content-tools-content.min.css`]: "cms/content-tools-content.min.css",
     });
 
+    // The Pug editor at /admin/pug/ (cms-src/pug-editor.js). ContentTools
+    // ships ready to serve; this one is assembled from npm packages (the Pug
+    // compiler, CodeMirror, ContentTools' git layer), so it is bundled rather
+    // than copied. Pug is written for Node: the shims stand in for the Node
+    // built-ins it names and for `resolve`, which it only uses to find filter
+    // modules on disk, and `process` for the one global its parser reads.
+    // The site's Identity glue stays external, shared with /admin/ at
+    // /cms/netlify.js. Written straight into the output, before Eleventy
+    // writes the pages, so every build and every --serve rebuild has it.
+    eleventyConfig.addWatchTarget("./cms-src/");
+    eleventyConfig.on("eleventy.before", async ({ directories }) => {
+        const shims = "./cms-src/shims";
+        await esbuild.build({
+            entryPoints: ["cms-src/pug-editor.js"],
+            outfile: path.join(directories.output, "cms-pug/pug-editor.js"),
+            bundle: true,
+            format: "esm",
+            platform: "browser",
+            minify: true,
+            legalComments: "none",
+            external: ["/cms/netlify.js"],
+            alias: {
+                fs: `${shims}/empty.cjs`,
+                os: `${shims}/empty.cjs`,
+                resolve: `${shims}/empty.cjs`,
+                path: `${shims}/path.cjs`,
+                assert: `${shims}/assert.cjs`,
+            },
+            define: { "process.env.NODE_ENV": '"production"' },
+            banner: { js: "globalThis.process ??= { env: {}, platform: 'browser', versions: {}, cwd: () => '/' };" },
+            logLevel: "warning",
+        });
+    });
+
     // add sass config, see https://www.11ty.dev/docs/languages/custom/#example-add-sass-support-to-eleventy
     eleventyConfig.addTemplateFormats("scss");
     let node_modules_path = './node_modules'
@@ -141,7 +176,11 @@ export default async function(eleventyConfig) {
                 // for the second reason: it draws in its own iframe, and the
                 // words in its source would otherwise keep ~500 bytes of
                 // Bootstrap nobody uses.
-                skippedContentGlobs: ["_site/cms/**", "_site/js/netlify-identity-widget.js"],
+                // The Pug editor's bundle (_site/cms-pug/) is skipped for
+                // the second reason too: it carries CodeMirror and Pug's
+                // whole compiler, and every word in them would read as a
+                // class the site uses.
+                skippedContentGlobs: ["_site/cms/**", "_site/cms-pug/**", "_site/js/netlify-identity-widget.js"],
 },
 
             // Optional: Set quiet: true to suppress terminal output
