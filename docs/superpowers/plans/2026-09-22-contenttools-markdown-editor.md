@@ -34,6 +34,7 @@ content/_includes/layouts/main.pug                on cmsEntry pages: <meta name=
 3. **Netlify Identity for sign-in** (user, mid-planning): the site is now deployable to Netlify, and Identity is the provider. Authors need a site login, not a GitHub token. Writes go through Git Gateway, which holds the GitHub credential in the Netlify dashboard.
 4. **The Netlify site is `poetic-tarsier-d94f11`** (https://poetic-tarsier-d94f11.netlify.app). Its deploy previews are `https://deploy-preview-{{pr}}--poetic-tarsier-d94f11.netlify.app`, which is `site.preview` in the config.
 5. **The Netlify build is configured by `netlify.toml`** in the repo, not the dashboard. It was added with this plan (`npm run build`, publish `_site`, Node from `.nvmrc`, `PUPPETEER_SKIP_DOWNLOAD=1`), and the Deployment section of `AGENT.md` was updated to match. The editor tasks below change it only where they say so.
+6. **The site is moving off GitHub Pages to Netlify** (user, during implementation). The README, `AGENT.md` and `CONTRIBUTING.md` describe Netlify as the host. The Pages deploy job stays until `jamesjnadeau.com` points at Netlify, and is then deleted; the workflow remains as the pull request test gate.
 
 ## Global constraints
 

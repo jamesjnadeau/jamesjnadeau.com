@@ -19,12 +19,14 @@ add a post.
 | `test:html` | Invalid markup |
 | `test:links` | Internal 404s |
 | `test:a11y` | axe-core WCAG 2 A/AA violations |
+| `test:cms` | The in-page editor doesn't come up on a markdown page, loads for readers, or leaves Barba on for authors |
 
 `npm run test:lighthouse` runs separately — it's slower and its performance
 numbers vary with machine load, so it isn't part of `npm test`.
 
-CI runs all of the above and will not deploy unless they pass. Pull requests are
-built and tested but never published.
+GitHub Actions runs all of the above on every pull request and on `master`.
+Netlify builds and deploys the site separately (`netlify.toml`), with a deploy
+preview for each pull request; see the README's *Deployment* section.
 
 #### Common failures
 
