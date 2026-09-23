@@ -57,6 +57,24 @@ export default async function(eleventyConfig) {
         "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js": "js/bootstrap.bundle.min.js",
         "node_modules/headroom.js/dist/headroom.min.js": "js/headroom.min.js",
         "node_modules/@barba/core/dist/barba.umd.js": "js/barba.umd.js",
+        // Only an author's browser loads it (see the loader in layouts/main.pug).
+        "node_modules/netlify-identity-widget/build/netlify-identity-widget.js": "js/netlify-identity-widget.js",
+    });
+
+    // The ContentTools editor, from its published package (GitHub Packages;
+    // see .npmrc). edit.js, shell.js and the chunks both import must sit in one
+    // folder: the chunk names are content-hashed, and edit.js links the content
+    // stylesheet and images/ relative to its own URL. `npm run build` empties
+    // _site/ first, so a chunk from an older version can't outlive an upgrade.
+    // The site's own glue (static/cms/boot.js, netlify.js) lands beside it
+    // through the `static` passthrough above; a test keeps the names apart.
+    const contentTools = "node_modules/@jamesjnadeau/content-tools/dist";
+    eleventyConfig.addPassthroughCopy({
+        [`${contentTools}/edit.js`]: "cms/edit.js",
+        [`${contentTools}/shell.js`]: "cms/shell.js",
+        [`${contentTools}/chunks`]: "cms/chunks",
+        [`${contentTools}/images`]: "cms/images",
+        [`${contentTools}/content-tools-content.min.css`]: "cms/content-tools-content.min.css",
     });
 
     // add sass config, see https://www.11ty.dev/docs/languages/custom/#example-add-sass-support-to-eleventy
@@ -113,7 +131,18 @@ export default async function(eleventyConfig) {
             
                 // CSS files to be purged in-place
                 css: ["./_site/**/*.css"],
-            },
+
+                // The ContentTools editor, left exactly as its package ships
+                // it. Its stylesheet is for markup no published page contains
+                // until an author starts editing, so purging it would strip
+                // every rule silently; and its JS names hundreds of classes the
+                // site's own CSS has no business keeping. PurgeCSS applies this
+                // to both `css` and `content`. The Identity widget is skipped
+                // for the second reason: it draws in its own iframe, and the
+                // words in its source would otherwise keep ~500 bytes of
+                // Bootstrap nobody uses.
+                skippedContentGlobs: ["_site/cms/**", "_site/js/netlify-identity-widget.js"],
+},
 
             // Optional: Set quiet: true to suppress terminal output
             quiet: false,
