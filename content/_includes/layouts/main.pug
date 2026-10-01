@@ -35,7 +35,7 @@ html(lang='en')
     //- end nav
     #wrap(data-barba="wrapper")
       #container.container.md-8.animated.fadeInRight(data-barba="container" data-barba-namespace=page.url)
-        if cmsEntry
+        if cmsEntry || cmsNewPage
           //- The editor replaces this element's children with its own render of
           //- the markdown, so it must hold the rendered body and nothing else.
           div(data-cms-body) !{content}
@@ -74,8 +74,9 @@ html(lang='en')
         };
         document.head.append(identity);
       }
-    if cmsEntry
-      //- The in-page editor, on a markdown page, for an author only
+    if cmsEntry || cmsNewPage || cmsStarter
+      //- The in-page editor, on a markdown page, a collection's blank new page
+      //- or a page that links to one, for an author only
       //- (static/cms/boot.js loads the ContentTools package's edit.js).
       script(type='module').
         if (window.cmsAuthoring) import('/cms/boot.js');

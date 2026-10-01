@@ -15,8 +15,10 @@
 # these collections), so `page:` below is what /admin/ builds its Edit links
 # from, and `body:` is what the in-page editor replaces.
 #
-# `create` and `delete` are left off: the editor changes pages that exist, and
-# new ones are still written by hand.
+# Only `til` has `create`: an author starts a new entry from /til/ (`starter`),
+# which links to the blank page /til/new/ (`newPage`, content/til/new.pug) where
+# the entry is named and written. Projects and reference pages, and every
+# `delete`, are still done by hand.
 
 backend:
   repo: jamesjnadeau/jamesjnadeau.com
@@ -56,8 +58,11 @@ collections:
   - name: til
     label: Today I ...
     folder: content/til
+    create: true
     page: /til/{{slug}}/
     body: '[data-cms-body]'
+    starter: /til/
+    newPage: /til/new/
     fields:
       - {name: title, label: Title, widget: string, required: true}
       - {name: description, label: Description, widget: string}

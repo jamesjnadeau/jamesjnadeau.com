@@ -94,11 +94,12 @@ test('every markdown page says which entry it is, and holds its body in one elem
 });
 
 // A Pug page that declared itself would send a signed-in author's editor off
-// to read a .md file that doesn't exist.
+// to read a .md file that doesn't exist. (til/new.pug is the one deliberate
+// exception: a blank page with a body to fill, not an entry; see below.)
 test('no Pug page claims to be an entry', () => {
   const pug = ['/', '/projects/', '/reference/', '/til/', '/presentations/',
     ...['til', 'reference'].flatMap((dir) => readdirSync(`content/${dir}`)
-      .filter((f) => f.endsWith('.pug') && f !== 'index.pug')
+      .filter((f) => f.endsWith('.pug') && f !== 'index.pug' && f !== 'new.pug')
       .map((f) => `/${dir}/${f.slice(0, -'.pug'.length)}/`))];
   const bad = pug.filter((url) => /cms:entry|data-cms-body/.test(built(url)));
   assert.deepEqual(bad, []);
@@ -130,9 +131,26 @@ test('the fields are the front matter keys the files use', () => {
   }
 });
 
-// Nothing to add or remove pages with yet: new pages are written by hand.
-test('the editor can change pages but not create or delete them', () => {
-  assert.deepEqual(RAW.collections.filter((c) => c.create || c.delete).map((c) => c.name), []);
+// Only the TIL collection may be added to, from /til/ and its blank new page.
+// Nothing can be deleted from the site.
+test('only TIL can be added to, and nothing can be deleted', () => {
+  assert.deepEqual(RAW.collections.filter((c) => c.create).map((c) => c.name), ['til']);
+  assert.deepEqual(RAW.collections.filter((c) => c.delete).map((c) => c.name), []);
+});
+
+// The starter and the new page are Pug pages the build writes, so a config
+// naming an address nothing built would send an author to a 404.
+test('TIL starts new entries from the page the build wrote for it', () => {
+  const til = CONFIG.collections.find((c) => c.name === 'til');
+  assert.deepEqual(RAW.collections.find((c) => c.name === 'til').newPage, '/til/new/');
+  assert.ok(existsSync(`${SITE}/til/new/index.html`));
+  const blank = built('/til/new/');
+  assert.equal(blank.split('data-cms-body').length, 2, 'exactly one data-cms-body');
+  assert.ok(!blank.includes('cms:entry'), 'the new page is not itself an entry');
+  assert.ok(til.create);
+  assert.ok(!existsSync('content/til/new.md'));
+  assert.ok(built('/til/').includes('/cms/boot.js'), 'the starter loads the editor');
+  assert.ok(!/<a [^>]*href="\/til\/new\/"/.test(built('/til/')), 'readers are not offered the new page');
 });
 
 // --- the Netlify glue (static/cms/) ------------------------------------------

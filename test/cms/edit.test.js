@@ -95,3 +95,22 @@ test('a Pug page with ?cms-edit loads nothing from /cms/', async () => {
     await page.close();
   }
 });
+
+test('/til/ offers a new entry and /til/new/ asks what it is called', async () => {
+  const starter = await open('/til/?cms-edit');
+  try {
+    await starter.page.waitForSelector('content-tools-edit-bar', { timeout: 10000 });
+    assert.match(await barText(starter.page), /New Today I \.\.\. entry/);
+    assert.deepEqual(starter.errors, []);
+  } finally {
+    await starter.page.close();
+  }
+  const blank = await open('/til/new/?cms-edit');
+  try {
+    await blank.page.waitForSelector('content-tools-edit-bar', { timeout: 10000 });
+    assert.match(await barText(blank.page), /New Today I \.\.\. entry/);
+    assert.deepEqual(blank.errors, []);
+  } finally {
+    await blank.page.close();
+  }
+});

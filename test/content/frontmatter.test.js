@@ -21,11 +21,12 @@ function pages(dir) {
 
 const SECTIONS = ['til', 'projects', 'reference', 'presentations'];
 const ALL = SECTIONS.flatMap(pages);
-const TIL = pages('til').filter((p) => p.name !== 'index.pug');
+// index.pug is the list and new.pug the blank page the editor writes new posts on.
+const TIL = pages('til').filter((p) => !['index.pug', 'new.pug'].includes(p.name));
 
 // `eleventyNavigation` and `eleventyExcludeFromCollections` are Eleventy's own
 // camelCase keys; everything we author should be lower case.
-const ELEVENTY_KEYS = new Set(['eleventyNavigation', 'eleventyExcludeFromCollections']);
+const ELEVENTY_KEYS = new Set(['eleventyNavigation', 'eleventyExcludeFromCollections', 'cmsStarter', 'cmsNewPage']);
 
 test('front matter keys are lower case', () => {
   const bad = ALL.flatMap((p) =>

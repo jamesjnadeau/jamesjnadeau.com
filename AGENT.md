@@ -117,6 +117,13 @@ built from is `docs/superpowers/plans/2026-09-22-contenttools-markdown-editor.md
 - PurgeCSS skips `_site/cms/**` and the Identity widget (`skippedContentGlobs`).
   The editor stylesheet styles markup no page contains until editing starts,
   and a purged copy fails silently. A test checks it ships byte-for-byte.
+- **New TIL entries** are started on the site: `/til/` (`cmsStarter: true`)
+  gives a signed-in author a "New Today I ... entry" link to `/til/new/`
+  (`content/til/new.pug`, `cmsNewPage: true`), a blank page on the normal layout
+  holding one `[data-cms-body]`. The author names the entry there, writes it in
+  place, and Submit opens a pull request adding `content/til/<name>.md`. The
+  names in `static/cms-config.yml` (`create`, `starter`, `newPage`) must match
+  those pages; `cms.test.js` checks it. Needs content-tools >= 2.0.0-rc.4.
 - Readers load nothing: the inline script in `main.pug` sets
   `window.cmsAuthoring` from an Identity session, a handed-over token or
   `?cms-edit`, and only then imports `/cms/boot.js`.
