@@ -123,7 +123,7 @@ built from is `docs/superpowers/plans/2026-09-22-contenttools-markdown-editor.md
   holding one `[data-cms-body]`. The author names the entry there, writes it in
   place, and Submit opens a pull request adding `content/til/<name>.md`. The
   names in `static/cms-config.yml` (`create`, `starter`, `newPage`) must match
-  those pages; `cms.test.js` checks it. Needs content-tools >= 2.0.0-rc.4.
+  those pages; `cms.test.js` checks it. Needs content-tools >= 2.0.0-rc.4 (pinned at rc.5).
 - Readers load nothing: the inline script in `main.pug` sets
   `window.cmsAuthoring` from an Identity session, a handed-over token or
   `?cms-edit`, and only then imports `/cms/boot.js`.
