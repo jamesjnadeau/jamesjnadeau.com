@@ -28,9 +28,10 @@ async function open() {
 }
 
 // The posts the editor lists (static/cms-pug-config.yml): each folder's Pug
-// files except index.pug.
+// files except index.pug. til/new.pug is the blank page new entries are
+// written on, not a post, so it is left out of the preview comparison.
 const posts = ['til', 'reference', 'projects'].flatMap((dir) => readdirSync(`content/${dir}`)
-  .filter((f) => f.endsWith('.pug') && f !== 'index.pug')
+  .filter((f) => f.endsWith('.pug') && f !== 'index.pug' && f !== 'new.pug')
   .map((f) => ({ url: `/${dir}/${f.slice(0, -'.pug'.length)}/`, file: `content/${dir}/${f}` })));
 
 test('signed out, /admin/pug/ loads its bundle and asks the author to sign in', async () => {
