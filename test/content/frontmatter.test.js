@@ -11,7 +11,8 @@ const CONTENT = fileURLToPath(new URL('../../content/', import.meta.url));
 
 function pages(dir) {
   return readdirSync(path.join(CONTENT, dir))
-    .filter((f) => /\.(pug|md)$/.test(f))
+    // SKILL.md is agent documentation, ignored by the build (.eleventy.js).
+    .filter((f) => /\.(pug|md)$/.test(f) && f !== 'SKILL.md')
     .map((f) => ({
       name: f,
       rel: `content/${dir}/${f}`,

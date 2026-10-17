@@ -23,6 +23,9 @@ export default async function(eleventyConfig) {
     eleventyConfig.setInputDirectory("content");
     eleventyConfig.setOutputDirectory("_site");
 
+    // Agent skill files document a folder's format; they aren't pages.
+    eleventyConfig.ignores.add("content/**/SKILL.md");
+
     // use pug plugin, 
     global.eleventyNavigationPlugin = eleventyNavigationPlugin.navigation; // see https://github.com/11ty/eleventy-plugin-template-languages/issues/1#issuecomment-2221156643
     
