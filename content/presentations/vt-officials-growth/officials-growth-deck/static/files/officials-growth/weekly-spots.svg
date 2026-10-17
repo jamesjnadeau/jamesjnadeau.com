@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+<title id="t">Varsity spots to fill each weekend, 2026</title><desc id="d">Bar chart of varsity officiating spots per weekend at northern fields in 2026: Aug 21 30, Aug 28 20, Sep 4 35, Sep 11 40, Sep 18 35, Sep 25 55, Oct 2 45, Oct 9 45, Oct 16 40, Oct 23 35. Dashed line at 41 shows how many officials we have.</desc>
+<rect width="900" height="500" fill="#ffffff"/>
+<line x1="80" x2="870" y1="410.0" y2="410.0" stroke="#e2e8f0"/>
+<text x="70" y="417.0" font-size="20" text-anchor="end" fill="#4a5568">0</text>
+<line x1="80" x2="870" y1="348.3" y2="348.3" stroke="#e2e8f0"/>
+<text x="70" y="355.3" font-size="20" text-anchor="end" fill="#4a5568">10</text>
+<line x1="80" x2="870" y1="286.7" y2="286.7" stroke="#e2e8f0"/>
+<text x="70" y="293.7" font-size="20" text-anchor="end" fill="#4a5568">20</text>
+<line x1="80" x2="870" y1="225.0" y2="225.0" stroke="#e2e8f0"/>
+<text x="70" y="232.0" font-size="20" text-anchor="end" fill="#4a5568">30</text>
+<line x1="80" x2="870" y1="163.3" y2="163.3" stroke="#e2e8f0"/>
+<text x="70" y="170.3" font-size="20" text-anchor="end" fill="#4a5568">40</text>
+<line x1="80" x2="870" y1="101.7" y2="101.7" stroke="#e2e8f0"/>
+<text x="70" y="108.7" font-size="20" text-anchor="end" fill="#4a5568">50</text>
+<line x1="80" x2="870" y1="40.0" y2="40.0" stroke="#e2e8f0"/>
+<text x="70" y="47.0" font-size="20" text-anchor="end" fill="#4a5568">60</text>
+<line x1="80" x2="870" y1="410" y2="410" stroke="#4a5568" stroke-width="2"/>
+<rect x="95.0" y="225.0" width="49.0" height="185.0" fill="#2b6cb0"/>
+<text x="119.5" y="217.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">30</text>
+<text x="119.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Aug 21</text>
+<rect x="174.0" y="286.7" width="49.0" height="123.3" fill="#2b6cb0"/>
+<text x="198.5" y="278.7" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">20</text>
+<text x="198.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Aug 28</text>
+<rect x="253.0" y="194.2" width="49.0" height="215.8" fill="#2b6cb0"/>
+<text x="277.5" y="186.2" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">35</text>
+<text x="277.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Sep 4</text>
+<rect x="332.0" y="163.3" width="49.0" height="246.7" fill="#2b6cb0"/>
+<text x="356.5" y="155.3" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">40</text>
+<text x="356.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Sep 11</text>
+<rect x="411.0" y="194.2" width="49.0" height="215.8" fill="#2b6cb0"/>
+<text x="435.5" y="186.2" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">35</text>
+<text x="435.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Sep 18</text>
+<rect x="490.0" y="70.8" width="49.0" height="339.2" fill="#2b6cb0"/>
+<text x="514.5" y="62.8" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">55</text>
+<text x="514.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Sep 25</text>
+<rect x="569.0" y="132.5" width="49.0" height="277.5" fill="#2b6cb0"/>
+<text x="593.5" y="124.5" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">45</text>
+<text x="593.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Oct 2</text>
+<rect x="648.0" y="132.5" width="49.0" height="277.5" fill="#2b6cb0"/>
+<text x="672.5" y="124.5" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">45</text>
+<text x="672.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Oct 9</text>
+<rect x="727.0" y="163.3" width="49.0" height="246.7" fill="#2b6cb0"/>
+<text x="751.5" y="155.3" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">40</text>
+<text x="751.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Oct 16</text>
+<rect x="806.0" y="194.2" width="49.0" height="215.8" fill="#2b6cb0"/>
+<text x="830.5" y="186.2" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">35</text>
+<text x="830.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Oct 23</text>
+<line x1="80" x2="870" y1="157.2" y2="157.2" stroke="#c53030" stroke-width="3" stroke-dasharray="8 6"/>
+<text x="86" y="149.2" font-size="20" font-weight="bold" text-anchor="start" fill="#c53030" stroke="#fff" stroke-width="5" paint-order="stroke">Officials we have: 41</text></svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+<title id="t">Officials working more than one varsity game in a weekend, 2026</title><desc id="d">Bar chart of officials working two or more varsity games in the same week, 2026: Aug 21 10, Aug 28 0, Sep 4 9, Sep 11 13, Sep 18 8, Sep 25 19, Oct 2 16, Oct 9 16, Oct 16 10, Oct 23 7.</desc>
+<rect width="900" height="500" fill="#ffffff"/>
+<line x1="80" x2="870" y1="410.0" y2="410.0" stroke="#e2e8f0"/>
+<text x="70" y="417.0" font-size="20" text-anchor="end" fill="#4a5568">0</text>
+<line x1="80" x2="870" y1="317.5" y2="317.5" stroke="#e2e8f0"/>
+<text x="70" y="324.5" font-size="20" text-anchor="end" fill="#4a5568">5</text>
+<line x1="80" x2="870" y1="225.0" y2="225.0" stroke="#e2e8f0"/>
+<text x="70" y="232.0" font-size="20" text-anchor="end" fill="#4a5568">10</text>
+<line x1="80" x2="870" y1="132.5" y2="132.5" stroke="#e2e8f0"/>
+<text x="70" y="139.5" font-size="20" text-anchor="end" fill="#4a5568">15</text>
+<line x1="80" x2="870" y1="40.0" y2="40.0" stroke="#e2e8f0"/>
+<text x="70" y="47.0" font-size="20" text-anchor="end" fill="#4a5568">20</text>
+<line x1="80" x2="870" y1="410" y2="410" stroke="#4a5568" stroke-width="2"/>
+<rect x="95.0" y="225.0" width="49.0" height="185.0" fill="#dd6b20"/>
+<text x="119.5" y="217.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">10</text>
+<text x="119.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Aug 21</text>
+<text x="198.5" y="402.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">0</text>
+<text x="198.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Aug 28</text>
+<rect x="253.0" y="243.5" width="49.0" height="166.5" fill="#dd6b20"/>
+<text x="277.5" y="235.5" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">9</text>
+<text x="277.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Sep 4</text>
+<rect x="332.0" y="169.5" width="49.0" height="240.5" fill="#dd6b20"/>
+<text x="356.5" y="161.5" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">13</text>
+<text x="356.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Sep 11</text>
+<rect x="411.0" y="262.0" width="49.0" height="148.0" fill="#dd6b20"/>
+<text x="435.5" y="254.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">8</text>
+<text x="435.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Sep 18</text>
+<rect x="490.0" y="58.5" width="49.0" height="351.5" fill="#dd6b20"/>
+<text x="514.5" y="50.5" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">19</text>
+<text x="514.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Sep 25</text>
+<rect x="569.0" y="114.0" width="49.0" height="296.0" fill="#dd6b20"/>
+<text x="593.5" y="106.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">16</text>
+<text x="593.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Oct 2</text>
+<rect x="648.0" y="114.0" width="49.0" height="296.0" fill="#dd6b20"/>
+<text x="672.5" y="106.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">16</text>
+<text x="672.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Oct 9</text>
+<rect x="727.0" y="225.0" width="49.0" height="185.0" fill="#dd6b20"/>
+<text x="751.5" y="217.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">10</text>
+<text x="751.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Oct 16</text>
+<rect x="806.0" y="280.5" width="49.0" height="129.5" fill="#dd6b20"/>
+<text x="830.5" y="272.5" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">7</text>
+<text x="830.5" y="438" font-size="17" text-anchor="middle" fill="#1a202c">Oct 23</text></svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+<title id="t">Varsity officials who worked a game each year, north and south</title><desc id="d">Grouped bar chart. North: 2023 38, 2024 37, 2025 36, 2026 41. South: 2023 26, 2024 25, 2025 23, 2026 21.</desc>
+<rect width="900" height="500" fill="#ffffff"/>
+<line x1="80" x2="870" y1="410.0" y2="410.0" stroke="#e2e8f0"/>
+<text x="70" y="417.0" font-size="20" text-anchor="end" fill="#4a5568">0</text>
+<line x1="80" x2="870" y1="336.0" y2="336.0" stroke="#e2e8f0"/>
+<text x="70" y="343.0" font-size="20" text-anchor="end" fill="#4a5568">10</text>
+<line x1="80" x2="870" y1="262.0" y2="262.0" stroke="#e2e8f0"/>
+<text x="70" y="269.0" font-size="20" text-anchor="end" fill="#4a5568">20</text>
+<line x1="80" x2="870" y1="188.0" y2="188.0" stroke="#e2e8f0"/>
+<text x="70" y="195.0" font-size="20" text-anchor="end" fill="#4a5568">30</text>
+<line x1="80" x2="870" y1="114.0" y2="114.0" stroke="#e2e8f0"/>
+<text x="70" y="121.0" font-size="20" text-anchor="end" fill="#4a5568">40</text>
+<line x1="80" x2="870" y1="40.0" y2="40.0" stroke="#e2e8f0"/>
+<text x="70" y="47.0" font-size="20" text-anchor="end" fill="#4a5568">50</text>
+<line x1="80" x2="870" y1="410" y2="410" stroke="#4a5568" stroke-width="2"/>
+<rect x="111.6" y="128.8" width="63.2" height="281.2" fill="#2b6cb0"/>
+<text x="143.2" y="120.8" font-size="20" font-weight="bold" text-anchor="middle">38</text>
+<rect x="174.8" y="217.6" width="63.2" height="192.4" fill="#dd6b20"/>
+<text x="206.4" y="209.6" font-size="20" font-weight="bold" text-anchor="middle">26</text>
+<text x="178.8" y="438" font-size="20" text-anchor="middle">2023</text>
+<rect x="309.1" y="136.2" width="63.2" height="273.8" fill="#2b6cb0"/>
+<text x="340.7" y="128.2" font-size="20" font-weight="bold" text-anchor="middle">37</text>
+<rect x="372.3" y="225.0" width="63.2" height="185.0" fill="#dd6b20"/>
+<text x="403.9" y="217.0" font-size="20" font-weight="bold" text-anchor="middle">25</text>
+<text x="376.2" y="438" font-size="20" text-anchor="middle">2024</text>
+<rect x="506.6" y="143.6" width="63.2" height="266.4" fill="#2b6cb0"/>
+<text x="538.2" y="135.6" font-size="20" font-weight="bold" text-anchor="middle">36</text>
+<rect x="569.8" y="239.8" width="63.2" height="170.2" fill="#dd6b20"/>
+<text x="601.4" y="231.8" font-size="20" font-weight="bold" text-anchor="middle">23</text>
+<text x="573.8" y="438" font-size="20" text-anchor="middle">2025</text>
+<rect x="704.1" y="106.6" width="63.2" height="303.4" fill="#2b6cb0"/>
+<text x="735.7" y="98.6" font-size="20" font-weight="bold" text-anchor="middle">41</text>
+<rect x="767.3" y="254.6" width="63.2" height="155.4" fill="#dd6b20"/>
+<text x="798.9" y="246.6" font-size="20" font-weight="bold" text-anchor="middle">21</text>
+<text x="771.2" y="438" font-size="20" text-anchor="middle">2026</text>
+<rect x="80" y="464" width="22" height="22" fill="#2b6cb0"/><text x="110" y="482" font-size="20">North</text>
+<rect x="220" y="464" width="22" height="22" fill="#dd6b20"/><text x="250" y="482" font-size="20">South</text></svg>

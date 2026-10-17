@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+<title id="t">How many officials we would have, by how many new officials join each year</title><desc id="d">Line chart from 2026 to 2032, starting at 41 officials and assuming about 12 percent leave each year. 5 new a year stays at 41. 10 a year reaches about 66 by 2032. 15 a year passes 69 in 2030. 20 a year passes 69 in 2028. Dashed lines mark goal 1 at 44 and goal 2 at 69.</desc>
+<rect width="900" height="500" fill="#ffffff"/>
+<line x1="80" x2="870" y1="410.0" y2="410.0" stroke="#e2e8f0"/>
+<text x="70" y="417.0" font-size="20" text-anchor="end" fill="#4a5568">0</text>
+<line x1="80" x2="870" y1="348.3" y2="348.3" stroke="#e2e8f0"/>
+<text x="70" y="355.3" font-size="20" text-anchor="end" fill="#4a5568">20</text>
+<line x1="80" x2="870" y1="286.7" y2="286.7" stroke="#e2e8f0"/>
+<text x="70" y="293.7" font-size="20" text-anchor="end" fill="#4a5568">40</text>
+<line x1="80" x2="870" y1="225.0" y2="225.0" stroke="#e2e8f0"/>
+<text x="70" y="232.0" font-size="20" text-anchor="end" fill="#4a5568">60</text>
+<line x1="80" x2="870" y1="163.3" y2="163.3" stroke="#e2e8f0"/>
+<text x="70" y="170.3" font-size="20" text-anchor="end" fill="#4a5568">80</text>
+<line x1="80" x2="870" y1="101.7" y2="101.7" stroke="#e2e8f0"/>
+<text x="70" y="108.7" font-size="20" text-anchor="end" fill="#4a5568">100</text>
+<line x1="80" x2="870" y1="40.0" y2="40.0" stroke="#e2e8f0"/>
+<text x="70" y="47.0" font-size="20" text-anchor="end" fill="#4a5568">120</text>
+<line x1="80" x2="870" y1="410" y2="410" stroke="#4a5568" stroke-width="2"/>
+<line x1="80" x2="870" y1="274.3" y2="274.3" stroke="#4a5568" stroke-width="3" stroke-dasharray="6 6"/>
+<text x="864" y="266.3" font-size="20" font-weight="bold" text-anchor="end" fill="#4a5568" stroke="#fff" stroke-width="5" paint-order="stroke">Goal 1: 44</text>
+<line x1="80" x2="870" y1="197.2" y2="197.2" stroke="#4a5568" stroke-width="3" stroke-dasharray="6 6"/>
+<text x="864" y="189.2" font-size="20" font-weight="bold" text-anchor="end" fill="#4a5568" stroke="#fff" stroke-width="5" paint-order="stroke">Goal 2: 69</text>
+<polyline fill="none" stroke="#c53030" stroke-width="5" points="80.0,283.6 211.7,283.3 343.3,283.1 475.0,282.9 606.7,282.8 738.3,282.6 870.0,282.5"/>
+<circle cx="80.0" cy="283.6" r="5" fill="#c53030"/>
+<circle cx="211.7" cy="283.3" r="5" fill="#c53030"/>
+<circle cx="343.3" cy="283.1" r="5" fill="#c53030"/>
+<circle cx="475.0" cy="282.9" r="5" fill="#c53030"/>
+<circle cx="606.7" cy="282.8" r="5" fill="#c53030"/>
+<circle cx="738.3" cy="282.6" r="5" fill="#c53030"/>
+<circle cx="870.0" cy="282.5" r="5" fill="#c53030"/>
+<polyline fill="none" stroke="#dd6b20" stroke-width="5" points="80.0,283.6 211.7,267.9 343.3,254.1 475.0,242.0 606.7,231.3 738.3,221.9 870.0,213.7"/>
+<circle cx="80.0" cy="283.6" r="5" fill="#dd6b20"/>
+<circle cx="211.7" cy="267.9" r="5" fill="#dd6b20"/>
+<circle cx="343.3" cy="254.1" r="5" fill="#dd6b20"/>
+<circle cx="475.0" cy="242.0" r="5" fill="#dd6b20"/>
+<circle cx="606.7" cy="231.3" r="5" fill="#dd6b20"/>
+<circle cx="738.3" cy="221.9" r="5" fill="#dd6b20"/>
+<circle cx="870.0" cy="213.7" r="5" fill="#dd6b20"/>
+<polyline fill="none" stroke="#2b6cb0" stroke-width="5" points="80.0,283.6 211.7,252.5 343.3,225.2 475.0,201.1 606.7,179.9 738.3,161.3 870.0,144.9"/>
+<circle cx="80.0" cy="283.6" r="5" fill="#2b6cb0"/>
+<circle cx="211.7" cy="252.5" r="5" fill="#2b6cb0"/>
+<circle cx="343.3" cy="225.2" r="5" fill="#2b6cb0"/>
+<circle cx="475.0" cy="201.1" r="5" fill="#2b6cb0"/>
+<circle cx="606.7" cy="179.9" r="5" fill="#2b6cb0"/>
+<circle cx="738.3" cy="161.3" r="5" fill="#2b6cb0"/>
+<circle cx="870.0" cy="144.9" r="5" fill="#2b6cb0"/>
+<polyline fill="none" stroke="#2f855a" stroke-width="5" points="80.0,283.6 211.7,237.1 343.3,196.2 475.0,160.2 606.7,128.5 738.3,100.6 870.0,76.1"/>
+<circle cx="80.0" cy="283.6" r="5" fill="#2f855a"/>
+<circle cx="211.7" cy="237.1" r="5" fill="#2f855a"/>
+<circle cx="343.3" cy="196.2" r="5" fill="#2f855a"/>
+<circle cx="475.0" cy="160.2" r="5" fill="#2f855a"/>
+<circle cx="606.7" cy="128.5" r="5" fill="#2f855a"/>
+<circle cx="738.3" cy="100.6" r="5" fill="#2f855a"/>
+<circle cx="870.0" cy="76.1" r="5" fill="#2f855a"/>
+<text x="80.0" y="438" font-size="20" text-anchor="middle">2026</text>
+<text x="211.7" y="438" font-size="20" text-anchor="middle">2027</text>
+<text x="343.3" y="438" font-size="20" text-anchor="middle">2028</text>
+<text x="475.0" y="438" font-size="20" text-anchor="middle">2029</text>
+<text x="606.7" y="438" font-size="20" text-anchor="middle">2030</text>
+<text x="738.3" y="438" font-size="20" text-anchor="middle">2031</text>
+<text x="870.0" y="438" font-size="20" text-anchor="middle">2032</text>
+<rect x="80" y="464" width="22" height="22" fill="#c53030"/><text x="110" y="482" font-size="20">5 new a year</text>
+<rect x="270" y="464" width="22" height="22" fill="#dd6b20"/><text x="300" y="482" font-size="20">10 new a year</text>
+<rect x="460" y="464" width="22" height="22" fill="#2b6cb0"/><text x="490" y="482" font-size="20">15 new a year</text>
+<rect x="650" y="464" width="22" height="22" fill="#2f855a"/><text x="680" y="482" font-size="20">20 new a year</text></svg>

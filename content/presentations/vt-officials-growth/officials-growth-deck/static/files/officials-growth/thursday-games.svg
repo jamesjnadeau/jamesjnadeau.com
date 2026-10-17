@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif">
+<title id="t">Northern Thursday varsity games each season</title><desc id="d">Bar chart. Thursday varsity games at northern fields: 2023 7, 2024 7, 2025 4, 2026 6.</desc>
+<rect width="900" height="500" fill="#ffffff"/>
+<line x1="80" x2="870" y1="410.0" y2="410.0" stroke="#e2e8f0"/>
+<text x="70" y="417.0" font-size="20" text-anchor="end" fill="#4a5568">0</text>
+<line x1="80" x2="870" y1="336.0" y2="336.0" stroke="#e2e8f0"/>
+<text x="70" y="343.0" font-size="20" text-anchor="end" fill="#4a5568">2</text>
+<line x1="80" x2="870" y1="262.0" y2="262.0" stroke="#e2e8f0"/>
+<text x="70" y="269.0" font-size="20" text-anchor="end" fill="#4a5568">4</text>
+<line x1="80" x2="870" y1="188.0" y2="188.0" stroke="#e2e8f0"/>
+<text x="70" y="195.0" font-size="20" text-anchor="end" fill="#4a5568">6</text>
+<line x1="80" x2="870" y1="114.0" y2="114.0" stroke="#e2e8f0"/>
+<text x="70" y="121.0" font-size="20" text-anchor="end" fill="#4a5568">8</text>
+<line x1="80" x2="870" y1="40.0" y2="40.0" stroke="#e2e8f0"/>
+<text x="70" y="47.0" font-size="20" text-anchor="end" fill="#4a5568">10</text>
+<line x1="80" x2="870" y1="410" y2="410" stroke="#4a5568" stroke-width="2"/>
+<rect x="117.5" y="151.0" width="122.5" height="259.0" fill="#dd6b20"/>
+<text x="178.8" y="143.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">7</text>
+<text x="178.8" y="438" font-size="20" text-anchor="middle" fill="#1a202c">2023</text>
+<rect x="315.0" y="151.0" width="122.5" height="259.0" fill="#dd6b20"/>
+<text x="376.2" y="143.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">7</text>
+<text x="376.2" y="438" font-size="20" text-anchor="middle" fill="#1a202c">2024</text>
+<rect x="512.5" y="262.0" width="122.5" height="148.0" fill="#dd6b20"/>
+<text x="573.8" y="254.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">4</text>
+<text x="573.8" y="438" font-size="20" text-anchor="middle" fill="#1a202c">2025</text>
+<rect x="710.0" y="188.0" width="122.5" height="222.0" fill="#dd6b20"/>
+<text x="771.2" y="180.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a202c">6</text>
+<text x="771.2" y="438" font-size="20" text-anchor="middle" fill="#1a202c">2026</text></svg>
