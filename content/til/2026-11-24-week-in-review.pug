@@ -1,0 +1,17 @@
+---
+date: 2026-11-24
+title: "Week of Nov 23: a Vermont design system for state apps"
+description: "A public, Vermont-themed build of USWDS 3 for state apps and dashboards, with a starter script and accessible PDF templates."
+---
+
+h1 Week of Nov 23: a Vermont design system for state apps
+
+p Most of my week went into a new public project, #[a(href='https://github.com/jamesjnadeau/vermont-state-design-system') Vermont State Design System], a Vermont-themed build of USWDS 3 for State of Vermont apps and dashboards.
+
+p The repo commits a precompiled CSS, JS, fonts and icons bundle in `dist/`, so people using it do not need Node, Sass or a build step. It includes Vermont brand tokens, a header region, a footer, print styles and `vt-` dashboard components. The README says it aims at WCAG 2.1 AA and is modeled on the SOV Web Template.
+
+p I added `vt_init.py`, a starter script that copies the kit and a starter page into a project. It runs on Windows, macOS and Linux with only Python 3, and it does not overwrite existing files unless you pass `--force`.
+
+p Beyond HTML, the project has accessible PDF templates for Typst and LaTeX, a Plotly chart template, and an agent skill packaged as a Claude Code plugin.
+
+p The commits in this window all landed on November 18: the design doc and implementation plan, the token build, the components and templates, and a round of final review fixes covering hover label contrast, CI and docs. The README now points to a pinned v0.1.0 release for CDN use.
