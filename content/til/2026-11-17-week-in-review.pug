@@ -1,0 +1,23 @@
+---
+date: 2026-11-17
+title: "Week of Nov 11: Playdate tools and Vermont budget prefills"
+description: "Playdate performance-simulator and sailing-sim work, a hardware-stress test game, and Vermont budget prefills from the week of Nov 11."
+---
+
+h1 Week of Nov 11: Playdate tools and Vermont budget prefills
+
+p Most of my public work this week was Playdate tooling, plus a few changes to the Vermont education budget review.
+
+p Playdate:
+
+ul
+  li Two merged pull requests on #[a(href='https://github.com/jamesjnadeau/playdate-performance-simulator') playdate-performance-simulator] (Nov 15). One runs Lua and C games in the browser through WebAssembly. The other adds reopening the last game, gamepad, touch and tilt input, and a WASM size budget.
+  li A pure-Rust Thumb-2 and FPv5 interpreter, pdsim-thumb, with its block traces compared against Unicorn in CI.
+  li A public repo, #[a(href='https://github.com/jamesjnadeau/playdate-lua-abuse') playdate-lua-abuse] (Nov 15). It is a test game that tries to stress the hardware and drop frames, with a check script that runs modes for garbage, overdraw, sprites, disk, hot loops and auto-cycling.
+  li A sailing sim HUD on #[a(href='https://github.com/jamesjnadeau/playdate-sailing-sim/pull/5') PR 5 of playdate-sailing-sim] (merged Nov 16). The wind dial shows true wind and shades the no-go wedge, and helm mode shows the rudder position.
+
+p Vermont budget review, #[a(href='https://github.com/jamesjnadeau/vt-education-budget-review') vt-education-budget-review]:
+
+ul
+  li Three pull requests merged on Nov 14 (#[a(href='https://github.com/jamesjnadeau/vt-education-budget-review/pull/60') 60], #[a(href='https://github.com/jamesjnadeau/vt-education-budget-review/pull/61') 61], #[a(href='https://github.com/jamesjnadeau/vt-education-budget-review/pull/62') 62]). The model form now prefills from AOE town-of-residence band sums, every AOE district appears in the model picker, and the Act 127 transition is modeled with the Act 84 decrease prefilled.
+  li Commits on Nov 16 flag lower-limit estimates with their own checkbox and tag, and offer suggestions for blank model fields, marked as suggestions when used.
