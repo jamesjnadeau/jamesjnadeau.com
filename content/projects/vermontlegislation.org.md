@@ -12,11 +12,11 @@ description: A HackVT 2013 app for browsing bills and votes from the Vermont leg
 ***
 
 <div>
-	<h4 class="content" ><a href="http://vermontlegislation.org">vermontlegislation.org</a></h4>
+	<h4 class="content" ><code>vermontlegislation.org</code> (no longer online)</h4>
 </div>
 
 <p>
-	For the <a href="http://hackvt.com/">2013 competition</a> I created 
+	For the <a href="https://web.archive.org/web/20250522092735/https://hackvt.com/">2013 competition</a> I created 
 	part of an app(it's not totally done yet) that allows you to look up 
 	who your state reps are based upon your current gps coordinates.&nbsp;
 </p>

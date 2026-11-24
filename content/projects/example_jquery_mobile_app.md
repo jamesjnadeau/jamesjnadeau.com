@@ -8,12 +8,6 @@ description: An example mobile app built with jQuery Mobile and Cordova; source 
 	<a href="https://github.com/jamesjnadeau/app.jamesjnadeau.com">You can view the code here</a>
 </div>
 
-<div>
-	<a class="pull-right" href="https://play.google.com/store/apps/details?id=com.jamesjnadeau.app" target="_blank" >
-		<img src="https://developer.android.com/images/brand/en_app_rgb_wo_60.png" style="margin-bottom: 10px;" alt="Get it on Google Play" />
-	</a>
-</div>
-
 ##Example jQuery Mobile / Cordova App
 
 <div>
@@ -27,7 +21,7 @@ Cordova and jQuery Mobile.
 
 It starts out by launching a jQuery Mobile app from the site within the Cordova app.
 
-After it's ready and loaded, it allows you to call in pages from <a href="http://app.jamesjnadeau.com">app.jamesjnadeau.com</a>. 
+After it's ready and loaded, it allows you to call in pages from <code>app.jamesjnadeau.com</code>. 
 You'll notice that if you go to this in your browser, the page's navbar colors are black. But, if you visit it through
 the app, it uses the apps css and js to display the pages and the navbar has a green color. 
 

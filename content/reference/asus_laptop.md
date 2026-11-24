@@ -21,7 +21,7 @@ Needed to change the primary monitor on my laptop when using an external monitor
 	<p>xrandr --output VGA1&nbsp;--primary</p>
 </blockquote>
 
-<p><a href="http://blog.nachtarbeiter.net/2012/01/09/change-primary-monitor-in-gnome-3/">Source</a></p>
+<p><a href="https://web.archive.org/web/20140811012608/http://blog.nachtarbeiter.net/2012/01/09/change-primary-monitor-in-gnome-3/">Source (archived)</a></p>
 
 
 ## Headphone ## 
@@ -51,7 +51,7 @@ windows showed it worked. I finally got it working by running the following:
 
 where p3p1 is the device name.. used to be eth0
 
-<p><a href="http://forums.fedoraforum.org/showthread.php?t=250807">Source</a></p>
+<p><a href="https://web.archive.org/web/20170917230554/https://forums.fedoraforum.org/showthread.php?t=250807">Source (archived)</a></p>
 
 
 
