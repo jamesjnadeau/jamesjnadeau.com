@@ -1,0 +1,21 @@
+---
+date: 2026-11-23
+title: Week of Nov 23: district combiner, a public upload form, and tracking Vermont's school mergers
+description: What I shipped this week on the Vermont education budget review tool, plus some home automation and officiating-quiz work on the side.
+---
+
+h1 Week of Nov 23: district combiner, a public upload form, and tracking Vermont's school mergers
+
+p Most of this week went into #[a(href='https://github.com/jamesjnadeau/vt-education-budget-review') vt-education-budget-review], a tool I'm building to make Vermont school funding numbers easier to follow.
+
+p The biggest new feature is a district combiner: pick two or more school districts, pool their numbers, and see what each town's tax rate would look like combined versus today, with the full math shown at every step. I spent a lot of the week on the edge cases that make or break trust in a tool like this: blank enrollment data now blocks a computation instead of silently counting as zero, towns taxed by more than one district get flagged instead of double-counted, and figures the state hasn't published are labeled as visitor-entered estimates rather than official numbers.
+
+p I also built a #[a(href='https://github.com/jamesjnadeau/vt-education-budget-review/pull/69') public upload form] so people can send in budget documents directly, with chunked uploads, a captcha, and a background job that picks up the file from there. Retired the old GitHub Pages deploy since Netlify now hosts everything.
+
+p Vermont's school district mergers under Act 170 keep shifting, so I imported the Vermont Learning Collaborative's updated committee list, checked all 121 roster lines by hand against the source PDF, and updated the grouping and combiner pages to reflect the latest version instead of a stale one.
+
+p Smaller pieces: added PostHog analytics (gated to production, stripped of anything identifying), pulled in Census population estimates to settle a density question the statute itself leaves ambiguous, and fixed a data-loading crash that had been silently breaking the nightly build.
+
+p On the side, I did some cleanup and bug fixing on my home automation setup (HVAC scheduling logic, trimming unused automations) and improved search accuracy on a small side project that answers questions about football officiating rules, mostly by combining two different ranking approaches instead of relying on just one.
+
+p Next up: there's still an open question about why one Agency of Education dataset doesn't add up the way the town-level version does, which I want to chase down.
