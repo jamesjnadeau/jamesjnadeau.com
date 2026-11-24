@@ -43,7 +43,7 @@ npx puppeteer browsers install chrome
 | `npm run test:a11y` | axe-core accessibility scan |
 | `npm run test:cms` | Smoke test of the in-page editor in headless Chrome |
 | `npm run test:lighthouse` | Lighthouse budgets (not part of `npm test`) |
-| `npm run test:links:external` | Outbound link check — slow, weekly in CI. Skips Reddit, The Atlantic and Unsplash, which answer 403/401 to datacenter IPs but load in a browser |
+| `npm run test:links:external` | Outbound link check — slow, weekly in CI. Skips Reddit, The Atlantic, Unsplash and Tinyography, which answer 403/401 to datacenter IPs but load in a browser |
 
 `npm run build` wipes `_site/` first. Eleventy leaves stale output behind
 otherwise, and files from a previous build will fail the output tests.

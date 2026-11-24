@@ -17,7 +17,7 @@
     "test:content": "node --test \"test/content/*.test.js\"",
     "test:html": "npm run test:html:pages && npm run test:html:decks",
     "test:links": "linkinator _site --recurse --silent --skip \"^https?://(?!(localhost|127\\.0\\.0\\.1))\"",
-    "test:links:external": "linkinator _site --recurse --silent --retry --timeout 10000 --skip \"^https?://([a-z0-9-]+\\.)*(reddit\\.com|theatlantic\\.com|unsplash\\.com)(/|$)\"",
+    "test:links:external": "linkinator _site --recurse --silent --retry --timeout 10000 --skip \"^https?://([a-z0-9-]+\\.)*(reddit\\.com|theatlantic\\.com|unsplash\\.com|tinyography\\.com)(/|$)\"",
     "test:a11y": "start-server-and-test serve:site http://127.0.0.1:8080 test:a11y:run",
     "test:a11y:run": "node --test \"test/a11y/*.test.js\"",
     "test:cms": "start-server-and-test serve:site http://127.0.0.1:8080 test:cms:run",
