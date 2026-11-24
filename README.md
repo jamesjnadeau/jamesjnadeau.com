@@ -108,13 +108,13 @@ for how it's wired up.
 
 Netlify builds and hosts the site, configured by `netlify.toml`: every push to
 `master` deploys, and every pull request gets a deploy preview. The Netlify
-site is https://poetic-tarsier-d94f11.netlify.app. It needs `NODE_AUTH_TOKEN`
-(see above) set in its environment variables, and hosts Netlify Identity and
-Git Gateway for the page editor.
+site is https://poetic-tarsier-d94f11.netlify.app, and `jamesjnadeau.com`
+already points at it. It needs `NODE_AUTH_TOKEN` (see above) set in its
+environment variables, and hosts Netlify Identity and Git Gateway for the page
+editor.
 
-The move off GitHub Pages is in progress: until the `jamesjnadeau.com` domain
-points at Netlify, `.github/workflows/eleventy-github-pages.yml` still builds,
-tests and publishes `master` to Pages. The page editor only works on the
-Netlify URL until then. Once the domain moves, that workflow's deploy job and
-the repository's Pages setting go; the workflow stays as the pull request test
-gate either way.
+`.github/workflows/ci.yml` is the test gate, not a deployer: it builds once,
+runs every check against those exact bytes, and gates pull requests and pushes
+to `master`. GitHub Pages used to be a second deploy target when the domain
+moved; that deploy job and the repository's Pages setting are gone, and Netlify
+is the only host.

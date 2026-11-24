@@ -1,13 +1,14 @@
-# Builds the site once, runs the test suite against those exact bytes, and only
-# then publishes to GitHub Pages. Pull requests are built and tested but never
-# deployed.
+# Builds the site once, runs the test suite against those exact bytes, and gates
+# every pull request and push to master on the result. It does not deploy:
+# Netlify (netlify.toml) builds and publishes master, and builds a deploy
+# preview for every pull request.
 #
-# The site is moving to Netlify (netlify.toml), which builds and deploys it on
-# its own, pull request previews included. Until jamesjnadeau.com points at
-# Netlify, the deploy job below still publishes to Pages; once it does, delete
-# the deploy job and keep build + test as the pull request gate.
+# GitHub Pages used to be a second deploy target while the domain moved over.
+# jamesjnadeau.com has served from Netlify since that move, so the Pages deploy
+# job and the repository's Pages setting are gone; this workflow is the test
+# gate. Non-master branches are built and tested but never deployed anywhere.
 
-name: Eleventy Github Pages
+name: CI
 
 on:
   push:
@@ -24,12 +25,11 @@ permissions:
   # repository Read under the package's "Manage Actions access".
   packages: read
 
-# One run per branch. A superseded pull request run is cancelled; a master run
-# is not, because cancelling between test and deploy can leave Pages serving a
-# half-published artifact.
+# One run per branch. A superseded run is cancelled; nothing is deployed from
+# here, so a cancelled master run costs nothing but the queue slot.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  cancel-in-progress: true
 
 # ubuntu-latest ships google-chrome-stable, so neither Puppeteer nor Lighthouse
 # needs to download its own copy (~170MB) on every run.
@@ -106,38 +106,3 @@ jobs:
           name: lighthouse
           path: .lighthouseci/
           retention-days: 5
-
-  deploy:
-    needs: test
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
-
-    # Pages allows one deployment at a time; queue rather than cancel so a
-    # merge train doesn't drop the newest commit's publish.
-    concurrency:
-      group: pages
-      cancel-in-progress: false
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Download built site
-        uses: actions/download-artifact@v4
-        with:
-          name: site
-          path: _site
-      - name: Upload Github Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site/
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
