@@ -81,4 +81,4 @@ date: 2014-01-01
 	    }
 	}
 ```
-[Source](http://blog.mojotech.com/post/29501319906/google-analytics-within-jquery-mobile)
+[Source (archived)](https://web.archive.org/web/20130910074435/http://blog.mojotech.com/post/29501319906/google-analytics-within-jquery-mobile)

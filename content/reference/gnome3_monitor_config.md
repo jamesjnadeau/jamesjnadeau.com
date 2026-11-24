@@ -10,4 +10,4 @@ date: 2014-01-01
 
 	xrandr --output VGA1 --primary
 
-<a href="http://blog.nachtarbeiter.net/2012/01/09/change-primary-monitor-in-gnome-3/">Source</a></p>
+<a href="https://web.archive.org/web/20140811012608/http://blog.nachtarbeiter.net/2012/01/09/change-primary-monitor-in-gnome-3/">Source (archived)</a></p>

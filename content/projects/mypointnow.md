@@ -15,6 +15,6 @@ For Red Barn Media Group, I created 2 mobile applications tailored for the HVAC
 industry. Both were built on top of jQuery Mobile and Cordova and are available 
 in the iOS and Google Play stores, as well as being accessible through the browser.
 
-<a href="https://www.mypointnow.com/mypointnow-venture" >Venture</a>
+<a href="https://web.archive.org/web/20250527142805/https://www.mypointnow.com/mypointnow-venture" >Venture</a> (archived)
 <br/>
-<a href="https://www.mypointnow.com/mypointnow-roam" >Roam</a>
+<a href="https://web.archive.org/web/20240809084042/https://www.mypointnow.com/mypointnow-roam" >Roam</a> (archived)

@@ -6,7 +6,7 @@ description: A browser-based recreation of the classic Speak & Spell, written in
 # Browser Based Speak and Spell
 
 <div>
-	<a href="http://speakandspell.jamesjnadeau.com">
+	<a href="https://web.archive.org/web/20240304043141/http://speakandspell.jamesjnadeau.com/">
 		<img class="img-fluid img-rounded" src="/files/speak_and_spell.jpg" alt="Screenshot of the browser-based Speak and Spell" />
 	</a>
 </div>
@@ -14,7 +14,7 @@ description: A browser-based recreation of the classic Speak & Spell, written in
 <div>
 	<div class="content" >
 		<h4 class="row">
-			<a class="btn btn-primary col-xs-4" href="http://speakandspell.jamesjnadeau.com">Try it</a>
+			<a class="btn btn-primary col-xs-4" href="https://web.archive.org/web/20240304043141/http://speakandspell.jamesjnadeau.com/">Try it (archived)</a>
 			<small class="col-xs-8" style="color: black;">ChromeBrowser recomended. Or if you really know what you are doing with IE, Firefox, or Safari ...</small>
 		</h4>
 	</div>

@@ -12,7 +12,7 @@ description: Fujitsu General Web Presence and CRM
 ***
 
 <div>
-	<h4 class="content"><a href="http://dealers.fujitsugeneral.com" >dealers.fujitsugeneral.com</a></h4>
+	<h4 class="content"><a href="https://web.archive.org/web/20090822051135/http://dealers.fujitsugeneral.com/" >dealers.fujitsugeneral.com (archived)</a></h4>
 </div>
 
 This was the Fujitsu version of the custom CRM systems I created that were
