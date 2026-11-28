@@ -1,0 +1,27 @@
+---
+title: James J Nadeau | Contact
+description: Send James J Nadeau a message about a project, a question, or work.
+---
+
+h1.text-center Contact
+.card.card-default.my-3
+  .card-body
+    p Questions, a project you want help with, or a mistake you found here? Send a note and I'll reply by email.
+    // [html-validate-disable attribute-boolean-style: the build serialises required as required=""]
+    form(name='contact' method='POST' action='/contact/thanks/' data-netlify='true' netlify-honeypot='bot-field')
+      input(type='hidden' name='form-name' value='contact')
+      p.d-none
+        label
+          | Leave this empty:
+          input(name='bot-field' type='text' tabindex='-1' autocomplete='off')
+      .mb-3
+        label.form-label(for='contact-name') Your name
+        input#contact-name.form-control(name='name' type='text' autocomplete='name')
+      .mb-3
+        label.form-label(for='contact-email') Your email
+        input#contact-email.form-control(name='email' type='email' autocomplete='email' required='')
+        .form-text Only used to reply to you.
+      .mb-3
+        label.form-label(for='contact-message') Message
+        textarea#contact-message.form-control(name='message' rows='8' required='')
+      button.btn.btn-primary(type='submit') Send message
